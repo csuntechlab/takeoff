@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('spa');
 });
+
+//uncomment and run php artisan make:controller SpaController
+//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
