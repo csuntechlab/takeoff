@@ -3,8 +3,9 @@ require('./bootstrap');
 import Vue from 'vue';
 import router from './router';
 import store from './store';
+import App from './App.vue';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

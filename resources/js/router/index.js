@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //Pages
+import Login from "./views/Login"
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -16,3 +17,5 @@ const router = new VueRouter({
         },
     ]
 });
+
+export default router
