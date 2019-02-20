@@ -1,9 +1,12 @@
-
 // Fonts
-@import url('http://fonts.googleapis.com/css?family=Raleway:400,300,700,500');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-// Variables
+//Font Awesome
+@import url("../../node_modules/font-awesome/css/font-awesome.min.css");
+
+// Custom SCSS
 @import 'variables';
+@import 'base';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -12,3 +15,4 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
