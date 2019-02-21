@@ -12,3 +12,15 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.card {
+  background: gray;
+  border: 3px solid black;
+  text-align: center;
+  width: 300px;
+
+  &__name {
+    font-size: 22px;
+    color: red;
+  }
+}

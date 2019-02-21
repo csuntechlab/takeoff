@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
+        <link href="css/app.css" rel="stylesheet" type="text/css">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -92,6 +94,12 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <div class="card">
+                    <img class="card__img" src="https://via.placeholder.com/150">
+                    <div class="card__name">Name goes here</div>
+                </div>
+
             </div>
         </div>
     </body>
