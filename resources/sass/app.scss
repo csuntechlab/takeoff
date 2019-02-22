@@ -4,12 +4,13 @@
 //Font Awesome
 @import url("../../node_modules/font-awesome/css/font-awesome.min.css");
 
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Custom SCSS
 @import 'variables';
 @import 'base';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
