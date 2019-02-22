@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 //Pages
 import Login from "./views/Login"
+import Signup from "./views/Signup"
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -13,6 +14,13 @@ const router = new VueRouter({
             component: Login,
             meta: {
                 title: 'Login | Badges'
+            }
+        },
+        {
+            path: '/signup',
+            component: Signup,
+            meta: {
+                title: 'Sign Up | Badges'
             }
         },
     ]
