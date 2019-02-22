@@ -3,6 +3,7 @@ FROM composer:latest as vendor
 COPY database/ database/
 COPY composer.json composer.json
 COPY composer.lock composer.lock
+
 RUN composer install \
     --ignore-platform-reqs \
     --no-interaction \
@@ -15,7 +16,7 @@ RUN mkdir -p /app/public
 COPY package.json webpack.mix.js yarn.lock /app/
 COPY resources/ /app/resources/
 WORKDIR /app
-RUN yarn \
+RUN yarn install \
     && yarn run prod
 # PHP/Apache
 FROM csunmetalab/environment:base-20190130

@@ -24,7 +24,7 @@
         "sass": "^1.17.0",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.6"
+        "vue-template-compiler": "^2.5.17"
     },
     "dependencies": {
         "cross-spawn": "^6.0.5",
