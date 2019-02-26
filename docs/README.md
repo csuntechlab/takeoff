@@ -21,4 +21,3 @@ Instructions for editing:
     - Using git or your githib client, commit and push your changes.
     - Open up a PR in github.
 
-<style src="../public/css/app.css"></style>

@@ -83,4 +83,15 @@ pageClass: custom
 <p>This is a paragraph. Lorem ipsum dolur etas foobar shmoper.</p>
 ```
 
-<style src="../../public/css/app.css"></style>
+## Icons
+
+This site uses font-awesome 5 as our icon set.
+
+<i class="fab fa-accessible-icon"></i>
+<i class="fas fa-bell"></i>
+
+``` html
+<i class="fab fa-accessible-icon"></i>
+<i class="fas fa-bell"></i>
+```
+

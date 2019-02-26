@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import '../../../node_modules/@fortawesome/fontawesome-free/js/all.js';
 import Vue from 'vue'
 import nprogress from 'nprogress'
 import Home from './Home.vue'
@@ -178,6 +179,8 @@ export default {
   }
 }
 </script>
+
+<style src="../../../public/css/app.css"></style>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>

@@ -20,7 +20,7 @@ The card component is part of bootstrap. See their docs for more info.
 
 ## Alert 
 <div class="alert alert-primary">
-    This is an alert
+    This is an alert <i class="fab fa-accessible-icon"></i>
 </div>
 
 ``` html
@@ -28,5 +28,3 @@ The card component is part of bootstrap. See their docs for more info.
     This is an alert
 </div>
 ```
-
-<style src="../../public/css/app.css"></style>
