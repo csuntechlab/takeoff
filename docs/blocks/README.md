@@ -14,6 +14,10 @@
 </div>
 ```
 
+::: tip
+The card component is part of bootstrap. See their docs for more info.
+:::
+
 ## Alert 
 <div class="alert alert-primary">
     This is an alert
@@ -25,5 +29,4 @@
 </div>
 ```
 
-<style src="../assets/docs-style-overrides.css"></style>
 <style src="../../public/css/app.css"></style>

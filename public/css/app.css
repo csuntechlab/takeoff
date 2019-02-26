@@ -1,12 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -10655,20 +10648,20 @@ a.text-dark:focus {
   }
 }
 
+.bg-gold {
+  background: #F2C14E;
+}
+
+.bg-periwinkle {
+  background: #7F82B5;
+}
+
+.bg-salmon {
+  background: #FF715B;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.card {
-  background: gray;
-  border: 3px solid black;
-  text-align: center;
-  width: 300px;
-}
-
-.card__name {
-  font-size: 22px;
-  color: red;
 }
 
