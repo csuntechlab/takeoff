@@ -12,3 +12,5 @@
 */
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+
+Route::post('sendInvite', 'AdminController@sendInvite')->name('invite');
