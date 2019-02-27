@@ -1,9 +1,28 @@
 require('./bootstrap');
 
 import Vue from 'vue';
+import Vuetify, {
+    VApp,
+    VDatePicker,
+    VStepper,
+    VTooltip,
+    VProgressCircular,
+    VCalendar
+} from 'vuetify/lib'
 import router from './router';
 import store from './store';
 import App from './App.vue';
+
+Vue.use(Vuetify, {
+    components: {
+        VApp,
+        VDatePicker,
+        VStepper,
+        VTooltip,
+        VProgressCircular,
+        VCalendar
+    }
+});
 
 Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default);
 
