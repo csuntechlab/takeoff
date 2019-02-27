@@ -1,19 +1,20 @@
 <template>
 	<div>
-		<Example-Component></Example-Component>
-		<router-link to="/">Login</router-link>
+		<LogIn></LogIn>
+        <router-link to="/login"></router-link>
 	</div>
 </template>
 
 <script>
-import ExampleComponent from "../../../components/ExampleComponent";
+import LogIn from "../../../components/LogIn";
+
 export default {
 	data() {
 		return {};
 	},
 
 	components: {
-		ExampleComponent
+		LogIn,
 	}
 };
 </script>

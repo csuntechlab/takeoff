@@ -6,6 +6,8 @@ import store from './store';
 import App from './App.vue';
 
 Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default);
+// Vue.component('SignUp', require('./components/SignUp.vue').default);
+
 
 const app = new Vue({
     el: '#app',
