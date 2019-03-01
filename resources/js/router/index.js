@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 //Pages
 import Login from "./views/Login"
-import Signup from "./views/Signup"
+import SignUp from "./views/SignUp"
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -18,7 +18,7 @@ const router = new VueRouter({
         },
         {
             path: '/signup',
-            component: Signup,
+            component: SignUp,
             meta: {
                 title: 'Sign Up | Badges'
             }
