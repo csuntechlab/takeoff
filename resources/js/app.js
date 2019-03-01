@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 import Vue from 'vue';
+import '../../node_modules/vuetify/dist/vuetify.min.css'
 import Vuetify, {
     VApp,
     VDatePicker,
