@@ -10664,37 +10664,6 @@ body {
   background-color: #f8fafc;
 }
 
-.signup__button {
-  padding-top: 20px;
-}
-
-.navbar {
-  padding: 4rem 1rem;
-  width: 100%;
-}
-
-.navbar,
-.h1 {
-  color: white;
-}
-
-.form-group {
-  margin-top: 20px;
-}
-
-.form__email {
-  padding-top: 20px;
-}
-
-h2 {
-  margin-top: 30px;
-  color: #007bff;
-}
-
-.login__button {
-  padding-top: 20px;
-}
-
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

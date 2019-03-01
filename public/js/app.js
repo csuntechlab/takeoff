@@ -37094,9 +37094,11 @@ var render = function() {
             }
           },
           [
-            _c("h2", { staticClass: "text-center" }, [_vm._v(" Login ")]),
+            _c("h2", { staticClass: "text-center text-primary mt-4 pt-2" }, [
+              _vm._v(" Login ")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group form__email" }, [
+            _c("div", { staticClass: "form-group form__email mt-5" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                 _vm._v("Email: ")
               ]),
@@ -37129,7 +37131,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
+            _c("div", { staticClass: "form-group mt-4" }, [
               _c("label", { attrs: { for: "exampleInputPassword1" } }, [
                 _vm._v("Password: ")
               ]),
@@ -37165,7 +37167,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "login__button text-center" },
+              { staticClass: "login__button text-center pt-3" },
               [
                 _c(
                   "router-link",
@@ -37191,7 +37193,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "nav",
-      { staticClass: "navbar navbar-dark bg-primary justify-content-center" },
+      {
+        staticClass:
+          "npy-5 text-white bg-primary justify-content-center pt-5 pb-5"
+      },
       [_c("h1", { staticClass: "text-center" }, [_vm._v("Badges")])]
     )
   },
@@ -37199,7 +37204,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login__button text-center" }, [
+    return _c("div", { staticClass: "login__button text-center pt-4" }, [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
@@ -37246,9 +37251,11 @@ var render = function() {
             }
           },
           [
-            _c("h2", { staticClass: "text-center" }, [_vm._v(" Sign Up! ")]),
+            _c("h2", { staticClass: "text-center text-primary mt-4 pt-2" }, [
+              _vm._v(" Sign Up! ")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group form__email" }, [
+            _c("div", { staticClass: "form-group form__email mt-5" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                 _vm._v("Email: ")
               ]),
@@ -37281,7 +37288,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
+            _c("div", { staticClass: "form-group mt-4" }, [
               _c("label", { attrs: { for: "exampleInputAccessCode" } }, [
                 _vm._v("Access Code: ")
               ]),
@@ -37317,7 +37324,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "signup__button text-center" },
+              { staticClass: "signup__button text-center pt-3" },
               [
                 _c(
                   "router-link",
@@ -37342,8 +37349,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "nav",
-      { staticClass: "navbar navbar-dark bg-primary justify-content-center" },
+      "div",
+      {
+        staticClass:
+          "npy-5 text-white bg-primary justify-content-center pt-5 pb-5"
+      },
       [_c("h1", { staticClass: "text-center" }, [_vm._v("Badges")])]
     )
   },
@@ -37351,7 +37361,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "signup__button text-center" }, [
+    return _c("div", { staticClass: "signup__button text-center pt-4" }, [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
