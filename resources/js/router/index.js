@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 //Pages
 import Login from "./views/Login"
 import Signup from "./views/Signup"
+import ProfileSetup from "./views/ProfileSetup"
+
+
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -23,6 +26,13 @@ const router = new VueRouter({
                 title: 'Sign Up | Badges'
             }
         },
+        {
+            path: '/profilesetup',
+            component: ProfileSetup,
+            meta: {
+                title: 'Profile Setup | Badges'
+            } 
+        }
     ]
 });
 
