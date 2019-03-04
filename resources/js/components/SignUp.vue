@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div class="
-        py-5 text-white bg-primary justify-content-center">
+        <div class="py-5 text-white bg-primary justify-content-center">
             <h1 class="text-center">Badges</h1>
         </div>
         <div class="container">
