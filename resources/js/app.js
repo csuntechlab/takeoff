@@ -1,9 +1,8 @@
-require('./bootstrap');
-
 import Vue from 'vue';
 import router from './router';
 import store from './store';
 import App from './App.vue';
+import '../sass/app.scss'
 
 Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default);
 
