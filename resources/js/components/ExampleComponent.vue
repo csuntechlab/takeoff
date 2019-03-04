@@ -5,7 +5,7 @@
                 <div class="card card-default">
                     <div class="card-header">Example Component</div>
                     <div class="card-body">
-                        I'm an example component.
+                        I'm an example component. <i class="fab fa-accessible-icon"></i>
                     </div>
                 </div>
             </div>
