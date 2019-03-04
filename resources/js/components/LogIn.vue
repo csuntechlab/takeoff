@@ -1,11 +1,11 @@
 <template>
     <div>
-        <nav class="npy-5 text-white bg-primary justify-content-center pt-5 pb-5">
+        <div class="py-5 text-white bg-primary justify-content-center">
             <h1 class="text-center">Badges</h1>
-        </nav>
+        </div>
         <div class="container">
             <div class="row justify-content-center">
-                <form @submit.prevent="login" class="panel">
+                <form @submit.prevent="login">
                     <h2 class="text-center text-primary mt-4 pt-2"> Login </h2>
                     <div class="form-group form__email mt-5">
                         <label for="exampleInputEmail1">Email: </label>
