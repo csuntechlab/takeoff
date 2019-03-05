@@ -10,7 +10,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/login',
             component: Login,
             meta: {
                 title: 'Login | Badges'
