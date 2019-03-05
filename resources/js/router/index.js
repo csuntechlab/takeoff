@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 //Pages
 import Login from "./views/Login"
-import Signup from "./views/Signup"
+import Signup from "./views/SignUp"
 
 Vue.use(VueRouter)
 const router = new VueRouter({
