@@ -5,7 +5,9 @@
 				<div class="card card-default">
 					<div class="card-header">Example Component</div>
 					<div class="card-body">
-						I'm an example component.
+						I'm an example component. 
+						<b-button variant="danger">Button Test</b-button>
+						<b-alert show variant="warning">Warning Alert Test</b-alert>
 						<i class="fab fa-accessible-icon"></i>
 					</div>
 				</div>
@@ -22,7 +24,6 @@ export default {
 		"b-button": BButton,
 		"b-alert": BAlert
 	},
-
 	mounted() {
 		window.axios
 			.get('https://jsonplaceholder.typicode.com/todos/1')
