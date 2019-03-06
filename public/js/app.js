@@ -6105,6 +6105,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -41350,6 +41363,58 @@ var staticRenderFns = [
                 staticClass: "form-control",
                 attrs: { type: "text", placeholder: "Last Name" }
               })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown" }, [
+              _c("label", { attrs: { for: "exampleInputLastName" } }, [
+                _vm._v("College ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: " dropdown-toggle form-control",
+                  attrs: {
+                    type: "text",
+                    id: "dropdownMenuButton",
+                    "data-toggle": "dropdown",
+                    "aria-haspopup": "true",
+                    "aria-expanded": "false"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                        Choose Major\n                    "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "dropdown-menu",
+                  attrs: { "aria-labelledby": "dropdownMenuButton" }
+                },
+                [
+                  _c(
+                    "a",
+                    { staticClass: "dropdown-item", attrs: { href: "#" } },
+                    [_vm._v("Biochemistry")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "dropdown-item", attrs: { href: "#" } },
+                    [_vm._v("Mathematics")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "dropdown-item", attrs: { href: "#" } },
+                    [_vm._v("Kinesiology")]
+                  )
+                ]
+              )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center pt-4" }, [
