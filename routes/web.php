@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
-Route::post('sendInvite', 'AdminController@sendInvite')->name('invite');
+Route::post('invite/{studentemail}', 'AdminController@sendInvite');
+
+//Route::get('/test/{test}', 'AdminController@test');

@@ -30,11 +30,9 @@ class InviteStudent extends Mailable
      */
     public function build()
     {
-        return $this->from('example@example.com')
+        return $this
             // will render the invite as a HTML form
-                ->view('//')
-                ->with([
-                'studentemail' => $this->studentemail
-            ]);
+                ->view('inviteemail')
+                ->with([ 'studentemail' => $this->studentemail ]);
     }
 }
