@@ -5,6 +5,8 @@ import VueRouter from 'vue-router'
 import Login from "./views/Login"
 import Signup from "./views/Signup"
 import ProfileSetup from "./views/ProfileSetup"
+import FinishSetup from "./views/FinishSetup"
+
 
 
 
@@ -31,6 +33,13 @@ const router = new VueRouter({
             component: ProfileSetup,
             meta: {
                 title: 'Profile Setup | Badges'
+            } 
+        },
+        {
+            path: '/finishsetup',
+            component: FinishSetup,
+            meta: {
+                title: 'Finish Setup | Badges'
             } 
         }
     ]
