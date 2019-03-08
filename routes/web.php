@@ -11,8 +11,18 @@
 |
 */
 
-//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
-
 Route::post('invite/{studentemail}', 'AdminController@sendInvite');
 
-//Route::get('/test/{test}', 'AdminController@test');
+Route::get('/docs', function() {
+    return File::get(public_path() . '/docs/index.html');
+});
+
+Route::get('/docs/assets/css/*.css', function() {
+    return File::get(public_path() . '/docs/assets/css/*.css');
+});
+
+Route::get('/docs/assets/js/*.js', function() {
+    return File::get(public_path() . '/docs/assets/js/*.js');
+});
+
+Route::get('/{any}', 'SpaController@index')->where('any', '.*');
