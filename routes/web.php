@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('invite/{studentemail}', 'AdminController@sendInvite');
+
 Route::get('/docs', function() {
     return File::get(public_path() . '/docs/index.html');
 });
@@ -24,4 +26,3 @@ Route::get('/docs/assets/js/*.js', function() {
 });
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
-
