@@ -2,11 +2,11 @@
 	<div class="row justify-content-end py-3 px-2">
 		<div class="col-12">
 			<div class="text-center float-right">
-				<div>
-					<img class="profile-photo__image" src="../../../../public/images/default-avatar.png">
-				</div>
-				<div v-if="editable" class="mt-3">
-					<a>Edit Your Profile</a>
+				<img class="profile-photo__image" src="../../../../public/images/default-avatar.png">
+
+				<!-- make this div a router-link once the edit page is set up -->
+				<div v-if="editable" class="profile-photo__text mt-3">
+					<strong>Edit Your Profile</strong>
 				</div>
 			</div>
 		</div>
@@ -14,11 +14,11 @@
 </template>
 <script>
 export default {
-    props: {
-        editable: {
-            default: false
-        }
-    }
+	props: {
+		editable: {
+			default: false
+		}
+	}
 };
 </script>
 

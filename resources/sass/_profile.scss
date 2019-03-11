@@ -1,12 +1,54 @@
 .profile-photo {
     &__image {
-        width: 75%;
+        width: 6rem;
+        border-radius: 100px;
+    }
+    &__name {
+        font-size: 1.3rem;
+    }
+    &__text {
+        font-size: 0.66rem;
+    }
+    @media (min-width: $break-sm) {
+        &__image {
+            width: 8rem;
+            border-radius: 100px;
+        }
+
+        &__name {
+            font-size: 1.45rem;
+        }
+
+        &__text {
+            font-size: 0.725rem;
+        }
+    }
+    @media (min-width: $break-md) {
+        &__image {
+            width: 10rem;
+            border-radius: 100px;
+        }
+
+        &__name {
+            font-size: 1.6rem;
+        }
+
+        &__text {
+            font-size: 0.8rem;
+        }
     }
     @media (min-width: $break-lg) {
         &__image {
-            width: 50%;
+            width: 13rem;
             border-radius: 100px;
+        }
+
+        &__name {
+            font-size: 2rem;
+        }
+
+        &__text {
+            font-size: 1rem;
         }
     }
 }
-

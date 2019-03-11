@@ -10673,13 +10673,60 @@ body {
 }
 
 .profile-photo__image {
-  width: 75%;
+  width: 6rem;
+  border-radius: 100px;
+}
+
+.profile-photo__name {
+  font-size: 1.3rem;
+}
+
+.profile-photo__text {
+  font-size: 0.66rem;
+}
+
+@media (min-width: 576px) {
+  .profile-photo__image {
+    width: 8rem;
+    border-radius: 100px;
+  }
+
+  .profile-photo__name {
+    font-size: 1.45rem;
+  }
+
+  .profile-photo__text {
+    font-size: 0.725rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-photo__image {
+    width: 10rem;
+    border-radius: 100px;
+  }
+
+  .profile-photo__name {
+    font-size: 1.6rem;
+  }
+
+  .profile-photo__text {
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 992px) {
   .profile-photo__image {
-    width: 50%;
+    width: 13rem;
     border-radius: 100px;
+  }
+
+  .profile-photo__name {
+    font-size: 2rem;
+  }
+
+  .profile-photo__text {
+    font-size: 1rem;
   }
 }
 

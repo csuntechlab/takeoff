@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<div class="row justify-content-center">
-			<div class="col-5">
+			<div class="col-6 align-self-center">
 				<StudentPhoto :editable="true"/>
 			</div>
-			<div class="col-7">
+			<div class="col-6 align-self-center">
 				<StudentInfo/>
 			</div>
 		</div>
