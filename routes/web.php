@@ -23,5 +23,7 @@ Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
 
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+Route::resource('profile', 'ProfileController');
+
+//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
