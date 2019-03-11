@@ -6264,7 +6264,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: "Edgar Cano",
+      major: "Psychology",
+      units: 75,
+      grad: "Spring 2022"
+    };
+  }
+});
 
 /***/ }),
 
@@ -26043,33 +26052,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-left" }, [
-      _c("h3", { staticClass: "profile-photo__name" }, [_vm._v("Edgar Cano")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "profile-photo__text" }, [
-        _c("strong", [_vm._v("Major: ")]),
-        _vm._v("Psychology")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "profile-photo__text" }, [
-        _c("strong", [_vm._v("Units Earned: ")]),
-        _vm._v("75")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "profile-photo__text" }, [
-        _c("strong", [_vm._v("Graduation Date: ")]),
-        _vm._v("Spring 2022")
-      ])
+  return _c("div", { staticClass: "text-left" }, [
+    _c("div", { staticClass: "profile-photo__name" }, [
+      _vm._v(_vm._s(_vm.name))
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "profile-photo__text" }, [
+      _c("strong", [_vm._v("Major: ")]),
+      _vm._v(_vm._s(_vm.major))
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "profile-photo__text" }, [
+      _c("strong", [_vm._v("Units Earned: ")]),
+      _vm._v(_vm._s(_vm.units))
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "profile-photo__text" }, [
+      _c("strong", [_vm._v("Graduation Date: ")]),
+      _vm._v(_vm._s(_vm.grad))
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -26103,7 +26107,7 @@ var render = function() {
         _vm._v(" "),
         _vm.editable
           ? _c("div", { staticClass: "profile-photo__text mt-3" }, [
-              _c("strong", [_vm._v("Edit Your Profile")])
+              _c("strong", [_vm._v("Edit Profile")])
             ])
           : _vm._e()
       ])
