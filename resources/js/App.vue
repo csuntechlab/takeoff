@@ -2,7 +2,7 @@
 	<div>
         <LoginNavBar v-if="loggingIn"/>
         <NavBar v-else/>
-		<router-view class="container"></router-view>
+		<router-view></router-view>
 	</div>
 </template>
 <script>

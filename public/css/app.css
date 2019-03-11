@@ -10688,7 +10688,6 @@ body {
 @media (min-width: 576px) {
   .profile-photo__image {
     width: 8rem;
-    border-radius: 100px;
   }
 
   .profile-photo__name {
@@ -10703,7 +10702,6 @@ body {
 @media (min-width: 768px) {
   .profile-photo__image {
     width: 10rem;
-    border-radius: 100px;
   }
 
   .profile-photo__name {
@@ -10718,7 +10716,6 @@ body {
 @media (min-width: 992px) {
   .profile-photo__image {
     width: 13rem;
-    border-radius: 100px;
   }
 
   .profile-photo__name {
@@ -10727,6 +10724,68 @@ body {
 
   .profile-photo__text {
     font-size: 1rem;
+  }
+}
+
+.profile-info__header {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.profile-info__text {
+  font-size: 0.66rem;
+}
+
+@media (min-width: 576px) {
+  .profile-info__header {
+    font-size: 1.2rem;
+  }
+
+  .profile-info__text {
+    font-size: 0.725rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-info__header {
+    font-size: 1.3rem;
+  }
+
+  .profile-info__text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile-info__header {
+    font-size: 1.4rem;
+  }
+
+  .profile-info__text {
+    font-size: 1rem;
+  }
+}
+
+.badges-earned__header {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 576px) {
+  .badges-earned__header {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .badges-earned__header {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .badges-earned__header {
+    font-size: 1.75rem;
   }
 }
 

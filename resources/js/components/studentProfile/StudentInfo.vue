@@ -1,9 +1,9 @@
 <template>
 	<div class="text-left">
-		<div class="profile-photo__name">{{name}}</div>
+		<h1 class="profile-photo__name"><strong>{{name}}</strong></h1>
         <div class="profile-photo__text"><strong>Major: </strong>{{major}}</div>
         <div class="profile-photo__text"><strong>Units Earned: </strong>{{units}}</div>
-        <div class="profile-photo__text"><strong>Graduation Date: </strong>{{grad}}</div>
+        <div class="profile-photo__text"><strong>Graduation: </strong>{{grad}}</div>
 	</div>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
     data() {
         return{
             name: "Edgar Cano",
-            major: "Psychology",
+            major: "Computer Engineering",
             units: 75,
             grad: "Spring 2022"
         }
