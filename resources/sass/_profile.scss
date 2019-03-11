@@ -1,0 +1,12 @@
+.profile-photo {
+    &__image {
+        width: 75%;
+    }
+    @media (min-width: $break-lg) {
+        &__image {
+            width: 25%;
+            border-radius: 100px;
+        }
+    }
+}
+

@@ -10672,3 +10672,14 @@ body {
   background-color: #f8fafc;
 }
 
+.profile-photo__image {
+  width: 75%;
+}
+
+@media (min-width: 992px) {
+  .profile-photo__image {
+    width: 25%;
+    border-radius: 100px;
+  }
+}
+
