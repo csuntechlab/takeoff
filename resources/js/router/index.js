@@ -8,14 +8,12 @@ import ProfileSetup from "./views/ProfileSetup"
 import FinishSetup from "./views/FinishSetup"
 
 
-
-
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/login',
             component: Login,
             meta: {
                 title: 'Login | Badges'

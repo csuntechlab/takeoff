@@ -15,19 +15,41 @@
                         <input type="text" class="form-control" placeholder="Last Name">
                     </div>
 
-                    <div class="dropdown pt-2">
+                    <!-- <div class="dropdown pt-2">
                         <label for="exampleInputLastName">College </label>
-                        <div class=" dropdown-toggle form-control" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle form-control" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choose College
-                        </div>
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Cal State LA</a>
                             <a class="dropdown-item" href="#">Cal State Santa Barbara</a>
                             <a class="dropdown-item" href="#">Cal State Northridge</a>
                         </div>
+                    </div> -->
+
+                    <label>College </label>
+                    <div>
+                        <b-dropdown id="ddown1" text="College" variant="outline-primary">
+                            <b-dropdown-item href="#">Cal State LA</b-dropdown-item>
+                            <b-dropdown-item href="#">Cal State Santa Barbara</b-dropdown-item>
+                            <b-dropdown-item href="#">Cal State Northridge</b-dropdown-item>
+                        </b-dropdown>
                     </div>
 
-                    <div class="dropdown pt-3">
+
+
+                    <label class="pt-3">Major </label>
+                    <div>
+                        <b-dropdown id="ddown1" text="Major" variant="outline-primary">
+                            <b-dropdown-item href="#">Biochemistry</b-dropdown-item>
+                            <b-dropdown-item href="#">Mathematics</b-dropdown-item>
+                            <b-dropdown-item href="#">Kinesiology</b-dropdown-item>
+                        </b-dropdown>
+                    </div>
+
+
+
+                    <!-- <div class="dropdown pt-3">
                         <label>Major </label>
                         <div class=" dropdown-toggle form-control" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choose Major
@@ -37,23 +59,22 @@
                             <a class="dropdown-item" href="#">Mathematics</a>
                             <a class="dropdown-item" href="#">Kinesiology</a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-row">
                         <div class="col pt-3">
                             <label>Expected Grad </label>
-                            <div class=" dropdown-toggle form-control" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Choose Year
-                            </div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">2019</a>
-                                <a class="dropdown-item" href="#">2020</a>
-                                <a class="dropdown-item" href="#">2021</a>
+                            <div>
+                                <b-dropdown id="ddown1" text="Choose Year" variant="outline-primary">
+                                    <b-dropdown-item href="#">2019</b-dropdown-item>
+                                    <b-dropdown-item href="#">2020</b-dropdown-item>
+                                    <b-dropdown-item href="#">2021</b-dropdown-item>
+                                </b-dropdown>
                             </div>
                         </div>
                         <div class="col pt-3">
                             <label>Credits </label>
-                            <input type="text" class="form-control" placeholder="80">
+                            <textarea type="text" class="form-control" placeholder="80" rows="1"></textarea>
                         </div>
                     </div>
 
@@ -67,7 +88,11 @@
 </template>
 
 <script>
+import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
     export default {
+        components: {
+		"b-dropdown": BDropdown
+        },
         name: '',
         data() {
             return{};
