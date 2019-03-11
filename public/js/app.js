@@ -6275,7 +6275,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    editable: {
+      default: false
+    }
+  }
+});
 
 /***/ }),
 
@@ -26045,12 +26062,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("img", {
-    staticClass: "profile-photo__image",
-    attrs: { src: __webpack_require__(/*! ../../../../public/images/default-avatar.png */ "./public/images/default-avatar.png") }
-  })
+  return _c("div", { staticClass: "row justify-content-end py-3 px-2" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "text-center float-right" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.editable
+          ? _c("div", { staticClass: "mt-3" }, [
+              _c("a", [_vm._v("Edit Your Profile")])
+            ])
+          : _vm._e()
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        staticClass: "profile-photo__image",
+        attrs: { src: __webpack_require__(/*! ../../../../public/images/default-avatar.png */ "./public/images/default-avatar.png") }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -26135,8 +26173,13 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-5" }, [_c("StudentPhoto")], 1),
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c(
+          "div",
+          { staticClass: "col-5" },
+          [_c("StudentPhoto", { attrs: { editable: true } })],
+          1
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "col-7" }, [_c("StudentInfo")], 1)
       ]),

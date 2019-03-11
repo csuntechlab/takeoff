@@ -1,15 +1,15 @@
 <template>
 	<div>
-		<div class="row">
+		<div class="row justify-content-center">
 			<div class="col-5">
-				<StudentPhoto></StudentPhoto>
+				<StudentPhoto :editable="true"/>
 			</div>
 			<div class="col-7">
-				<StudentInfo></StudentInfo>
+				<StudentInfo/>
 			</div>
 		</div>
-		<BadgesEarned></BadgesEarned>
-		<ProfileInfo></ProfileInfo>
+		<BadgesEarned/>
+		<ProfileInfo/>
 	</div>
 </template>
 <script>
