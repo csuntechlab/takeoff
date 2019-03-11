@@ -6,7 +6,7 @@
 
 				<!-- make this div a router-link once the edit page is set up -->
 				<div v-if="editable" class="profile-photo__text mt-3">
-					<strong>Edit Profile</strong>
+					<strong><i class="fas fa-user-edit"/> Edit Profile</strong>
 				</div>
 			</div>
 		</div>

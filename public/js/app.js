@@ -26106,15 +26106,23 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.editable
-          ? _c("div", { staticClass: "profile-photo__text mt-3" }, [
-              _c("strong", [_vm._v("Edit Profile")])
-            ])
+          ? _c("div", { staticClass: "profile-photo__text mt-3" }, [_vm._m(0)])
           : _vm._e()
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("i", { staticClass: "fas fa-user-edit" }),
+      _vm._v(" Edit Profile")
+    ])
+  }
+]
 render._withStripped = true
 
 
