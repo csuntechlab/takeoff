@@ -7,11 +7,13 @@
 			<div class="col-6 align-self-center">
 				<StudentInfo/>
 			</div>
+		</div>
+        <div class="row justify-content-center">
 			<BadgesEarned class="col-11 col-sm-9"/>
 			<ProfileInfo class="col-11 col-sm-9"/>
             <CurrentInterests class="col-11 col-sm-9"/>
-		</div>
-	</div>
+        </div>
+	 </div>
 </template>
 <script>
 import StudentPhoto from "../../../components/studentProfile/StudentPhoto";

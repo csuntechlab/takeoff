@@ -6215,6 +6215,51 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/global/NavBar.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/global/NavBar.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/es/components/navbar/navbar-toggle */ "./node_modules/bootstrap-vue/es/components/navbar/navbar-toggle.js");
+/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/collapse/collapse */ "./node_modules/bootstrap-vue/es/components/collapse/collapse.js");
+/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+;
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    BNavbarToggle: bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0___default.a,
+    BCollapse: bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1___default.a
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/studentProfile/BadgesEarned.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/studentProfile/BadgesEarned.vue?vue&type=script&lang=js& ***!
@@ -6439,6 +6484,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/studentProfile/BadgesEarned */ "./resources/js/components/studentProfile/BadgesEarned.vue");
 /* harmony import */ var _components_studentProfile_ProfileInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/studentProfile/ProfileInfo */ "./resources/js/components/studentProfile/ProfileInfo.vue");
 /* harmony import */ var _components_studentProfile_CurrentInterests__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/studentProfile/CurrentInterests */ "./resources/js/components/studentProfile/CurrentInterests.vue");
+//
+//
 //
 //
 //
@@ -6916,6 +6963,236 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/bootstrap-vue/es/components/collapse/collapse.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/bootstrap-vue/es/components/collapse/collapse.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _listenOnRoot = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js");
+
+var _dom = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/es/utils/dom.js");
+
+// Events we emit on $root
+var EVENT_STATE = 'bv::collapse::state';
+var EVENT_ACCORDION = 'bv::collapse::accordion'; // Events we listen to on $root
+
+var EVENT_TOGGLE = 'bv::toggle::collapse'; // Event Listener options
+
+var EventOptions = {
+  passive: true,
+  capture: false // @vue/component
+
+};
+var _default = {
+  name: 'BCollapse',
+  mixins: [_listenOnRoot.default],
+  model: {
+    prop: 'visible',
+    event: 'input'
+  },
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    isNav: {
+      type: Boolean,
+      default: false
+    },
+    accordion: {
+      type: String,
+      default: null
+    },
+    visible: {
+      type: Boolean,
+      default: false
+    },
+    tag: {
+      type: String,
+      default: 'div'
+    }
+  },
+  data: function data() {
+    return {
+      show: this.visible,
+      transitioning: false
+    };
+  },
+  computed: {
+    classObject: function classObject() {
+      return {
+        'navbar-collapse': this.isNav,
+        collapse: !this.transitioning,
+        show: this.show && !this.transitioning
+      };
+    }
+  },
+  watch: {
+    visible: function visible(newVal) {
+      if (newVal !== this.show) {
+        this.show = newVal;
+      }
+    },
+    show: function show(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.emitState();
+      }
+    }
+  },
+  created: function created() {
+    // Listen for toggle events to open/close us
+    this.listenOnRoot(EVENT_TOGGLE, this.handleToggleEvt); // Listen to other collapses for accordion events
+
+    this.listenOnRoot(EVENT_ACCORDION, this.handleAccordionEvt);
+  },
+  mounted: function mounted() {
+    if (this.isNav && typeof document !== 'undefined') {
+      // Set up handlers
+      (0, _dom.eventOn)(window, 'resize', this.handleResize, EventOptions);
+      (0, _dom.eventOn)(window, 'orientationchange', this.handleResize, EventOptions);
+      this.handleResize();
+    }
+
+    this.emitState();
+  },
+  updated: function updated() {
+    this.$root.$emit(EVENT_STATE, this.id, this.show);
+  },
+  beforeDestroy: function beforeDestroy()
+  /* istanbul ignore next */
+  {
+    if (this.isNav && typeof document !== 'undefined') {
+      (0, _dom.eventOff)(window, 'resize', this.handleResize, EventOptions);
+      (0, _dom.eventOff)(window, 'orientationchange', this.handleResize, EventOptions);
+    }
+  },
+  methods: {
+    toggle: function toggle() {
+      this.show = !this.show;
+    },
+    onEnter: function onEnter(el) {
+      el.style.height = 0;
+      (0, _dom.reflow)(el);
+      el.style.height = el.scrollHeight + 'px';
+      this.transitioning = true; // This should be moved out so we can add cancellable events
+
+      this.$emit('show');
+    },
+    onAfterEnter: function onAfterEnter(el) {
+      el.style.height = null;
+      this.transitioning = false;
+      this.$emit('shown');
+    },
+    onLeave: function onLeave(el) {
+      el.style.height = 'auto';
+      el.style.display = 'block';
+      el.style.height = (0, _dom.getBCR)(el).height + 'px';
+      (0, _dom.reflow)(el);
+      this.transitioning = true;
+      el.style.height = 0; // This should be moved out so we can add cancellable events
+
+      this.$emit('hide');
+    },
+    onAfterLeave: function onAfterLeave(el) {
+      el.style.height = null;
+      this.transitioning = false;
+      this.$emit('hidden');
+    },
+    emitState: function emitState() {
+      this.$emit('input', this.show); // Let v-b-toggle know the state of this collapse
+
+      this.$root.$emit(EVENT_STATE, this.id, this.show);
+
+      if (this.accordion && this.show) {
+        // Tell the other collapses in this accordion to close
+        this.$root.$emit(EVENT_ACCORDION, this.id, this.accordion);
+      }
+    },
+    clickHandler: function clickHandler(evt) {
+      // If we are in a nav/navbar, close the collapse when non-disabled link clicked
+      var el = evt.target;
+
+      if (!this.isNav || !el || (0, _dom.getCS)(this.$el).display !== 'block') {
+        return;
+      }
+
+      if ((0, _dom.matches)(el, '.nav-link,.dropdown-item') || (0, _dom.closest)('.nav-link,.dropdown-item', el)) {
+        this.show = false;
+      }
+    },
+    handleToggleEvt: function handleToggleEvt(target) {
+      if (target !== this.id) {
+        return;
+      }
+
+      this.toggle();
+    },
+    handleAccordionEvt: function handleAccordionEvt(openedId, accordion) {
+      if (!this.accordion || accordion !== this.accordion) {
+        return;
+      }
+
+      if (openedId === this.id) {
+        // Open this collapse if not shown
+        if (!this.show) {
+          this.toggle();
+        }
+      } else {
+        // Close this collapse if shown
+        if (this.show) {
+          this.toggle();
+        }
+      }
+    },
+    handleResize: function handleResize() {
+      // Handler for orientation/resize to set collapsed state in nav/navbar
+      this.show = (0, _dom.getCS)(this.$el).display === 'block';
+    }
+  },
+  render: function render(h) {
+    var content = h(this.tag, {
+      class: this.classObject,
+      directives: [{
+        name: 'show',
+        value: this.show
+      }],
+      attrs: {
+        id: this.id || null
+      },
+      on: {
+        click: this.clickHandler
+      }
+    }, [this.$slots.default]);
+    return h('transition', {
+      props: {
+        enterClass: '',
+        enterActiveClass: 'collapsing',
+        enterToClass: '',
+        leaveClass: '',
+        leaveActiveClass: 'collapsing',
+        leaveToClass: ''
+      },
+      on: {
+        enter: this.onEnter,
+        afterEnter: this.onAfterEnter,
+        leave: this.onLeave,
+        afterLeave: this.onAfterLeave
+      }
+    }, [content]);
+  }
+};
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap-vue/es/components/link/link.js":
 /*!***************************************************************!*\
   !*** ./node_modules/bootstrap-vue/es/components/link/link.js ***!
@@ -7196,6 +7473,165 @@ var _default = {
 
     componentData[eventType] = _objectSpread({}, componentData[eventType] || {}, handlers);
     return h(tag, componentData, children);
+  }
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/bootstrap-vue/es/components/navbar/navbar-toggle.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/bootstrap-vue/es/components/navbar/navbar-toggle.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _listenOnRoot = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js");
+
+// @vue/component
+var _default = {
+  name: 'BNavbarToggle',
+  mixins: [_listenOnRoot.default],
+  props: {
+    label: {
+      type: String,
+      default: 'Toggle navigation'
+    },
+    target: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      toggleState: false
+    };
+  },
+  created: function created() {
+    this.listenOnRoot('bv::collapse::state', this.handleStateEvt);
+  },
+  methods: {
+    onClick: function onClick(evt) {
+      this.$emit('click', evt);
+      /* istanbul ignore next */
+
+      if (!evt.defaultPrevented) {
+        this.$root.$emit('bv::toggle::collapse', this.target);
+      }
+    },
+    handleStateEvt: function handleStateEvt(id, state) {
+      if (id === this.target) {
+        this.toggleState = state;
+      }
+    }
+  },
+  render: function render(h) {
+    return h('button', {
+      class: ['navbar-toggler'],
+      attrs: {
+        type: 'button',
+        'aria-label': this.label,
+        'aria-controls': this.target,
+        'aria-expanded': this.toggleState ? 'true' : 'false'
+      },
+      on: {
+        click: this.onClick
+      }
+    }, [this.$slots.default || h('span', {
+      class: ['navbar-toggler-icon']
+    })]);
+  }
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/bootstrap-vue/es/mixins/listen-on-root.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _array = __webpack_require__(/*! ../utils/array */ "./node_modules/bootstrap-vue/es/utils/array.js");
+
+/**
+ * Issue #569: collapse::toggle::state triggered too many times
+ * @link https://github.com/bootstrap-vue/bootstrap-vue/issues/569
+ */
+var BVRL = '__BV_root_listeners__'; // @vue/component
+
+var _default = {
+  beforeDestroy: function beforeDestroy() {
+    if (this[BVRL] && (0, _array.isArray)(this[BVRL])) {
+      while (this[BVRL].length > 0) {
+        // shift to process in order
+        var _this$BVRL$shift = this[BVRL].shift(),
+            event = _this$BVRL$shift.event,
+            callback = _this$BVRL$shift.callback;
+
+        this.$root.$off(event, callback);
+      }
+    }
+  },
+  methods: {
+    /**
+     * Safely register event listeners on the root Vue node.
+     * While Vue automatically removes listeners for individual components,
+     * when a component registers a listener on root and is destroyed,
+     * this orphans a callback because the node is gone,
+     * but the root does not clear the callback.
+     *
+     * This adds a non-reactive prop to a vm on the fly
+     * in order to avoid object observation and its performance costs
+     * to something that needs no reactivity.
+     * It should be highly unlikely there are any naming collisions.
+     * @param {string} event
+     * @param {function} callback
+     * @chainable
+     */
+    listenOnRoot: function listenOnRoot(event, callback) {
+      if (!this[BVRL] || !(0, _array.isArray)(this[BVRL])) {
+        this[BVRL] = [];
+      }
+
+      this[BVRL].push({
+        event: event,
+        callback: callback
+      });
+      this.$root.$on(event, callback);
+      return this;
+    },
+
+    /**
+     * Convenience method for calling vm.$emit on vm.$root.
+     * @param {string} event
+     * @param {*} args
+     * @chainable
+     */
+    emitOnRoot: function emitOnRoot(event) {
+      var _this$$root;
+
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+
+      (_this$$root = this.$root).$emit.apply(_this$$root, [event].concat(args));
+
+      return this;
+    }
   }
 };
 exports.default = _default;
@@ -25973,23 +26409,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "nav",
-    { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
-    [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("Takeoff")
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent" }
-        },
-        [
+  return _c("div", [
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
+      [
+        _c("router-link", { staticClass: "navbar-brand", attrs: { to: "/" } }, [
+          _c("i", { staticClass: "fas fa-home" })
+        ]),
+        _vm._v(" "),
+        _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
+        _vm._v(" "),
+        _c("b-collapse", { attrs: { "is-nav": "", id: "nav_collapse" } }, [
           _c("ul", { staticClass: "navbar-nav mr-auto" }, [
             _c(
               "li",
@@ -25997,8 +26428,8 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/" } },
-                  [_vm._v("Home")]
+                  { staticClass: "nav-link", attrs: { to: "/profile" } },
+                  [_vm._v("My Profile")]
                 )
               ],
               1
@@ -26017,33 +26448,13 @@ var render = function() {
               1
             )
           ])
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
+        ])
+      ],
+      1
     )
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -26365,24 +26776,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-6 align-self-center" },
+        [_c("StudentPhoto", { attrs: { editable: true } })],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-6 align-self-center" },
+        [_c("StudentInfo")],
+        1
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row justify-content-center" },
       [
-        _c(
-          "div",
-          { staticClass: "col-6 align-self-center" },
-          [_c("StudentPhoto", { attrs: { editable: true } })],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-6 align-self-center" },
-          [_c("StudentInfo")],
-          1
-        ),
-        _vm._v(" "),
         _c("BadgesEarned", { staticClass: "col-11 col-sm-9" }),
         _vm._v(" "),
         _c("ProfileInfo", { staticClass: "col-11 col-sm-9" }),
@@ -42263,8 +42676,10 @@ if (token) {
 
 
 
+ // import { Navbar } from 'bootstrap-vue/es/components/navbar'
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("ExampleComponent", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("ExampleComponent", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default); // Vue.use(Navbar)
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   store: _store__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -42547,15 +42962,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavBar_vue_vue_type_template_id_5a61c47e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavBar.vue?vue&type=template&id=5a61c47e& */ "./resources/js/components/global/NavBar.vue?vue&type=template&id=5a61c47e&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavBar.vue?vue&type=script&lang=js& */ "./resources/js/components/global/NavBar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _NavBar_vue_vue_type_template_id_5a61c47e___WEBPACK_IMPORTED_MODULE_0__["render"],
   _NavBar_vue_vue_type_template_id_5a61c47e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -42569,6 +42986,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/global/NavBar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/global/NavBar.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/global/NavBar.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./NavBar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/global/NavBar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
