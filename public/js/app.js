@@ -42676,10 +42676,8 @@ if (token) {
 
 
 
- // import { Navbar } from 'bootstrap-vue/es/components/navbar'
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("ExampleComponent", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default); // Vue.use(Navbar)
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("ExampleComponent", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   store: _store__WEBPACK_IMPORTED_MODULE_2__["default"],
