@@ -16,14 +16,11 @@ import router from "./router";
 import store from "./store";
 import App from "./App.vue";
 import "../sass/app.scss";
-// import { Navbar } from 'bootstrap-vue/es/components/navbar'
 
 Vue.component(
     "ExampleComponent",
     require("./components/ExampleComponent.vue").default
 );
-
-// Vue.use(Navbar)
 
 const app = new Vue({
     el: "#app",
