@@ -9,9 +9,9 @@
 			</div>
 		</div>
         <div class="row justify-content-center">
-			<BadgesEarned class="col-11 col-sm-9"/>
-			<ProfileInfo class="col-11 col-sm-9"/>
-            <CurrentInterests class="col-11 col-sm-9"/>
+			<BadgesEarned class="col-11 col-sm-12 col-lg-10"/>
+			<ProfileInfo class="col-11 col-sm-12 col-lg-10"/>
+            <CurrentInterests class="col-11 col-sm-12 col-lg-10"/>
         </div>
 	 </div>
 </template>

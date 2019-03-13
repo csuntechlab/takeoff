@@ -2,8 +2,8 @@
 	<div class="text-left">
 		<h1 class="profile-photo__name"><strong>{{name}}</strong></h1>
         <div class="profile-photo__text"><strong>Major: </strong>{{major}}</div>
-        <div class="profile-photo__text"><strong>Units Earned: </strong>{{units}}</div>
         <div class="profile-photo__text"><strong>Graduation: </strong>{{grad}}</div>
+        <div class="profile-photo__text"><strong>Units Earned: </strong>{{units}}</div>
 	</div>
 </template>
 <script>

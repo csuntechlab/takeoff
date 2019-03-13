@@ -26634,13 +26634,13 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "profile-photo__text" }, [
-      _c("strong", [_vm._v("Units Earned: ")]),
-      _vm._v(_vm._s(_vm.units))
+      _c("strong", [_vm._v("Graduation: ")]),
+      _vm._v(_vm._s(_vm.grad))
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "profile-photo__text" }, [
-      _c("strong", [_vm._v("Graduation: ")]),
-      _vm._v(_vm._s(_vm.grad))
+      _c("strong", [_vm._v("Units Earned: ")]),
+      _vm._v(_vm._s(_vm.units))
     ])
   ])
 }
@@ -26796,11 +26796,11 @@ var render = function() {
       "div",
       { staticClass: "row justify-content-center" },
       [
-        _c("BadgesEarned", { staticClass: "col-11 col-sm-9" }),
+        _c("BadgesEarned", { staticClass: "col-11 col-sm-12 col-lg-10" }),
         _vm._v(" "),
-        _c("ProfileInfo", { staticClass: "col-11 col-sm-9" }),
+        _c("ProfileInfo", { staticClass: "col-11 col-sm-12 col-lg-10" }),
         _vm._v(" "),
-        _c("CurrentInterests", { staticClass: "col-11 col-sm-9" })
+        _c("CurrentInterests", { staticClass: "col-11 col-sm-12 col-lg-10" })
       ],
       1
     )
