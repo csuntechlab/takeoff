@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,8 +9,6 @@ class StudentInfo extends Model
     protected $table = 'student_info';
 
     public $primaryKey = 'id';
-
-    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
