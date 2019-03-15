@@ -4,11 +4,19 @@ import VueRouter from 'vue-router'
 //Pages
 import Login from "./views/Login"
 import Signup from "./views/SignUp"
+import Dashboard from "./views/Dashboard"
 
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     routes: [
+        {
+            path: '/',
+            component: Dashboard,
+            meta: {
+                title: 'Dashboard | Takeoff'
+            }
+        },
         {
             path: '/login',
             component: Login,
