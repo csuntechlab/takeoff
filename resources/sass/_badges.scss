@@ -1,0 +1,21 @@
+.badges-earned {
+    &__header {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    @media (min-width: $break-sm) {
+        &__header {
+            font-size: 1.15rem;
+        }
+    }
+    @media (min-width: $break-md) {
+        &__header {
+            font-size: 1.3rem;
+        }
+    }
+    @media (min-width: $break-lg) {
+        &__header {
+            font-size: 1.5rem;
+        }
+    }
+}
