@@ -32,7 +32,7 @@
         }
 
         &__text {
-            font-size: 1.05rem;
+            font-size: .95rem;
         }
     }
     @include media-breakpoint-up(lg) {
@@ -45,7 +45,7 @@
         }
 
         &__text {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
     }
 }
