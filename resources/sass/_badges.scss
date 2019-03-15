@@ -3,17 +3,17 @@
         font-weight: bold;
         font-size: 1rem;
     }
-    @media (min-width: $break-sm) {
+    @include media-breakpoint-up(sm) {
         &__header {
             font-size: 1.15rem;
         }
     }
-    @media (min-width: $break-md) {
+    @include media-breakpoint-up(md) {
         &__header {
             font-size: 1.3rem;
         }
     }
-    @media (min-width: $break-lg) {
+    @include media-breakpoint-up(lg) {
         &__header {
             font-size: 1.5rem;
         }

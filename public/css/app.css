@@ -10682,7 +10682,7 @@ body {
 }
 
 .profile-photo__text {
-  font-size: 0.66rem;
+  font-size: 0.88rem;
 }
 
 @media (min-width: 576px) {
@@ -10695,7 +10695,7 @@ body {
   }
 
   .profile-photo__text {
-    font-size: 0.725rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -10709,7 +10709,7 @@ body {
   }
 
   .profile-photo__text {
-    font-size: 0.8rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -10723,36 +10723,36 @@ body {
   }
 
   .profile-photo__text {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
 .profile-info__header {
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .profile-info__text {
-  font-size: 0.66rem;
+  font-size: 0.88rem;
 }
 
 @media (min-width: 576px) {
-  .profile-info__header {
-    font-size: 0.95rem;
-  }
-
-  .profile-info__text {
-    font-size: 0.725rem;
-  }
-}
-
-@media (min-width: 768px) {
   .profile-info__header {
     font-size: 1rem;
   }
 
   .profile-info__text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-info__header {
+    font-size: 1.1rem;
+  }
+
+  .profile-info__text {
+    font-size: 0.95rem;
   }
 }
 
