@@ -6285,29 +6285,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -29630,191 +29607,173 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("form", [
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c("label", [_vm._v("College ")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c(
-                "b-dropdown",
-                {
-                  attrs: {
-                    id: "ddown1",
-                    text: "College",
-                    variant: "outline-primary"
-                  }
-                },
-                [
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Cal State LA")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Cal State Santa Barbara")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Cal State Northridge")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("label", { staticClass: "pt-3" }, [_vm._v("Major ")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c(
-                "b-dropdown",
-                {
-                  attrs: {
-                    id: "ddown1",
-                    text: "Major",
-                    variant: "outline-primary"
-                  }
-                },
-                [
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Biochemistry")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Mathematics")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Kinesiology")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-row" }, [
-            _c("div", { staticClass: "col pt-3" }, [
-              _c("label", [_vm._v("Expected Grad ")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c(
-                    "b-dropdown",
-                    {
-                      attrs: {
-                        id: "ddown1",
-                        text: "Choose Year",
-                        variant: "outline-primary"
-                      }
-                    },
-                    [
-                      _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                        _vm._v("2019")
-                      ]),
-                      _vm._v(" "),
-                      _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                        _vm._v("2020")
-                      ]),
-                      _vm._v(" "),
-                      _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                        _vm._v("2021")
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(3)
-          ]),
-          _vm._v(" "),
-          _vm._m(4)
-        ])
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "py-3 text-white bg-primary justify-content-center" },
-      [_c("h4", { staticClass: "text-center" }, [_vm._v("Profile Setup")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group mt-5" }, [
-      _c("label", { attrs: { for: "exampleInputFirstName" } }, [
-        _vm._v("First Name: ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "First name" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group mt-4" }, [
-      _c("label", { attrs: { for: "exampleInputLastName" } }, [
-        _vm._v("Last Name: ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Last Name" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col pt-3" }, [
-      _c("label", [_vm._v("Credits ")]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "80", rows: "1" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center pt-4" }, [
+    return _c("div", [
       _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Complete Registration")]
-      )
+        "div",
+        { staticClass: "py-3 text-white bg-primary justify-content-center" },
+        [_c("h4", { staticClass: "text-center" }, [_vm._v("Profile Setup")])]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group mt-5" }, [
+                _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+                  _vm._v("First Name: ")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "First name" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mt-4" }, [
+                _c("label", { attrs: { for: "exampleInputLastName" } }, [
+                  _vm._v("Last Name: ")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Last Name" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [_vm._v("College ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c(
+                  "select",
+                  {
+                    staticClass: "custom-select",
+                    attrs: {
+                      id: "inputGroupSelect04",
+                      "aria-label": "Example select with button addon"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { selected: "" } }, [
+                      _vm._v("Choose...")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Cal State LA")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Cal State Santa Barbara<")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Cal State Northridge")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("label", { staticClass: "pt-3" }, [_vm._v("Major ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c(
+                  "select",
+                  {
+                    staticClass: "custom-select",
+                    attrs: {
+                      id: "inputGroupSelect04",
+                      "aria-label": "Example select with button addon"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { selected: "" } }, [
+                      _vm._v("Choose...")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Biochemistry")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Mathematics")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Kinesiology")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "col pt-3" }, [
+                  _c("label", [_vm._v("Expected Grad ")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group" }, [
+                    _c(
+                      "select",
+                      {
+                        staticClass: "custom-select",
+                        attrs: {
+                          id: "inputGroupSelect04",
+                          "aria-label": "Example select with button addon"
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("Choose...")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("2019")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [
+                          _vm._v("2020")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "3" } }, [
+                          _vm._v("2021")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col pt-3" }, [
+                  _c("label", [_vm._v("Credits ")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      id: "name",
+                      name: "name",
+                      required: "",
+                      placeholder: "80",
+                      size: "10"
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center pt-4" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Complete Registration")]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
     ])
   }
 ]
