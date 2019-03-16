@@ -6146,6 +6146,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -29337,95 +29339,103 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row justify-content-center" }, [
-          _c("form", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("p", { staticClass: "text-center pt-3" }, [
-                _vm._v("Skip for now "),
-                _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("»")])
+          _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
+            _c("form", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("p", { staticClass: "text-center pt-3" }, [
+                  _vm._v("Skip for now "),
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("»")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("img", {
+                  staticClass: "profile-thumbnail pb-4 pt-2 mx-auto d-block",
+                  attrs: {
+                    src:
+                      "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "custom-file" }, [
+                _c("input", {
+                  staticClass: "custom-file-input",
+                  attrs: {
+                    type: "file",
+                    id: "validatedCustomFile",
+                    required: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "custom-file-label",
+                    attrs: { for: "validatedCustomFile" }
+                  },
+                  [_vm._v("Choose file...")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("Example invalid custom file feedback")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row mt-5" }, [
+                _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+                  _vm._v("Biography: ")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row mt-4" }, [
+                _c("label", { attrs: { for: "exampleInputLastName" } }, [
+                  _vm._v("Research: ")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row mt-4" }, [
+                _c("label", { attrs: { for: "exampleInputLastName" } }, [
+                  _vm._v("Fun Fact About Me: ")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row mt-4" }, [
+                _c("label", { attrs: { for: "exampleInputLastName" } }, [
+                  _vm._v("Academic Interest: ")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { rows: "5", placeholder: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Save Profile")]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                staticClass: "profile-thumbnail pb-4 pt-2",
-                attrs: {
-                  src:
-                    "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "custom-file" }, [
-              _c("input", {
-                staticClass: "custom-file-input",
-                attrs: { type: "file", id: "validatedCustomFile", required: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-file-label",
-                  attrs: { for: "validatedCustomFile" }
-                },
-                [_vm._v("Choose file...")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("Example invalid custom file feedback")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-5" }, [
-              _c("label", { attrs: { for: "exampleInputFirstName" } }, [
-                _vm._v("Biography: ")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Research: ")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Fun Fact About Me: ")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Academic Interest: ")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Save Profile")]
-              )
             ])
           ])
         ])
