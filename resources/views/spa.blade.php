@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vue SPA Demo</title>
+    <title>Takeoff</title>
 </head>
 <body>
     <div id="app">
