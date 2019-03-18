@@ -1,46 +1,57 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 //Pages
-import Login from "./views/Login"
-import Signup from "./views/Signup"
-import ProfileSetup from "./views/ProfileSetup"
-import FinishSetup from "./views/FinishSetup"
+import Login from "./views/Login";
+import Signup from "./views/SignUp";
+import AccountSetup from "./views/AccountSetup";
+import ProfileSetup from "./views/ProfileSetup";
+import StudentProfile from "./views/StudentProfile";
 
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 const router = new VueRouter({
-    mode: 'history',
+    mode: "history",
     routes: [
         {
-            path: '/login',
+            path: "/login",
             component: Login,
             meta: {
-                title: 'Login | Badges'
+                title: "Login | Takeoff",
+                header: "Takeoff"
             }
         },
         {
-            path: '/signup',
+            path: "/signup",
             component: Signup,
             meta: {
-                title: 'Sign Up | Badges'
+                title: "Sign Up | Takeoff",
+                header: "Takeoff"
             }
         },
         {
-            path: '/profilesetup',
-            component: ProfileSetup,
+            path: "/account-setup",
+            component: AccountSetup,
             meta: {
-                title: 'Profile Setup | Badges'
-            } 
+                title: "Account Setup | Badges",
+                header: "Account Information"
+            }
         },
         {
-            path: '/finishsetup',
-            component: FinishSetup,
+            path: "/profile-setup",
+            component: ProfileSetup,
             meta: {
-                title: 'Finish Setup | Badges'
-            } 
+                title: "Profile Setup | Badges",
+                header: "Set Up Your Profile"
+            }
+        },
+        {
+            path: "/profile",
+            component: StudentProfile,
+            meta: {
+                title: "Profile | Takeoff"
+            }
         }
     ]
 });
 
-export default router
+export default router;

@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<ProfileSetup></ProfileSetup>
-        <router-link to="/profilesetup"></router-link>
+		<ProfileSetup/>
+        <router-link to="/finishsetup"></router-link>
 	</div>
 </template>
 
