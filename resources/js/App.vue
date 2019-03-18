@@ -15,7 +15,7 @@ export default {
     },
     computed: {
         loggingIn() {
-            return (this.$route.path == "/signup" || this.$route.path == "/login")
+            return (this.$route.path == "/signup" || this.$route.path == "/login" || this.$route.path == "/profile-setup" || this.$route.path == "/account-setup")
         }
     }
 }
