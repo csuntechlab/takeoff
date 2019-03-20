@@ -49,10 +49,10 @@
 </template>
 
 <script>
+import { minLength, between } from 'vuelidate/lib/validators'
 export default {
-	name: "",
-	data() {
-		return {};
-	}
+	validation: {
+
+    }
 };
 </script>

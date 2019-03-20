@@ -5,11 +5,11 @@
 				<form>
 					<div class="form-group mt-5">
 						<label for="exampleInputFirstName">First Name:</label>
-						<input type="text" class="form-control" placeholder="First name">
+						<input type="text" class="form-control" placeholder="First name" v-model="form.firstName">
 					</div>
 					<div class="form-group mt-4">
 						<label for="exampleInputLastName">Last Name:</label>
-						<input type="text" class="form-control" placeholder="Last Name">
+						<input type="text" class="form-control" placeholder="Last Name" v-model="form.lastName">
 					</div>
 
 					<label>College</label>
@@ -70,7 +70,7 @@
 						</div>
 					</div>
 					<div class="text-center pt-4">
-						<button type="submit" class="btn btn-primary">Complete Registration</button>
+						<button type="submit" class="btn btn-primary" @click="console.log($v)">Complete Registration</button>
 					</div>
 				</form>
 			</div>
@@ -79,14 +79,27 @@
 </template>
 
 <script>
+import { required, minLength, between } from 'vuelidate/lib/validators'
 import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
 export default {
+    data() {
+        return {
+            form: {
+                firstName: '',
+                lastName: '',
+            }
+        }
+    },
 	components: {
 		"b-dropdown": BDropdown
 	},
-	name: "",
-	data() {
-		return {};
-	}
+	validation: {
+        firstName: {
+            required
+        },
+        lastName: {
+            required
+        }
+    }
 };
 </script>
