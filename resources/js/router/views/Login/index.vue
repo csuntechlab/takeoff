@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LogIn from "../../../components/LogIn";
+import LogIn from "../../../components/authentication/LogIn";
 
 export default {
 	data() {

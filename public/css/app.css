@@ -10672,6 +10672,123 @@ body {
   background-color: #f8fafc;
 }
 
+.profile-photo__image {
+  width: 6rem;
+  border-radius: 100px;
+}
+
+.profile-photo__name {
+  font-size: 1.3rem;
+}
+
+.profile-photo__text {
+  font-size: 0.88rem;
+}
+
+@media (min-width: 576px) {
+  .profile-photo__image {
+    width: 8rem;
+  }
+
+  .profile-photo__name {
+    font-size: 1.45rem;
+  }
+
+  .profile-photo__text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-photo__image {
+    width: 10rem;
+  }
+
+  .profile-photo__name {
+    font-size: 1.6rem;
+  }
+
+  .profile-photo__text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile-photo__image {
+    width: 12rem;
+  }
+
+  .profile-photo__name {
+    font-size: 2rem;
+  }
+
+  .profile-photo__text {
+    font-size: 1rem;
+  }
+}
+
+.profile-info__header {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.profile-info__text {
+  font-size: 0.88rem;
+}
+
+@media (min-width: 576px) {
+  .profile-info__header {
+    font-size: 1rem;
+  }
+
+  .profile-info__text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-info__header {
+    font-size: 1.1rem;
+  }
+
+  .profile-info__text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile-info__header {
+    font-size: 1.2rem;
+  }
+
+  .profile-info__text {
+    font-size: 1rem;
+  }
+}
+
+.badges-earned__header {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .badges-earned__header {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .badges-earned__header {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .badges-earned__header {
+    font-size: 1.5rem;
+  }
+}
+
 .email-top {
   background: #D5D7EB;
   height: 40%;
