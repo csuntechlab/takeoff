@@ -17,7 +17,7 @@
 <body>
 
     <div class="container">
-        <h1>Create Post</h1>
+        <h1>Create Profile</h1>
         {!! Form::open(['action'=> 'ProfileController@store', 'method'=>'POST']) !!}
         <div class="form-group">
             {{Form::label('major', 'Major')}}
