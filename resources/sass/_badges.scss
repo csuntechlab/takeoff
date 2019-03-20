@@ -1,0 +1,21 @@
+.badges-earned {
+    &__header {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    @include media-breakpoint-up(sm) {
+        &__header {
+            font-size: 1.15rem;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &__header {
+            font-size: 1.3rem;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        &__header {
+            font-size: 1.5rem;
+        }
+    }
+}
