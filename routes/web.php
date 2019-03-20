@@ -25,4 +25,8 @@ Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
 
+Route::get('/inviteemail', function() {
+    return view('inviteemail');
+});
+
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');

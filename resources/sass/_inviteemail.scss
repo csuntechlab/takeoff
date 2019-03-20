@@ -1,0 +1,29 @@
+.email-top {
+    background: #D5D7EB;
+    height: 40%;
+    width: 100%
+}
+
+.email-bottom {
+    background: #7F83B1;
+    height: 60%;
+    width: 100%;
+}
+
+.email__text {
+    color: #FCFBFB;
+    font-size: 2rem;
+}
+
+.email__access {
+    color: black;
+    border: 1px #DD7D65 dotted;
+    border-radius: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 1.2rem;
+}
+
+.email__signup {
+    text-decoration: underline;
+}
