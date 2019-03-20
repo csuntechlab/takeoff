@@ -25,4 +25,7 @@ Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
 
+Route::post('register', 'RegisterController@register');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
