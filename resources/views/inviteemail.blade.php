@@ -12,7 +12,9 @@
             <button type="button" id="access" class="btn btn-light email__access mx-auto d-block"></button>
         </div>
         <div>
-            <p class="text-center"><router-link to="/signup" type="text" class="email__signup">Continue signing up here</router-link></p>
+            <p class="text-center">
+                <router-link to="/signup" class="email__signup">Continue signing up here</router-link>
+            </p>
         </div>
     </div>
 </div>
