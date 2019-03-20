@@ -6438,7 +6438,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-;
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -30676,50 +30678,64 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
-      [
-        _c("router-link", { staticClass: "navbar-brand", attrs: { to: "/" } }, [
-          _c("i", { staticClass: "fas fa-home" })
-        ]),
-        _vm._v(" "),
-        _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
-        _vm._v(" "),
-        _c("b-collapse", { attrs: { "is-nav": "", id: "nav_collapse" } }, [
-          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/profile" } },
-                  [_vm._v("My Profile")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/login" } },
-                  [_vm._v("Logout")]
-                )
-              ],
-              1
-            )
-          ])
+  return _c(
+    "nav",
+    {
+      staticClass: "navbar navbar-expand-lg navbar-dark bg-primary text-center",
+      attrs: { role: "navigation" }
+    },
+    [
+      _c("div", { staticClass: "navbar-brand" }, [
+        _vm._v("\n            Takeoff\n\t\t")
+      ]),
+      _vm._v(" "),
+      _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
+      _vm._v(" "),
+      _c("b-collapse", { attrs: { "is-nav": "", id: "nav_collapse" } }, [
+        _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/" } },
+                [_vm._v("Dashboard")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/profile" } },
+                [_vm._v("My Profile")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/login" } },
+                [_vm._v("Logout")]
+              )
+            ],
+            1
+          )
         ])
-      ],
-      1
-    )
-  ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -30753,7 +30769,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "badges-earned__header" }, [
-          _c("strong", [_vm._v("Badges Earned:")])
+          _c("strong", [_vm._v("Badges Earned")])
         ])
       ])
     ])

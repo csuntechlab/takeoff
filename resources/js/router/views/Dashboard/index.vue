@@ -15,7 +15,7 @@
 			<BadgesEarned class="col-11 col-sm-12 col-lg-10"/>
 		</div>
 		<!-- calendar -->
-		<!-- assingments -->
+		<!-- current assignments -->
 		<!-- upcoming workshops -->
 	</div>
 </template>
