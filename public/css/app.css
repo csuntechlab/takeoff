@@ -10686,19 +10686,24 @@ body {
 
 .email__text {
   color: #FCFBFB;
-  font-size: 2rem;
+  font-size: 26px;
+  font-weight: 200;
+  line-height: 2.5rem;
 }
 
 .email__access {
   color: black;
   border: 1px #DD7D65 dotted;
   border-radius: 50px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
   font-size: 1.2rem;
+  margin: 2rem;
 }
 
 .email__signup {
   text-decoration: underline;
+  color: #FCFBFB;
+  font-size: 1.2rem;
 }
 

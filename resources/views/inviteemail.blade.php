@@ -1,40 +1,24 @@
 @extends('spa')
-{{-- <div class="container-fluid">
-    <div class=" row email email__top">
-        <h1>Random</h1>
-    </div>
-
-
-    <div class=" row email email__bottom">
-        <div>Welcome to Takeoff!!</div>
-        <div>Here is your access code</div>
-        <div><button type="button" class="btn btn-link">Access Code</button></div>
-    </div>
-</div> --}}
-
-
 <div>
     <div class="email-top justify-content-center">
-        <h1 class="text-center">Badges</h1>
+        <h1 class="text-center">Svg goes below</h1>
     </div>
     <div class="email-bottom justify-content-center">
         <div class="pt-5">
-            <div class="text-center email__text"> Welcome to Takeoff!! </div>
-            <div class="text-center email__text"> Here is your access code </div>
+            <span class="text-center email__text d-block"> Welcome to Takeoff!! </span>
+            <span class="text-center email__text d-block"> Here is your access code </span>
         </div>
         <div>
-            <button type="button" class="btn btn-light email__access mx-auto d-block mt-2">A2JK76X90</button>
+            <button type="button" id="access" class="btn btn-light email__access mx-auto d-block"></button>
         </div>
-        <div class="text-center pt-3">
-            <a><router-link to="/signup" type="text" class="email__signup">Continue signing up here</router-link></a>
+        <div>
+            <p class="text-center"><router-link to="/signup" type="text" class="email__signup">Continue signing up here</router-link></p>
         </div>
-
-        {{-- <button type="button" class="btn btn-link">Link --}}
     </div>
 </div>
 
-
-
-
+<script>
+    document.getElementById('access').innerHTML= 'A2JK76X90';
+</script>
 @section('content')
 @endsection
