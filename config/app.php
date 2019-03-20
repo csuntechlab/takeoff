@@ -177,6 +177,9 @@ return [
         /** Registeration Service Provider */
         App\Providers\ApiProviders\RegisterServiceProvider::class,
 
+        /** Registeration Service Provider */
+        App\Providers\ApiProviders\LoginServiceProvider::class,
+
     ],
 
     /*
