@@ -6152,6 +6152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6163,10 +6164,21 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  methods: {
+    log: function log() {
+      if (this.$v.$invalid) {
+        console.log('nah, you different');
+      }
+    },
+    setValue: function setValue(field, value) {
+      this.form[field] = value;
+      this.$v[field].$touch();
+    }
+  },
   components: {
     "b-dropdown": bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_1___default.a
   },
-  validation: {
+  validations: {
     firstName: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
     },
@@ -29989,23 +30001,40 @@ var render = function() {
               directives: [
                 {
                   name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.firstName,
-                  expression: "form.firstName"
+                  rawName: "v-model.trim",
+                  value: _vm.$v.firstName.$model,
+                  expression: "$v.firstName.$model",
+                  modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", placeholder: "First name" },
-              domProps: { value: _vm.form.firstName },
+              attrs: { type: "text", placeholder: "First Name" },
+              domProps: { value: _vm.$v.firstName.$model },
               on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                input: [
+                  function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.$v.firstName,
+                      "$model",
+                      $event.target.value.trim()
+                    )
+                  },
+                  function($event) {
+                    return _vm.setValue("firstName", $event.target.value)
                   }
-                  _vm.$set(_vm.form, "firstName", $event.target.value)
+                ],
+                blur: function($event) {
+                  return _vm.$forceUpdate()
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            !_vm.$v.firstName.required
+              ? _c("div", [_vm._v("Oh nah")])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group mt-4" }, [
@@ -30017,20 +30046,33 @@ var render = function() {
               directives: [
                 {
                   name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.lastName,
-                  expression: "form.lastName"
+                  rawName: "v-model.trim",
+                  value: _vm.$v.lastName.$model,
+                  expression: "$v.lastName.$model",
+                  modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "Last Name" },
-              domProps: { value: _vm.form.lastName },
+              domProps: { value: _vm.$v.lastName.$model },
               on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                input: [
+                  function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.$v.lastName,
+                      "$model",
+                      $event.target.value.trim()
+                    )
+                  },
+                  function($event) {
+                    return _vm.setValue("lastName", $event.target.value)
                   }
-                  _vm.$set(_vm.form, "lastName", $event.target.value)
+                ],
+                blur: function($event) {
+                  return _vm.$forceUpdate()
                 }
               }
             })
@@ -30054,7 +30096,8 @@ var render = function() {
                 attrs: { type: "submit" },
                 on: {
                   click: function($event) {
-                    return _vm.console.log(_vm.$v)
+                    $event.preventDefault()
+                    return _vm.log($event)
                   }
                 }
               },
@@ -30087,7 +30130,7 @@ var staticRenderFns = [
           _c("option", { attrs: { value: "1" } }, [_vm._v("Cal State LA")]),
           _vm._v(" "),
           _c("option", { attrs: { value: "2" } }, [
-            _vm._v("Cal State Santa Barbara<")
+            _vm._v("Cal State Santa Barbara")
           ]),
           _vm._v(" "),
           _c("option", { attrs: { value: "3" } }, [
