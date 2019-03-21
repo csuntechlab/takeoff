@@ -1,0 +1,85 @@
+.profile-photo {
+    &__image {
+        width: 6rem;
+        border-radius: 100px;
+    }
+    &__name {
+        font-size: 1.3rem;
+    }
+    &__text {
+        font-size: 0.88rem;
+    }
+    @include media-breakpoint-up(sm) {
+        &__image {
+            width: 8rem;
+        }
+
+        &__name {
+            font-size: 1.45rem;
+        }
+
+        &__text {
+            font-size: 0.9rem;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &__image {
+            width: 10rem;
+        }
+
+        &__name {
+            font-size: 1.6rem;
+        }
+
+        &__text {
+            font-size: .95rem;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        &__image {
+            width: 12rem;
+        }
+
+        &__name {
+            font-size: 2rem;
+        }
+
+        &__text {
+            font-size: 1rem;
+        }
+    }
+}
+
+.profile-info {
+    &__header {
+        font-weight: bold;
+        font-size: .95rem;
+    }
+    &__text {
+        font-size: 0.88rem;
+    }
+   @include media-breakpoint-up(sm) {
+        &__header {
+            font-size: 1rem;
+        }
+        &__text {
+            font-size: 0.9rem;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &__header {
+            font-size: 1.1rem;
+        }
+        &__text {
+            font-size: .95rem;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        &__header {
+            font-size: 1.2rem;
+        }
+        &__text {
+            font-size: 1rem;
+        }
+    }
+}
