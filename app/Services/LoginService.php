@@ -17,13 +17,14 @@ class LoginService implements LoginContract
                 'message' => 'Unauthorized'
             ], 401);
 
-            $user = $request->user();
-
+            $user = Auth::user();
             $tokenResult = $user->createToken('takeoff');
             $token = $tokenResult->token;
+
             if ($request->remember_me)
                 $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();
+
             return response()->json([
                 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
