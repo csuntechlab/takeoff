@@ -1,10 +1,25 @@
 version: '3.3'
 services:
-  badges:
-    container_name: badges
+  takeoff:
+    container_name: takeoff
     build:
       context: .
     ports:
       - 8080:80
     volumes:
       - .:/var/www/html
+  db:
+    image: mysql:5.6.41
+    container_name: takeoff_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: takeoff
+      MYSQL_USER: takeoff
+      MYSQL_PASSWORD: takeoff
+      MYSQL_ROOT_PASSWORD: takeoff
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql/
+volumes:
+    db_data:
