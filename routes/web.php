@@ -23,7 +23,7 @@ Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
 
-Route::get('/media/{email}', 'MediaController@getMediaByEmail');
+Route::get('/media/{email}', 'MediaController@getMedia');
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 

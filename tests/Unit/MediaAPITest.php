@@ -19,29 +19,22 @@ class MediaAPITest extends TestCase
         $this->retriever = Mockery::spy(MediaAPIContract::class);
     }
 
+    /**
+     * @test
+     */
+
     public function able_to_connect_to_mediaAPI(){
-        // Given a person's email we are able to get their image from the Media API
-        // When
-        // Then
 
         $controller = new MediaController($this->retriever);
+
         $this->retriever
             ->shouldReceive('getMediaByEmail')
-            ->once();
-        $controller->getMediaByEmail('steven.fitzgerald');
+            ->once()
+            ->with('steven.fitzgerald')
+            ->andReturn(['a', 'b', 'c']);
 
-//        $response = $this->get('/media/steven.fitzgerald');
-//
-//        $response->assertStatus(200);
-    }
+        $response = $controller->getMedia('steven.fitzgerald');
+        $this->assertEquals(['a', 'b', 'c'], $response);
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
     }
 }

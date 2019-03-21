@@ -11,8 +11,8 @@ class MediaAPIService implements MediaAPIContract
     {
         $client = new Client();
         //$email = $this->retrieveEmail();  //this is will be implemented when the user can be found
-        $studentemail = str_before($email, '@');
-        $url = 'https://api.sandbox.csun.edu/metalab/media/1.1/faculty/media/nr_' . $studentemail;
+
+        $url = 'https://api.sandbox.csun.edu/metalab/media/1.1/faculty/media/nr_' . $email;
         $response = $client->get($url);
 
         return $response;

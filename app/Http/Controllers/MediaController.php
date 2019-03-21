@@ -15,7 +15,7 @@ class MediaController extends Controller
         $this->MediaAPIRetriever = $mediaAPIContract;
     }
 
-    public function getMediaByEmail($email)
+    public function getMedia($email)
     {
         return $this->MediaAPIRetriever->getMediaByEmail($email);
     }
