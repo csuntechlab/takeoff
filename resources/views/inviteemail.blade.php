@@ -13,7 +13,7 @@
         </div>
         <div>
             <p class="text-center">
-                <router-link to="/signup" class="email__signup">Continue signing up here</router-link>
+                <a href="#" class="email__signup">Continue signing up here</a>
             </p>
         </div>
     </div>
