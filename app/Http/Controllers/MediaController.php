@@ -2,28 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use GuzzleHttp\Exception\GuzzleException;
+use App\Contracts\MediaAPIContract;
 use GuzzleHttp\Client;
 use Response;
 
 class MediaController extends Controller
 {
-    public function __construct()
+    private $MediaAPIRetriever;
+
+    public function __construct(MediaAPIContract $mediaAPIContract)
     {
-
-        //return $user->retrieveAuthorizedEmail();  //return their email
-
+        $this->MediaAPIRetriever = $mediaAPIContract;
     }
 
     public function getMediaByEmail($email)
     {
-        $client = new Client();
-        $studentemail = str_before($email, '@');
-        //$email = $this->retrieveEmail();  //this is will be implemented when the user can be found
-        $url = 'https://api.sandbox.csun.edu/metalab/media/1.1/faculty/media/nr_' . $studentemail;
-        $response = $client->get($url);
-
-        return $response;
+        return $this->MediaAPIRetriever->getMediaByEmail($email);
     }
 }
