@@ -5,12 +5,24 @@
 				<form>
 					<div class="form-group mt-5">
 						<label for="exampleInputFirstName">First Name:</label>
-						<input type="text" class="form-control" placeholder="First Name" v-model.trim="$v.firstName.$model" @input="setValue('firstName', $event.target.value)">
-                        <div v-if="!$v.firstName.required">Oh nah</div>
+						<input
+							type="text"
+							class="form-control"
+							placeholder="First Name"
+							v-model.trim="form.firstName"
+							@input="setValue('firstName', $event.target.value)"
+						>
+						<div v-if="$v.firstName.error">Oh nah</div>
 					</div>
 					<div class="form-group mt-4">
 						<label for="exampleInputLastName">Last Name:</label>
-						<input type="text" class="form-control" placeholder="Last Name" v-model.trim="$v.lastName.$model" @input="setValue('lastName', $event.target.value)">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Last Name"
+							v-model.trim="form.lastName"
+							@input="setValue('lastName', $event.target.value)"
+						>
 					</div>
 
 					<label>College</label>
@@ -80,38 +92,39 @@
 </template>
 
 <script>
-import { required, minLength, between } from 'vuelidate/lib/validators'
+import { required, minLength, between } from "vuelidate/lib/validators";
 import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
 export default {
-    data() {
-        return {
-            form: {
-                firstName: '',
-                lastName: '',
-            }
-        }
-    },
-    methods: {
-        log() {
-            if(this.$v.$invalid){
-                console.log('nah, you different')
-            }
-        },
-        setValue(field, value){
-            this.form[field] = value
-            this.$v[field].$touch()
-        }
-    },
+	data() {
+		return {
+			form: {
+				firstName: "",
+				lastName: ""
+			}
+		};
+	},
+	methods: {
+		log() {
+			if (this.$v.$invalid) {
+				console.log("nah, you different");
+			}
+		},
+		setValue(field, value) {
+			this.form[field] = value;
+			this.$v[field].$touch();
+		}
+	},
 	components: {
 		"b-dropdown": BDropdown
 	},
 	validations: {
-        firstName: {
-            required
-        },
-        lastName: {
-            required
-        }
-    }
+		firstName: {
+            required,
+            minLength: minLength(4)
+		},
+		lastName: {
+			required
+		}
+	}
 };
 </script>

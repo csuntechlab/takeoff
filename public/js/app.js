@@ -6153,21 +6153,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        firstName: '',
-        lastName: ''
+        firstName: "",
+        lastName: ""
       }
     };
   },
   methods: {
     log: function log() {
       if (this.$v.$invalid) {
-        console.log('nah, you different');
+        console.log("nah, you different");
       }
     },
     setValue: function setValue(field, value) {
@@ -6180,7 +6192,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   validations: {
     firstName: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+      minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(4)
     },
     lastName: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
@@ -30055,25 +30068,21 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model.trim",
-                  value: _vm.$v.firstName.$model,
-                  expression: "$v.firstName.$model",
+                  value: _vm.form.firstName,
+                  expression: "form.firstName",
                   modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "First Name" },
-              domProps: { value: _vm.$v.firstName.$model },
+              domProps: { value: _vm.form.firstName },
               on: {
                 input: [
                   function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.$v.firstName,
-                      "$model",
-                      $event.target.value.trim()
-                    )
+                    _vm.$set(_vm.form, "firstName", $event.target.value.trim())
                   },
                   function($event) {
                     return _vm.setValue("firstName", $event.target.value)
@@ -30085,9 +30094,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.firstName.required
-              ? _c("div", [_vm._v("Oh nah")])
-              : _vm._e()
+            _vm.$v.firstName.error ? _c("div", [_vm._v("Oh nah")]) : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group mt-4" }, [
@@ -30100,25 +30107,21 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model.trim",
-                  value: _vm.$v.lastName.$model,
-                  expression: "$v.lastName.$model",
+                  value: _vm.form.lastName,
+                  expression: "form.lastName",
                   modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "Last Name" },
-              domProps: { value: _vm.$v.lastName.$model },
+              domProps: { value: _vm.form.lastName },
               on: {
                 input: [
                   function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.$v.lastName,
-                      "$model",
-                      $event.target.value.trim()
-                    )
+                    _vm.$set(_vm.form, "lastName", $event.target.value.trim())
                   },
                   function($event) {
                     return _vm.setValue("lastName", $event.target.value)
