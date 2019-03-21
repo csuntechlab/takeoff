@@ -17,7 +17,7 @@ class LoginService implements LoginContract
                 'message' => 'Unauthorized'
             ], 401);
 
-            $user = Auth::user();
+            $user = $request->user();
             $tokenResult = $user->createToken('takeoff');
             $token = $tokenResult->token;
 
