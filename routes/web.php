@@ -25,5 +25,9 @@ Route::get('/docs/assets/js/*.js', function() {
 
 Route::get('/media/{email}', 'MediaController@getMedia');
 
+Route::get('/inviteemail', function() {
+    return view('inviteemail');
+});
+
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
