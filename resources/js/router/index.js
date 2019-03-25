@@ -1,12 +1,14 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from "vue"
+import VueRouter from "vue-router"
 
 //Pages
-import Login from "./views/Login";
-import Signup from "./views/SignUp";
-import AccountSetup from "./views/AccountSetup";
-import ProfileSetup from "./views/ProfileSetup";
-import StudentProfile from "./views/StudentProfile";
+import Login from "./views/Login"
+import Signup from "./views/SignUp"
+import AccountSetup from "./views/AccountSetup"
+import ProfileSetup from "./views/ProfileSetup"
+import StudentProfile from "./views/StudentProfile"
+import Dashboard from "./views/Dashboard"
+import ErrorPage from "./views/ErrorPage"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -45,12 +47,31 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/",
+            component: Dashboard,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
+            }
+        },
+        {
             path: "/profile",
             component: StudentProfile,
             meta: {
-                title: "Profile | Takeoff"
+                title: "Profile | Takeoff",
+                header: "[Student] Profile"
             }
+        },
+        {
+            path: "*",
+            component: ErrorPage,
+            meta: {
+                title: 'Whoops!',
+                header: 'Page Not Found'
+            }
+
         }
+
     ]
 });
 

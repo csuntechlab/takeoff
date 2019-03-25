@@ -174,11 +174,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        /** Registeration Service Provider */
-        App\Providers\ApiProviders\RegisterServiceProvider::class,
 
         /** Registeration Service Provider */
+        App\Providers\ApiProviders\RegisterServiceProvider::class,
+        /** Login Service Provider */
         App\Providers\ApiProviders\LoginServiceProvider::class,
+        /** Login Service Provider */
+        App\Providers\ApiProviders\MediaAPIServiceProvider::class,
 
     ],
 

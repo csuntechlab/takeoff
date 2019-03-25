@@ -11,8 +11,6 @@
 |
 */
 
-Route::post('invite/{studentemail}', 'AdminController@sendInvite');
-
 Route::get('/docs', function() {
     return File::get(public_path() . '/docs/index.html');
 });
@@ -28,4 +26,11 @@ Route::get('/docs/assets/js/*.js', function() {
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
+Route::get('/media/{email}', 'MediaController@getMedia');
+
+Route::get('/inviteemail', function() {
+    return view('inviteemail');
+});
+
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+
