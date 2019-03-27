@@ -6276,11 +6276,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        academicInterests: []
+      }
+    };
+  },
   mounted: function mounted() {
     var interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#academicInterests"), {
       delimiter: ",",
-      removeItemButton: true
+      removeItemButton: true,
+      duplicateItemsAllowed: false
     });
+  },
+  methods: {
+    submit: function submit() {
+      this.form.academicInterests = interests.getValue(true);
+    }
   }
 });
 
@@ -30317,106 +30330,145 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
+        _c("form", [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-row mt-4" }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "academicInterests" } }, [
+            _vm._v("Academic Interests:")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "academicInterests",
+              type: "text",
+              placeholder: "Enter a new interest"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [_vm._v("Save Profile")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
-          _c("form", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("p", { staticClass: "text-center pt-3" }, [
-                _vm._v("\n\t\t\t\t\t\tSkip for now\n\t\t\t\t\t\t"),
-                _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("»")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("img", {
-                staticClass: "profile-thumbnail pb-4 pt-2 mx-auto d-block",
-                attrs: {
-                  src:
-                    "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "custom-file" }, [
-              _c("input", {
-                staticClass: "custom-file-input",
-                attrs: { type: "file", id: "validatedCustomFile", required: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-file-label",
-                  attrs: { for: "validatedCustomFile" }
-                },
-                [_vm._v("Choose file...")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("Example invalid custom file feedback")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-5" }, [
-              _c("label", [_vm._v("Biography:")]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", [_vm._v("Research:")]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", [_vm._v("Fun Fact About Me:")]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "academicInterests" } }, [
-              _vm._v("Academic Interests:")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                id: "academicInterests",
-                type: "text",
-                placeholder: "Enter a new interest"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Save Profile")]
-              )
-            ])
-          ])
-        ])
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("p", { staticClass: "text-center pt-3" }, [
+        _vm._v("\n\t\t\t\t\t\tSkip for now\n\t\t\t\t\t\t"),
+        _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("»")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        staticClass: "profile-thumbnail pb-4 pt-2 mx-auto d-block",
+        attrs: {
+          src:
+            "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "custom-file" }, [
+      _c("input", {
+        staticClass: "custom-file-input",
+        attrs: { type: "file", id: "validatedCustomFile" }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        {
+          staticClass: "custom-file-label",
+          attrs: { for: "validatedCustomFile" }
+        },
+        [_vm._v("Choose file...")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "invalid-feedback" }, [
+        _vm._v("Example invalid custom file feedback")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-row mt-5" }, [
+      _c("label", [_vm._v("Biography:")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-row mt-4" }, [
+      _c("label", [_vm._v("Research:")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-row mt-4" }, [
+      _c("label", [_vm._v("Fun Fact About Me:")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+      })
     ])
   }
 ]

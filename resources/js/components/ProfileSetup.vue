@@ -17,7 +17,7 @@
 						>
 					</div>
 					<div class="custom-file">
-						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
+						<input type="file" class="custom-file-input" id="validatedCustomFile">
 						<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
 						<div class="invalid-feedback">Example invalid custom file feedback</div>
 					</div>
@@ -41,7 +41,7 @@
 						<input id="academicInterests" type="text" placeholder="Enter a new interest">
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" class="btn btn-primary">Save Profile</button>
+						<button type="submit" class="btn btn-primary" @click.prevent="submit">Save Profile</button>
 					</div>
 				</form>
 			</div>
@@ -52,14 +52,27 @@
 <script>
 import Choices from "choices.js";
 export default {
+    data() {
+        return {
+            form: {
+                academicInterests: []
+            }
+        }
+    },
 	mounted() {
 		const interests = new Choices(
 			document.querySelector("#academicInterests"),
 			{
 				delimiter: ",",
-				removeItemButton: true
-			}
-		);
-	}
+                removeItemButton: true,
+                duplicateItemsAllowed: false,
+            }
+        )
+    },
+    methods: {
+        submit(){
+            this.form.academicInterests = interests.getValue(true)
+        }
+    }
 };
 </script>
