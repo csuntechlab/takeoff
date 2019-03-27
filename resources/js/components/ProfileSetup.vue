@@ -4,7 +4,8 @@
 			<div class="col-lg-6 col-md-8 col-sm-12">
 				<form>
 					<a href="#">
-						<p class="text-center pt-3">Skip for now
+						<p class="text-center pt-3">
+							Skip for now
 							<span aria-hidden="true">&raquo;</span>
 						</p>
 					</a>
@@ -21,23 +22,23 @@
 						<div class="invalid-feedback">Example invalid custom file feedback</div>
 					</div>
 					<div class="form-row mt-5">
-						<label for="exampleInputFirstName">Biography:</label>
+						<label>Biography:</label>
 						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
 					</div>
 					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Research:</label>
-						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
-					</div>
-
-					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Fun Fact About Me:</label>
+						<label>Research:</label>
 						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
 					</div>
 
 					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Academic Interest:</label>
-						<textarea class="form-control" rows="5" placeholder></textarea>
+						<label>Fun Fact About Me:</label>
+						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
 					</div>
+
+					<div class="form-row mt-4">
+					</div>
+						<label for="academicInterests">Academic Interests:</label>
+						<input id="academicInterests" type="text" placeholder="Enter a new interest">
 
 					<div class="text-center pt-4 pb-4">
 						<button type="submit" class="btn btn-primary">Save Profile</button>
@@ -49,10 +50,16 @@
 </template>
 
 <script>
+import Choices from "choices.js";
 export default {
-	name: "",
-	data() {
-		return {};
+	mounted() {
+		const interests = new Choices(
+			document.querySelector("#academicInterests"),
+			{
+				delimiter: ",",
+				removeItemButton: true
+			}
+		);
 	}
 };
 </script>
