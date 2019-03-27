@@ -6275,19 +6275,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+var interests;
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        academicInterests: []
+        academicInterests: null
       }
     };
   },
   mounted: function mounted() {
-    var interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#academicInterests"), {
+    interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#academicInterests"), {
       delimiter: ",",
       removeItemButton: true,
-      duplicateItemsAllowed: false
+      duplicateItemsAllowed: false,
+      editItems: true
     });
   },
   methods: {

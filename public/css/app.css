@@ -11050,6 +11050,10 @@ body {
   background-color: #f8fafc;
 }
 
+textarea {
+  resize: none;
+}
+
 .nav__header {
   color: white;
   font-size: 1.2rem;

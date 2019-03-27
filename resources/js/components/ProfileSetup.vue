@@ -50,22 +50,24 @@
 </template>
 
 <script>
-import Choices from "choices.js";
+import Choices from "choices.js"
+var interests
 export default {
     data() {
         return {
             form: {
-                academicInterests: []
+                academicInterests: null
             }
         }
     },
 	mounted() {
-		const interests = new Choices(
+		interests = new Choices(
 			document.querySelector("#academicInterests"),
 			{
 				delimiter: ",",
                 removeItemButton: true,
                 duplicateItemsAllowed: false,
+                editItems: true
             }
         )
     },
