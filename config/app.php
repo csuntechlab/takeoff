@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\StudentInfoServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\ApiProviders\MediaAPIServiceProvider::class,
+
     ],
 
     /*
