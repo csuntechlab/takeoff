@@ -25,5 +25,5 @@ Route::get('/docs/assets/js/*.js', function() {
 
 Route::resource('profile', 'ProfileController');
 
-//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
