@@ -38,7 +38,7 @@ class RegisterService implements RegisterContract
 
         });
 
-        generateAccessCode($user);
+        $this->generateAccessCode($user);
 
         return $user;
     }
