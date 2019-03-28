@@ -6504,6 +6504,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.min.js");
+/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(choices_js__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -6513,7 +6515,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['interests'],
+  mounted: function mounted() {
+    var interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#profileAcademicInterests"), {
+      items: this.exampleInterests
+    });
+    interests.disable();
+  }
+});
 
 /***/ }),
 
@@ -6829,6 +6845,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      student: {
+        interests: ["Apple", "Bapple", "Citrus", "Durian", "Elephant", "Fruit"]
+      }
+    };
+  },
   components: {
     StudentPhoto: _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_0__["default"],
     StudentInfo: _components_studentProfile_StudentInfo__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -30921,19 +30944,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "choices__list choices__list--multiple" },
+        _vm._l(_vm.interests, function(interest, index) {
+          return _c("div", { key: index, staticClass: "choices__item" }, [
+            _vm._v(
+              "\n                    " + _vm._s(interest) + "\n                "
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("h3", { staticClass: "profile-info__header" }, [
-          _c("strong", [_vm._v("Current Interests:")])
-        ])
-      ])
+    return _c("h3", { staticClass: "profile-info__header" }, [
+      _c("strong", [_vm._v("Current Interests:")])
     ])
   }
 ]
@@ -31360,7 +31396,10 @@ var render = function() {
         _vm._v(" "),
         _c("ProfileInfo", { staticClass: "col-11 col-sm-12 col-lg-10" }),
         _vm._v(" "),
-        _c("CurrentInterests", { staticClass: "col-11 col-sm-12 col-lg-10" })
+        _c("CurrentInterests", {
+          staticClass: "col-11 col-sm-12 col-lg-10",
+          attrs: { interests: _vm.student.interests }
+        })
       ],
       1
     )

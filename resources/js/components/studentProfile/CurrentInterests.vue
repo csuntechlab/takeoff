@@ -4,9 +4,27 @@
 			<h3 class="profile-info__header">
 				<strong>Current Interests:</strong>
 			</h3>
+            <div class="choices__list choices__list--multiple">
+                <div v-for="(interest, index) in interests" :key="index" class="choices__item">
+                    {{interest}}
+                </div>
+            </div>
 		</div>
 	</div>
 </template>
 <script>
-export default {};
+import Choices from "choices.js";
+export default {
+	props:['interests'],
+	mounted() {
+		const interests = new Choices(
+			document.querySelector("#profileAcademicInterests"),
+			{
+				items: this.exampleInterests,
+			}
+        )
+        interests.disable();
+
+	}
+};
 </script>
