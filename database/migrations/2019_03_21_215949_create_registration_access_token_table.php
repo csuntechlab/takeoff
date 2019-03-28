@@ -16,6 +16,7 @@ class CreateRegistrationAccessTokenTable extends Migration
         Schema::create('registration_access_token', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('user_id');
             $table->string('access_code');
         });
     }
