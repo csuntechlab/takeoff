@@ -11069,6 +11069,10 @@ textarea {
   font-size: 1rem;
 }
 
+.profile-thumbnail {
+  border-radius: 50%;
+}
+
 .profile-photo__image {
   width: 6rem;
   border-radius: 100px;
