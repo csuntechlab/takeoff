@@ -16,6 +16,9 @@ import router from "./router";
 import store from "./store";
 import App from "./App.vue";
 import "../sass/app.scss";
+import Vuelidate from "vuelidate";
+
+Vue.use(Vuelidate);
 
 Vue.component(
     "ExampleComponent",
