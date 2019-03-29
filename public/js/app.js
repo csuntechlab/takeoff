@@ -6273,7 +6273,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var interests;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6518,17 +6517,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['interests'],
-  mounted: function mounted() {
-    var interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#profileAcademicInterests"), {
-      items: this.exampleInterests
-    });
-    interests.disable();
-  }
+  props: ["interests"]
 });
 
 /***/ }),
@@ -30953,9 +30944,7 @@ var render = function() {
         { staticClass: "choices__list choices__list--multiple" },
         _vm._l(_vm.interests, function(interest, index) {
           return _c("div", { key: index, staticClass: "choices__item" }, [
-            _vm._v(
-              "\n                    " + _vm._s(interest) + "\n                "
-            )
+            _vm._v(_vm._s(interest))
           ])
         }),
         0
