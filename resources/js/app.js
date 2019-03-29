@@ -16,10 +16,28 @@ import router from "./router";
 import store from "./store";
 import App from "./App.vue";
 import "../sass/app.scss";
+import Vuelidate from "vuelidate";
+
+Vue.use(Vuelidate);
 
 Vue.component(
     "ExampleComponent",
     require("./components/ExampleComponent.vue").default
+);
+
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
 );
 
 const app = new Vue({

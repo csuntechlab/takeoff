@@ -176,6 +176,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\StudentInfoServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        /** Registeration Service Provider */
+        App\Providers\ApiProviders\RegisterServiceProvider::class,
+        /** Login Service Provider */
+        App\Providers\ApiProviders\LoginServiceProvider::class,
+        /** Login Service Provider */
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
 
     ],
