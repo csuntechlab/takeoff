@@ -1,10 +1,13 @@
 <template>
     <div class="container">
         <div>
-            <RosterCard/>
+            <AddStudent/>
         </div>
         <div>
-
+            <SearchStudent/>
+        </div>
+        <div>
+            <RosterCard/>
         </div>
     </div>
 </template>
