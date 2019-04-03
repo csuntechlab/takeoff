@@ -21,23 +21,23 @@
                         <small class="form-text text-muted">Accepts .jpg, .jpeg, and .png file types.</small>
 					</div>
 					<div class="form-row mt-5">
-						<label>Biography:</label>
-						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
+						<label for="biography">Biography</label>
+						<textarea id="biography" class="form-control" rows="5" placeholder="Write about yourself."></textarea>
 					</div>
 					<div class="form-row mt-4">
-						<label>Research:</label>
-						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
+						<label for="research">Research</label>
+						<textarea id="research" class="form-control" rows="5" placeholder="Write about any research you are doing."></textarea>
 					</div>
 
 					<div class="form-row mt-4">
-						<label>Fun Fact About Me:</label>
-						<textarea class="form-control" rows="5" placeholder="Lorem Ipsum bla bla bla"></textarea>
+						<label for="funFact">Fun Fact About Me</label>
+						<textarea id="funFact" class="form-control" rows="5" placeholder="Write a fun fact about yourself."></textarea>
 					</div>
 
 					<div class="form-row mt-4">
 					</div>
-						<label for="academicInterests">Academic Interests:</label>
-						<input id="academicInterests" type="text" placeholder="Enter a new interest">
+						<label for="academicInterests">Academic Interests</label>
+						<input id="academicInterests" type="text" placeholder="Write about your interests.">
 
 					<div class="text-center pt-4 pb-4">
 						<button type="submit" class="btn btn-primary" @click.prevent="submit">Save Profile</button>

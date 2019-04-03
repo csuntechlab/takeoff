@@ -27041,14 +27041,14 @@ var render = function() {
             _c("div", { staticClass: "form-row mt-4" }),
             _vm._v(" "),
             _c("label", { attrs: { for: "academicInterests" } }, [
-              _vm._v("Academic Interests:")
+              _vm._v("Academic Interests")
             ]),
             _vm._v(" "),
             _c("input", {
               attrs: {
                 id: "academicInterests",
                 type: "text",
-                placeholder: "Enter a new interest"
+                placeholder: "Write about your interests."
               }
             }),
             _vm._v(" "),
@@ -27124,11 +27124,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-row mt-5" }, [
-      _c("label", [_vm._v("Biography:")]),
+      _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+        attrs: {
+          id: "biography",
+          rows: "5",
+          placeholder: "Write about yourself."
+        }
       })
     ])
   },
@@ -27137,11 +27141,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-row mt-4" }, [
-      _c("label", [_vm._v("Research:")]),
+      _c("label", { attrs: { for: "research" } }, [_vm._v("Research")]),
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+        attrs: {
+          id: "research",
+          rows: "5",
+          placeholder: "Write about any research you are doing."
+        }
       })
     ])
   },
@@ -27150,11 +27158,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-row mt-4" }, [
-      _c("label", [_vm._v("Fun Fact About Me:")]),
+      _c("label", { attrs: { for: "funFact" } }, [_vm._v("Fun Fact About Me")]),
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Lorem Ipsum bla bla bla" }
+        attrs: {
+          id: "funFact",
+          rows: "5",
+          placeholder: "Write a fun fact about yourself."
+        }
       })
     ])
   }
