@@ -4,8 +4,9 @@
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
 					<div class="form-group mt-5">
-						<label for="exampleInputFirstName">First Name</label>
+						<label for="adminFirstName">First Name</label>
 						<input
+                            id="adminFirstName"
 							type="text"
 							class="form-control"
 							:class="firstNameValidation"
@@ -16,8 +17,9 @@
 						<div class="invalid-feedback">Please enter your first name.</div>
 					</div>
 					<div class="form-group mt-4">
-						<label for="exampleInputLastName">Last Name</label>
+						<label for="adminLastName">Last Name</label>
 						<input
+                            id="adminLastName"
 							type="text"
 							:class="lastNameValidation"
 							class="form-control"
@@ -28,8 +30,9 @@
 						<div class="invalid-feedback">Please enter your last name.</div>
 					</div>
                     <div class="form-group mt-4">
-						<label for="exampleInputLastName">Title</label>
+						<label for="adminTitle">Title</label>
 						<input
+                            id="adminTitle"
 							type="text"
 							:class="titleValidation"
 							class="form-control"

@@ -6186,6 +6186,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -6373,6 +6374,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -25676,7 +25680,7 @@ var render = function() {
       _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
         _c("form", { attrs: { novalidate: "" } }, [
           _c("div", { staticClass: "form-group mt-5" }, [
-            _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+            _c("label", { attrs: { for: "firstName" } }, [
               _vm._v("First Name")
             ]),
             _vm._v(" "),
@@ -25693,6 +25697,7 @@ var render = function() {
               staticClass: "form-control",
               class: _vm.firstNameValidation,
               attrs: {
+                id: "firstName",
                 type: "text",
                 placeholder: "First Name",
                 maxlength: "50"
@@ -25721,9 +25726,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group mt-4" }, [
-            _c("label", { attrs: { for: "exampleInputLastName" } }, [
-              _vm._v("Last Name")
-            ]),
+            _c("label", { attrs: { for: "lastName" } }, [_vm._v("Last Name")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -25738,6 +25741,7 @@ var render = function() {
               staticClass: "form-control",
               class: _vm.lastNameValidation,
               attrs: {
+                id: "lastName",
                 type: "text",
                 placeholder: "Last Name",
                 maxlength: "50"
@@ -25765,7 +25769,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("label", [_vm._v("College")]),
+          _c("label", { attrs: { for: "college" } }, [_vm._v("College")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
             _c(
@@ -25783,7 +25787,7 @@ var render = function() {
                 staticClass: "form-control custom-select",
                 class: _vm.collegeValidation,
                 attrs: {
-                  id: "inputGroupSelect04",
+                  id: "college",
                   "aria-label": "Example select with button addon"
                 },
                 on: {
@@ -25840,7 +25844,9 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("label", { staticClass: "pt-3" }, [_vm._v("Major")]),
+          _c("label", { staticClass: "pt-3", attrs: { for: "major" } }, [
+            _vm._v("Major")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
             _c(
@@ -25858,7 +25864,7 @@ var render = function() {
                 staticClass: "form-control custom-select",
                 class: _vm.majorValidation,
                 attrs: {
-                  id: "inputGroupSelect04",
+                  id: "major",
                   "aria-label": "Example select with button addon"
                 },
                 on: {
@@ -25903,7 +25909,9 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-row" }, [
             _c("div", { staticClass: "col pt-3" }, [
-              _c("label", [_vm._v("Expected Graduation")]),
+              _c("label", { attrs: { for: "expectedGrad" } }, [
+                _vm._v("Expected Graduation")
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "input-group" }, [
                 _c(
@@ -25921,7 +25929,7 @@ var render = function() {
                     staticClass: "form-control custom-select",
                     class: _vm.expectedGradValidation,
                     attrs: {
-                      id: "inputGroupSelect04",
+                      id: "expectedGrad",
                       "aria-label": "Example select with button addon"
                     },
                     on: {
@@ -25964,7 +25972,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col pt-3" }, [
-              _c("label", [_vm._v("Completed Units")]),
+              _c("label", { attrs: { for: "units" } }, [
+                _vm._v("Completed Units")
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -25980,8 +25990,7 @@ var render = function() {
                 class: _vm.unitsValidation,
                 attrs: {
                   type: "number",
-                  id: "name",
-                  name: "name",
+                  id: "units",
                   required: "",
                   placeholder: "Units",
                   size: "10"
@@ -26272,7 +26281,7 @@ var render = function() {
       _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
         _c("form", { attrs: { novalidate: "" } }, [
           _c("div", { staticClass: "form-group mt-5" }, [
-            _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+            _c("label", { attrs: { for: "adminFirstName" } }, [
               _vm._v("First Name")
             ]),
             _vm._v(" "),
@@ -26289,6 +26298,7 @@ var render = function() {
               staticClass: "form-control",
               class: _vm.firstNameValidation,
               attrs: {
+                id: "adminFirstName",
                 type: "text",
                 placeholder: "First Name",
                 maxlength: "50"
@@ -26317,7 +26327,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group mt-4" }, [
-            _c("label", { attrs: { for: "exampleInputLastName" } }, [
+            _c("label", { attrs: { for: "adminLastName" } }, [
               _vm._v("Last Name")
             ]),
             _vm._v(" "),
@@ -26334,6 +26344,7 @@ var render = function() {
               staticClass: "form-control",
               class: _vm.lastNameValidation,
               attrs: {
+                id: "adminLastName",
                 type: "text",
                 placeholder: "Last Name",
                 maxlength: "50"
@@ -26362,9 +26373,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group mt-4" }, [
-            _c("label", { attrs: { for: "exampleInputLastName" } }, [
-              _vm._v("Title")
-            ]),
+            _c("label", { attrs: { for: "adminTitle" } }, [_vm._v("Title")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -26379,6 +26388,7 @@ var render = function() {
               staticClass: "form-control",
               class: _vm.titleValidation,
               attrs: {
+                id: "adminTitle",
                 type: "text",
                 placeholder: "Last Name",
                 maxlength: "50"
