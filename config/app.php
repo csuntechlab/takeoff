@@ -181,6 +181,7 @@ return [
         App\Providers\ApiProviders\LoginServiceProvider::class,
         /** Login Service Provider */
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
+        App\Providers\ModelRepositoryServiceProvider::class,
 
     ],
 
