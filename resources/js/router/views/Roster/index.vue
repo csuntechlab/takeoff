@@ -7,7 +7,7 @@
             <SearchStudent/>
         </div>
         <div>
-            <RosterCard/>
+            <RosterCard v-for="(student, index) in students" :key="index" :students="student"/>
         </div>
     </div>
 </template>
@@ -21,6 +21,16 @@ export default {
 		AddStudent,
 		RosterCard,
 		SearchStudent
-	}
+    },
+    data () {
+        return{
+            students: [
+                {name: "Steven", major: "Psychology"},
+                {name: "Anneline", major: "Nuclear Physics"},
+                {name: "Mark", major: "Computer Science"}
+                
+            ]
+        }
+    }
 };
 </script>
