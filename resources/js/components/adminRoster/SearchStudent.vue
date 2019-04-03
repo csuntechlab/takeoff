@@ -12,8 +12,8 @@
                 maxlength="50"
             > 
             </b-col>
-            <b-col cols="4" >
-                <b-dropdown text="Filters" variant="light" class="justify-content-right">
+            <b-col cols="4" class="text-right">
+                <b-dropdown text="Filters" variant="light">
                     <b-dropdown-item href="#">Action</b-dropdown-item>
                     <b-dropdown-item href="#">Another action</b-dropdown-item>
                     <b-dropdown-item href="#">Something else here</b-dropdown-item>
@@ -24,7 +24,6 @@
 </template>
 
 <style>
-    
 </style>
 
 <script>

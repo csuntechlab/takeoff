@@ -6583,7 +6583,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -32993,14 +32992,11 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-col",
-            { attrs: { cols: "4" } },
+            { staticClass: "text-right", attrs: { cols: "4" } },
             [
               _c(
                 "b-dropdown",
-                {
-                  staticClass: "justify-content-right",
-                  attrs: { text: "Filters", variant: "light" }
-                },
+                { attrs: { text: "Filters", variant: "light" } },
                 [
                   _c("b-dropdown-item", { attrs: { href: "#" } }, [
                     _vm._v("Action")
