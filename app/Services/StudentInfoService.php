@@ -6,6 +6,7 @@ use App\Models\StudentInfo;
 use App\Contracts\StudentInfoContract;
 use Validator;
 
+
 class StudentInfoService implements StudentInfoContract
 {
     protected $studentInfoModelRepo;
