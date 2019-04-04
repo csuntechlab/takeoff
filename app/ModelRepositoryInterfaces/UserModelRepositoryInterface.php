@@ -7,7 +7,8 @@ use App\User;
 
 interface UserModelRepositoryInterface
 {
-    public function create($request);
+    public function registerStudentEmail($data);
+    public function completeRegistration($data);
     public function findByEmail($email);
     public function generateAccessCode(User $user);
 }

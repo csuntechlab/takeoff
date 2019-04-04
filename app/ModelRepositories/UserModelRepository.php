@@ -11,23 +11,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserModelRepository implements UserModelRepositoryInterface
 {
-    public function create($request) {
-        return DB::transaction(function() use ($request)
+    public function registerStudentEmail($data) {
+        return DB::transaction(function() use ($data)
         {
             return User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => Hash::make($request['password']),
+                'email' => $data['email'],
                 'verified' => false
             ]);
         });
     }
 
-    public function findByEmail($email) {
-        $user = DB::table('users')
-            ->where('email', $email)
-            ->first();
-
+    public function completeRegistration(User $user, $data) {
+        $user->password = Hash::make($data['password']);
+        $user->verified = true;
+        $user->save();
         return $user;
     }
 
@@ -40,5 +37,17 @@ class UserModelRepository implements UserModelRepositoryInterface
                 'user_id' => $user->id,
             ]);
         });
+    }
+
+    public function findAccessCode(User $user, $data) {
+        $accessCode = $user->registrationAccessToken->toArray();
+        return $accessCode['access_code'];
+    }
+
+    public function findByEmail($email) {
+        $user = User::where('email', $email)
+            ->first();
+
+        return $user;
     }
 }

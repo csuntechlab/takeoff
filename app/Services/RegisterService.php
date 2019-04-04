@@ -20,37 +20,43 @@ class RegisterService implements RegisterContract
     {
         $this->userModelRepo = $userModelRepo;
     }
-    //TODO: create repository that handles all of the database transactions
-    public function register($data)
-    {
-        try {
-            $name = (string)$data['name'];
-            $email = (string)$data['email'];
-            $password = (string)$data['password'];
-        } catch (\Exception $e) {
-            return ['message_error' => 'User was not successfully created.'];
-        }
 
+    public function registerStudentEmail($data)
+    {
         $user = $this->userModelRepo->findByEmail($data['email']);
+        // Verify that user has not already been added by the admin
         if ($user !== null) {
             return ['message_error' => 'User has already been created.'];
         }
-
-        $user = $this->userModelRepo->create($data);
+        $user = $this->userModelRepo->registerStudentEmail($data);
+        // TODO: There needs to be added functionality for sending the access code through emails
         $this->userModelRepo->generateAccessCode($user);
-
         return $user;
     }
 
-    //generate the access code and store in database with relation to the user
-    // private function generateAccessCode(User $user) {
-    //     DB::transaction(function() use ($user)
-    //     {
-    //         $randomCode = mt_rand(100000,999999);
-    //         RegistrationAccessToken::create([
-    //             'access_code' => $randomCode,
-    //             'user_id' => $user->id,
-    //         ]);
-    //     });
-    // }
+    public function completeRegistration($data)
+    {
+        $user = $this->userModelRepo->findByEmail($data['email']);
+        // Query user by email, if results are null,
+        // the user has not yet been added
+        // to the application by the admin
+        if ($user === null) {
+            return ['message_error' => 'User has not been verified by admin.'];
+        }
+        // Check whether or not the user has already
+        // gone through the registration process
+        // by checking the 'verified' flag
+        if ($user->verified) {
+            return ['message_error' => 'You have already completed registration'];
+        }
+        // Compare form request access code
+        // to the actual access code sent by the admin
+        $accessCode = $this->userModelRepo->findAccessCode($user, $data);
+        if ($accessCode != $data['accessCode']) {
+            return ['message_error' => 'Access code is not correct.'];
+        }
+
+        $user = $this->userModelRepo->completeRegistration($user, $data);
+        return $user;
+    }
 }
