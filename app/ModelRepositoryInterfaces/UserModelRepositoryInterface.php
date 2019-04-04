@@ -8,7 +8,8 @@ use App\User;
 interface UserModelRepositoryInterface
 {
     public function registerStudentEmail($data);
-    public function completeRegistration($data);
-    public function findByEmail($email);
+    public function completeRegistration(User $user, $data);
     public function generateAccessCode(User $user);
+    public function findAccessCode(User $user, $data);
+    public function findByEmail($email);
 }

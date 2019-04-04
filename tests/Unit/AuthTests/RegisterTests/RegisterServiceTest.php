@@ -28,38 +28,62 @@ class RegisterServiceTest extends TestCase
      * @test
      * @group noFramework
      */
-    public function register_service_returns_completed_response()
+    public function registerStudentEmail_returns_a_user()
     {
         $input = [
-            "name" => "tes3t@email.com",
-            "email" => "tes3t@email.com",
-            "password" => "tes3t@email.com",
-            "password_confirmation" => "tes3t@email.com"
+            "email" => "teehee@gnomsayin.com"
         ];
 
         $mockUser = new User(['user_id' => '251']);
-        $mockAccessToken = new RegistrationAccessToken([
-            'user_id' => '251',
-            'access_code' => '123123123'
-        ]);
 
         $this->userModelRepo
             ->shouldReceive('findByEmail')
-            ->with("tes3t@email.com")
-            ->once()
+            ->with('teehee@gnomsayin.com')
             ->andReturn(null);
 
         $this->userModelRepo
-            ->shouldReceive('create')
+            ->shouldReceive('registerStudentEmail')
             ->with($input)
-            ->once()
             ->andReturn($mockUser);
 
         $this->userModelRepo
             ->shouldReceive('generateAccessCode')
             ->once();
 
+        $this->assertEquals($mockUser, $this->service->registerStudentEmail($input));
+    }
 
-        $this->assertEquals($mockUser, $this->service->register($input));
+    /**
+     * @test
+     * @group noFramework
+     */
+    public function completeRegistration_returns_a_completed_user()
+    {
+        $input = [
+            "name" => "teehee@gnomsayin.com",
+            "email" => "teehee@gnomsayin.com",
+            "password" => "teehee@gnomsayin.com",
+            "password_confirmation" => "teehee@gnomsayin.com",
+            "accessCode" => "123123"
+        ];
+
+        $mockUser = new User(['user_id' => '251', 'verified' => false]);
+
+        $this->userModelRepo
+            ->shouldReceive('findByEmail')
+            ->with('teehee@gnomsayin.com')
+            ->andReturn($mockUser);
+
+        $this->userModelRepo
+            ->shouldReceive('findAccessCode')
+            ->with($mockUser, $input)
+            ->andReturn("123123");
+
+        $this->userModelRepo
+            ->shouldReceive('completeRegistration')
+            ->with($mockUser, $input)
+            ->andReturn($mockUser);
+
+        $this->assertEquals($mockUser, $this->service->completeRegistration($input));
     }
 }

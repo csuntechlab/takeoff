@@ -3,5 +3,6 @@ namespace App\Contracts;
 
 interface RegisterContract
 {
-    public function register($request);
+    public function registerStudentEmail($data);
+    public function completeRegistration($data);
 }
