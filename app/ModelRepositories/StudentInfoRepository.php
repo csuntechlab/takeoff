@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class StudentInfoRepository implements StudentInfoRepositoryInterface
 {
-    public function getStudentByMajor($majorname)
+    public function getStudentsByMajor($majorname)
     {
         $students = DB::table('student_info')
             ->where('major', $majorname)
