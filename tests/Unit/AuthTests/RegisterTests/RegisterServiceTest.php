@@ -59,13 +59,7 @@ class RegisterServiceTest extends TestCase
             ->shouldReceive('generateAccessCode')
             ->once();
 
-        // dd($this->service->register($input));
 
         $this->assertEquals($mockUser, $this->service->register($input));
-        // $response = $this->service->register($input);
-
-        // $this->assertArrayHasKey('name', $response);
-        // $this->assertArrayHasKey('email', $response);
-
     }
 }
