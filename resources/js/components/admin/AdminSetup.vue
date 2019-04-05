@@ -36,7 +36,7 @@
 							type="text"
 							:class="titleValidation"
 							class="form-control"
-							placeholder="Last Name"
+							placeholder="Title"
 							maxlength="50"
 							v-model.trim="$v.form.title.$model"
 						>

@@ -26390,7 +26390,7 @@ var render = function() {
               attrs: {
                 id: "adminTitle",
                 type: "text",
-                placeholder: "Last Name",
+                placeholder: "Title",
                 maxlength: "50"
               },
               domProps: { value: _vm.$v.form.title.$model },
