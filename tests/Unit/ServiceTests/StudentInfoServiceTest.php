@@ -29,7 +29,7 @@ class StudentInfoServiceTest extends TestCase
         $input = ["majorname" => "test"];
 
         $mockMajor = new StudentInfo(['major' => 'test']);
-
+        dd($mockMajor);
         $this->studentInfoModelRepo
             ->shouldReceive('getStudentsByMajor')
             ->with("majorname")

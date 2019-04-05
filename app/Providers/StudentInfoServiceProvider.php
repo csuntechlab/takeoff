@@ -19,6 +19,8 @@ class StudentInfoServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('App\Contracts\StudentInfoContract', 'App\Services\StudentInfoService');
+        $this->app->bind(
+            'App\Contracts\StudentInfoContract',
+            'App\Services\StudentInfoService');
     }
 }

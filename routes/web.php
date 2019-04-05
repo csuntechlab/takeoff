@@ -25,6 +25,11 @@ Route::get('/docs/assets/js/*.js', function() {
 
 Route::resource('profile', 'ProfileController');
 
+Route::prefix('students')->group(function () {
+    Route::get('major/{major}', 'AdminController@getStudentsByMajor');
+});
+Route::get('major/{major}', 'AdminController@');
+
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');

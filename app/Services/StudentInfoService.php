@@ -15,7 +15,7 @@ class StudentInfoService implements StudentInfoContract
         $this->studentInfoModelRepo = $studentInfoModelRepo;
     }
 
-    public function getStudentByMajor($majorname)
+    public function getStudentsByMajor($majorname)
     {
         return $this->studentInfoModelRepo->getStudentsByMajor($majorname);
     }
