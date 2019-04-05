@@ -16,6 +16,7 @@ class StudentInfo extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'major',
         'units',
         'grad_date',

@@ -44,51 +44,33 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->studentinfoRetriever->store($request);
-    }
+        $validatedData = Validator::make($request->all(), [
+            'major'=>'required',
+            'units'=> 'required|integer',
+            'grad_date' => 'required',
+            'college'=>'required',
+            'bio'=> 'required',
+            'research' => 'required',
+            'fun_facts'=>'required',
+            'academic_interest' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        if($validatedData->fails()){
+            return $validatedData->errors()->all();
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $data = $request;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $studentinfo = $this->studentinfoRetriever->store($data);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if($studentinfo){
+            return response()->json([ 'studentinfo' => $studentinfo ], 201);
+        } else {
+            return response()->json([
+                'errors' => [
+                    'invalid' => 'Unable to create Student Profile.'
+                ]
+            ], 406);
+        }
     }
 }
