@@ -4,7 +4,7 @@
 			<div class="col-lg-6 col-md-8 col-sm-12">
 				<form>
 					<div>
-						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" alt>
+						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="student.image" alt>
 					</div>
 					<div class="custom-file">
 						<input
@@ -18,16 +18,16 @@
 					</div>
 					<div class="form-row mt-5">
 						<label for="exampleInputFirstName">Biography</label>
-						<textarea class="form-control" rows="5" placeholder="Write about yourself."></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about yourself." v-model="student.biography"></textarea>
 					</div>
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Research</label>
-						<textarea class="form-control" rows="5" placeholder="Write about any research projects."></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about any research projects." v-model="student.research"></textarea>
 					</div>
 
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Fun Fact About Me</label>
-						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself."></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="student.funFacts"></textarea>
 					</div>
 
 					<div class="form-row mt-4">
@@ -49,7 +49,10 @@ export default {
 	computed: {
 		...mapGetters([
 			'student'
-		])
+        ])
+        // student() {
+        //     return this.$store.getters.student
+        // }
 	}
 };
 </script>

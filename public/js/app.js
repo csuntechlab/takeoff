@@ -28422,108 +28422,171 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
+        _c("form", [
+          _c("div", [
+            _c("img", {
+              staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
+              attrs: { src: _vm.student.image, alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-row mt-5" }, [
+            _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+              _vm._v("Biography")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.student.biography,
+                  expression: "student.biography"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { rows: "5", placeholder: "Write about yourself." },
+              domProps: { value: _vm.student.biography },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.student, "biography", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-row mt-4" }, [
+            _c("label", { attrs: { for: "exampleInputLastName" } }, [
+              _vm._v("Research")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.student.research,
+                  expression: "student.research"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                rows: "5",
+                placeholder: "Write about any research projects."
+              },
+              domProps: { value: _vm.student.research },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.student, "research", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-row mt-4" }, [
+            _c("label", { attrs: { for: "exampleInputLastName" } }, [
+              _vm._v("Fun Fact About Me")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.student.funFacts,
+                  expression: "student.funFacts"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                rows: "5",
+                placeholder: "Write a fun fact about yourself."
+              },
+              domProps: { value: _vm.student.funFacts },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.student, "funFacts", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
-          _c("form", [
-            _c("div", [
-              _c("img", {
-                staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
-                attrs: { alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "custom-file" }, [
-              _c("input", {
-                staticClass: "custom-file-input",
-                attrs: {
-                  type: "file",
-                  id: "validatedCustomFile",
-                  accept: ".jpg, .jpeg, .png"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-file-label",
-                  attrs: { for: "validatedCustomFile" }
-                },
-                [_vm._v("Choose file...")]
-              ),
-              _vm._v(" "),
-              _c("small", { staticClass: "form-text text-muted" }, [
-                _vm._v("Accepts .jpg, .jpeg, and .png file types.")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-5" }, [
-              _c("label", { attrs: { for: "exampleInputFirstName" } }, [
-                _vm._v("Biography")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "Write about yourself." }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Research")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: {
-                  rows: "5",
-                  placeholder: "Write about any research projects."
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Fun Fact About Me")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: {
-                  rows: "5",
-                  placeholder: "Write a fun fact about yourself."
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row mt-4" }, [
-              _c("label", { attrs: { for: "exampleInputLastName" } }, [
-                _vm._v("Academic Interest")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control",
-                attrs: { rows: "5", placeholder: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Save Profile")]
-              )
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "custom-file" }, [
+      _c("input", {
+        staticClass: "custom-file-input",
+        attrs: {
+          type: "file",
+          id: "validatedCustomFile",
+          accept: ".jpg, .jpeg, .png"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        {
+          staticClass: "custom-file-label",
+          attrs: { for: "validatedCustomFile" }
+        },
+        [_vm._v("Choose file...")]
+      ),
+      _vm._v(" "),
+      _c("small", { staticClass: "form-text text-muted" }, [
+        _vm._v("Accepts .jpg, .jpeg, and .png file types.")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-row mt-4" }, [
+      _c("label", { attrs: { for: "exampleInputLastName" } }, [
+        _vm._v("Academic Interest")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save Profile")]
+      )
     ])
   }
 ]
