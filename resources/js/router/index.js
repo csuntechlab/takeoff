@@ -7,6 +7,7 @@ import Signup from "./views/SignUp"
 import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
 import StudentProfile from "./views/StudentProfile"
+import EditProfile from "./views/EditProfile"
 import Dashboard from "./views/Dashboard"
 import ErrorPage from "./views/ErrorPage"
 
@@ -60,6 +61,14 @@ const router = new VueRouter({
             meta: {
                 title: "Profile | Takeoff",
                 header: "[Student] Profile"
+            }
+        },
+        {
+            path: "/edit-profile",
+            component: EditProfile,
+            meta: {
+                title: "Edit Profile | Takeoff",
+                header: "Edit Your Profile"
             }
         },
         {
