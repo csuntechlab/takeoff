@@ -12,7 +12,7 @@ class StudentInfoRepository implements StudentInfoRepositoryInterface
     {
         $students = DB::table('student_info')
             ->where('major', $majorname)
-            ->all();  //TO DO This method should take into account current students
+            ->get();  //TO DO This method should take into account current students
         return $students;
     }
 
