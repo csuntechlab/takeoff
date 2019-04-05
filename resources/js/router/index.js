@@ -10,6 +10,7 @@ import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
 import Dashboard from "./views/Dashboard"
 import ErrorPage from "./views/ErrorPage"
+import DashboardAdmin from "./views/DashboardAdmin"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -79,6 +80,14 @@ const router = new VueRouter({
                 header: 'Page Not Found'
             }
 
+        },
+        {
+            path: "/dashboard",
+            component: DashboardAdmin,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
+            }
         }
 
     ]
