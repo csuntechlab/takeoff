@@ -2,14 +2,14 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 
 //Pages
-import Login from "./views/Student/Login"
-import Signup from "./views/Student/SignUp"
-import AccountSetup from "./views/Student/AccountSetup"
-import ProfileSetup from "./views/Student/ProfileSetup"
-import StudentProfile from "./views/Student/StudentProfile"
-import Dashboard from "./views/Student/Dashboard"
-import ErrorPage from "./views/Student/ErrorPage"
-import Dashboard from "./views/Admin/Dashboard"
+import Login from "./views/Login"
+import Signup from "./views/SignUp"
+import AccountSetup from "./views/AccountSetup"
+import ProfileSetup from "./views/ProfileSetup"
+import StudentProfile from "./views/StudentProfile"
+import Dashboard from "./views/Dashboard"
+import ErrorPage from "./views/ErrorPage"
+import DashboardAdmin from "./views/DashboardAdmin"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -74,7 +74,7 @@ const router = new VueRouter({
         },
         {
             path: "/dashboard",
-            component: Dashboard,
+            component: DashboardAdmin,
             meta: {
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
