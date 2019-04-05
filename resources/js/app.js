@@ -20,11 +20,6 @@ import Vuelidate from "vuelidate";
 
 Vue.use(Vuelidate);
 
-Vue.component(
-    "ExampleComponent",
-    require("./components/ExampleComponent.vue").default
-);
-
 const app = new Vue({
     el: "#app",
     store,
