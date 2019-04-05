@@ -27,8 +27,7 @@ export default {
             students: [
                 {name: "Steven", major: "Psychology"},
                 {name: "Anneline", major: "Nuclear Physics"},
-                {name: "Mark", major: "Computer Science"}
-                
+                {name: "Mark", major: "Computer Science"}  
             ]
         }
     }

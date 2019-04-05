@@ -1,39 +1,28 @@
 <template>
-	<div class="container">
-        <b-card class="roster__card" text-variant="primary">
-            <b-card-text class="roster__text">
-                <b-row>
-                    <b-col cols="3" sm="3">
+    <div class="card roster__card text-primary">
+        <div class="card-body">
+            <span class="card-text roster__text">
+                <div class="row">
+                    <div class="col-3">
                         <img class="roster__image" src="https://via.placeholder.com/100x100">
-                    </b-col>
-                    <b-col cols="7" sm="7">
+                    </div>
+                    <div class="col-7">
                         <span class="roster__name">{{students.name}}</span>
                         <div>{{students.major}}</div>
-                    </b-col>
-                    <b-col cols="auto" sm="auto" class="justify-content-right">
+                    </div>
+                    <div class="justify-content-right col-auto">
                         <i class="fas fa-times py-auto"></i>
-                    </b-col>
-                </b-row>
-            </b-card-text>
-        </b-card>
-	</div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
 </template>
 
 
 <script>
-import BCardText from "bootstrap-vue/es/components/card/card-text";
-import BCard from "bootstrap-vue/es/components/card/card";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BRow from "bootstrap-vue/es/components/layout/row";
-
 export default {
-	components: {
-        "b-card-text": BCardText,
-        "b-card": BCard,
-        "b-row": BRow,
-        "b-col": BCol
-    },
-    props: ['students']
-    
+	components: {},
+    props: ['students'] 
 };
 </script>

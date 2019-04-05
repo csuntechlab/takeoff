@@ -1,6 +1,6 @@
 <template>
-	<div class="container pt-3">
-        <div class="label">
+	<div class="pt-4">
+        <div class="text-primary">
             Add new students
         </div>
         <div class="input-group mt-2 mb-3">
@@ -14,17 +14,7 @@
 
 
 <script>
-import BCardText from "bootstrap-vue/es/components/card/card-text";
-import BCard from "bootstrap-vue/es/components/card/card";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BRow from "bootstrap-vue/es/components/layout/row";
-
 export default {
-	components: {
-        "b-card-text": BCardText,
-        "b-card": BCard,
-        "b-row": BRow,
-        "b-col": BCol
-    }
+	components: {}
 };
 </script>

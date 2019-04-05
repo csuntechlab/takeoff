@@ -6420,14 +6420,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/es/components/card/card-text */ "./node_modules/bootstrap-vue/es/components/card/card-text.js");
-/* harmony import */ var bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/card/card */ "./node_modules/bootstrap-vue/es/components/card/card.js");
-/* harmony import */ var bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/col */ "./node_modules/bootstrap-vue/es/components/layout/col.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/row */ "./node_modules/bootstrap-vue/es/components/layout/row.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -6443,17 +6435,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    "b-card-text": bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0___default.a,
-    "b-card": bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1___default.a,
-    "b-row": bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3___default.a,
-    "b-col": bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2___default.a
-  }
+  components: {}
 });
 
 /***/ }),
@@ -6467,14 +6450,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/es/components/card/card-text */ "./node_modules/bootstrap-vue/es/components/card/card-text.js");
-/* harmony import */ var bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/card/card */ "./node_modules/bootstrap-vue/es/components/card/card.js");
-/* harmony import */ var bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/col */ "./node_modules/bootstrap-vue/es/components/layout/col.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/row */ "./node_modules/bootstrap-vue/es/components/layout/row.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -6497,17 +6472,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    "b-card-text": bootstrap_vue_es_components_card_card_text__WEBPACK_IMPORTED_MODULE_0___default.a,
-    "b-card": bootstrap_vue_es_components_card_card__WEBPACK_IMPORTED_MODULE_1___default.a,
-    "b-row": bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_3___default.a,
-    "b-col": bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_2___default.a
-  },
+  components: {},
   props: ['students']
 });
 
@@ -6524,12 +6490,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown.js");
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/col */ "./node_modules/bootstrap-vue/es/components/layout/col.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue/es/components/layout/row */ "./node_modules/bootstrap-vue/es/components/layout/row.js");
-/* harmony import */ var bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown-item */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown-item.js");
-/* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown-item */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown-item.js");
+/* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -6556,16 +6518,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    "b-row": bootstrap_vue_es_components_layout_row__WEBPACK_IMPORTED_MODULE_2___default.a,
-    "b-col": bootstrap_vue_es_components_layout_col__WEBPACK_IMPORTED_MODULE_1___default.a,
     "b-dropdown": bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0___default.a,
-    "b-dropdown-item": bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_3___default.a
+    "b-dropdown-item": bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1___default.a
   }
 });
 
@@ -7608,584 +7566,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-body.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-body.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _prefixPropName = __webpack_require__(/*! ../../utils/prefix-prop-name */ "./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js");
-
-var _copyProps = __webpack_require__(/*! ../../utils/copyProps */ "./node_modules/bootstrap-vue/es/utils/copyProps.js");
-
-var _pluckProps = __webpack_require__(/*! ../../utils/pluck-props */ "./node_modules/bootstrap-vue/es/utils/pluck-props.js");
-
-var _cardMixin = __webpack_require__(/*! ../../mixins/card-mixin */ "./node_modules/bootstrap-vue/es/mixins/card-mixin.js");
-
-var _cardTitle = __webpack_require__(/*! ./card-title */ "./node_modules/bootstrap-vue/es/components/card/card-title.js");
-
-var _cardSubTitle = __webpack_require__(/*! ./card-sub-title */ "./node_modules/bootstrap-vue/es/components/card/card-sub-title.js");
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var props = _objectSpread({}, (0, _copyProps.default)(_cardMixin.default.props, _prefixPropName.default.bind(null, 'body')), {
-  bodyClass: {
-    type: [String, Object, Array],
-    default: null
-  }
-}, _cardTitle.props, _cardSubTitle.props, {
-  overlay: {
-    type: Boolean,
-    default: false
-  } // @vue/component
-
-});
-
-exports.props = props;
-var _default = {
-  name: 'BCardBody',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _ref2;
-
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    var cardTitle = h(false);
-    var cardSubTitle = h(false);
-    var cardContent = children || [h(false)];
-
-    if (props.title) {
-      cardTitle = h(_cardTitle.default, {
-        props: (0, _pluckProps.default)(_cardTitle.props, props)
-      });
-    }
-
-    if (props.subTitle) {
-      cardSubTitle = h(_cardSubTitle.default, {
-        props: (0, _pluckProps.default)(_cardSubTitle.props, props),
-        class: ['mb-2']
-      });
-    }
-
-    return h(props.bodyTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-body',
-      class: [(_ref2 = {
-        'card-img-overlay': props.overlay
-      }, _defineProperty(_ref2, "bg-".concat(props.bodyBgVariant), Boolean(props.bodyBgVariant)), _defineProperty(_ref2, "border-".concat(props.bodyBorderVariant), Boolean(props.bodyBorderVariant)), _defineProperty(_ref2, "text-".concat(props.bodyTextVariant), Boolean(props.bodyTextVariant)), _ref2), props.bodyClass || {}]
-    }), [cardTitle, cardSubTitle].concat(_toConsumableArray(cardContent)));
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-footer.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-footer.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _prefixPropName = __webpack_require__(/*! ../../utils/prefix-prop-name */ "./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js");
-
-var _copyProps = __webpack_require__(/*! ../../utils/copyProps */ "./node_modules/bootstrap-vue/es/utils/copyProps.js");
-
-var _html = __webpack_require__(/*! ../../utils/html */ "./node_modules/bootstrap-vue/es/utils/html.js");
-
-var _cardMixin = __webpack_require__(/*! ../../mixins/card-mixin */ "./node_modules/bootstrap-vue/es/mixins/card-mixin.js");
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var props = _objectSpread({}, (0, _copyProps.default)(_cardMixin.default.props, _prefixPropName.default.bind(null, 'footer')), {
-  footer: {
-    type: String,
-    default: null
-  },
-  footerHtml: {
-    type: String,
-    default: null
-  },
-  footerClass: {
-    type: [String, Object, Array],
-    default: null
-  } // @vue/component
-
-});
-
-exports.props = props;
-var _default = {
-  name: 'BCardFooter',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _ref2;
-
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.footerTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-footer',
-      class: [props.footerClass, (_ref2 = {}, _defineProperty(_ref2, "bg-".concat(props.footerBgVariant), Boolean(props.footerBgVariant)), _defineProperty(_ref2, "border-".concat(props.footerBorderVariant), Boolean(props.footerBorderVariant)), _defineProperty(_ref2, "text-".concat(props.footerTextVariant), Boolean(props.footerTextVariant)), _ref2)]
-    }), children || [h('div', {
-      domProps: (0, _html.htmlOrText)(props.footerHtml, props.footer)
-    })]);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-header.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-header.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _prefixPropName = __webpack_require__(/*! ../../utils/prefix-prop-name */ "./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js");
-
-var _copyProps = __webpack_require__(/*! ../../utils/copyProps */ "./node_modules/bootstrap-vue/es/utils/copyProps.js");
-
-var _html = __webpack_require__(/*! ../../utils/html */ "./node_modules/bootstrap-vue/es/utils/html.js");
-
-var _cardMixin = __webpack_require__(/*! ../../mixins/card-mixin */ "./node_modules/bootstrap-vue/es/mixins/card-mixin.js");
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var props = _objectSpread({}, (0, _copyProps.default)(_cardMixin.default.props, _prefixPropName.default.bind(null, 'header')), {
-  header: {
-    type: String,
-    default: null
-  },
-  headerHtml: {
-    type: String,
-    default: null
-  },
-  headerClass: {
-    type: [String, Object, Array],
-    default: null
-  } // @vue/component
-
-});
-
-exports.props = props;
-var _default = {
-  name: 'BCardHeader',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _ref2;
-
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.headerTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-header',
-      class: [props.headerClass, (_ref2 = {}, _defineProperty(_ref2, "bg-".concat(props.headerBgVariant), Boolean(props.headerBgVariant)), _defineProperty(_ref2, "border-".concat(props.headerBorderVariant), Boolean(props.headerBorderVariant)), _defineProperty(_ref2, "text-".concat(props.headerTextVariant), Boolean(props.headerTextVariant)), _ref2)]
-    }), children || [h('div', {
-      domProps: (0, _html.htmlOrText)(props.headerHtml, props.header)
-    })]);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-img.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-img.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var props = {
-  src: {
-    type: String,
-    default: null,
-    required: true
-  },
-  alt: {
-    type: String,
-    default: null
-  },
-  top: {
-    type: Boolean,
-    default: false
-  },
-  bottom: {
-    type: Boolean,
-    default: false
-  },
-  left: {
-    type: Boolean,
-    default: false
-  },
-  start: {
-    type: Boolean,
-    default: false // alias of 'left'
-
-  },
-  right: {
-    type: Boolean,
-    default: false
-  },
-  end: {
-    type: Boolean,
-    default: false // alias of 'right'
-
-  },
-  height: {
-    type: String,
-    default: null
-  },
-  width: {
-    type: String,
-    default: null
-  } // @vue/component
-
-};
-exports.props = props;
-var _default = {
-  name: 'BCardImg',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data;
-    var baseClass = 'card-img';
-
-    if (props.top) {
-      baseClass += '-top';
-    } else if (props.right || props.end) {
-      baseClass += '-right';
-    } else if (props.bottom) {
-      baseClass += '-bottom';
-    } else if (props.left || props.start) {
-      baseClass += '-left';
-    }
-
-    return h('img', (0, _vueFunctionalDataMerge.mergeData)(data, {
-      class: [baseClass],
-      attrs: {
-        src: props.src,
-        alt: props.alt,
-        height: props.height,
-        width: props.width
-      }
-    }));
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-sub-title.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-sub-title.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var props = {
-  subTitle: {
-    type: String,
-    default: ''
-  },
-  subTitleTag: {
-    type: String,
-    default: 'h6'
-  },
-  subTitleTextVariant: {
-    type: String,
-    default: 'muted'
-  } // @vue/component
-
-};
-exports.props = props;
-var _default = {
-  name: 'BCardSubTitle',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.subTitleTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-subtitle',
-      class: [props.subTitleTextVariant ? "text-".concat(props.subTitleTextVariant) : null]
-    }), children || props.subTitle);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-text.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-text.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var props = {
-  textTag: {
-    type: String,
-    default: 'p'
-  } // @vue/component
-
-};
-exports.props = props;
-var _default = {
-  name: 'BCardText',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.textTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-text'
-    }), children);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card-title.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card-title.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var props = {
-  title: {
-    type: String,
-    default: ''
-  },
-  titleTag: {
-    type: String,
-    default: 'h4'
-  } // @vue/component
-
-};
-exports.props = props;
-var _default = {
-  name: 'BCardTitle',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.titleTag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card-title'
-    }), children || props.title);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/card/card.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/card/card.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _prefixPropName = __webpack_require__(/*! ../../utils/prefix-prop-name */ "./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js");
-
-var _unprefixPropName = __webpack_require__(/*! ../../utils/unprefix-prop-name */ "./node_modules/bootstrap-vue/es/utils/unprefix-prop-name.js");
-
-var _copyProps = __webpack_require__(/*! ../../utils/copyProps */ "./node_modules/bootstrap-vue/es/utils/copyProps.js");
-
-var _pluckProps = __webpack_require__(/*! ../../utils/pluck-props */ "./node_modules/bootstrap-vue/es/utils/pluck-props.js");
-
-var _cardMixin = __webpack_require__(/*! ../../mixins/card-mixin */ "./node_modules/bootstrap-vue/es/mixins/card-mixin.js");
-
-var _cardBody = __webpack_require__(/*! ./card-body */ "./node_modules/bootstrap-vue/es/components/card/card-body.js");
-
-var _cardHeader = __webpack_require__(/*! ./card-header */ "./node_modules/bootstrap-vue/es/components/card/card-header.js");
-
-var _cardFooter = __webpack_require__(/*! ./card-footer */ "./node_modules/bootstrap-vue/es/components/card/card-footer.js");
-
-var _cardImg = __webpack_require__(/*! ./card-img */ "./node_modules/bootstrap-vue/es/components/card/card-img.js");
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var cardImgProps = (0, _copyProps.default)(_cardImg.props, _prefixPropName.default.bind(null, 'img'));
-cardImgProps.imgSrc.required = false;
-
-var props = _objectSpread({}, _cardBody.props, _cardHeader.props, _cardFooter.props, cardImgProps, (0, _copyProps.default)(_cardMixin.default.props), {
-  align: {
-    type: String,
-    default: null
-  },
-  noBody: {
-    type: Boolean,
-    default: false
-  } // @vue/component
-
-});
-
-exports.props = props;
-var _default = {
-  name: 'BCard',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _class;
-
-    var props = _ref.props,
-        data = _ref.data,
-        slots = _ref.slots;
-    var $slots = slots(); // Create placeholder elements for each section
-
-    var imgFirst = h(false);
-    var header = h(false);
-    var content = h(false);
-    var footer = h(false);
-    var imgLast = h(false);
-
-    if (props.imgSrc) {
-      var img = h(_cardImg.default, {
-        props: (0, _pluckProps.default)(cardImgProps, props, _unprefixPropName.default.bind(null, 'img'))
-      });
-
-      if (props.imgBottom) {
-        imgLast = img;
-      } else {
-        imgFirst = img;
-      }
-    }
-
-    if (props.header || $slots.header) {
-      header = h(_cardHeader.default, {
-        props: (0, _pluckProps.default)(_cardHeader.props, props)
-      }, $slots.header);
-    }
-
-    if (props.noBody) {
-      content = $slots.default || [];
-    } else {
-      // Wrap content in card-body
-      content = [h(_cardBody.default, {
-        props: (0, _pluckProps.default)(_cardBody.props, props)
-      }, $slots.default)];
-    }
-
-    if (props.footer || $slots.footer) {
-      footer = h(_cardFooter.default, {
-        props: (0, _pluckProps.default)(_cardFooter.props, props)
-      }, $slots.footer);
-    }
-
-    return h(props.tag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'card',
-      class: (_class = {
-        'flex-row': props.imgLeft || props.imgStart,
-        'flex-row-reverse': (props.imgRight || props.imgEnd) && !(props.imgLeft || props.imgStart)
-      }, _defineProperty(_class, "text-".concat(props.align), Boolean(props.align)), _defineProperty(_class, "bg-".concat(props.bgVariant), Boolean(props.bgVariant)), _defineProperty(_class, "border-".concat(props.borderVariant), Boolean(props.borderVariant)), _defineProperty(_class, "text-".concat(props.textVariant), Boolean(props.textVariant)), _class)
-    }), [imgFirst, header].concat(_toConsumableArray(content), [footer, imgLast]));
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap-vue/es/components/collapse/collapse.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/bootstrap-vue/es/components/collapse/collapse.js ***!
@@ -8669,250 +8049,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap-vue/es/components/layout/col.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/layout/col.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = exports.computeBkPtClass = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _memoize = __webpack_require__(/*! ../../utils/memoize */ "./node_modules/bootstrap-vue/es/utils/memoize.js");
-
-var _suffixPropName = __webpack_require__(/*! ../../utils/suffix-prop-name */ "./node_modules/bootstrap-vue/es/utils/suffix-prop-name.js");
-
-var _object = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/es/utils/object.js");
-
-var _array = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/es/utils/array.js");
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/**
- * Generates a prop object with a type of
- * [Boolean, String, Number]
- */
-function boolStrNum() {
-  return {
-    type: [Boolean, String, Number],
-    default: false
-  };
-}
-/**
- * Generates a prop object with a type of
- * [String, Number]
- */
-
-
-function strNum() {
-  return {
-    type: [String, Number],
-    default: null
-  };
-}
-
-var computeBkPtClass = (0, _memoize.default)(function computeBkPt(type, breakpoint, val) {
-  var className = type;
-
-  if (val === false || val === null || val === undefined) {
-    return undefined;
-  }
-
-  if (breakpoint) {
-    className += "-".concat(breakpoint);
-  } // Handling the boolean style prop when accepting [Boolean, String, Number]
-  // means Vue will not convert <b-col sm /> to sm: true for us.
-  // Since the default is false, an empty string indicates the prop's presence.
-
-
-  if (type === 'col' && (val === '' || val === true)) {
-    // .col-md
-    return className.toLowerCase();
-  } // .order-md-6
-
-
-  className += "-".concat(val);
-  return className.toLowerCase();
-});
-exports.computeBkPtClass = computeBkPtClass;
-var BREAKPOINTS = ['sm', 'md', 'lg', 'xl']; // Supports classes like: .col-sm, .col-md-6, .col-lg-auto
-
-var breakpointCol = BREAKPOINTS.reduce( // eslint-disable-next-line no-sequences
-function (propMap, breakpoint) {
-  return propMap[breakpoint] = boolStrNum(), propMap;
-}, (0, _object.create)(null)); // Supports classes like: .offset-md-1, .offset-lg-12
-
-var breakpointOffset = BREAKPOINTS.reduce( // eslint-disable-next-line no-sequences
-function (propMap, breakpoint) {
-  return propMap[(0, _suffixPropName.default)(breakpoint, 'offset')] = strNum(), propMap;
-}, (0, _object.create)(null)); // Supports classes like: .order-md-1, .order-lg-12
-
-var breakpointOrder = BREAKPOINTS.reduce( // eslint-disable-next-line no-sequences
-function (propMap, breakpoint) {
-  return propMap[(0, _suffixPropName.default)(breakpoint, 'order')] = strNum(), propMap;
-}, (0, _object.create)(null)); // For loop doesn't need to check hasOwnProperty
-// when using an object created from null
-
-var breakpointPropMap = (0, _object.assign)((0, _object.create)(null), {
-  col: (0, _object.keys)(breakpointCol),
-  offset: (0, _object.keys)(breakpointOffset),
-  order: (0, _object.keys)(breakpointOrder)
-});
-
-var props = _objectSpread({}, breakpointCol, breakpointOffset, breakpointOrder, {
-  tag: {
-    type: String,
-    default: 'div'
-  },
-  // Generic flexbox .col
-  col: {
-    type: Boolean,
-    default: false
-  },
-  // .col-[1-12]|auto
-  cols: strNum(),
-  // .offset-[1-12]
-  offset: strNum(),
-  // Flex ordering utility .order-[1-12]
-  order: strNum(),
-  alignSelf: {
-    type: String,
-    default: null,
-    validator: function validator(str) {
-      return (0, _array.arrayIncludes)(['auto', 'start', 'end', 'center', 'baseline', 'stretch'], str);
-    }
-  }
-  /**
-   * We need ".col" to default in when no other props are passed,
-   * but always render when col=true.
-   */
-  // @vue/component
-
-});
-
-exports.props = props;
-var _default = {
-  name: 'BCol',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _classList$push;
-
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    var classList = []; // Loop through `col`, `offset`, `order` breakpoint props
-
-    for (var type in breakpointPropMap) {
-      // Returns colSm, offset, offsetSm, orderMd, etc.
-      var _keys = breakpointPropMap[type];
-
-      for (var i = 0; i < _keys.length; i++) {
-        // computeBkPt(col, colSm => Sm, value=[String, Number, Boolean])
-        var c = computeBkPtClass(type, _keys[i].replace(type, ''), props[_keys[i]]); // If a class is returned, push it onto the array.
-
-        if (c) {
-          classList.push(c);
-        }
-      }
-    }
-
-    classList.push((_classList$push = {
-      // Default to .col if no other classes generated nor `cols` specified.
-      col: props.col || classList.length === 0 && !props.cols
-    }, _defineProperty(_classList$push, "col-".concat(props.cols), props.cols), _defineProperty(_classList$push, "offset-".concat(props.offset), props.offset), _defineProperty(_classList$push, "order-".concat(props.order), props.order), _defineProperty(_classList$push, "align-self-".concat(props.alignSelf), props.alignSelf), _classList$push));
-    return h(props.tag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      class: classList
-    }), children);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/components/layout/row.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/components/layout/row.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-
-var _array = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/es/utils/array.js");
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var COMMON_ALIGNMENT = ['start', 'end', 'center'];
-var props = {
-  tag: {
-    type: String,
-    default: 'div'
-  },
-  noGutters: {
-    type: Boolean,
-    default: false
-  },
-  alignV: {
-    type: String,
-    default: null,
-    validator: function validator(str) {
-      return (0, _array.arrayIncludes)(COMMON_ALIGNMENT.concat(['baseline', 'stretch']), str);
-    }
-  },
-  alignH: {
-    type: String,
-    default: null,
-    validator: function validator(str) {
-      return (0, _array.arrayIncludes)(COMMON_ALIGNMENT.concat(['between', 'around']), str);
-    }
-  },
-  alignContent: {
-    type: String,
-    default: null,
-    validator: function validator(str) {
-      return (0, _array.arrayIncludes)(COMMON_ALIGNMENT.concat(['between', 'around', 'stretch']), str);
-    }
-  } // @vue/component
-
-};
-exports.props = props;
-var _default = {
-  name: 'BRow',
-  functional: true,
-  props: props,
-  render: function render(h, _ref) {
-    var _class;
-
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.tag, (0, _vueFunctionalDataMerge.mergeData)(data, {
-      staticClass: 'row',
-      class: (_class = {
-        'no-gutters': props.noGutters
-      }, _defineProperty(_class, "align-items-".concat(props.alignV), props.alignV), _defineProperty(_class, "justify-content-".concat(props.alignH), props.alignH), _defineProperty(_class, "align-content-".concat(props.alignContent), props.alignContent), _class)
-    }), children);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap-vue/es/components/link/link.js":
 /*!***************************************************************!*\
   !*** ./node_modules/bootstrap-vue/es/components/link/link.js ***!
@@ -9266,43 +8402,6 @@ var _default = {
     }, [this.$slots.default || h('span', {
       class: ['navbar-toggler-icon']
     })]);
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/mixins/card-mixin.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/mixins/card-mixin.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = void 0;
-// @vue/component
-var _default = {
-  props: {
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    borderVariant: {
-      type: String,
-      default: null
-    },
-    textVariant: {
-      type: String,
-      default: null
-    }
   }
 };
 exports.default = _default;
@@ -10351,58 +9450,6 @@ exports.default = BvEvent;
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap-vue/es/utils/copyProps.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/copyProps.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = copyProps;
-
-var _array = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/es/utils/array.js");
-
-var _identity = __webpack_require__(/*! ./identity */ "./node_modules/bootstrap-vue/es/utils/identity.js");
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-/**
- * @param {[]|{}} props
- * @param {Function} transformFn
- */
-function copyProps(props) {
-  var transformFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _identity.default;
-
-  if ((0, _array.isArray)(props)) {
-    return props.map(transformFn);
-  } // Props as an object.
-
-
-  var copied = {};
-
-  for (var prop in props) {
-    if (props.hasOwnProperty(prop)) {
-      if (_typeof(prop) === 'object') {
-        copied[transformFn(prop)] = _objectSpread({}, props[prop]);
-      } else {
-        copied[transformFn(prop)] = props[prop];
-      }
-    }
-  }
-
-  return copied;
-}
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap-vue/es/utils/dom.js":
 /*!****************************************************!*\
   !*** ./node_modules/bootstrap-vue/es/utils/dom.js ***!
@@ -10885,57 +9932,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap-vue/es/utils/lower-first.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/lower-first.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = lowerFirst;
-
-/**
- * @param {string} str
- */
-function lowerFirst(str) {
-  if (typeof str !== 'string') {
-    str = String(str);
-  }
-
-  return str.charAt(0).toLowerCase() + str.slice(1);
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/utils/memoize.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/memoize.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = memoize;
-
-var _object = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/es/utils/object.js");
-
-function memoize(fn) {
-  var cache = (0, _object.create)(null);
-  return function memoizedFn() {
-    var args = JSON.stringify(arguments);
-    return cache[args] = cache[args] || fn.apply(null, arguments);
-  };
-}
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap-vue/es/utils/object.js":
 /*!*******************************************************!*\
   !*** ./node_modules/bootstrap-vue/es/utils/object.js ***!
@@ -11074,110 +10070,6 @@ function pluckProps(keysToPluck, objToPluck) {
     // eslint-disable-next-line no-sequences
     return memo[transformFn(prop)] = objToPluck[prop], memo;
   }, {});
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/prefix-prop-name.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = prefixPropName;
-
-var _upperFirst = __webpack_require__(/*! ./upper-first */ "./node_modules/bootstrap-vue/es/utils/upper-first.js");
-
-/**
- * @param {string} prefix
- * @param {string} value
- */
-function prefixPropName(prefix, value) {
-  return prefix + (0, _upperFirst.default)(value);
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/utils/suffix-prop-name.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/suffix-prop-name.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = suffixPropName;
-
-var _upperFirst = __webpack_require__(/*! ./upper-first */ "./node_modules/bootstrap-vue/es/utils/upper-first.js");
-
-/**
- * Suffix can be a falsey value so nothing is appended to string.
- * (helps when looping over props & some shouldn't change)
- * Use data last parameters to allow for currying.
- * @param {string} suffix
- * @param {string} str
- */
-function suffixPropName(suffix, str) {
-  return str + (suffix ? (0, _upperFirst.default)(suffix) : '');
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/utils/unprefix-prop-name.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/unprefix-prop-name.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = unPrefixPropName;
-
-var _lowerFirst = __webpack_require__(/*! ./lower-first */ "./node_modules/bootstrap-vue/es/utils/lower-first.js");
-
-/**
- * @param {string} prefix
- * @param {string} value
- */
-function unPrefixPropName(prefix, value) {
-  return (0, _lowerFirst.default)(value.replace(prefix, ''));
-}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/es/utils/upper-first.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/es/utils/upper-first.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = upperFirst;
-
-/**
- * @param {string} str
- */
-function upperFirst(str) {
-  if (typeof str !== 'string') {
-    str = String(str);
-  }
-
-  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 /***/ }),
@@ -32134,8 +31026,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container pt-3" }, [
-      _c("div", { staticClass: "label" }, [
+    return _c("div", { staticClass: "pt-4" }, [
+      _c("div", { staticClass: "text-primary" }, [
         _vm._v("\n            Add new students\n        ")
       ]),
       _vm._v(" "),
@@ -32177,58 +31069,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c(
-        "b-card",
-        { staticClass: "roster__card", attrs: { "text-variant": "primary" } },
-        [
-          _c(
-            "b-card-text",
-            { staticClass: "roster__text" },
-            [
-              _c(
-                "b-row",
-                [
-                  _c("b-col", { attrs: { cols: "3", sm: "3" } }, [
-                    _c("img", {
-                      staticClass: "roster__image",
-                      attrs: { src: "https://via.placeholder.com/100x100" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("b-col", { attrs: { cols: "7", sm: "7" } }, [
-                    _c("span", { staticClass: "roster__name" }, [
-                      _vm._v(_vm._s(_vm.students.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(_vm.students.major))])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "b-col",
-                    {
-                      staticClass: "justify-content-right",
-                      attrs: { cols: "auto", sm: "auto" }
-                    },
-                    [_c("i", { staticClass: "fas fa-times py-auto" })]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("div", { staticClass: "card roster__card text-primary" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("span", { staticClass: "card-text roster__text" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-7" }, [
+            _c("span", { staticClass: "roster__name" }, [
+              _vm._v(_vm._s(_vm.students.name))
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.students.major))])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [
+      _c("img", {
+        staticClass: "roster__image",
+        attrs: { src: "https://via.placeholder.com/100x100" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "justify-content-right col-auto" }, [
+      _c("i", { staticClass: "fas fa-times py-auto" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -32250,58 +31131,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container pb-3" },
-    [
-      _c("div", { staticClass: "student__title" }, [
-        _vm._v("\n        Enrolled Students\n    ")
-      ]),
+  return _c("div", { staticClass: "pb-3" }, [
+    _c("div", { staticClass: "student__title text-primary" }, [
+      _vm._v("\n        Enrolled Students\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row form-group pt-2 pb-1" }, [
+      _vm._m(0),
       _vm._v(" "),
       _c(
-        "b-row",
-        { staticClass: "form-group pt-2 pb-1" },
+        "div",
+        { staticClass: "text-right col-4" },
         [
-          _c("b-col", { attrs: { cols: "8" } }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Search", maxlength: "50" }
-            })
-          ]),
-          _vm._v(" "),
           _c(
-            "b-col",
-            { staticClass: "text-right", attrs: { cols: "4" } },
+            "b-dropdown",
+            { attrs: { text: "Filters", variant: "light" } },
             [
-              _c(
-                "b-dropdown",
-                { attrs: { text: "Filters", variant: "light" } },
-                [
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Action")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Another action")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                    _vm._v("Something else here")
-                  ])
-                ],
-                1
-              )
+              _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                _vm._v("Action")
+              ]),
+              _vm._v(" "),
+              _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                _vm._v("Another action")
+              ]),
+              _vm._v(" "),
+              _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                _vm._v("Something else here")
+              ])
             ],
             1
           )
         ],
         1
       )
-    ],
-    1
-  )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-8" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Search", maxlength: "50" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
