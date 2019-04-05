@@ -26,6 +26,9 @@ Route::get('/docs/assets/js/*.js', function() {
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
+
+Route::resource('profile', 'ProfileController');
+
 Route::get('/media/{email}', 'MediaController@getMedia');
 
 Route::get('/inviteemail', function() {
