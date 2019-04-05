@@ -9,16 +9,17 @@ use App\Contracts\StudentInfoContract;
 
 class AdminController extends BaseController
 {
+    private $adminRetriever;
+    private $studentinfoRetriever;
 
-    public function __construct(StudentInfoContract $studentinfoContract)
+    public function __construct(StudentInfoContract $studentinfoContract, AdminContract $adminContract)
     {
         $this->studentinfoRetriever = $studentinfoContract;
+        $this->adminRetriever = $adminContract;
     }
 
-    public function sendInvite($studentemail)
+    public static function sendInvite($studentemail)
     {
-        //$studentemail= "hi@email.com";
-
         Mail::to($studentemail)->send(new InviteStudent($studentemail));
 
         return "email has been sent";

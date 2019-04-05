@@ -1,6 +1,6 @@
 <?php
 
-//declare(strict_types=1);
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -13,6 +13,11 @@ class ModelRepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface',
             'App\ModelRepositories\StudentInfoRepository'
+        );
+
+        $this->app->bind(
+            'App\ModelRepositoryInterfaces\UserModelRepositoryInterface',
+            'App\ModelRepositories\UserModelRepository'
         );
     }
 }
