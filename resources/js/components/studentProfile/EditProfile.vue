@@ -4,11 +4,7 @@
 			<div class="col-lg-6 col-md-8 col-sm-12">
 				<form>
 					<div>
-						<img
-							class="profile-thumbnail mb-4 mt-2 mx-auto d-block"
-							:src="student.image"
-							alt
-						>
+						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" alt>
 					</div>
 					<div class="custom-file">
 						<input
@@ -22,31 +18,16 @@
 					</div>
 					<div class="form-row mt-5">
 						<label for="exampleInputFirstName">Biography</label>
-						<textarea
-							class="form-control"
-							rows="5"
-							placeholder="Write about yourself."
-							v-model="student.biography"
-						></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about yourself."></textarea>
 					</div>
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Research</label>
-						<textarea
-							class="form-control"
-							rows="5"
-							placeholder="Write about any research projects."
-							v-model="student.research"
-						></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about any research projects."></textarea>
 					</div>
 
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Fun Fact About Me</label>
-						<textarea
-							class="form-control"
-							rows="5"
-							placeholder="Write a fun fact about yourself."
-							v-model="student.funFacts"
-						></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself."></textarea>
 					</div>
 
 					<div class="form-row mt-4">
@@ -63,16 +44,12 @@
 	</div>
 </template>
 <script>
+import { mapState, mapGetters } from "vuex";
 export default {
-    data() {
-        return {
-            student: {
-                image: "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
-                biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
-                research: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
-                funFacts: "I love to read!"
-            }
-        }
-    }
+	computed: {
+		...mapGetters([
+			'student'
+		])
+	}
 };
 </script>

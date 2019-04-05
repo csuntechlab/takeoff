@@ -40,22 +40,6 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/profile-setup",
-            component: ProfileSetup,
-            meta: {
-                title: "Profile Setup | Badges",
-                header: "Set Up Your Profile"
-            }
-        },
-        {
-            path: "/",
-            component: Dashboard,
-            meta: {
-                title: "Dashboard | Takeoff",
-                header: "Dashboard"
-            }
-        },
-        {
             path: "/profile",
             component: StudentProfile,
             meta: {
@@ -69,6 +53,22 @@ const router = new VueRouter({
             meta: {
                 title: "Edit Profile | Takeoff",
                 header: "Edit Your Profile"
+            }
+        },
+        {
+            path: "/profile-setup",
+            component: ProfileSetup,
+            meta: {
+                title: "Profile Setup | Badges",
+                header: "Set Up Your Profile"
+            }
+        },
+        {
+            path: "/",
+            component: Dashboard,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
             }
         },
         {
