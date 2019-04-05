@@ -23,6 +23,13 @@ Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
 
+Route::resource('profile', 'ProfileController');
+
+Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
+Route::post('completeRegistration', 'RegisterController@completeRegistration');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
+
 Route::get('/media/{email}', 'MediaController@getMedia');
 
 Route::get('/inviteemail', function() {

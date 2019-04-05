@@ -1,19 +1,16 @@
 <template>
-	<div>
-		<!-- <AdminSetup/> -->
-	</div>
+    <AdminSetup/>
 </template>
-
 <script>
-// import AdminSetup from "../../../components/AdminSetup";
-
+import AdminSetup from '../../../components/admin/AdminSetup'
 export default {
-	data() {
-		return {};
-	},
+    data() {
+        return{
 
-	components: {
-		// AdminSetup,
-	}
-};
+        }
+    },
+    components: {
+        AdminSetup
+    }
+}
 </script>

@@ -174,8 +174,17 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\StudentInfoServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        /** Registeration Service Provider */
+        App\Providers\ApiProviders\RegisterServiceProvider::class,
+        /** Login Service Provider */
+        App\Providers\ApiProviders\LoginServiceProvider::class,
+        /** Login Service Provider */
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
-
+        App\Providers\ModelRepositoryServiceProvider::class,
+	     /** META+LAB Proxy Pass. */
+        CSUNMetaLab\ProxyPass\Providers\ProxyPassServiceProvider::class,
     ],
 
     /*
@@ -224,6 +233,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
