@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
 			<BadgesEarned class="col-11 col-sm-12 col-lg-10"/>
 			<ProfileInfo class="col-11 col-sm-12 col-lg-10"/>
-            <CurrentInterests class="col-11 col-sm-12 col-lg-10"/>
+            <CurrentInterests :interests="student.interests" class="col-11 col-sm-12 col-lg-10"/>
         </div>
 	 </div>
 </template>
@@ -22,6 +22,13 @@ import BadgesEarned from "../../../components/studentProfile/BadgesEarned";
 import ProfileInfo from "../../../components/studentProfile/ProfileInfo";
 import CurrentInterests from "../../../components/studentProfile/CurrentInterests";
 export default {
+    data() {
+        return {
+            student: {
+                interests: ["Apple", "Bapple", "Citrus", "Durian", "Elephant", "Fruit"]
+            }
+        }
+    },
 	components: {
 		StudentPhoto,
 		StudentInfo,

@@ -6,10 +6,12 @@ import Login from "./views/Login"
 import Signup from "./views/SignUp"
 import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
+import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
 import EditProfile from "./views/EditProfile"
 import Dashboard from "./views/Dashboard"
 import ErrorPage from "./views/ErrorPage"
+import DashboardAdmin from "./views/DashboardAdmin"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -72,6 +74,14 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/admin-setup",
+            component: AdminSetup,
+            meta: {
+                title: "Admin Setup | Takeoff",
+                header: "Administrator Information"
+            }
+        },
+        {
             path: "*",
             component: ErrorPage,
             meta: {
@@ -79,6 +89,14 @@ const router = new VueRouter({
                 header: 'Page Not Found'
             }
 
+        },
+        {
+            path: "/dashboard",
+            component: DashboardAdmin,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
+            }
         }
 
     ]

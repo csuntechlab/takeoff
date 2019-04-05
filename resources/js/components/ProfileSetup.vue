@@ -21,44 +21,61 @@
                         <small class="form-text text-muted">Accepts .jpg, .jpeg, and .png file types.</small>
 					</div>
 					<div class="form-row mt-5">
-						<label for="exampleInputFirstName">Biography</label>
-						<textarea class="form-control" rows="5" placeholder="Write about yourself." v-model="form.biography"></textarea>
+						<label for="biography">Biography</label>
+						<textarea id="biography" class="form-control" rows="5" placeholder="Write about yourself."></textarea>
 					</div>
 					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Research</label>
-						<textarea class="form-control" rows="5" placeholder="Write about any research projects." v-model="form.research"></textarea>
-					</div>
-
-					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Fun Fact About Me</label>
-						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="form.funFacts"></textarea>
+						<label for="research">Research</label>
+						<textarea id="research" class="form-control" rows="5" placeholder="Write about any research you are doing."></textarea>
 					</div>
 
 					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Academic Interest</label>
-						<textarea class="form-control" rows="5" placeholder></textarea>
+						<label for="funFact">Fun Fact About Me</label>
+						<textarea id="funFact" class="form-control" rows="5" placeholder="Write a fun fact about yourself."></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="academicInterests">Academic Interests</label>
+						<input id="academicInterests" type="text" placeholder="Write about your interests.">
 					</div>
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" class="btn btn-primary">Save Profile</button>
+						<button type="submit" class="btn btn-primary" @click.prevent="submit">Save Profile</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </template>
-
 <script>
+import Choices from "choices.js"
+var interests
 export default {
     data() {
         return {
             form: {
-                biography: "",
-                research: "",
-                funFacts: "",
-                academicInterests: ""
+                biography: null,
+                research: null,
+                funFacts: null,
+                academicInterests: null
             }
         }
     },
+	mounted() {
+		interests = new Choices(
+			document.querySelector("#academicInterests"),
+			{
+				delimiter: ",",
+                removeItemButton: true,
+                duplicateItemsAllowed: false,
+                editItems: true
+            }
+        )
+    },
+    methods: {
+        submit(){
+            this.form.academicInterests = interests.getValue(true)
+        }
+    }
 };
 </script>

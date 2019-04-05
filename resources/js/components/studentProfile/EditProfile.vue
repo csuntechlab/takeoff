@@ -4,7 +4,7 @@
 			<div class="col-lg-6 col-md-8 col-sm-12">
 				<form>
 					<div>
-						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="form.image" alt>
+						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="student.image" alt>
 					</div>
 					<div class="custom-file">
 						<input
@@ -30,9 +30,9 @@
 						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="form.funFacts"></textarea>
 					</div>
 
-					<div class="form-row mt-4">
-						<label for="exampleInputLastName">Academic Interest</label>
-						<textarea class="form-control" rows="5" placeholder></textarea>
+					<div class="mt-4">
+						<label for="academicInterests">Academic Interests</label>
+						<input id="academicInterests" type="text" placeholder="Write about your interests.">
 					</div>
 
 					<div class="text-center pt-4 pb-4">
@@ -44,6 +44,8 @@
 	</div>
 </template>
 <script>
+import Choices from "choices.js"
+var interests
 import { mapState, mapGetters } from "vuex";
 export default {
     data() {
@@ -57,6 +59,18 @@ export default {
             }
         }
     },
+    mounted() {
+		interests = new Choices(
+			document.querySelector("#academicInterests"),
+			{
+                delimiter: ",",
+                items: this.student.interests,
+                removeItemButton: true,
+                duplicateItemsAllowed: false,
+                editItems: true
+            }
+        )
+    },
 	computed: {
 		// ...mapGetters([
 		// 	'student'
@@ -67,6 +81,7 @@ export default {
     },
     methods: {
         submitChanges() {
+            this.form.academicInterests = interests.getValue(true)
             console.table({ form: this.form })
         }
     }
