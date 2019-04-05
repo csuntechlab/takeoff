@@ -1,12 +1,8 @@
 <template>
-	<div class="container justify-content-center mx-auto d-block">
-		<div class="text-center">
-			<h1>
-				<strong>{{admin.name}}</strong>
-			</h1>
-			<h2>
-				<p>{{admin.title}}</p>
-			</h2>
+	<div class="container justify-content-center">
+		<div class="text-left text-primary px-3">
+			<h2 class="pt-4 font-weight-bold">{{admin.name}}</h2>
+			<span>{{admin.title}}</span>
 		</div>
 	</div>
 </template>
