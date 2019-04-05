@@ -6,7 +6,7 @@
 					<div>
 						<img
 							class="profile-thumbnail mb-4 mt-2 mx-auto d-block"
-							src="https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png"
+							:src="student.image"
 							alt
 						>
 					</div>
@@ -26,7 +26,7 @@
 							class="form-control"
 							rows="5"
 							placeholder="Write about yourself."
-							v-model="form.biography"
+							v-model="student.biography"
 						></textarea>
 					</div>
 					<div class="form-row mt-4">
@@ -35,7 +35,7 @@
 							class="form-control"
 							rows="5"
 							placeholder="Write about any research projects."
-							v-model="form.research"
+							v-model="student.research"
 						></textarea>
 					</div>
 
@@ -45,7 +45,7 @@
 							class="form-control"
 							rows="5"
 							placeholder="Write a fun fact about yourself."
-							v-model="form.funFacts"
+							v-model="student.funFacts"
 						></textarea>
 					</div>
 
@@ -63,5 +63,16 @@
 	</div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            student: {
+                image: "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
+                biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
+                research: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
+                funFacts: "I love to read!"
+            }
+        }
+    }
+};
 </script>

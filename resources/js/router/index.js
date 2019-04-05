@@ -60,7 +60,7 @@ const router = new VueRouter({
             component: StudentProfile,
             meta: {
                 title: "Profile | Takeoff",
-                header: "[Student] Profile"
+                header: "Edgar's Profile"
             }
         },
         {

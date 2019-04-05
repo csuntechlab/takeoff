@@ -6700,7 +6700,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      student: {
+        image: "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
+        biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
+        research: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pretium dui. Nullam mollis, justo a malesuada tristique, purus lacus vulputate ligula, vitae lacinia leo massa vitae enim.",
+        funFacts: "I love to read!"
+      }
+    };
+  }
+});
 
 /***/ }),
 
@@ -6788,6 +6799,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -27695,9 +27711,14 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
         _c("form", [
-          _vm._m(0),
+          _c("div", [
+            _c("img", {
+              staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
+              attrs: { src: _vm.student.image, alt: "" }
+            })
+          ]),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "form-row mt-5" }, [
             _c("label", { attrs: { for: "exampleInputFirstName" } }, [
@@ -27709,19 +27730,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.form.biography,
-                  expression: "form.biography"
+                  value: _vm.student.biography,
+                  expression: "student.biography"
                 }
               ],
               staticClass: "form-control",
               attrs: { rows: "5", placeholder: "Write about yourself." },
-              domProps: { value: _vm.form.biography },
+              domProps: { value: _vm.student.biography },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.form, "biography", $event.target.value)
+                  _vm.$set(_vm.student, "biography", $event.target.value)
                 }
               }
             })
@@ -27737,8 +27758,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.form.research,
-                  expression: "form.research"
+                  value: _vm.student.research,
+                  expression: "student.research"
                 }
               ],
               staticClass: "form-control",
@@ -27746,13 +27767,13 @@ var render = function() {
                 rows: "5",
                 placeholder: "Write about any research projects."
               },
-              domProps: { value: _vm.form.research },
+              domProps: { value: _vm.student.research },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.form, "research", $event.target.value)
+                  _vm.$set(_vm.student, "research", $event.target.value)
                 }
               }
             })
@@ -27768,8 +27789,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.form.funFacts,
-                  expression: "form.funFacts"
+                  value: _vm.student.funFacts,
+                  expression: "student.funFacts"
                 }
               ],
               staticClass: "form-control",
@@ -27777,42 +27798,27 @@ var render = function() {
                 rows: "5",
                 placeholder: "Write a fun fact about yourself."
               },
-              domProps: { value: _vm.form.funFacts },
+              domProps: { value: _vm.student.funFacts },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.form, "funFacts", $event.target.value)
+                  _vm.$set(_vm.student, "funFacts", $event.target.value)
                 }
               }
             })
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(2)
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("img", {
-        staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
-        attrs: {
-          src:
-            "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png",
-          alt: ""
-        }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -28012,28 +28018,31 @@ var render = function() {
         _c("img", {
           staticClass: "profile-photo__image",
           attrs: {
-            src: __webpack_require__(/*! ../../../../public/images/default-avatar.png */ "./public/images/default-avatar.png")
+            src:
+              "https://metalab-clouddrive.s3.us-west-2.amazonaws.com/profile-default.png"
           }
         }),
         _vm._v(" "),
         _vm.editable
-          ? _c("div", { staticClass: "profile-photo__text mt-3" }, [_vm._m(0)])
+          ? _c(
+              "div",
+              { staticClass: "profile-photo__text mt-3" },
+              [
+                _c("router-link", { attrs: { to: "/edit-profile" } }, [
+                  _c("strong", [
+                    _c("i", { staticClass: "fas fa-user-edit" }),
+                    _vm._v(" Edit Profile\n\t\t\t\t\t")
+                  ])
+                ])
+              ],
+              1
+            )
           : _vm._e()
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("i", { staticClass: "fas fa-user-edit" }),
-      _vm._v(" Edit Profile")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -46003,17 +46012,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/images/default-avatar.png":
-/*!******************************************!*\
-  !*** ./public/images/default-avatar.png ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/default-avatar.png?49e363cec20c36585b685178b5ad4ef4";
-
-/***/ }),
-
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -47106,7 +47104,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _views_StudentProfile__WEBPACK_IMPORTED_MODULE_6__["default"],
     meta: {
       title: "Profile | Takeoff",
-      header: "[Student] Profile"
+      header: "Edgar's Profile"
     }
   }, {
     path: "/edit-profile",
