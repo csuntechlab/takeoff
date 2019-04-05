@@ -3,6 +3,7 @@
 namespace App\ModelRepositories;
 
 use App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface;
+use App\Models\StudentInfo;
 
 use Illuminate\Support\Facades\DB;
 
@@ -10,9 +11,8 @@ class StudentInfoRepository implements StudentInfoRepositoryInterface
 {
     public function getStudentsByCollege($collegename)
     {
-        $students = DB::table('student_info')
-            ->where('college', $collegename)
-            ->get();  //TODO This method should take into account current students
+        $students = StudentInfo::where('college',$collegename)->get();
+
         return $students;
     }
 

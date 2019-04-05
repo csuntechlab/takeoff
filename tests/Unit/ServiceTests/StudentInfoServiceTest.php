@@ -32,10 +32,10 @@ class StudentInfoServiceTest extends TestCase
 
         $this->studentInfoModelRepo
             ->shouldReceive('getStudentsByCollege')
-            ->with("collegename")
+            ->with("test")
             ->once()
-            ->andReturn(null);
+            ->andReturn($mockCollege);
 
-        $this->assertEquals($mockCollege, $this->service->getStudentsByCollege($input));
+        $this->assertEquals($mockCollege, $this->service->getStudentsByCollege("test"));
     }
 }

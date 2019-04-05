@@ -15,18 +15,20 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+
+    protected$fillable=[
+        'id','name','email','password','verified'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     *The attributes that should be hidden for arrays.
      *
-     * @var array
+     *@var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
+    protected$hidden=[
+        'password','remember_token','id','updated_at','created_at'
     ];
+
 
     public function studentInfo(){
         return $this->hasOne('App\Models\StudentInfo', 'user_id', 'id');
