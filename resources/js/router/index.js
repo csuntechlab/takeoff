@@ -6,6 +6,7 @@ import Login from "./views/Login"
 import Signup from "./views/SignUp"
 import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
+import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
 import Dashboard from "./views/Dashboard"
 import ErrorPage from "./views/ErrorPage"
@@ -61,6 +62,14 @@ const router = new VueRouter({
             meta: {
                 title: "Profile | Takeoff",
                 header: "[Student] Profile"
+            }
+        },
+        {
+            path: "/admin-setup",
+            component: AdminSetup,
+            meta: {
+                title: "Admin Setup | Takeoff",
+                header: "Administrator Information"
             }
         },
         {
