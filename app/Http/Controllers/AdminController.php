@@ -25,8 +25,8 @@ class AdminController extends BaseController
 
     }
 
-    public function getStudentsByMajor($majorname)
+    public function getStudentsByGradDate($graddate)
     {
-        return $this->studentinfoRetriever->getStudentsByMajor($majorname);
+        return $this->studentinfoRetriever->getStudentsByGradDate($graddate);
     }
 }
