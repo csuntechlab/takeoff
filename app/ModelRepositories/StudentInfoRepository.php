@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class StudentInfoRepository implements StudentInfoRepositoryInterface
 {
-    public function getStudentsByMajor($majorname)
+    public function getStudentsByCollege($collegename)
     {
         $students = DB::table('student_info')
-            ->where('major', $majorname)
+            ->where('college', $collegename)
             ->all();  //TO DO This method should take into account current students
         return $students;
     }

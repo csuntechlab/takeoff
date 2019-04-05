@@ -25,8 +25,8 @@ class AdminController extends BaseController
 
     }
 
-    public function getStudentsByMajor($majorname)
+    public function getStudentsByCollege($collegename)
     {
-        return $this->studentinfoRetriever->getStudentsByMajor($majorname);
+        return $this->studentinfoRetriever->getStudentsByCollege($collegename);
     }
 }

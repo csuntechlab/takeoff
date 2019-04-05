@@ -26,9 +26,8 @@ Route::get('/docs/assets/js/*.js', function() {
 Route::resource('profile', 'ProfileController');
 
 Route::prefix('students')->group(function () {
-    Route::get('major/{major}', 'AdminController@getStudentsByMajor');
+    Route::get('college/{college}', 'AdminController@getStudentsByCollege');
 });
-Route::get('major/{major}', 'AdminController@');
 
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');

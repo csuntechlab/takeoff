@@ -4,6 +4,6 @@ namespace App\Contracts;
 interface StudentInfoContract{
 
     public function store($request);
-    public function getStudentsByMajor($majorname);
+    public function getStudentsByCollege($collegename);
 
 }
