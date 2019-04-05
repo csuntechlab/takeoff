@@ -41,5 +41,6 @@
         "webpack": "^4.29.6"
     },
     "dependencies": {
+        "@babel/plugin-transform-object-set-prototype-of-to-assign": "^7.2.0"
     }
 }

@@ -4,7 +4,7 @@
 			<div class="col-lg-6 col-md-8 col-sm-12">
 				<form>
 					<div>
-						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="student.image" alt>
+						<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="form.image" alt>
 					</div>
 					<div class="custom-file">
 						<input
@@ -18,16 +18,16 @@
 					</div>
 					<div class="form-row mt-5">
 						<label for="exampleInputFirstName">Biography</label>
-						<textarea class="form-control" rows="5" placeholder="Write about yourself." v-model="student.biography"></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about yourself." v-model="form.biography"></textarea>
 					</div>
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Research</label>
-						<textarea class="form-control" rows="5" placeholder="Write about any research projects." v-model="student.research"></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write about any research projects." v-model="form.research"></textarea>
 					</div>
 
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Fun Fact About Me</label>
-						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="student.funFacts"></textarea>
+						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="form.funFacts"></textarea>
 					</div>
 
 					<div class="form-row mt-4">
@@ -36,7 +36,7 @@
 					</div>
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" class="btn btn-primary">Save Changes</button>
+						<button type="submit" class="btn btn-primary" @click.prevent="submitChanges">Save Changes</button>
 					</div>
 				</form>
 			</div>
@@ -46,13 +46,29 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 export default {
-	computed: {
-		// ...mapGetters([
-		// 	'student'
-        // ])
-        student() {
-            return this.$store.getters.student
+    data() {
+        return {
+            form: {
+                image: null,
+                biography: null,
+                research: null,
+                funFacts: null,
+                academicInterests: null
+            }
         }
-	}
+    },
+	computed: {
+		...mapGetters([
+			'student'
+        ])
+        // student() {
+        //     return this.$store.getters.student
+        // }
+    },
+    methods: {
+        submitChanges() {
+            console.table({ form: this.form })
+        }
+    }
 };
 </script>
