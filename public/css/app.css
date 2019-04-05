@@ -10798,3 +10798,30 @@ body {
   }
 }
 
+.label {
+  font-weight: 700;
+  color: #2699FB;
+}
+
+.add__student {
+  width: 70%;
+}
+
+.roster__card {
+  background: #BCE0FD;
+  display: block;
+}
+
+.roster__text {
+  color: #2699FB;
+}
+
+.roster__image {
+  width: 3rem;
+  padding-left: 0.5rem;
+}
+
+.roster__name {
+  font-weight: 600;
+}
+

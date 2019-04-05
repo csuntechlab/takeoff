@@ -11,7 +11,7 @@
                         <div>{{students.major}}</div>
                     </b-col>
                     <b-col cols="auto" sm="auto" class="justify-content-right">
-                        <p>X</p>
+                        <i class="fas fa-times py-auto"></i>
                     </b-col>
                 </b-row>
             </b-card-text>
@@ -19,22 +19,6 @@
 	</div>
 </template>
 
-<style>
-    .roster__card {
-        background: #BCE0FD;
-        display: block;
-    } 
-    .roster__text {
-        color: #2699FB;
-    }
-    .roster__image {
-        width: 3rem;
-        padding-left: .5rem;
-    }
-    .roster__name {
-        font-weight: 600;
-    }
-</style>
 
 <script>
 import BCardText from "bootstrap-vue/es/components/card/card-text";

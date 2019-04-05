@@ -1,6 +1,6 @@
 <template>
 	<div class="container pt-3">
-        <div class="student__title">
+        <div class="label">
             Add new students
         </div>
         <div class="input-group mt-2 mb-3">
@@ -12,15 +12,6 @@
 	</div>
 </template>
 
-<style>
-    .student__title {
-        font-weight: 700;
-        color: #2699FB;
-    }
-    .add__student {
-        width: 70%;
-    }
-</style>
 
 <script>
 import BCardText from "bootstrap-vue/es/components/card/card-text";
