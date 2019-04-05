@@ -26,16 +26,15 @@ class StudentInfoServiceTest extends TestCase
      * @group noFramework
      */
     public function get_list_of_students_based_on_major(){
-        $input = ["majorname" => "test"];
 
         $mockMajor = new StudentInfo(['major' => 'test']);
 
         $this->studentInfoModelRepo
             ->shouldReceive('getStudentsByMajor')
-            ->with("majorname")
+            ->with("test")
             ->once()
-            ->andReturn(null);
+            ->andReturn($mockMajor);
 
-        $this->assertEquals($mockMajor, $this->service->getStudentsByMajor($input));
+        $this->assertEquals($mockMajor, $this->service->getStudentsByMajor("test"));
     }
 }
