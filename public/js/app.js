@@ -6662,20 +6662,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-descriptor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/keys'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/define-property'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-
-
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/keys'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source); if (typeof !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) === 'function') { ownKeys = ownKeys.concat(!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source).filter(function (sym) { return !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-descriptor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/define-property'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -6723,7 +6710,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { !(function webpack
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['student']))
+  computed: {
+    // ...mapGetters([
+    // 	'student'
+    // ])
+    student: function student() {
+      return this.$store.getters.student;
+    }
+  }
 });
 
 /***/ }),

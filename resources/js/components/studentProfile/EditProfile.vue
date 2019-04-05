@@ -36,7 +36,7 @@
 					</div>
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" class="btn btn-primary">Save Profile</button>
+						<button type="submit" class="btn btn-primary">Save Changes</button>
 					</div>
 				</form>
 			</div>
@@ -47,12 +47,12 @@
 import { mapState, mapGetters } from "vuex";
 export default {
 	computed: {
-		...mapGetters([
-			'student'
-        ])
-        // student() {
-        //     return this.$store.getters.student
-        // }
+		// ...mapGetters([
+		// 	'student'
+        // ])
+        student() {
+            return this.$store.getters.student
+        }
 	}
 };
 </script>
