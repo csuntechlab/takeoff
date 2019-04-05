@@ -6807,7 +6807,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     editable: {
@@ -27072,7 +27071,12 @@ var render = function() {
   return _c("div", { staticClass: "row justify-content-end py-3 px-2" }, [
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "text-center float-right" }, [
-        _c("img", { staticClass: "profile-photo__image", attrs: { src: "" } }),
+        _c("img", {
+          staticClass: "profile-photo__image",
+          attrs: {
+            src: __webpack_require__(/*! ../../../../public/images/default-avatar.png */ "./public/images/default-avatar.png")
+          }
+        }),
         _vm._v(" "),
         _vm.editable
           ? _c("div", { staticClass: "profile-photo__text mt-3" }, [_vm._m(0)])
@@ -27218,8 +27222,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container justify-content-center" }, [
-    _c("div", { staticClass: "text-left text-primary px-3" }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "text-primary px-3" }, [
       _c("h2", { staticClass: "pt-4 font-weight-bold" }, [
         _vm._v(_vm._s(_vm.admin.name))
       ]),
@@ -45070,6 +45074,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./public/images/default-avatar.png":
+/*!******************************************!*\
+  !*** ./public/images/default-avatar.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/default-avatar.png?49e363cec20c36585b685178b5ad4ef4";
 
 /***/ }),
 
