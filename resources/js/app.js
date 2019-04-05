@@ -11,10 +11,6 @@ if (token) {
     );
 }
 
-require("@babel/core").transform("code", {
-    plugins: ["@babel/plugin-transform-object-set-prototype-of-to-assign"],
-});
-
 import Vue from "vue";
 import router from "./router";
 import store from "./store";

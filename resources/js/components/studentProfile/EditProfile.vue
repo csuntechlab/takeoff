@@ -58,12 +58,12 @@ export default {
         }
     },
 	computed: {
-		...mapGetters([
-			'student'
-        ])
-        // student() {
-        //     return this.$store.getters.student
-        // }
+		// ...mapGetters([
+		// 	'student'
+        // ])
+        student() {
+            return this.$store.getters.student
+        }
     },
     methods: {
         submitChanges() {
