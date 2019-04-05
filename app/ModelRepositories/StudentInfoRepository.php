@@ -4,18 +4,22 @@ namespace App\ModelRepositories;
 
 use App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface;
 
+use App\Models\StudentInfo;
 use Illuminate\Support\Facades\DB;
 
 class StudentInfoRepository implements StudentInfoRepositoryInterface
 {
     public function getStudentsByGradDate($graddate)
     {
-        $students = DB::table('student_info')
-            ->where('grad_date', $graddate)
-            ->get();  //TO DO This method should take into account current students
-//        dd($students);
-        return $students;
+//        $students = DB::table('student_info')
+//            ->where('grad_date', $graddate)
+//            ->get();  //TO DO This method should take into account current students
+////        dd($students);
+//        return $students;
 
+        $students = StudentInfo::where('grad_date', $graddate)->get();
+
+        return $students;
     }
 
 }
