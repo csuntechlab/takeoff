@@ -17,7 +17,6 @@ class StudentInfoService implements StudentInfoContract
 
     public function getStudentsByGradDate($graddate)
     {
-//        dd($this->studentInfoModelRepo->getStudentsByGradDate($graddate));
         return $this->studentInfoModelRepo->getStudentsByGradDate($graddate);
     }
 
