@@ -183,7 +183,8 @@ return [
         /** Login Service Provider */
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
         App\Providers\ModelRepositoryServiceProvider::class,
-
+	     /** META+LAB Proxy Pass. */
+        CSUNMetaLab\ProxyPass\Providers\ProxyPassServiceProvider::class,
     ],
 
     /*
