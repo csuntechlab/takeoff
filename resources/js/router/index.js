@@ -11,7 +11,7 @@ import StudentProfile from "./views/StudentProfile"
 import Dashboard from "./views/Dashboard"
 import ErrorPage from "./views/ErrorPage"
 import Roster from "./views/Roster"
-
+import DashboardAdmin from "./views/DashboardAdmin"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -89,6 +89,14 @@ const router = new VueRouter({
                 title: "Roster | Takeoff",
                 header: "Roster"
             } 
+        },
+        {
+            path: "/dashboard",
+            component: DashboardAdmin,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
+            }
         }
 
     ]
