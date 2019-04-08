@@ -26,7 +26,6 @@ class StudentInfoServiceTest extends TestCase
      * @group noFramework
      */
     public function get_list_of_students_based_on_college(){
-        $input = ["collegename" => "test"];
 
         $mockCollege = new StudentInfo(['college' => 'test']);
 

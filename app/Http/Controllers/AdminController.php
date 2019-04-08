@@ -17,12 +17,9 @@ class AdminController extends BaseController
 
     public function sendInvite($studentemail)
     {
-        //$studentemail= "hi@email.com";
-
         Mail::to($studentemail)->send(new InviteStudent($studentemail));
 
         return "email has been sent";
-
     }
 
     public function getStudentsByCollege($collegename)
