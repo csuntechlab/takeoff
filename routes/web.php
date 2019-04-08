@@ -29,7 +29,8 @@ Route::prefix('students')->group(function () {
     Route::get('major/{major}', 'AdminController@getStudentsByMajor');
 });
 
-Route::post('register', 'RegisterController@register');
+Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
+Route::post('completeRegistration', 'RegisterController@completeRegistration');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id','name','email','password','verified'
+        'id', 'name', 'email', 'password', 'verified'
     ];
 
     /**
@@ -31,5 +31,9 @@ class User extends Authenticatable
 
     public function studentInfo(){
         return $this->hasOne('App\Models\StudentInfo', 'user_id', 'id');
+    }
+
+    public function registrationAccessToken() {
+        return $this->hasOne('App\Models\RegistrationAccessToken', 'user_id', 'id');
     }
 }
