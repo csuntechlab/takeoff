@@ -13,7 +13,9 @@ class AdminController extends BaseController
     private $adminRetriever;
     private $studentinfoRetriever;
 
-    public function __construct(StudentInfoContract $studentinfoContract, AdminContract $adminContract)
+    public function __construct(
+        StudentInfoContract $studentinfoContract,
+        AdminContract $adminContract)
     {
         $this->studentinfoRetriever = $studentinfoContract;
         $this->adminRetriever = $adminContract;
@@ -24,7 +26,6 @@ class AdminController extends BaseController
         Mail::to($studentemail)->send(new InviteStudent($studentemail));
 
         return "email has been sent";
-
     }
 
     public function getStudentsByGradDate($graddate)
