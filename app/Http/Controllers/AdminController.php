@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Mail;
 use App\Mail\InviteStudent;
+use App\Contracts\AdminContract;
 use App\Contracts\StudentInfoContract;
 
 class AdminController extends BaseController
