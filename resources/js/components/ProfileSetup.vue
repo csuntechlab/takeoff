@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" class="btn btn-primary">Save Profile</button>
+						<button type="submit" :click='sendData' class="btn btn-primary">Save Profile</button>
 					</div>
 				</form>
 			</div>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
     data() {
         return {
@@ -59,6 +61,16 @@ export default {
                 academicInterests: ""
             }
         }
-    },
+	},
+	
+	methods: {
+		// ...mapActions([
+		// 	'sendProfileData'
+		// ]),
+
+		sendData () {
+			this.$store.dispatch('sendProfileData', this.form);
+		}
+	}
 };
 </script>

@@ -6298,6 +6298,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -6348,6 +6349,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6358,6 +6360,14 @@ __webpack_require__.r(__webpack_exports__);
         academicInterests: ""
       }
     };
+  },
+  methods: {
+    // ...mapActions([
+    // 	'sendProfileData'
+    // ]),
+    sendData: function sendData() {
+      this.$store.dispatch('sendProfileData', this.form);
+    }
   }
 });
 
@@ -26205,7 +26215,16 @@ var render = function() {
             _vm._v(" "),
             _vm._m(2),
             _vm._v(" "),
-            _vm._m(3)
+            _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "submit", click: _vm.sendData }
+                },
+                [_vm._v("Save Profile")]
+              )
+            ])
           ],
           1
         )
@@ -26270,18 +26289,6 @@ var staticRenderFns = [
         staticClass: "form-control",
         attrs: { rows: "5", placeholder: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save Profile")]
-      )
     ])
   }
 ]
