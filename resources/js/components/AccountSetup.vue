@@ -4,8 +4,9 @@
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
 					<div class="form-group mt-5">
-						<label for="exampleInputFirstName">First Name</label>
+						<label for="firstName">First Name</label>
 						<input
+                            id="firstName"
 							type="text"
 							class="form-control"
 							:class="firstNameValidation"
@@ -16,8 +17,9 @@
 						<div class="invalid-feedback">Please enter your first name.</div>
 					</div>
 					<div class="form-group mt-4">
-						<label for="exampleInputLastName">Last Name</label>
+						<label for="lastName">Last Name</label>
 						<input
+                            id="lastName"
 							type="text"
 							:class="lastNameValidation"
 							class="form-control"
@@ -28,12 +30,12 @@
 						<div class="invalid-feedback">Please enter your last name.</div>
 					</div>
 
-					<label>College</label>
+					<label for="college">College</label>
 					<div class="input-group">
 						<select
 							class="form-control custom-select"
 							:class="collegeValidation"
-							id="inputGroupSelect04"
+							id="college"
 							aria-label="Example select with button addon"
 							v-model.trim="$v.form.college.$model"
 						>
@@ -45,12 +47,12 @@
 						<div v-show="this.$v.form.college.$error" class="invalid-feedback">Please select your college.</div>
 					</div>
 
-					<label class="pt-3">Major</label>
+					<label class="pt-3" for="major">Major</label>
 					<div class="input-group">
 						<select
 							class="form-control custom-select"
 							:class="majorValidation"
-							id="inputGroupSelect04"
+							id="major"
 							aria-label="Example select with button addon"
 							v-model.trim="$v.form.major.$model"
 						>
@@ -64,12 +66,12 @@
 
 					<div class="form-row">
 						<div class="col pt-3">
-							<label>Expected Graduation</label>
+							<label for="expectedGrad">Expected Graduation</label>
 							<div class="input-group">
 								<select
 									class="form-control custom-select"
 									:class="expectedGradValidation"
-									id="inputGroupSelect04"
+									id="expectedGrad"
 									aria-label="Example select with button addon"
 									v-model.trim="$v.form.expectedGrad.$model"
 								>
@@ -82,13 +84,12 @@
 							</div>
 						</div>
 						<div class="col pt-3">
-							<label>Completed Units</label>
+							<label for="units">Completed Units</label>
 							<input
 								class="form-control"
 								:class="unitsValidation"
 								type="number"
-								id="name"
-								name="name"
+								id="units"
 								required
 								placeholder="Units"
 								v-model.trim="$v.form.units.$model"

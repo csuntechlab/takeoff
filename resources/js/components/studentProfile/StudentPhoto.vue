@@ -23,7 +23,7 @@ export default {
 		editable: {
 			default: false
 		}
-    },	
+    },
     created() {
         this.url = window.baseUrl
     }
