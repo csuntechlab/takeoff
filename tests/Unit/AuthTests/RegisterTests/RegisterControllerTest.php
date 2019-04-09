@@ -62,7 +62,6 @@ class RegisterControllerTest extends TestCase
         $response = json_encode($response);
         $expectedResponse = [
             "email" => "tes3t@email.com",
-            "verified" => false
         ];
         $expectedResponse = json_encode($expectedResponse);
         $this->assertEquals($response, $expectedResponse);
