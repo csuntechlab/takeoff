@@ -20,6 +20,11 @@ class StudentInfoService implements StudentInfoContract
         return $this->studentInfoModelRepo->getStudentsByGradDate($graddate);
     }
 
+    public function getStudentsByCollege($collegename)
+    {
+        return $this->studentInfoModelRepo->getStudentsByCollege($collegename);
+    }
+
     public function store($request)
     {
         $validatedData = Validator::make($request->all(), [

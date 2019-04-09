@@ -5,4 +5,5 @@
  interface StudentInfoRepositoryInterface
  {
     public function getStudentsByGradDate($graddate);
+    public function getStudentsByCollege($collegename);
  }

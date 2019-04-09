@@ -21,7 +21,7 @@ class AdminController extends BaseController
         $this->adminRetriever = $adminContract;
     }
 
-    public static function sendInvite($studentemail)
+    public function sendInvite($studentemail)
     {
         Mail::to($studentemail)->send(new InviteStudent($studentemail));
 
@@ -31,5 +31,10 @@ class AdminController extends BaseController
     public function getStudentsByGradDate($graddate)
     {
         return $this->studentinfoRetriever->getStudentsByGradDate($graddate);
+    }
+
+    public function getStudentsByCollege($collegename)
+    {
+        return $this->studentinfoRetriever->getStudentsByCollege($collegename);
     }
 }
