@@ -22,5 +22,9 @@ class StudentInfoServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Contracts\StudentInfoContract',
             'App\Services\StudentInfoService');
+
+        $this->app->bind(
+            'App\Contracts\AdminContract',
+            'App\Services\AdminService');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Mail;
+use App\Contracts\AdminContract;
 use App\Mail\InviteStudent;
 use App\Contracts\StudentInfoContract;
 
@@ -11,7 +12,9 @@ class AdminController extends BaseController
 {
     private $adminRetriever;
 
-    public function __construct(StudentInfoContract $studentinfoContract, AdminContract $adminContract)
+    public function __construct(
+        StudentInfoContract $studentinfoContract,
+        AdminContract $adminContract)
     {
         $this->studentinfoRetriever = $studentinfoContract;
         $this->adminRetriever = $adminContract;

@@ -22,7 +22,6 @@ class StudentInfoService implements StudentInfoContract
 
     public function store($request)
     {
-        // TO DO put this inside the controller
         $validatedData = Validator::make($request->all(), [
             'major'=>'required',
             'units'=> 'required|integer',
@@ -40,7 +39,7 @@ class StudentInfoService implements StudentInfoContract
 
         $student = new StudentInfo;
 
-        $student->user_id = $request->user_id; //this needs to be auth()->user()
+        $student->user_id = $request->user_id;
         $student->major = $request->major;
         $student->units = $request->units;
         $student->grad_date = $request->grad_date;
