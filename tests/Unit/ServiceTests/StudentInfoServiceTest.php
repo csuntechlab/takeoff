@@ -25,7 +25,22 @@ class StudentInfoServiceTest extends TestCase
      * @test
      * @group noFramework
      */
-    public function get_list_of_students_based_on_college(){
+    public function get_list_of_students_based_on_grad_date() {
+
+        $mockGradDate = new StudentInfo(['grad_date' => 'Spring 2019']);
+        $this->studentInfoModelRepo
+            ->shouldReceive('getStudentsByGradDate')
+            ->with("Spring 2019")
+            ->once()
+            ->andReturn($mockGradDate);
+        $this->assertEquals($mockGradDate, $this->service->getStudentsByGradDate("Spring 2019"));
+    }
+
+    /**
+     * @test
+     * @group noFramework
+     */
+    public function get_list_of_students_based_on_college() {
 
         $mockCollege = new StudentInfo(['college' => 'test']);
 

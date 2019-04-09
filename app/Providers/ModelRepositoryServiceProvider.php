@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -12,7 +14,8 @@ class ModelRepositoryServiceProvider extends ServiceProvider
             'App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface',
             'App\ModelRepositories\StudentInfoRepository'
         );
-       $this->app->bind(
+
+        $this->app->bind(
             'App\ModelRepositoryInterfaces\UserModelRepositoryInterface',
             'App\ModelRepositories\UserModelRepository'
         );

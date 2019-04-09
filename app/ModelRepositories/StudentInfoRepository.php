@@ -7,10 +7,14 @@ use App\Models\StudentInfo;
 
 class StudentInfoRepository implements StudentInfoRepositoryInterface
 {
+    public function getStudentsByGradDate($graddate)
+    {
+        $students = StudentInfo::where('grad_date', $graddate)->get();
+    }
+
     public function getStudentsByCollege($collegename)
     {
         $students = StudentInfo::where('college',$collegename)->get();
-
         return $students;
     }
 
