@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<AccountSetup/>
-        <router-link to="/account-setup"></router-link>
 	</div>
 </template>
 

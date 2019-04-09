@@ -32,4 +32,8 @@ class User extends Authenticatable
     public function UserAuthTokens(){
         return $this->hasMany('\App\Models\OauthAccessToken');
     }
+
+    public function registrationAccessToken() {
+        return $this->hasOne('App\Models\RegistrationAccessToken', 'user_id', 'id');
+    }
 }
