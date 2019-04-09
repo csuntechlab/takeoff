@@ -1,11 +1,11 @@
 <?php
-namespace App\Contracts;
 
-interface StudentInfoContract{
+ namespace App\ModelRepositoryInterfaces;
 
-    public function store($request);
+ interface StudentInfoRepositoryInterface
+ {
+
     public function getStudentsByMajor($majorname);
     public function getStudentsByGradDate($graddate);
     public function getStudentsByCollege($collegename);
-
-}
+ }

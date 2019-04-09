@@ -24,6 +24,7 @@ class ProfileTest extends TestCase
     public function store_studentinfo(){
 
         $request = Request::create('/store', 'POST',[
+            'user_id'=> '3',
             'major'=> 'comp sci',
             'units'=> '50',
             'grad_date' => '2019',
