@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Mail;
-use App\Mail\InviteStudent;
 use App\Contracts\AdminContract;
+use App\Mail\InviteStudent;
 use App\Contracts\StudentInfoContract;
 
 class AdminController extends BaseController
@@ -36,5 +36,10 @@ class AdminController extends BaseController
     public function getStudentsByCollege($collegename)
     {
         return $this->studentinfoRetriever->getStudentsByCollege($collegename);
+    }
+
+    public function getStudentsByMajor($majorname)
+    {
+        return $this->studentinfoRetriever->getStudentsByMajor($majorname);
     }
 }
