@@ -11,6 +11,7 @@ use App\Contracts\StudentInfoContract;
 class AdminController extends BaseController
 {
     private $adminRetriever;
+    private $studentinfoRetriever;
 
     public function __construct(
         StudentInfoContract $studentinfoContract,
@@ -20,12 +21,21 @@ class AdminController extends BaseController
         $this->adminRetriever = $adminContract;
     }
 
-
-    public static function sendInvite($studentemail)
+    public function sendInvite($studentemail)
     {
         Mail::to($studentemail)->send(new InviteStudent($studentemail));
 
         return "email has been sent";
+    }
+
+    public function getStudentsByGradDate($graddate)
+    {
+        return $this->studentinfoRetriever->getStudentsByGradDate($graddate);
+    }
+
+    public function getStudentsByCollege($collegename)
+    {
+        return $this->studentinfoRetriever->getStudentsByCollege($collegename);
     }
 
     public function getStudentsByMajor($majorname)

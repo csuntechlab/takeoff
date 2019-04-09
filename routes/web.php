@@ -26,7 +26,8 @@ Route::get('/docs/assets/js/*.js', function() {
 Route::resource('profile', 'ProfileController');
 
 Route::prefix('students')->group(function () {
-    Route::get('major/{major}', 'AdminController@getStudentsByMajor');
+    Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
+    Route::get('college/{college}', 'AdminController@getStudentsByCollege');
 });
 
 Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
