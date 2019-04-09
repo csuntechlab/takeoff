@@ -11,6 +11,19 @@ if (token) {
     );
 }
 
+/**
+ * Let's add the app-url to axios and save it for future use.
+ *
+ */
+let url = document.head.querySelector('meta[name="app-url"]');
+
+if (url) {
+    window.axios.defaults.baseURL = url.content;
+    window.baseUrl = url.content;
+} else {
+    console.error('Please set the app URL as a meta tag');
+}
+
 import Vue from "vue";
 import router from "./router";
 import store from "./store";
@@ -19,11 +32,6 @@ import "../sass/app.scss";
 import Vuelidate from "vuelidate";
 
 Vue.use(Vuelidate);
-
-Vue.component(
-    "ExampleComponent",
-    require("./components/ExampleComponent.vue").default
-);
 
 const app = new Vue({
     el: "#app",

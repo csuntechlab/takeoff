@@ -1,12 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-@import 'variables';
-
 // Bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+//Choices.js (Interest Tagging)
+@import 'node_modules/choices.js/src/styles/choices.scss';
+
 // Custom SCSS
+@import 'variables';
 @import 'utils';
 @import 'base';
 @import 'signup';
@@ -15,3 +17,4 @@
 @import 'badges';
 
 @import 'inviteemail';
+@import 'roster';

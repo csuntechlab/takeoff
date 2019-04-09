@@ -25,11 +25,15 @@ Route::get('/docs/assets/js/*.js', function() {
 
 Route::resource('profile', 'ProfileController');
 
+
 Route::prefix('students')->group(function () {
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
 });
 
 Route::post('register', 'RegisterController@register');
+Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
+Route::post('completeRegistration', 'RegisterController@completeRegistration');
+
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 
