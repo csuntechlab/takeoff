@@ -1,7 +1,7 @@
 <?php
 namespace App\Contracts;
 
-interface StudentInfoContract{
+interface UserInfoContract{
 
     public function store($request);
     public function getStudentsByMajor($majorname);

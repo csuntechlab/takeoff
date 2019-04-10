@@ -1,33 +1,33 @@
 <?php
 namespace App\Services;
 
-use App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface;
-use App\Models\StudentInfo;
-use App\Contracts\StudentInfoContract;
+use App\ModelRepositoryInterfaces\UserInfoModelRepositoryInterface;
+use App\Models\UserInfo;
+use App\Contracts\UserInfoContract;
 use Validator;
 
 
-class StudentInfoService implements StudentInfoContract
+class UserInfoService implements UserInfoContract
 {
-    protected $studentInfoModelRepo;
+    protected $userInfoModelRepo;
 
-    public function __construct(StudentInfoRepositoryInterface $studentInfoModelRepo){
-        $this->studentInfoModelRepo = $studentInfoModelRepo;
+    public function __construct(UserInfoModelRepositoryInterface $userInfoModelRepo){
+        $this->userInfoModelRepo = $userInfoModelRepo;
     }
 
     public function getStudentsByGradDate($graddate)
     {
-        return $this->studentInfoModelRepo->getStudentsByGradDate($graddate);
+        return $this->userInfoModelRepo->getStudentsByGradDate($graddate);
     }
 
     public function getStudentsByCollege($collegename)
     {
-        return $this->studentInfoModelRepo->getStudentsByCollege($collegename);
+        return $this->userInfoModelRepo->getStudentsByCollege($collegename);
     }
 
     public function getStudentsByMajor($majorname)
     {
-        return $this->studentInfoModelRepo->getStudentsByMajor($majorname);
+        return $this->userInfoModelRepo->getStudentsByMajor($majorname);
     }
 
     public function store($request)
@@ -47,9 +47,9 @@ class StudentInfoService implements StudentInfoContract
             return $validatedData->errors()->all();
         }
 
-        $student = new StudentInfo;
+        $student = new UserInfo;
 
-        $student->user_id = $request->user_id;
+        $student->user_id = "1";
         $student->major = $request->major;
         $student->units = $request->units;
         $student->grad_date = $request->grad_date;

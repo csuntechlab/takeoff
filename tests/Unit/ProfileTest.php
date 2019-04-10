@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Contracts\StudentInfoContract;
+use App\Contracts\UserInfoContract;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Mockery;
@@ -15,13 +15,13 @@ class ProfileTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->retriever = Mockery::spy(StudentInfoContract::class);
+        $this->retriever = Mockery::spy(UserInfoContract::class);
     }
 
     /**
      * @test
      */
-    public function store_studentinfo(){
+    public function store_userinfo(){
 
         $request = Request::create('/store', 'POST',[
             'user_id'=> '3',

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contracts\StudentInfoContract;
+use App\Contracts\UserInfoContract;
 use Validator;
 
 class ProfileController extends Controller
 {
-    private $studentinfoRetriever;
+    private $userinfoRetriever;
 
-    public function __construct(StudentInfoContract $studentinfoContract)
+    public function __construct(UserInfoContract $userinfoContract)
     {
-        $this->studentinfoRetriever = $studentinfoContract;
+        $this->userinfoRetriever = $userinfoContract;
     }
 
     /**
@@ -43,7 +43,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->studentinfoRetriever->store($request);
+        return $this->userinfoRetriever->store($request);
     }
 
 }
