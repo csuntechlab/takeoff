@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        App\Providers\StudentInfoServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         /** Registeration Service Provider */
         App\Providers\ApiProviders\RegisterServiceProvider::class,
         /** Login Service Provider */
@@ -182,7 +185,9 @@ return [
         App\Providers\StudentInfoServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
-
+        App\Providers\ModelRepositoryServiceProvider::class,
+	     /** META+LAB Proxy Pass. */
+        CSUNMetaLab\ProxyPass\Providers\ProxyPassServiceProvider::class,
     ],
 
     /*

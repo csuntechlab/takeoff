@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StudentInfo;
 use Illuminate\Http\Request;
 use App\Contracts\StudentInfoContract;
 use Validator;

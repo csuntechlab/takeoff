@@ -27,4 +27,7 @@ class StudentInfo extends Model
         'academic_interest'
     ];
 
+    public function users(){
+        return $this->belongsTo('App\User', 'id', 'user_id');
+    }
 }

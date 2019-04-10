@@ -24,17 +24,13 @@ class RegisterControllerTest extends TestCase
 
 
     /**
-     * A Mockery Test for Register Contoller
-     *
-     * @return userCreds
+     * @test
+     * @group noFramework
      */
-    public function test_register_controller_with_mockery()
+    public function registerStudentEmail_controller_returns_success()
     {
         $input = [
-            "name" => "tes3t@email.com",
             "email" => "tes3t@email.com",
-            "password" => "tes3t@email.com",
-            "password_confirmation" => "tes3t@email.com"
         ];
 
         $request = new Request($input);
@@ -42,32 +38,32 @@ class RegisterControllerTest extends TestCase
         $expectedResponse = [];
 
         $this->retriever
-            ->shouldReceive('register')
+            ->shouldReceive('registerStudentEmail')
             ->with($request)
             ->once()->andReturn($expectedResponse);
 
-        $response = $this->retriever->register($request);
+        $response = $this->retriever->registerStudentEmail($request);
 
         $this->assertEquals($expectedResponse, $response);
     }
 
-    public function test_register_http_call()
+    /**
+     * @test
+     * @group noFramework
+     */
+    public function test_registerStudentEmail_http_call_ok()
     {
         $input = [
-            "name" => "tes3t@email.com",
             "email" => "tes3t@email.com",
-            "password" => "tes3t@email.com",
-            "password_confirmation" => "tes3t@email.com"
         ];
 
-        $response = $this->json('POST', "/register", $input);
+        $response = $this->json('POST', "/registerStudentEmail", $input);
         $response = $response->getOriginalContent();
         $response = json_encode($response);
-        $actualResponse = [
-            "name" => "tes3t@email.com",
-            "email" => "tes3t@email.com"
+        $expectedResponse = [
+            "email" => "tes3t@email.com",
         ];
-        $actualResponse = json_encode($actualResponse);
-        $this->assertEquals($response, $actualResponse);
+        $expectedResponse = json_encode($expectedResponse);
+        $this->assertEquals($response, $expectedResponse);
     }
 }
