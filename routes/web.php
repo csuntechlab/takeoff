@@ -25,15 +25,17 @@ Route::get('/docs/assets/js/*.js', function() {
 
 Route::resource('profile', 'ProfileController');
 
-Route::prefix('students')->group(function () {
+Route::prefix('api/students')->group(function () {
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
 });
 
-Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
-Route::post('completeRegistration', 'RegisterController@completeRegistration');
-Route::post('login', 'LoginController@login');
-Route::get('logout', 'LoginController@logout');
+Route::prefix('api/auth')->group(function () {
+    Route::post('invite', 'RegisterController@registerStudentEmail');
+    Route::post('register', 'RegisterController@completeRegistration');
+    Route::post('login', 'LoginController@login');
+    Route::get('logout', 'LoginController@logout');
+});
 
 Route::get('/media/{email}', 'MediaController@getMedia');
 
