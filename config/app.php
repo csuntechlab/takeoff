@@ -181,6 +181,7 @@ return [
         /** Login Service Provider */
         App\Providers\ApiProviders\LoginServiceProvider::class,
         /** Login Service Provider */
+        Collective\Html\HtmlServiceProvider::class,
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
         App\Providers\ModelRepositoryServiceProvider::class,
 	     /** META+LAB Proxy Pass. */

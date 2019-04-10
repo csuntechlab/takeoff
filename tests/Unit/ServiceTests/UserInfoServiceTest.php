@@ -4,7 +4,7 @@ namespace tests\Unit\ServiceTests;
 
 use App\Models\UserInfo;
 use App\Services\UserInfoService;
-use App\ModelRepositoryInterfaces\UserInfoRepositoryInterface;
+use App\ModelRepositoryInterfaces\UserInfoModelRepositoryInterface;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Mockery;
 use Tests\TestCase;
@@ -17,7 +17,7 @@ class UserInfoServiceTest extends TestCase
 
     public function setUp(){
         parent::setUp();
-        $this->userInfoModelRepo = Mockery::spy(UserInfoRepositoryInterface::class);
+        $this->userInfoModelRepo = Mockery::spy(UserInfoModelRepositoryInterface::class);
         $this->service = new UserInfoService($this->userInfoModelRepo);
     }
 

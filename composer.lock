@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8d0e5d0104f21be8a7835f6c274a602",
+
+    "content-hash": "ac8840f4bf68e382c2fece2027f533d7",
+
     "packages": [
         {
             "name": "csun-metalab/laravel-proxypass",

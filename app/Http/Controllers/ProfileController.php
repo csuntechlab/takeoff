@@ -43,7 +43,29 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->userinfoRetriever->store($request);
-    }
+        $validatedData = Validator::make($request->all(), [
+            'major'=>'required',
+            'units'=> 'required|integer',
+            'grad_date' => 'required',
+            'college'=>'required',
+        ]);
 
+        if($validatedData->fails()){
+            return $validatedData->errors()->all();
+        }
+
+        $data = $request;
+
+        $studentinfo = $this->userinfoRetriever->store($data);
+
+        if($studentinfo){
+            return response()->json([ $studentinfo ], 201);
+        } else {
+            return response()->json([
+                'errors' => [
+                    'invalid' => 'Unable to create Student Profile.'
+                ]
+            ], 406);
+        }
+    }
 }
