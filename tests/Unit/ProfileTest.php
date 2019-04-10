@@ -43,7 +43,8 @@ class ProfileTest extends TestCase
             ->andReturn("Info is Stored");
 
         $response = $controller->store($request);
-        $this->assertEquals("Info is Stored", $response);
+
+        $this->assertEquals( 201, $response->status());
 
     }
 }

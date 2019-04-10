@@ -48,10 +48,6 @@ class ProfileController extends Controller
             'units'=> 'required|integer',
             'grad_date' => 'required',
             'college'=>'required',
-            'bio'=> 'required',
-            'research' => 'required',
-            'fun_facts'=>'required',
-            'academic_interest' => 'required'
         ]);
 
         if($validatedData->fails()){
@@ -63,7 +59,7 @@ class ProfileController extends Controller
         $studentinfo = $this->studentinfoRetriever->store($data);
 
         if($studentinfo){
-            return response()->json([ 'studentinfo' => $studentinfo ], 201);
+            return response()->json([ $studentinfo ], 201);
         } else {
             return response()->json([
                 'errors' => [

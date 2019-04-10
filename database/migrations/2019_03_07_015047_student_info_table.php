@@ -20,10 +20,10 @@ class StudentInfoTable extends Migration
             $table->integer('units');
             $table->string('grad_date');
             $table->string('college');
-            $table->string('bio');
-            $table->string('research');
-            $table->string('fun_facts');
-            $table->string('academic_interest');
+            $table->string('bio')->nullable();
+            $table->string('research')->nullable();
+            $table->string('fun_facts')->nullable();
+            $table->string('academic_interest')->nullable();
             $table->timestamps();
         });
     }
