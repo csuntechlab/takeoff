@@ -29,16 +29,14 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.17.0",
         "sass-loader": "^7.1.0",
-        "vue": "2.6.7",
-        "vue-loader": "15.6.4",
+        "vue": "^2.1.10",
         "vue-router": "^3.0.2",
-        "vue-server-renderer": "2.6.7",
-        "vue-template-compiler": "2.6.7",
         "vuelidate": "^0.7.4",
         "vuepress": "^0.14.9",
         "vuex": "^3.1.0"
     },
     "dependencies": {
+        "@babel/runtime": "^7.4.3",
         "babel-runtime": "^6.26.0"
     }
 }
