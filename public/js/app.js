@@ -7037,14 +7037,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: ""
+    };
+  },
   props: {
     editable: {
       default: false
     }
   },
-  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])([]))
+  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])([])),
+  created: function created() {
+    this.url = window.baseUrl;
+  }
 });
 
 /***/ }),
@@ -32784,9 +32793,7 @@ var render = function() {
       _c("div", { staticClass: "text-center float-right" }, [
         _c("img", {
           staticClass: "profile-photo__image",
-          attrs: {
-            src: __webpack_require__(/*! ../../../../public/images/default-avatar.png */ "./public/images/default-avatar.png")
-          }
+          attrs: { src: this.url + "/images/default-avatar.png" }
         }),
         _vm._v(" "),
         _vm.editable
@@ -50875,17 +50882,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/images/default-avatar.png":
-/*!******************************************!*\
-  !*** ./public/images/default-avatar.png ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/default-avatar.png?49e363cec20c36585b685178b5ad4ef4";
-
-/***/ }),
-
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -50985,6 +50981,20 @@ if (token) {
   window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
   console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+}
+/**
+ * Let's add the app-url to axios and save it for future use.
+ *
+ */
+
+
+var url = document.head.querySelector('meta[name="app-url"]');
+
+if (url) {
+  window.axios.defaults.baseURL = url.content;
+  window.baseUrl = url.content;
+} else {
+  console.error('Please set the app URL as a meta tag');
 }
 
 
