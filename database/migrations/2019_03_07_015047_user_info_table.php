@@ -16,14 +16,15 @@ class UserInfoTable extends Migration
         Schema::create('user_info', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->string('major');
-            $table->integer('units');
-            $table->string('grad_date');
-            $table->string('college');
-            $table->string('bio');
-            $table->string('research');
-            $table->string('fun_facts');
-            $table->string('academic_interest');
+            $table->string('title');
+            $table->string('major')->nullable();
+            $table->integer('units')->nullable();
+            $table->string('grad_date')->nullable();
+            $table->string('college')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('research')->nullable();
+            $table->string('fun_facts')->nullable();
+            $table->string('academic_interest')->nullable();
             $table->timestamps();
         });
     }

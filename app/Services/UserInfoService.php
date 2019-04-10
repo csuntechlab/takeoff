@@ -50,6 +50,7 @@ class UserInfoService implements UserInfoContract
         $student = new UserInfo;
 
         $student->user_id = "1";
+        $student->title = "student";
         $student->major = $request->major;
         $student->units = $request->units;
         $student->grad_date = $request->grad_date;
