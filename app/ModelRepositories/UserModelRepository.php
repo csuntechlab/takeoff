@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace App\ModelRepositories;
 
-use App\User;
+use App\Models\User;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
 use App\Models\RegistrationAccessToken;
 use Illuminate\Support\Facades\DB;

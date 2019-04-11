@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-use App\User;
+use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\RegistrationAccessToken;
 use App\Contracts\RegisterContract;

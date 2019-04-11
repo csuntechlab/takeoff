@@ -3,7 +3,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Mockery;
-use App\User;
+use App\Models\User;
 use App\Models\RegistrationAccessToken;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

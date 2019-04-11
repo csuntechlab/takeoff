@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -35,5 +35,10 @@ class User extends Authenticatable
 
     public function registrationAccessToken() {
         return $this->hasOne('App\Models\RegistrationAccessToken', 'user_id', 'id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
     }
 }
