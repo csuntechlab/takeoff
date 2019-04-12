@@ -4,6 +4,52 @@
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
 					<div class="form-group mt-5">
+						
+						<div class="form-row">
+							<div class="col pt-3">
+								<label for="password">Password</label>
+								<div>
+								<input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+      							<!-- <div class="invalid-length">Minimum of 6 characters</div> -->
+								<div class="invalid-feedback">Please enter your password</div>
+								</div>
+
+								<!-- <div class="input-group">
+									<input
+										id="password"
+										type="text"
+										class="form-control"
+										:class="passwordValidation"
+										placeholder="password"
+										maxlength="50"
+										v-model.trim="$v.form.password.$model"
+									>
+									<div class="invalid-feedback">Please enter your password</div>
+								</div> -->
+							</div>
+							<div class="col pt-3">
+								<label for="confirmPassword">Confirm Password</label>
+								<div>
+								<input type="password" class="form-control" id="passwordConfirmation" placeholder="Password">
+								</div>
+
+								<!-- <div class="input-group">
+									<input
+										id="confirmPassword"
+										type="text"
+										class="form-control"
+										:class="confirmPasswordValidation"
+										placeholder="Confirm password"
+										maxlength="50"
+										v-model.trim="$v.form.confirmPassword.$model"
+									>
+									<div class="invalid-feedback">Please enter your password.</div>
+								</div> -->
+							</div>
+						</div>
+						
+
+
 						<label for="firstName">First Name</label>
 						<input
                             id="firstName"
@@ -140,6 +186,22 @@ export default {
 		}
 	},
 	computed: {
+		passwordValidation() {
+			if (this.$v.form.password.$dirty) {
+				return {
+					"is-invalid": this.$v.form.password.$error,
+					"is-valid": !this.$v.form.password.$error
+				};
+			}
+		},
+		// confirmPasswordValidation() {
+		// 	if (this.$v.form.confirmPassword.$dirty) {
+		// 		return {
+		// 			"is-invalid": this.$v.form.confirmPassword.$error,
+		// 			"is-valid": !this.$v.form.confirmPassword.$error
+		// 		};
+		// 	}
+		// },
 		firstNameValidation() {
 			if (this.$v.form.firstName.$dirty) {
 				return {
@@ -191,6 +253,9 @@ export default {
 	},
 	validations: {
 		form: {
+			password: {
+				required
+			},
 			firstName: {
 				required
 			},
