@@ -13,6 +13,7 @@
 	</div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
@@ -23,6 +24,11 @@ export default {
 		editable: {
 			default: false
 		}
+	},
+    computed: {
+        ...mapGetters([
+
+        ])
     },
     created() {
         this.url = window.baseUrl
