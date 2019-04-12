@@ -14,10 +14,15 @@ class UserModelRepository implements UserModelRepositoryInterface
     public function registerStudentEmail($data) {
         return DB::transaction(function() use ($data)
         {
-            return User::create([
+            $user = User::create([
                 'email' => $data['email'],
                 'verified' => false
             ]);
+
+            // attatch role of 'student'
+            // TODO: make role identification more eloquent
+            $user->roles()->attach(1);
+            return $user;
         });
     }
 
@@ -46,6 +51,18 @@ class UserModelRepository implements UserModelRepositoryInterface
 
     public function findByEmail($email) {
         $user = User::where('email', $email)
+            ->first();
+
+        return $user;
+    }
+
+    public function deleteUser($userId) {
+        $user = $this->findById($userId);
+        $user->delete();
+    }
+
+    public function findById($userId) {
+        $user = User::where('id', $userId)
             ->first();
 
         return $user;
