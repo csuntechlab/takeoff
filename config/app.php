@@ -185,6 +185,7 @@ return [
         App\Providers\ModelRepositoryServiceProvider::class,
 	     /** META+LAB Proxy Pass. */
         CSUNMetaLab\ProxyPass\Providers\ProxyPassServiceProvider::class,
+        CSUNMetaLab\ForceHttps\Providers\ForceHttpsServiceProvider::class,
     ],
 
     /*
