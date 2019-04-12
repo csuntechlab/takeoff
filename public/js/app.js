@@ -6886,20 +6886,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.min.js");
-/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(choices_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-descriptor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/keys'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/define-property'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.min.js");
+/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(choices_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+
+
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/keys'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source); if (typeof !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) === 'function') { ownKeys = ownKeys.concat(!(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-symbols'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source).filter(function (sym) { return !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/get-own-property-descriptor'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { !(function webpackMissingModule() { var e = new Error("Cannot find module '@babel/runtime/core-js/object/define-property'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6965,7 +6967,7 @@ var interests;
     };
   },
   mounted: function mounted() {
-    interests = new choices_js__WEBPACK_IMPORTED_MODULE_0___default.a(document.querySelector("#academicInterests"), {
+    interests = new choices_js__WEBPACK_IMPORTED_MODULE_1___default.a(document.querySelector("#academicInterests"), {
       delimiter: ",",
       items: this.student.interests,
       removeItemButton: true,
@@ -6973,14 +6975,7 @@ var interests;
       editItems: true
     });
   },
-  computed: {
-    // ...mapGetters([
-    // 	'student'
-    // ])
-    student: function student() {
-      return this.$store.getters.student;
-    }
-  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(['student'])),
   methods: {
     submitChanges: function submitChanges() {
       this.form.academicInterests = interests.getValue(true);
@@ -7261,6 +7256,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -7489,13 +7490,11 @@ __webpack_require__.r(__webpack_exports__);
 exports.__esModule = true;
 exports.default = exports.props = void 0;
 
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
-
 var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
 
 var _config = __webpack_require__(/*! ../../utils/config */ "./node_modules/bootstrap-vue/es/utils/config.js");
 
-var _pluckProps = _interopRequireDefault(__webpack_require__(/*! ../../utils/pluck-props */ "./node_modules/bootstrap-vue/es/utils/pluck-props.js"));
+var _pluckProps = __webpack_require__(/*! ../../utils/pluck-props */ "./node_modules/bootstrap-vue/es/utils/pluck-props.js");
 
 var _array = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/es/utils/array.js");
 
@@ -7503,11 +7502,7 @@ var _object = __webpack_require__(/*! ../../utils/object */ "./node_modules/boot
 
 var _dom = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/es/utils/dom.js");
 
-var _link = _interopRequireWildcard(__webpack_require__(/*! ../link/link */ "./node_modules/bootstrap-vue/es/components/link/link.js"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _link = __webpack_require__(/*! ../link/link */ "./node_modules/bootstrap-vue/es/components/link/link.js");
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -7530,7 +7525,7 @@ var btnProps = {
   variant: {
     type: String,
     default: function _default() {
-      return String((0, _config.getComponentConfig)(NAME, 'variant'));
+      return (0, _config.getComponentConfig)(NAME, 'variant');
     }
   },
   type: {
@@ -7643,7 +7638,7 @@ function computeAttrs(props, data) {
 } // @vue/component
 
 
-var _default2 = _vue.default.extend({
+var _default2 = {
   name: NAME,
   functional: true,
   props: props,
@@ -7687,8 +7682,7 @@ var _default2 = _vue.default.extend({
     };
     return h(link ? _link.default : props.tag, (0, _vueFunctionalDataMerge.mergeData)(data, componentData), children);
   }
-});
-
+};
 exports.default = _default2;
 
 /***/ }),
@@ -7706,23 +7700,15 @@ exports.default = _default2;
 exports.__esModule = true;
 exports.default = void 0;
 
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
-
-var _listenOnRoot = _interopRequireDefault(__webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js"));
+var _listenOnRoot = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js");
 
 var _env = __webpack_require__(/*! ../../utils/env */ "./node_modules/bootstrap-vue/es/utils/env.js");
 
 var _dom = __webpack_require__(/*! ../../utils/dom */ "./node_modules/bootstrap-vue/es/utils/dom.js");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 // Events we emit on $root
 var EVENT_STATE = 'bv::collapse::state';
-var EVENT_ACCORDION = 'bv::collapse::accordion'; // Private event we emit on $root to ensure the toggle state is always synced
-// Gets emited even if the state has not changed!
-// This event is NOT to be documented as people should not be using it.
-
-var EVENT_STATE_SYNC = 'bv::collapse::sync::state'; // Events we listen to on $root
+var EVENT_ACCORDION = 'bv::collapse::accordion'; // Events we listen to on $root
 
 var EVENT_TOGGLE = 'bv::toggle::collapse'; // Event Listener options
 
@@ -7731,8 +7717,7 @@ var EventOptions = {
   capture: false // @vue/component
 
 };
-
-var _default = _vue.default.extend({
+var _default = {
   name: 'BCollapse',
   mixins: [_listenOnRoot.default],
   model: {
@@ -7789,32 +7774,19 @@ var _default = _vue.default.extend({
     }
   },
   created: function created() {
-    this.show = this.visible; // Listen for toggle events to open/close us
-
+    // Listen for toggle events to open/close us
     this.listenOnRoot(EVENT_TOGGLE, this.handleToggleEvt); // Listen to other collapses for accordion events
 
     this.listenOnRoot(EVENT_ACCORDION, this.handleAccordionEvt);
   },
   mounted: function mounted() {
-    var _this = this;
-
-    this.show = this.visible;
-
     if (this.isNav && _env.inBrowser) {
       // Set up handlers
       this.setWindowEvents(true);
       this.handleResize();
     }
 
-    this.$nextTick(function () {
-      _this.emitState();
-    });
-  },
-  updated: function updated() {
-    // Emit a private event every time this component updates
-    // to ensure the toggle button is in sync with the collapse's state.
-    // It is emitted regardless if the visible state changes.
-    this.$root.$emit(EVENT_STATE_SYNC, this.id, this.show);
+    this.emitState();
   },
   deactivated: function deactivated()
   /* istanbul ignore next */
@@ -7829,10 +7801,10 @@ var _default = _vue.default.extend({
     if (this.isNav && _env.inBrowser) {
       this.setWindowEvents(true);
     }
-
-    this.$root.$emit(EVENT_STATE_SYNC, this.id, this.show);
   },
-  beforeDestroy: function beforeDestroy() {
+  beforeDestroy: function beforeDestroy()
+  /* istanbul ignore next */
+  {
     // Trigger state emit if needed
     this.show = false;
 
@@ -7960,8 +7932,7 @@ var _default = _vue.default.extend({
       }
     }, [content]);
   }
-});
-
+};
 exports.default = _default;
 
 /***/ }),
@@ -7979,19 +7950,12 @@ exports.default = _default;
 exports.__esModule = true;
 exports.default = exports.props = void 0;
 
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
-
-var _link = _interopRequireWildcard(__webpack_require__(/*! ../link/link */ "./node_modules/bootstrap-vue/es/components/link/link.js"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _link = __webpack_require__(/*! ../link/link */ "./node_modules/bootstrap-vue/es/components/link/link.js");
 
 var props = (0, _link.propsFactory)(); // @vue/component
 
 exports.props = props;
-
-var _default = _vue.default.extend({
+var _default = {
   name: 'BDropdownItem',
   inject: {
     bvDropdown: {
@@ -8022,8 +7986,7 @@ var _default = _vue.default.extend({
       }
     }, this.$slots.default);
   }
-});
-
+};
 exports.default = _default;
 
 /***/ }),
@@ -8039,91 +8002,87 @@ exports.default = _default;
 
 
 exports.__esModule = true;
-exports.default = exports.props = void 0;
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
+exports.default = void 0;
 
 var _html = __webpack_require__(/*! ../../utils/html */ "./node_modules/bootstrap-vue/es/utils/html.js");
 
 var _config = __webpack_require__(/*! ../../utils/config */ "./node_modules/bootstrap-vue/es/utils/config.js");
 
-var _id = _interopRequireDefault(__webpack_require__(/*! ../../mixins/id */ "./node_modules/bootstrap-vue/es/mixins/id.js"));
+var _id = __webpack_require__(/*! ../../mixins/id */ "./node_modules/bootstrap-vue/es/mixins/id.js");
 
-var _dropdown = _interopRequireDefault(__webpack_require__(/*! ../../mixins/dropdown */ "./node_modules/bootstrap-vue/es/mixins/dropdown.js"));
+var _dropdown = __webpack_require__(/*! ../../mixins/dropdown */ "./node_modules/bootstrap-vue/es/mixins/dropdown.js");
 
-var _button = _interopRequireDefault(__webpack_require__(/*! ../button/button */ "./node_modules/bootstrap-vue/es/components/button/button.js"));
+var _button = __webpack_require__(/*! ../button/button */ "./node_modules/bootstrap-vue/es/components/button/button.js");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var NAME = 'BDropdown'; // @vue/component
 
-var NAME = 'BDropdown';
-var props = {
-  toggleText: {
-    // This really should be toggleLabel
-    type: String,
-    default: function _default() {
-      return String((0, _config.getComponentConfig)(NAME, 'toggleText'));
-    }
-  },
-  size: {
-    type: String,
-    default: null
-  },
-  variant: {
-    type: String,
-    default: function _default() {
-      return String((0, _config.getComponentConfig)(NAME, 'variant') || '') || null;
-    }
-  },
-  menuClass: {
-    type: [String, Array],
-    default: null
-  },
-  toggleTag: {
-    type: String,
-    default: 'button'
-  },
-  toggleClass: {
-    type: [String, Array],
-    default: null
-  },
-  noCaret: {
-    type: Boolean,
-    default: false
-  },
-  split: {
-    type: Boolean,
-    default: false
-  },
-  splitHref: {
-    type: String // default: undefined
-
-  },
-  splitTo: {
-    type: [String, Object] // default: undefined
-
-  },
-  splitVariant: {
-    type: String,
-    default: null
-  },
-  role: {
-    type: String,
-    default: 'menu'
-  },
-  boundary: {
-    // String: `scrollParent`, `window` or `viewport`
-    // Object: HTML Element reference
-    type: [String, Object],
-    default: 'scrollParent'
-  } // @vue/component
-
-};
-exports.props = props;
-
-var _default2 = _vue.default.extend({
+var _default2 = {
   name: NAME,
+  components: {
+    BButton: _button.default
+  },
   mixins: [_id.default, _dropdown.default],
-  props: props,
+  props: {
+    toggleText: {
+      // This really should be toggleLabel
+      type: String,
+      default: function _default() {
+        return (0, _config.getComponentConfig)(NAME, 'toggleText');
+      }
+    },
+    size: {
+      type: String,
+      default: null
+    },
+    variant: {
+      type: String,
+      default: function _default() {
+        return (0, _config.getComponentConfig)(NAME, 'variant');
+      }
+    },
+    menuClass: {
+      type: [String, Array],
+      default: null
+    },
+    toggleTag: {
+      type: String,
+      default: 'button'
+    },
+    toggleClass: {
+      type: [String, Array],
+      default: null
+    },
+    noCaret: {
+      type: Boolean,
+      default: false
+    },
+    split: {
+      type: Boolean,
+      default: false
+    },
+    splitHref: {
+      type: String // default: undefined
+
+    },
+    splitTo: {
+      type: [String, Object] // default: undefined
+
+    },
+    splitVariant: {
+      type: String,
+      default: null
+    },
+    role: {
+      type: String,
+      default: 'menu'
+    },
+    boundary: {
+      // String: `scrollParent`, `window` or `viewport`
+      // Object: HTML Element reference
+      type: [String, Object],
+      default: 'scrollParent'
+    }
+  },
   computed: {
     dropdownClasses: function dropdownClasses() {
       // Position `static` is needed to allow menu to "breakout" of the scrollParent boundaries
@@ -8177,7 +8136,7 @@ var _default2 = _vue.default.extend({
         btnProps.href = this.splitHref;
       }
 
-      split = h(_button.default, {
+      split = h('b-button', {
         ref: 'button',
         props: btnProps,
         attrs: {
@@ -8189,7 +8148,7 @@ var _default2 = _vue.default.extend({
       }, [this.$slots['button-content'] || this.$slots.text || this.html || (0, _html.stripTags)(this.text)]);
     }
 
-    var toggle = h(_button.default, {
+    var toggle = h('b-button', {
       ref: 'toggle',
       class: this.toggleClasses,
       props: {
@@ -8233,8 +8192,7 @@ var _default2 = _vue.default.extend({
       class: this.dropdownClasses
     }, [split, toggle, menu]);
   }
-});
-
+};
 exports.default = _default2;
 
 /***/ }),
@@ -8255,8 +8213,6 @@ exports.pickLinkProps = pickLinkProps;
 exports.omitLinkProps = omitLinkProps;
 exports.default = exports.props = void 0;
 
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
-
 var _object = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/es/utils/object.js");
 
 var _array = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/es/utils/array.js");
@@ -8265,19 +8221,9 @@ var _router = __webpack_require__(/*! ../../utils/router */ "./node_modules/boot
 
 var _vueFunctionalDataMerge = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 /**
  * The Link component is used in many other BV components.
@@ -8390,29 +8336,22 @@ function clickHandlerFactory(_ref) {
       suppliedHandler = _ref.suppliedHandler,
       parent = _ref.parent;
   return function onClick(evt) {
-    var _arguments = arguments;
-
     if (disabled && evt instanceof Event) {
       // Stop event from bubbling up.
       evt.stopPropagation(); // Kill the event loop attached to this specific EventTarget.
-      // Needed to prevent vue-router for doing its thing
 
       evt.stopImmediatePropagation();
     } else {
       if ((0, _router.isRouterLink)(tag) && evt.target.__vue__) {
         // Router links do not emit instance 'click' events, so we
         // add in an $emit('click', evt) on it's vue instance
-
-        /* istanbul ignore next: difficult to test, but we know it works */
         evt.target.__vue__.$emit('click', evt);
-      } // Call the suppliedHanlder(s), if any provided
+      }
 
+      if (typeof suppliedHandler === 'function') {
+        suppliedHandler.apply(void 0, arguments);
+      }
 
-      (0, _array.concat)(suppliedHandler).filter(function (h) {
-        return typeof h === 'function';
-      }).forEach(function (handler) {
-        handler.apply(void 0, _toConsumableArray(_arguments));
-      });
       parent.$root.$emit('clicked::link', evt);
     }
 
@@ -8425,7 +8364,7 @@ function clickHandlerFactory(_ref) {
 } // @vue/component
 
 
-var _default = _vue.default.extend({
+var _default = {
   name: 'BLink',
   functional: true,
   props: propsFactory(),
@@ -8474,8 +8413,7 @@ var _default = _vue.default.extend({
     componentData[eventType] = _objectSpread({}, componentData[eventType] || {}, handlers);
     return h(tag, componentData, children);
   }
-});
-
+};
 exports.default = _default;
 
 /***/ }),
@@ -8493,31 +8431,16 @@ exports.default = _default;
 exports.__esModule = true;
 exports.default = void 0;
 
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
+var _listenOnRoot = __webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js");
 
-var _listenOnRoot = _interopRequireDefault(__webpack_require__(/*! ../../mixins/listen-on-root */ "./node_modules/bootstrap-vue/es/mixins/listen-on-root.js"));
-
-var _config = __webpack_require__(/*! ../../utils/config */ "./node_modules/bootstrap-vue/es/utils/config.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var NAME = 'BNavbarToggle'; // Events we emit on $root
-
-var EVENT_TOGGLE = 'bv::toggle::collapse'; // Events we listen to on $root
-
-var EVENT_STATE = 'bv::collapse::state'; // This private event is NOT to be documented as people should not be using it.
-
-var EVENT_STATE_SYNC = 'bv::collapse::sync::state'; // @vue/component
-
-var _default2 = _vue.default.extend({
-  name: NAME,
+// @vue/component
+var _default = {
+  name: 'BNavbarToggle',
   mixins: [_listenOnRoot.default],
   props: {
     label: {
       type: String,
-      default: function _default() {
-        return String((0, _config.getComponentConfig)(NAME, 'label') || '');
-      }
+      default: 'Toggle navigation'
     },
     target: {
       type: String,
@@ -8530,15 +8453,15 @@ var _default2 = _vue.default.extend({
     };
   },
   created: function created() {
-    this.listenOnRoot(EVENT_STATE, this.handleStateEvt);
-    this.listenOnRoot(EVENT_STATE_SYNC, this.handleStateEvt);
+    this.listenOnRoot('bv::collapse::state', this.handleStateEvt);
   },
   methods: {
     onClick: function onClick(evt) {
       this.$emit('click', evt);
+      /* istanbul ignore next */
 
       if (!evt.defaultPrevented) {
-        this.$root.$emit(EVENT_TOGGLE, this.target);
+        this.$root.$emit('bv::toggle::collapse', this.target);
       }
     },
     handleStateEvt: function handleStateEvt(id, state) {
@@ -8563,9 +8486,8 @@ var _default2 = _vue.default.extend({
       class: ['navbar-toggler-icon']
     })]);
   }
-});
-
-exports.default = _default2;
+};
+exports.default = _default;
 
 /***/ }),
 
@@ -8653,21 +8575,19 @@ exports.default = _default;
 exports.__esModule = true;
 exports.default = void 0;
 
-var _popper = _interopRequireDefault(__webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js"));
+var _popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 
-var _clickOut = _interopRequireDefault(__webpack_require__(/*! ./click-out */ "./node_modules/bootstrap-vue/es/mixins/click-out.js"));
+var _clickOut = __webpack_require__(/*! ./click-out */ "./node_modules/bootstrap-vue/es/mixins/click-out.js");
 
-var _focusIn = _interopRequireDefault(__webpack_require__(/*! ./focus-in */ "./node_modules/bootstrap-vue/es/mixins/focus-in.js"));
+var _focusIn = __webpack_require__(/*! ./focus-in */ "./node_modules/bootstrap-vue/es/mixins/focus-in.js");
 
-var _keyCodes = _interopRequireDefault(__webpack_require__(/*! ../utils/key-codes */ "./node_modules/bootstrap-vue/es/utils/key-codes.js"));
+var _keyCodes = __webpack_require__(/*! ../utils/key-codes */ "./node_modules/bootstrap-vue/es/utils/key-codes.js");
 
-var _bvEvent = _interopRequireDefault(__webpack_require__(/*! ../utils/bv-event.class */ "./node_modules/bootstrap-vue/es/utils/bv-event.class.js"));
+var _bvEvent = __webpack_require__(/*! ../utils/bv-event.class */ "./node_modules/bootstrap-vue/es/utils/bv-event.class.js");
 
-var _warn = _interopRequireDefault(__webpack_require__(/*! ../utils/warn */ "./node_modules/bootstrap-vue/es/utils/warn.js"));
+var _warn = __webpack_require__(/*! ../utils/warn */ "./node_modules/bootstrap-vue/es/utils/warn.js");
 
 var _dom = __webpack_require__(/*! ../utils/dom */ "./node_modules/bootstrap-vue/es/utils/dom.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -8826,7 +8746,9 @@ var _default2 = {
     this.whileOpenListen(false);
     this.removePopper();
   },
-  beforeDestroy: function beforeDestroy() {
+  beforeDestroy: function beforeDestroy()
+  /* istanbul ignore next: not easy to test */
+  {
     this.visible = false;
     this.whileOpenListen(false);
     this.removePopper();
@@ -8842,7 +8764,6 @@ var _default2 = {
       var _this = this;
 
       if (this.disabled) {
-        /* istanbul ignore next */
         return;
       } // Ensure other menus are closed
 
@@ -8850,14 +8771,14 @@ var _default2 = {
       this.$root.$emit('bv::dropdown::shown', this); // Are we in a navbar ?
 
       if (this.inNavbar === null && this.isNav) {
-        /* istanbul ignore next */
         this.inNavbar = Boolean((0, _dom.closest)('.navbar', this.$el));
       } // Disable totally Popper.js for Dropdown in Navbar
+
+      /* istanbul ignore next: cant test popper in JSDOM */
 
 
       if (!this.inNavbar) {
         if (typeof _popper.default === 'undefined') {
-          /* istanbul ignore next */
           (0, _warn.default)('b-dropdown: Popper.js not found. Falling back to CSS positioning.');
         } else {
           // for dropup with alignment we use the parent element as popper container
@@ -8885,11 +8806,15 @@ var _default2 = {
       this.$emit('hidden');
       this.removePopper();
     },
-    createPopper: function createPopper(element) {
+    createPopper: function createPopper(element)
+    /* istanbul ignore next: cant test popper in JSDOM */
+    {
       this.removePopper();
       this._popper = new _popper.default(element, this.$refs.menu, this.getPopperConfig());
     },
-    removePopper: function removePopper() {
+    removePopper: function removePopper()
+    /* istanbul ignore next: cant test popper in JSDOM */
+    {
       if (this._popper) {
         // Ensure popper event listeners are removed cleanly
         this._popper.destroy();
@@ -8897,7 +8822,9 @@ var _default2 = {
 
       this._popper = null;
     },
-    getPopperConfig: function getPopperConfig() {
+    getPopperConfig: function getPopperConfig()
+    /* istanbul ignore next: can't test popper in JSDOM */
+    {
       var placement = AttachmentMap.BOTTOM;
 
       if (this.dropup) {
@@ -8963,7 +8890,6 @@ var _default2 = {
 
       // Public method to hide dropdown
       if (this.disabled) {
-        /* istanbul ignore next */
         return;
       }
 
@@ -8982,16 +8908,11 @@ var _default2 = {
 
       if (type !== 'click' && !(type === 'keydown' && (key === _keyCodes.default.ENTER || key === _keyCodes.default.SPACE || key === _keyCodes.default.DOWN))) {
         // We only toggle on Click, Enter, Space, and Arrow Down
-
-        /* istanbul ignore next */
         return;
       }
 
       if (this.disabled) {
-        /* istanbul ignore next */
         this.visible = false;
-        /* istanbul ignore next */
-
         return;
       }
 
@@ -9010,16 +8931,15 @@ var _default2 = {
     click: function click(evt) {
       // Called only in split button mode, for the split button
       if (this.disabled) {
-        /* istanbul ignore next */
         this.visible = false;
-        /* istanbul ignore next */
-
         return;
       }
 
       this.$emit('click', evt);
     },
-    onKeydown: function onKeydown(evt) {
+    onKeydown: function onKeydown(evt)
+    /* istanbul ignore next: not easy to test */
+    {
       // Called from dropdown menu context
       var key = evt.keyCode;
 
@@ -9028,8 +8948,6 @@ var _default2 = {
         this.onEsc(evt);
       } else if (key === _keyCodes.default.TAB) {
         // Close on tab out
-
-        /* istanbul ignore next: not used and should be removed */
         this.onTab(evt);
       } else if (key === _keyCodes.default.DOWN) {
         // Down Arrow
@@ -9039,7 +8957,9 @@ var _default2 = {
         this.focusNext(evt, true);
       }
     },
-    onEsc: function onEsc(evt) {
+    onEsc: function onEsc(evt)
+    /* istanbul ignore next: not easy to test */
+    {
       if (this.visible) {
         this.visible = false;
         evt.preventDefault();
@@ -9076,7 +8996,6 @@ var _default2 = {
       var _this2 = this;
 
       if (!this.visible) {
-        /* istanbul ignore next: should never happen */
         return;
       }
 
@@ -9086,7 +9005,6 @@ var _default2 = {
         var items = _this2.getItems();
 
         if (items.length < 1) {
-          /* istanbul ignore next: should never happen */
           return;
         }
 
@@ -9099,7 +9017,6 @@ var _default2 = {
         }
 
         if (index < 0) {
-          /* istanbul ignore next: should never happen */
           index = 0;
         }
 
@@ -9305,32 +9222,6 @@ var _default = {
       this.$root.$on(event, callback);
       this.$on('hook:beforeDestroy', function () {
         _this.$root.$off(event, callback);
-      }); // Return this for easy chaining
-
-      return this;
-    },
-
-    /**
-     * Safely register a $once event listener on the root Vue node.
-     * While Vue automatically removes listeners for individual components,
-     * when a component registers a listener on root and is destroyed,
-     * this orphans a callback because the node is gone,
-     * but the root does not clear the callback.
-     *
-     * When registering a $root listener, it also registers a listener on
-     * the component's `beforeDestroy` hook to automatically remove the
-     * event listener from the $root instance.
-     *
-     * @param {string} event
-     * @param {function} callback
-     * @chainable
-     */
-    listenOnRootOnce: function listenOnRootOnce(event, callback) {
-      var _this2 = this;
-
-      this.$root.$once(event, callback);
-      this.$on('hook:beforeDestroy', function () {
-        _this2.$root.$off(event, callback);
       }); // Return this for easy chaining
 
       return this;
@@ -9559,9 +9450,9 @@ exports.concat = concat;
 
 
 exports.__esModule = true;
-exports.default = exports.BvEvent = void 0;
+exports.default = void 0;
 
-var _object = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/es/utils/object.js");
+var _object = __webpack_require__(/*! ../utils/object */ "./node_modules/bootstrap-vue/es/utils/object.js");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -9585,7 +9476,7 @@ function () {
     // and the type last so it can't be overwritten.
 
 
-    (0, _object.assign)(this, BvEvent.Defaults, this.constructor.Defaults, eventInit, {
+    (0, _object.assign)(this, BvEvent.defaults(), eventInit, {
       type: type
     }); // Freeze some props as readonly, but leave them enumerable.
 
@@ -9617,8 +9508,8 @@ function () {
   }
 
   _createClass(BvEvent, null, [{
-    key: "Defaults",
-    get: function get() {
+    key: "defaults",
+    value: function defaults() {
       return {
         type: '',
         cancelable: true,
@@ -9631,11 +9522,8 @@ function () {
   }]);
 
   return BvEvent;
-}(); // Named Exports
+}();
 
-
-exports.BvEvent = BvEvent;
-// Default Export
 var _default = BvEvent;
 exports.default = _default;
 
@@ -9707,17 +9595,15 @@ exports.default = _default;
 exports.__esModule = true;
 exports.getBreakpointsDown = exports.getBreakpointsUp = exports.getBreakpoints = exports.getComponentConfig = exports.getConfigValue = exports.getDefaults = exports.getConfig = exports.resetConfig = exports.setConfig = void 0;
 
-var _cloneDeep = _interopRequireDefault(__webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/es/utils/clone-deep.js"));
+var _cloneDeep = __webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/es/utils/clone-deep.js");
 
-var _get = _interopRequireDefault(__webpack_require__(/*! ./get */ "./node_modules/bootstrap-vue/es/utils/get.js"));
+var _get = __webpack_require__(/*! ./get */ "./node_modules/bootstrap-vue/es/utils/get.js");
 
-var _warn = _interopRequireDefault(__webpack_require__(/*! ./warn */ "./node_modules/bootstrap-vue/es/utils/warn.js"));
+var _warn = __webpack_require__(/*! ./warn */ "./node_modules/bootstrap-vue/es/utils/warn.js");
 
 var _array = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/es/utils/array.js");
 
 var _object = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/es/utils/object.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // General Bootstrap Vue configuration
 //
@@ -9769,12 +9655,6 @@ var DEFAULTS = {
     // BCard and BCardBody also inherit this prop
     subTitleTextVariant: 'muted'
   },
-  BCarousel: {
-    labelPrev: 'Previous Slide',
-    labelNext: 'Next Slide',
-    labelGotoSlide: 'Goto Slide',
-    labelIndicators: 'Select a slide to display'
-  },
   BDropdown: {
     toggleText: 'Toggle Dropdown',
     variant: 'secondary'
@@ -9800,9 +9680,6 @@ var DEFAULTS = {
     okTitle: 'OK',
     okVariant: 'primary',
     headerCloseLabel: 'Close'
-  },
-  BNavbarToggle: {
-    label: 'Toggle navigation'
   } // This contains user defined configuration
 
 };
@@ -10035,19 +9912,13 @@ var isElement = function isElement(el) {
 
 exports.isElement = isElement;
 
-var isVisible = function isVisible(el) {
+var isVisible = function isVisible(el)
+/* istanbul ignore next: getBoundingClientRect() doesn't work in JSDOM */
+{
   if (!isElement(el) || !contains(document.body, el)) {
-    return false;
-  }
-
-  if (el.style.display === 'none') {
-    // We do this check to help with vue-test-utils when using v-show
-
-    /* istanbul ignore next */
     return false;
   } // All browsers support getBoundingClientRect(), except JSDOM as it returns all 0's for values :(
   // So any tests that need isVisible will fail in JSDOM
-  // Except when we override the getBCR prototype in some tests
 
 
   var bcr = getBCR(el);
@@ -10393,7 +10264,7 @@ var hasPointerEvent = inBrowser && Boolean(window.PointerEvent || window.MSPoint
 exports.hasPointerEvent = hasPointerEvent;
 
 var getNoWarn = function getNoWarn() {
-  return typeof process !== 'undefined' && process && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
+  return process && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
 };
 
 exports.getNoWarn = getNoWarn;
@@ -10453,7 +10324,7 @@ var get = function get(obj, path) {
 
 
   return steps.every(function (step) {
-    return (0, _object.isObject)(obj) && obj.hasOwnProperty(step) && (obj = obj[step]) != null;
+    return (0, _object.isObject)(obj) && obj.hasOwnProperty(step) && (obj = obj[step]);
   }) ? obj : defaultValue;
 };
 
@@ -10726,9 +10597,7 @@ var _object = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/
 
 var _array = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/es/utils/array.js");
 
-var _identity = _interopRequireDefault(__webpack_require__(/*! ./identity */ "./node_modules/bootstrap-vue/es/utils/identity.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _identity = __webpack_require__(/*! ./identity */ "./node_modules/bootstrap-vue/es/utils/identity.js");
 
 /**
  * Given an array of properties or an object of property keys,
@@ -10770,9 +10639,7 @@ var _object = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/
 
 var _array = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/es/utils/array.js");
 
-var _toString = _interopRequireDefault(__webpack_require__(/*! ./to-string */ "./node_modules/bootstrap-vue/es/utils/to-string.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _toString = __webpack_require__(/*! ./to-string */ "./node_modules/bootstrap-vue/es/utils/to-string.js");
 
 var ANCHOR_TAG = 'a'; // Precompile RegExp
 
@@ -32751,129 +32618,117 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-lg-6 col-md-8 col-sm-12" }, [
-        _c("form", [
-          _c("div", [
-            _c("img", {
-              staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
-              attrs: { src: _vm.student.image, alt: "" }
-            })
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-row mt-5" }, [
-            _c("label", { attrs: { for: "exampleInputFirstName" } }, [
-              _vm._v("Biography")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.biography,
-                  expression: "form.biography"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { rows: "5", placeholder: "Write about yourself." },
-              domProps: { value: _vm.form.biography },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "biography", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-row mt-4" }, [
-            _c("label", { attrs: { for: "exampleInputLastName" } }, [
-              _vm._v("Research")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.research,
-                  expression: "form.research"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                rows: "5",
-                placeholder: "Write about any research projects."
-              },
-              domProps: { value: _vm.form.research },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "research", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-row mt-4" }, [
-            _c("label", { attrs: { for: "exampleInputLastName" } }, [
-              _vm._v("Fun Fact About Me")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.funFacts,
-                  expression: "form.funFacts"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                rows: "5",
-                placeholder: "Write a fun fact about yourself."
-              },
-              domProps: { value: _vm.form.funFacts },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "funFacts", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.submitChanges($event)
-                  }
-                }
-              },
-              [_vm._v("Save Changes")]
-            )
-          ])
-        ])
-      ])
+  return _c("form", [
+    _c("div", [
+      _c("img", {
+        staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
+        attrs: { src: _vm.student.image, alt: "" }
+      })
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row mt-5" }, [
+      _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+        _vm._v("Biography")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.biography,
+            expression: "form.biography"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Write about yourself." },
+        domProps: { value: _vm.form.biography },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "biography", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row mt-4" }, [
+      _c("label", { attrs: { for: "exampleInputLastName" } }, [
+        _vm._v("Research")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.research,
+            expression: "form.research"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Write about any research projects." },
+        domProps: { value: _vm.form.research },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "research", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row mt-4" }, [
+      _c("label", { attrs: { for: "exampleInputLastName" } }, [
+        _vm._v("Fun Fact About Me")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.funFacts,
+            expression: "form.funFacts"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { rows: "5", placeholder: "Write a fun fact about yourself." },
+        domProps: { value: _vm.form.funFacts },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "funFacts", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.submitChanges($event)
+            }
+          }
+        },
+        [_vm._v("Save Changes")]
+      )
     ])
   ])
 }
@@ -33248,7 +33103,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("EditProfile")
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-lg-6 col-md-8 col-sm-12" },
+        [_c("EditProfile")],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -33595,8 +33459,8 @@ function normalizeComponent (
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
-  * vue-router v3.0.3
-  * (c) 2019 Evan You
+  * vue-router v3.0.2
+  * (c) 2018 Evan You
   * @license MIT
   */
 /*  */
@@ -34678,24 +34542,16 @@ function fillParams (
   params,
   routeMsg
 ) {
-  params = params || {};
   try {
     var filler =
       regexpCompileCache[path] ||
       (regexpCompileCache[path] = pathToRegexp_1.compile(path));
-
-    // Fix #2505 resolving asterisk routes { name: 'not-found', params: { pathMatch: '/not-found' }}
-    if (params.pathMatch) { params[0] = params.pathMatch; }
-
-    return filler(params, { pretty: true })
+    return filler(params || {}, { pretty: true })
   } catch (e) {
     if (true) {
       warn(false, ("missing param for " + routeMsg + ": " + (e.message)));
     }
     return ''
-  } finally {
-    // delete the 0 if it was added
-    delete params[0];
   }
 }
 
@@ -34874,10 +34730,8 @@ function normalizeLocation (
 ) {
   var next = typeof raw === 'string' ? { path: raw } : raw;
   // named target
-  if (next._normalized) {
+  if (next.name || next._normalized) {
     return next
-  } else if (next.name) {
-    return extend({}, raw)
   }
 
   // relative params
@@ -35734,7 +35588,7 @@ function poll (
 
 /*  */
 
-var HTML5History = /*@__PURE__*/(function (History$$1) {
+var HTML5History = (function (History$$1) {
   function HTML5History (router, base) {
     var this$1 = this;
 
@@ -35822,7 +35676,7 @@ function getLocation (base) {
 
 /*  */
 
-var HashHistory = /*@__PURE__*/(function (History$$1) {
+var HashHistory = (function (History$$1) {
   function HashHistory (router, base, fallback) {
     History$$1.call(this, router, base);
     // check history fallback deeplinking
@@ -35959,7 +35813,7 @@ function replaceHash (path) {
 
 /*  */
 
-var AbstractHistory = /*@__PURE__*/(function (History$$1) {
+var AbstractHistory = (function (History$$1) {
   function AbstractHistory (router, base) {
     History$$1.call(this, router, base);
     this.stack = [];
@@ -36172,10 +36026,9 @@ VueRouter.prototype.resolve = function resolve (
   current,
   append
 ) {
-  current = current || this.history.current;
   var location = normalizeLocation(
     to,
-    current,
+    current || this.history.current,
     append,
     this
   );
@@ -36216,7 +36069,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.0.3';
+VueRouter.version = '3.0.2';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -36236,7 +36089,7 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.10
+ * Vue.js v2.6.7
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -36714,7 +36567,7 @@ var config = ({
  * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
  * skipping \u10000-\uEFFFF due to it freezing up PhantomJS
  */
-var unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/;
+var unicodeLetters = 'a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD';
 
 /**
  * Check if a string starts with $ or _
@@ -36739,7 +36592,7 @@ function def (obj, key, val, enumerable) {
 /**
  * Parse simple path.
  */
-var bailRE = new RegExp(("[^" + (unicodeRegExp.source) + ".$_\\d]"));
+var bailRE = new RegExp(("[^" + unicodeLetters + ".$_\\d]"));
 function parsePath (path) {
   if (bailRE.test(path)) {
     return
@@ -37643,7 +37496,7 @@ function checkComponents (options) {
 }
 
 function validateComponentName (name) {
-  if (!new RegExp(("^[a-zA-Z][\\-\\.0-9_" + (unicodeRegExp.source) + "]*$")).test(name)) {
+  if (!new RegExp(("^[a-zA-Z][\\-\\.0-9_" + unicodeLetters + "]*$")).test(name)) {
     warn(
       'Invalid component name: "' + name + '". Component names ' +
       'should conform to valid custom element name in html5 specification.'
@@ -38094,11 +37947,10 @@ function invokeWithErrorHandling (
   var res;
   try {
     res = args ? handler.apply(context, args) : handler.call(context);
-    if (res && !res._isVue && isPromise(res) && !res._handled) {
-      res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
+    if (res && !res._isVue && isPromise(res)) {
       // issue #9511
-      // avoid catch triggering multiple times when nested calls
-      res._handled = true;
+      // reassign to res to avoid catch triggering multiple times when nested calls
+      res = res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
     }
   } catch (e) {
     handleError(e, vm, info);
@@ -38781,8 +38633,7 @@ function normalizeScopedSlots (
   prevSlots
 ) {
   var res;
-  var hasNormalSlots = Object.keys(normalSlots).length > 0;
-  var isStable = slots ? !!slots.$stable : !hasNormalSlots;
+  var isStable = slots ? !!slots.$stable : true;
   var key = slots && slots.$key;
   if (!slots) {
     res = {};
@@ -38794,8 +38645,7 @@ function normalizeScopedSlots (
     prevSlots &&
     prevSlots !== emptyObject &&
     key === prevSlots.$key &&
-    !hasNormalSlots &&
-    !prevSlots.$hasNormal
+    Object.keys(normalSlots).length === 0
   ) {
     // fast path 2: stable scoped slots w/ no normal slots to proxy,
     // only need to normalize once
@@ -38821,7 +38671,6 @@ function normalizeScopedSlots (
   }
   def(res, '$stable', isStable);
   def(res, '$key', key);
-  def(res, '$hasNormal', hasNormalSlots);
   return res
 }
 
@@ -38831,10 +38680,8 @@ function normalizeScopedSlot(normalSlots, key, fn) {
     res = res && typeof res === 'object' && !Array.isArray(res)
       ? [res] // single vnode
       : normalizeChildren(res);
-    return res && (
-      res.length === 0 ||
-      (res.length === 1 && res[0].isComment) // #9658
-    ) ? undefined
+    return res && res.length === 0
+      ? undefined
       : res
   };
   // this is a slot using the new v-slot syntax without scope. although it is
@@ -39014,13 +38861,12 @@ function bindObjectProps (
             : data.attrs || (data.attrs = {});
         }
         var camelizedKey = camelize(key);
-        var hyphenatedKey = hyphenate(key);
-        if (!(camelizedKey in hash) && !(hyphenatedKey in hash)) {
+        if (!(key in hash) && !(camelizedKey in hash)) {
           hash[key] = value[key];
 
           if (isSync) {
             var on = data.on || (data.on = {});
-            on[("update:" + key)] = function ($event) {
+            on[("update:" + camelizedKey)] = function ($event) {
               value[key] = $event;
             };
           }
@@ -39854,23 +39700,17 @@ function resolveAsyncComponent (
     return factory.resolved
   }
 
-  var owner = currentRenderingInstance;
-  if (owner && isDef(factory.owners) && factory.owners.indexOf(owner) === -1) {
-    // already pending
-    factory.owners.push(owner);
-  }
-
   if (isTrue(factory.loading) && isDef(factory.loadingComp)) {
     return factory.loadingComp
   }
 
-  if (owner && !isDef(factory.owners)) {
+  var owner = currentRenderingInstance;
+  if (isDef(factory.owners)) {
+    // already pending
+    factory.owners.push(owner);
+  } else {
     var owners = factory.owners = [owner];
     var sync = true;
-    var timerLoading = null;
-    var timerTimeout = null
-
-    ;(owner).$on('hook:destroyed', function () { return remove(owners, owner); });
 
     var forceRender = function (renderCompleted) {
       for (var i = 0, l = owners.length; i < l; i++) {
@@ -39879,14 +39719,6 @@ function resolveAsyncComponent (
 
       if (renderCompleted) {
         owners.length = 0;
-        if (timerLoading !== null) {
-          clearTimeout(timerLoading);
-          timerLoading = null;
-        }
-        if (timerTimeout !== null) {
-          clearTimeout(timerTimeout);
-          timerTimeout = null;
-        }
       }
     };
 
@@ -39933,8 +39765,7 @@ function resolveAsyncComponent (
           if (res.delay === 0) {
             factory.loading = true;
           } else {
-            timerLoading = setTimeout(function () {
-              timerLoading = null;
+            setTimeout(function () {
               if (isUndef(factory.resolved) && isUndef(factory.error)) {
                 factory.loading = true;
                 forceRender(false);
@@ -39944,8 +39775,7 @@ function resolveAsyncComponent (
         }
 
         if (isDef(res.timeout)) {
-          timerTimeout = setTimeout(function () {
-            timerTimeout = null;
+          setTimeout(function () {
             if (isUndef(factory.resolved)) {
               reject(
                 "timeout (" + (res.timeout) + "ms)"
@@ -40491,21 +40321,11 @@ var getNow = Date.now;
 // timestamp can either be hi-res (relative to page load) or low-res
 // (relative to UNIX epoch), so in order to compare time we have to use the
 // same timestamp type when saving the flush timestamp.
-// All IE versions use low-res event timestamps, and have problematic clock
-// implementations (#9632)
-if (inBrowser && !isIE) {
-  var performance = window.performance;
-  if (
-    performance &&
-    typeof performance.now === 'function' &&
-    getNow() > document.createEvent('Event').timeStamp
-  ) {
-    // if the event timestamp, although evaluated AFTER the Date.now(), is
-    // smaller than it, it means the event is using a hi-res timestamp,
-    // and we need to use the hi-res version for event listener timestamps as
-    // well.
-    getNow = function () { return performance.now(); };
-  }
+if (inBrowser && getNow() > document.createEvent('Event').timeStamp) {
+  // if the low-res timestamp which is bigger than the event timestamp
+  // (which is evaluated AFTER) it means the event is using a hi-res timestamp,
+  // and we need to use the hi-res version for event listeners as well.
+  getNow = function () { return performance.now(); };
 }
 
 /**
@@ -41670,7 +41490,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.10';
+Vue.version = '2.6.7';
 
 /*  */
 
@@ -43762,10 +43582,8 @@ function add$1 (
         e.target === e.currentTarget ||
         // event is fired after handler attachment
         e.timeStamp >= attachedTimestamp ||
-        // bail for environments that have buggy event.timeStamp implementations
-        // #9462 iOS 9 bug: event.timeStamp is 0 after history.pushState
-        // #9681 QtWebEngine event.timeStamp is negative value
-        e.timeStamp <= 0 ||
+        // #9462 bail for iOS 9 bug: event.timeStamp is 0 after history.pushState
+        e.timeStamp === 0 ||
         // #9448 bail if event is fired in another document in a multi-page
         // electron/nw.js app, since event.timeStamp will be using a different
         // starting reference
@@ -43832,11 +43650,10 @@ function updateDOMProps (oldVnode, vnode) {
   }
 
   for (key in oldProps) {
-    if (!(key in props)) {
+    if (isUndef(props[key])) {
       elm[key] = '';
     }
   }
-
   for (key in props) {
     cur = props[key];
     // ignore children if the node has textContent or innerHTML,
@@ -44384,8 +44201,8 @@ function enter (vnode, toggleDisplay) {
   var context = activeInstance;
   var transitionNode = activeInstance.$vnode;
   while (transitionNode && transitionNode.parent) {
-    context = transitionNode.context;
     transitionNode = transitionNode.parent;
+    context = transitionNode.context;
   }
 
   var isAppear = !context._isMounted || !vnode.isRootInsert;
@@ -45475,7 +45292,7 @@ var isNonPhrasingTag = makeMap(
 // Regular Expressions for parsing tags and attributes
 var attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var dynamicArgAttribute = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>\/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
-var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + (unicodeRegExp.source) + "]*";
+var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + unicodeLetters + "]*";
 var qnameCapture = "((?:" + ncname + "\\:)?" + ncname + ")";
 var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
@@ -45737,7 +45554,7 @@ function parseHTML (html, options) {
         ) {
           options.warn(
             ("tag <" + (stack[i].tag) + "> has no matching end tag."),
-            { start: stack[i].start, end: stack[i].end }
+            { start: stack[i].start }
           );
         }
         if (options.end) {
@@ -45774,7 +45591,7 @@ var dynamicArgRE = /^\[.*\]$/;
 
 var argRE = /:(.*)$/;
 var bindRE = /^:|^\.|^v-bind:/;
-var modifierRE = /\.[^.\]]+(?=[^\]]*$)/g;
+var modifierRE = /\.[^.]+/g;
 
 var slotRE = /^v-slot(:|$)|^#/;
 
@@ -45951,7 +45768,7 @@ function parse (
     shouldDecodeNewlinesForHref: options.shouldDecodeNewlinesForHref,
     shouldKeepComment: options.comments,
     outputSourceRange: options.outputSourceRange,
-    start: function start (tag, attrs, unary, start$1, end) {
+    start: function start (tag, attrs, unary, start$1) {
       // check namespace.
       // inherit parent ns if there is one
       var ns = (currentParent && currentParent.ns) || platformGetTagNamespace(tag);
@@ -45970,7 +45787,6 @@ function parse (
       {
         if (options.outputSourceRange) {
           element.start = start$1;
-          element.end = end;
           element.rawAttrsMap = element.attrsList.reduce(function (cumulated, attr) {
             cumulated[attr.name] = attr;
             return cumulated
@@ -46092,7 +45908,7 @@ function parse (
         text = preserveWhitespace ? ' ' : '';
       }
       if (text) {
-        if (!inPre && whitespaceOption === 'condense') {
+        if (whitespaceOption === 'condense') {
           // condense consecutive whitespaces into single space
           text = text.replace(whitespaceRE$1, ' ');
         }
@@ -46953,7 +46769,7 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/;
+var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*\(/;
 var fnInvokeRE = /\([^)]*?\);*$/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
@@ -47455,7 +47271,7 @@ function genScopedSlots (
   // components with only scoped slots to skip forced updates from parent.
   // but in some cases we have to bail-out of this optimization
   // for example if the slot contains dynamic names, has v-if or v-for on them...
-  var needsForceUpdate = el.for || Object.keys(slots).some(function (key) {
+  var needsForceUpdate = Object.keys(slots).some(function (key) {
     var slot = slots[key];
     return (
       slot.slotTargetDynamic ||
