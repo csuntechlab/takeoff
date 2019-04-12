@@ -15,10 +15,15 @@ class CreateRegistrationAccessTokenTable extends Migration
     {
         Schema::create('registration_access_token', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('access_code');
+            $table->timestamps();
         });
+
+        Schema::table('registration_access_token', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+
     }
 
     /**
