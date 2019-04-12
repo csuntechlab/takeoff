@@ -25,6 +25,8 @@ class ProfileTest extends TestCase
 
         $request = Request::create('/store', 'POST',[
             'user_id'=> '3',
+            'first_name'=> 'test',
+            'last_name'=> 'test',
             'major'=> 'comp sci',
             'units'=> '50',
             'grad_date' => '2019',
