@@ -8,14 +8,14 @@
 						<span aria-hidden="true">&raquo;</span>
 					</p>
 				</router-link>
-				<ProfileSetup/>
+				<EditProfile/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import ProfileSetup from "../../../components/ProfileSetup";
+import EditProfile from "../../../components/studentProfile/EditProfile";
 
 export default {
 	data() {
@@ -23,7 +23,7 @@ export default {
 	},
 
 	components: {
-		ProfileSetup
+		EditProfile
 	}
 };
 </script>
