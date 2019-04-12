@@ -16,6 +16,7 @@ class StudentInfo extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'major',
         'units',
         'grad_date',
@@ -26,4 +27,7 @@ class StudentInfo extends Model
         'academic_interest'
     ];
 
+    public function users(){
+        return $this->belongsTo('App\User', 'id', 'user_id');
+    }
 }

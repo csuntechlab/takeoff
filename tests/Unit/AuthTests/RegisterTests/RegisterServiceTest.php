@@ -60,7 +60,8 @@ class RegisterServiceTest extends TestCase
     public function completeRegistration_returns_a_completed_user()
     {
         $input = [
-            "name" => "teehee@gnomsayin.com",
+            "first_name" => "teehee@gnomsayin.com",
+            "last_name" => "teehee@gnomsayin.com",
             "email" => "teehee@gnomsayin.com",
             "password" => "teehee@gnomsayin.com",
             "password_confirmation" => "teehee@gnomsayin.com",
