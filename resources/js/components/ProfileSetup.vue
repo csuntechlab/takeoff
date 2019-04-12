@@ -50,6 +50,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import Profile from "./../api/Profile.js";
 
 export default {
     data() {
@@ -69,7 +70,8 @@ export default {
 		// ]),
 
 		sendData () {
-			this.$store.dispatch('sendProfileData', this.form);
+			Profile.sendProfileData(payload);
+			// this.$store.dispatch('sendProfileData', this.form);
 		}
 	}
 };
