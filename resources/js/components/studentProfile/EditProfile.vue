@@ -18,16 +18,31 @@
 					</div>
 					<div class="form-row mt-5">
 						<label for="exampleInputFirstName">Biography</label>
-						<textarea class="form-control" rows="5" placeholder="Write about yourself." v-model="form.biography"></textarea>
+						<textarea
+							class="form-control"
+							rows="5"
+							placeholder="Write about yourself."
+							v-model="form.biography"
+						></textarea>
 					</div>
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Research</label>
-						<textarea class="form-control" rows="5" placeholder="Write about any research projects." v-model="form.research"></textarea>
+						<textarea
+							class="form-control"
+							rows="5"
+							placeholder="Write about any research projects."
+							v-model="form.research"
+						></textarea>
 					</div>
 
 					<div class="form-row mt-4">
 						<label for="exampleInputLastName">Fun Fact About Me</label>
-						<textarea class="form-control" rows="5" placeholder="Write a fun fact about yourself." v-model="form.funFacts"></textarea>
+						<textarea
+							class="form-control"
+							rows="5"
+							placeholder="Write a fun fact about yourself."
+							v-model="form.funFacts"
+						></textarea>
 					</div>
 
 					<div class="mt-4">
@@ -44,46 +59,43 @@
 	</div>
 </template>
 <script>
-import Choices from "choices.js"
-var interests
+import Choices from "choices.js";
+var interests;
 import { mapState, mapGetters } from "vuex";
 export default {
-    data() {
-        return {
-            form: {
-                image: null,
-                biography: null,
-                research: null,
-                funFacts: null,
-                academicInterests: null
-            }
-        }
-    },
-    mounted() {
-		interests = new Choices(
-			document.querySelector("#academicInterests"),
-			{
-                delimiter: ",",
-                items: this.student.interests,
-                removeItemButton: true,
-                duplicateItemsAllowed: false,
-                editItems: true
-            }
-        )
-    },
+	data() {
+		return {
+			form: {
+				image: null,
+				biography: null,
+				research: null,
+				funFacts: null,
+				academicInterests: null
+			}
+		};
+	},
+	mounted() {
+		interests = new Choices(document.querySelector("#academicInterests"), {
+			delimiter: ",",
+			items: this.student.interests,
+			removeItemButton: true,
+			duplicateItemsAllowed: false,
+			editItems: true
+		});
+	},
 	computed: {
 		// ...mapGetters([
 		// 	'student'
-        // ])
-        student() {
-            return this.$store.getters.student
-        }
-    },
-    methods: {
-        submitChanges() {
-            this.form.academicInterests = interests.getValue(true)
-            console.table({ form: this.form })
-        }
-    }
+		// ])
+		student() {
+			return this.$store.getters.student;
+		}
+	},
+	methods: {
+		submitChanges() {
+			this.form.academicInterests = interests.getValue(true);
+			console.table({ form: this.form });
+		}
+	}
 };
 </script>
