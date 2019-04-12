@@ -28,6 +28,7 @@ Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 
 Route::resource('profile', 'ProfileController');
+Route::post('admin/store', 'AdminController@storeAdmin');
 
 Route::prefix('students')->group(function () {
     Route::get('major/{major}', 'AdminController@getStudentsByMajor');

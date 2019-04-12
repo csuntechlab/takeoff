@@ -21,7 +21,7 @@ class ProfileTest extends TestCase
     /**
      * @test
      */
-    public function store_userinfo(){
+    public function store_user_info(){
 
         $request = Request::create('/store', 'POST',[
             'user_id'=> '3',

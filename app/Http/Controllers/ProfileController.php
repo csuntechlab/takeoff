@@ -44,6 +44,8 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
+            'first_name'=>'required',
+            'last_name'=>'required',
             'major'=>'required',
             'units'=> 'required|integer',
             'grad_date' => 'required',
