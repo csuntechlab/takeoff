@@ -12,4 +12,5 @@ interface UserModelRepositoryInterface
     public function generateAccessCode(User $user);
     public function findAccessCode(User $user, $data);
     public function findByEmail($email);
+    public function deleteUser($id);
 }

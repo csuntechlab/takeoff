@@ -29,6 +29,7 @@ Route::prefix('students')->group(function () {
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
 });
+Route::post('deleteStudent/{id}', 'AdminController@deleteStudent');
 
 Route::post('registerStudentEmail', 'RegisterController@registerStudentEmail');
 Route::post('completeRegistration', 'RegisterController@completeRegistration');

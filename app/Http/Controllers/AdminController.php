@@ -42,4 +42,9 @@ class AdminController extends BaseController
     {
         return $this->studentinfoRetriever->getStudentsByMajor($majorname);
     }
+
+    public function deleteStudent($userId)
+    {
+        return $this->adminRetriever->deleteStudent($userId);
+    }
 }

@@ -21,7 +21,7 @@ class CreateRegistrationAccessTokenTable extends Migration
         });
 
         Schema::table('registration_access_token', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
     }
