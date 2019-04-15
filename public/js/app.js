@@ -6264,38 +6264,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
+        password: "",
+        confirmPassword: "",
         firstName: "",
         lastName: "",
         college: "",
@@ -6324,14 +6299,14 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
     },
-    // confirmPasswordValidation() {
-    // 	if (this.$v.form.confirmPassword.$dirty) {
-    // 		return {
-    // 			"is-invalid": this.$v.form.confirmPassword.$error,
-    // 			"is-valid": !this.$v.form.confirmPassword.$error
-    // 		};
-    // 	}
-    // },
+    confirmPasswordValidation: function confirmPasswordValidation() {
+      if (this.$v.form.confirmPassword.$dirty) {
+        return {
+          "is-invalid": this.$v.form.confirmPassword.$error,
+          "is-valid": !this.$v.form.confirmPassword.$error
+        };
+      }
+    },
     firstNameValidation: function firstNameValidation() {
       if (this.$v.form.firstName.$dirty) {
         return {
@@ -6384,7 +6359,12 @@ __webpack_require__.r(__webpack_exports__);
   validations: {
     form: {
       password: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
+      },
+      confirmPassword: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
       },
       firstName: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
@@ -6569,11 +6549,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
+        password: "",
+        confirmPassword: "",
         firstName: null,
         lastName: null,
         title: null
@@ -6581,6 +6582,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    passwordValidation: function passwordValidation() {
+      if (this.$v.form.password.$dirty) {
+        return {
+          "is-invalid": this.$v.form.password.$error,
+          "is-valid": !this.$v.form.password.$error
+        };
+      }
+    },
+    confirmPasswordValidation: function confirmPasswordValidation() {
+      if (this.$v.form.confirmPassword.$dirty) {
+        return {
+          "is-invalid": this.$v.form.confirmPassword.$error,
+          "is-valid": !this.$v.form.confirmPassword.$error
+        };
+      }
+    },
     firstNameValidation: function firstNameValidation() {
       if (this.$v.form.firstName.$dirty) {
         return {
@@ -6618,6 +6635,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   validations: {
     form: {
+      password: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
+      },
+      confirmPassword: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
+      },
       firstName: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       },
@@ -30506,8 +30531,122 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
         _c("form", { attrs: { novalidate: "" } }, [
-          _c("div", { staticClass: "form-group mt-5" }, [
-            _vm._m(0),
+          _c("div", { staticClass: "form-group mt-3" }, [
+            _c("div", { staticClass: "form-row py-4" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("label", { attrs: { for: "password" } }, [
+                  _vm._v("Password")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.form.password.$model,
+                        expression: "$v.form.password.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: _vm.passwordValidation,
+                    attrs: {
+                      type: "password",
+                      id: "Password",
+                      placeholder: "Password"
+                    },
+                    domProps: { value: _vm.$v.form.password.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.password,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.$v.form.password.required
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Password is required.")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.$v.form.password.minLength
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "Password must have at least " +
+                            _vm._s(_vm.$v.form.password.$params.minLength.min) +
+                            " letters."
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { attrs: { for: "confirmPassword" } }, [
+                  _vm._v("Confirm Password")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.form.confirmPassword.$model,
+                        expression: "$v.form.confirmPassword.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: _vm.confirmPasswordValidation,
+                    attrs: {
+                      type: "password",
+                      id: "confirmPassword",
+                      placeholder: "Confirm Password"
+                    },
+                    domProps: { value: _vm.$v.form.confirmPassword.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.confirmPassword,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.$v.form.confirmPassword.required
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Please enter Confirm password")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.$v.form.confirmPassword.sameAsPassword
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Passwords must be identical.")
+                      ])
+                    : _vm._e()
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("label", { attrs: { for: "firstName" } }, [
               _vm._v("First Name")
@@ -30873,52 +31012,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col pt-3" }, [
-        _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
-        _vm._v(" "),
-        _c("div", [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "password",
-              "data-minlength": "6",
-              id: "inputPassword",
-              placeholder: "Password",
-              required: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v("Please enter your password")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col pt-3" }, [
-        _c("label", { attrs: { for: "confirmPassword" } }, [
-          _vm._v("Confirm Password")
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "password",
-              id: "passwordConfirmation",
-              placeholder: "Password"
-            }
-          })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -31121,7 +31215,123 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
         _c("form", { attrs: { novalidate: "" } }, [
-          _c("div", { staticClass: "form-group mt-5" }, [
+          _c("div", { staticClass: "form-group mt-3" }, [
+            _c("div", { staticClass: "form-row py-4" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("label", { attrs: { for: "password" } }, [
+                  _vm._v("Password")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.form.password.$model,
+                        expression: "$v.form.password.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: _vm.passwordValidation,
+                    attrs: {
+                      type: "password",
+                      id: "Password",
+                      placeholder: "Password"
+                    },
+                    domProps: { value: _vm.$v.form.password.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.password,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.$v.form.password.required
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Password is required.")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.$v.form.password.minLength
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "Password must have at least " +
+                            _vm._s(_vm.$v.form.password.$params.minLength.min) +
+                            " letters."
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { attrs: { for: "confirmPassword" } }, [
+                  _vm._v("Confirm Password")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.form.confirmPassword.$model,
+                        expression: "$v.form.confirmPassword.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: _vm.confirmPasswordValidation,
+                    attrs: {
+                      type: "password",
+                      id: "confirmPassword",
+                      placeholder: "Confirm Password"
+                    },
+                    domProps: { value: _vm.$v.form.confirmPassword.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.confirmPassword,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.$v.form.confirmPassword.required
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Please enter Confirm password")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.$v.form.confirmPassword.sameAsPassword
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v("Passwords must be identical.")
+                      ])
+                    : _vm._e()
+                ])
+              ])
+            ]),
+            _vm._v(" "),
             _c("label", { attrs: { for: "adminFirstName" } }, [
               _vm._v("First Name")
             ]),
