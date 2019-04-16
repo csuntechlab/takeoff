@@ -43,12 +43,6 @@ Route::prefix('api/media')->group(function () {
     Route::get('getMedia/{email}', 'MediaController@getMedia');
 });
 
-Route::get('/inviteemail', function() {
-    return view('inviteemail');
-});
-
-Route::resource('profile', 'ProfileController');
-
 Route::get('/docs', function() {
     return File::get(public_path() . '/docs/index.html');
 });
