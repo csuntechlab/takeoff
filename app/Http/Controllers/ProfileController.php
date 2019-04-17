@@ -41,7 +41,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createStudentUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
             'first_name'=>'required',
@@ -58,7 +58,7 @@ class ProfileController extends Controller
 
         $data = $request;
 
-        $studentinfo = $this->userinfoRetriever->store($data);
+        $studentinfo = $this->userinfoRetriever->createStudentUserInfo($data);
 
         if($studentinfo){
             return response()->json([ $studentinfo ], 201);

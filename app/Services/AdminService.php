@@ -15,10 +15,10 @@ class AdminService implements AdminContract
         return "email has been sent";
     }
 
-    public function storeAdmin($data)
+    public function createAdminUserInfo($data)
     {
         return UserInfo::create([
-            'user_id' =>  "1",
+            'user_id' =>  $data->user_id,
             'title' =>  $data->title,
             'first_name'=> $data->first_name,
             'last_name'=> $data->last_name,

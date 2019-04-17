@@ -45,7 +45,7 @@ class AdminController extends BaseController
         return $this->userinfoRetriever->getStudentsByMajor($majorname);
     }
 
-    public function storeAdmin(Request $request)
+    public function createAdminUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
             'first_name' => 'required',
@@ -59,7 +59,7 @@ class AdminController extends BaseController
 
         $data = $request;
 
-        $admininfo = $this->adminRetriever->storeAdmin($data);
+        $admininfo = $this->adminRetriever->createAdminUserInfo($data);
 
         if ($admininfo) {
             return response()->json([$admininfo], 201);

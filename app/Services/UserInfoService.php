@@ -30,10 +30,10 @@ class UserInfoService implements UserInfoContract
         return $this->userInfoModelRepo->getStudentsByMajor($majorname);
     }
 
-    public function store($data)
+    public function createStudentUserInfo($data)
     {
         return UserInfo::create([
-            'user_id' =>  "1",
+            'user_id' =>  $data->user_id,
             'title' =>  "student",
             'first_name'=> $data->first_name,
             'last_name'=> $data->last_name,
