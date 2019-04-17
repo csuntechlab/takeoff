@@ -51516,9 +51516,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_AdminSetup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/AdminSetup */ "./resources/js/router/views/AdminSetup/index.vue");
 /* harmony import */ var _views_StudentProfile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/StudentProfile */ "./resources/js/router/views/StudentProfile/index.vue");
 /* harmony import */ var _views_Dashboard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Dashboard */ "./resources/js/router/views/Dashboard/index.vue");
-/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
-/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
-/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
+/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
+/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
+/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
 
  //Pages
 
@@ -51585,25 +51585,25 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       header: "Administrator Information"
     }
   }, {
-    path: "*",
-    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_9__["default"],
-    meta: {
-      title: 'Whoops!',
-      header: 'Page Not Found'
-    }
-  }, {
     path: "/roster",
-    component: _views_Roster__WEBPACK_IMPORTED_MODULE_10__["default"],
+    component: _views_Roster__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       title: "Roster | Takeoff",
       header: "Roster"
     }
   }, {
     path: "/dashboard",
-    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
       title: "Dashboard | Takeoff",
       header: "Dashboard"
+    }
+  }, {
+    path: "*",
+    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_11__["default"],
+    meta: {
+      title: 'Whoops!',
+      header: 'Page Not Found'
     }
   }]
 });

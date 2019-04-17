@@ -1,4 +1,4 @@
-<<template>
+<template>
     <div>
         404
         <router-link to="/">Go Home</router-link>
