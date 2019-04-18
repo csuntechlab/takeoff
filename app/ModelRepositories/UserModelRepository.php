@@ -11,17 +11,24 @@ use Illuminate\Support\Facades\Hash;
 
 class UserModelRepository implements UserModelRepositoryInterface
 {
-    public function registerStudentEmail($data) {
-        return DB::transaction(function() use ($data)
+    public function registerUserEmail($data, $role) {
+        return DB::transaction(function() use ($data, $role)
         {
             $user = User::create([
                 'email' => $data['email'],
                 'verified' => false
             ]);
 
-            // attatch role of 'student'
-            // TODO: make role identification more eloquent
-            $user->roles()->attach(1);
+            switch ($role)
+            {
+                case "student":
+                    $user->roles()->attach(1);
+                    break;
+                case "admin":
+                    $user->roles()->attach(2);
+                    break;
+            }
+
             return $user;
         });
     }
