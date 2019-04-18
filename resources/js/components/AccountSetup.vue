@@ -3,7 +3,26 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
-					<div class="form-group mt-5">
+					<div class="form-group mt-3">
+						<div class="form-row py-4">
+							<div class="col">
+								<label for="password">Password</label>
+								<div>
+									<input type="password" class="form-control" :class="passwordValidation" id="Password" placeholder="Password" v-model.trim="$v.form.password.$model">
+									<div class="invalid-feedback" v-if="!$v.form.password.required">Password is required.</div>
+ 									<div class="invalid-feedback" v-if="!$v.form.password.minLength">Password must have at least {{ $v.form.password.$params.minLength.min }} letters.</div>
+								</div>
+							</div>
+							<div class="col">
+								<label for="confirmPassword">Confirm Password</label>
+								<div>
+									<input type="password" class="form-control" :class="confirmPasswordValidation" id="confirmPassword" placeholder="Confirm Password" v-model.trim="$v.form.confirmPassword.$model">
+									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.required">Please enter Confirm password</div>
+									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.sameAsPassword">Passwords must be identical.</div>
+								</div>
+							</div>
+						</div>
+
 						<label for="firstName">First Name</label>
 						<input
                             id="firstName"
@@ -116,11 +135,13 @@
 </template>
 
 <script>
-import { required, minValue, maxValue } from "vuelidate/lib/validators";
+import { required, minValue, maxValue, minLength, sameAs } from "vuelidate/lib/validators";
 export default {
 	data() {
 		return {
 			form: {
+				password: "",
+				confirmPassword: "",
 				firstName: "",
 				lastName: "",
 				college: "",
@@ -140,6 +161,22 @@ export default {
 		}
 	},
 	computed: {
+		passwordValidation() {
+			if (this.$v.form.password.$dirty) {
+				return {
+					"is-invalid": this.$v.form.password.$error,
+					"is-valid": !this.$v.form.password.$error
+				};
+			}
+		},
+		confirmPasswordValidation() {
+			if (this.$v.form.confirmPassword.$dirty) {
+				return {
+					"is-invalid": this.$v.form.confirmPassword.$error,
+					"is-valid": !this.$v.form.confirmPassword.$error
+				};
+			}
+		},
 		firstNameValidation() {
 			if (this.$v.form.firstName.$dirty) {
 				return {
@@ -191,6 +228,14 @@ export default {
 	},
 	validations: {
 		form: {
+			password: {
+				required,
+				minLength: minLength(6)
+			},
+			confirmPassword: {
+				required,
+				sameAsPassword: sameAs('password')
+			},
 			firstName: {
 				required
 			},
