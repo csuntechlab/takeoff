@@ -34,11 +34,17 @@ class AdminServiceTest extends TestCase
             ->andReturn($mockUser);
 
         $this->userModelRepo
+            ->shouldReceive('findRole')
+            ->with($mockUser)
+            ->once()
+            ->andReturn("student");
+
+        $this->userModelRepo
             ->shouldReceive('deleteUser')
             ->with('1')
             ->once();
 
-        $this->service->deleteStudent("1");
-        // $this->assertEquals("Student Succesfully Deleted", $this->service->deleteStudent("test"));
+        $resp = $this->service->deleteStudent("1");
+        $this->assertEquals("Student Succesfully Deleted", $resp);
     }
 }

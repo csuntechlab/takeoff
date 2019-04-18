@@ -28,9 +28,9 @@ class AdminService implements AdminContract
             return ['message_error' => 'Could not find the user with the provided ID.'];
         }
 
-        dd($student->roles->toArray());
+        $userRole = $this->userModelRepo->findRole($student);
 
-        if ($student->roles->toArray()[0]['role'] != "student") {
+        if ($userRole != "student") {
             return ['message_error' => 'The requested user is not a student, cannot delete'];
         }
 

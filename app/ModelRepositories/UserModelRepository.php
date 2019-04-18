@@ -67,4 +67,8 @@ class UserModelRepository implements UserModelRepositoryInterface
 
         return $user;
     }
+
+    public function findRole(User $user) {
+        return $user->roles()->first()->role;
+    }
 }
