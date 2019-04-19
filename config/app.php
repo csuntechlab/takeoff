@@ -174,13 +174,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\StudentInfoServiceProvider::class,
+        App\Providers\UserInfoServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         /** Registeration Service Provider */
         App\Providers\ApiProviders\RegisterServiceProvider::class,
         /** Login Service Provider */
         App\Providers\ApiProviders\LoginServiceProvider::class,
         /** Login Service Provider */
+        Collective\Html\HtmlServiceProvider::class,
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,
         App\Providers\ModelRepositoryServiceProvider::class,
 	     /** META+LAB Proxy Pass. */

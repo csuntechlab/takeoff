@@ -18,7 +18,15 @@
 
     <div class="container">
         <h1>Create Profile</h1>
-        {!! Form::open(['action'=> 'ProfileController@store', 'method'=>'POST']) !!}
+        {!! Form::open(['action'=> 'ProfileController@createStudentUserInfo', 'method'=>'POST']) !!}
+        <div class="form-group">
+            {{Form::label('first_name', 'first_name')}}
+            {{Form::text('first_name', '', ['class'=> 'form-control', 'placeholder' => 'first_name'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('last_name', 'last_name')}}
+            {{Form::text('last_name', '', ['class'=> 'form-control', 'placeholder' => 'last_name'])}}
+        </div>
         <div class="form-group">
             {{Form::label('major', 'Major')}}
             {{Form::text('major', '', ['class'=> 'form-control', 'placeholder' => 'major'])}}
