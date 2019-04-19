@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StudentInfo extends Model
+class UserInfo extends Model
 {
-    protected $table = 'student_info';
+    protected $table = 'user_info';
 
     public $primaryKey = 'id';
 
@@ -17,6 +17,9 @@ class StudentInfo extends Model
      */
     protected $fillable = [
         'user_id',
+        'first_name',
+        'last_name',
+        'title',
         'major',
         'units',
         'grad_date',

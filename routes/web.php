@@ -16,8 +16,12 @@ Route::get('/', function() {
     return view('spa');
 });
 
+Route::post('profile/store', 'ProfileController@createStudentUserInfo');
+Route::post('admin/store', 'AdminController@createAdminUserInfo');
+
 /* Endpoints that deal with students data and filtering data */
 Route::prefix('api/students')->group(function () {
+    Route::get('major/{major}', 'AdminController@getStudentsByMajor');
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
     Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api');
