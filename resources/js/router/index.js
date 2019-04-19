@@ -10,9 +10,9 @@ import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
 import EditProfile from "./views/EditProfile"
 import Dashboard from "./views/Dashboard"
-import ErrorPage from "./views/ErrorPage"
 import Roster from "./views/Roster"
 import DashboardAdmin from "./views/DashboardAdmin"
+import ErrorPage from "./views/ErrorPage"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -83,15 +83,6 @@ const router = new VueRouter({
             }
         },
         {
-            path: "*",
-            component: ErrorPage,
-            meta: {
-                title: 'Whoops!',
-                header: 'Page Not Found'
-            }
-
-        },
-        {
             path: "/roster",
             component: Roster,
             meta: {
@@ -106,8 +97,15 @@ const router = new VueRouter({
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
             }
+        },
+        {
+            path: "*",
+            component: ErrorPage,
+            meta: {
+                title: 'Whoops!',
+                header: 'Page Not Found'
+            }
         }
-
     ]
 });
 

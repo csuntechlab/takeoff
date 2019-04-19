@@ -6603,6 +6603,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _api_invitations_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../api/invitations.js */ "./resources/js/api/invitations.js");
 //
 //
 //
@@ -6618,8 +6619,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {}
+  data: function data() {
+    return {
+      form: {
+        //name according to the componeent or object adjacent to payload
+        email: ''
+      }
+    };
+  },
+  methods: {
+    sendInvite: function sendInvite() {
+      var _this = this;
+
+      _api_invitations_js__WEBPACK_IMPORTED_MODULE_0__["default"].inviteUserAPI(this.form, function (success) {
+        console.log('Invitation sent');
+      }, function (error) {
+        console.log('Error: Email not sent', _this.form.email);
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -6675,6 +6697,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown-item */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown-item.js");
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32217,35 +32244,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pt-4" }, [
-      _c("div", { staticClass: "text-primary" }, [
-        _vm._v("\n            Add new students\n        ")
-      ]),
+  return _c("div", { staticClass: "pt-4" }, [
+    _c("div", { staticClass: "text-primary" }, [
+      _vm._v("\n            Add new students\n        ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-group mt-2 mb-3" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.email,
+            expression: "form.email"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Student name", maxlength: "50" },
+        domProps: { value: _vm.form.email },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "email", $event.target.value)
+          }
+        }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group mt-2 mb-3" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "Student name", maxlength: "50" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "button" } },
-            [_vm._v("Add")]
-          )
-        ])
+      _c("div", { staticClass: "input-group-append" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: { click: _vm.sendInvite }
+          },
+          [_vm._v("Add")]
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -32343,18 +32384,54 @@ var render = function() {
         [
           _c(
             "b-dropdown",
-            { attrs: { text: "Filters", variant: "light" } },
+            { attrs: { text: "Filters", variant: "primary" } },
             [
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _vm._v("Action")
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "button",
+                      "aria-pressed": "false",
+                      autocomplete: "off"
+                    }
+                  },
+                  [_vm._v("Search by college")]
+                )
               ]),
               _vm._v(" "),
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _vm._v("Another action")
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "button",
+                      "aria-pressed": "false",
+                      autocomplete: "off"
+                    }
+                  },
+                  [_vm._v("Search by graduation date")]
+                )
               ]),
               _vm._v(" "),
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _vm._v("Something else here")
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "button",
+                      "aria-pressed": "false",
+                      autocomplete: "off"
+                    }
+                  },
+                  [_vm._v("Search by major")]
+                )
               ])
             ],
             1
@@ -51388,6 +51465,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/invitations.js":
+/*!*****************************************!*\
+  !*** ./resources/js/api/invitations.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var inviteUserAPI = function inviteUserAPI(payload, success, error) {
+  window.axios.post('api/auth/invite/student', payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  } //nested inside the predecessor
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  inviteUserAPI: inviteUserAPI
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -52508,9 +52609,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_StudentProfile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/StudentProfile */ "./resources/js/router/views/StudentProfile/index.vue");
 /* harmony import */ var _views_EditProfile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/EditProfile */ "./resources/js/router/views/EditProfile/index.vue");
 /* harmony import */ var _views_Dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Dashboard */ "./resources/js/router/views/Dashboard/index.vue");
-/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
-/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
-/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
+/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
+/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
+/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
 
  //Pages
 
@@ -52585,25 +52686,25 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       header: "Administrator Information"
     }
   }, {
-    path: "*",
-    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_10__["default"],
-    meta: {
-      title: 'Whoops!',
-      header: 'Page Not Found'
-    }
-  }, {
     path: "/roster",
-    component: _views_Roster__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _views_Roster__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
       title: "Roster | Takeoff",
       header: "Roster"
     }
   }, {
     path: "/dashboard",
-    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_12__["default"],
+    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__["default"],
     meta: {
       title: "Dashboard | Takeoff",
       header: "Dashboard"
+    }
+  }, {
+    path: "*",
+    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_12__["default"],
+    meta: {
+      title: 'Whoops!',
+      header: 'Page Not Found'
     }
   }]
 });
