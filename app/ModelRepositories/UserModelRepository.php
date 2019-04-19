@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace App\ModelRepositories;
 
-use App\User;
+use App\Models\User;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
 use App\Models\RegistrationAccessToken;
 use Illuminate\Support\Facades\DB;
@@ -11,13 +11,25 @@ use Illuminate\Support\Facades\Hash;
 
 class UserModelRepository implements UserModelRepositoryInterface
 {
-    public function registerStudentEmail($data) {
-        return DB::transaction(function() use ($data)
+    public function registerUserEmail($data, $role) {
+        return DB::transaction(function() use ($data, $role)
         {
-            return User::create([
+            $user = User::create([
                 'email' => $data['email'],
                 'verified' => false
             ]);
+
+            switch ($role)
+            {
+                case "student":
+                    $user->roles()->attach(1);
+                    break;
+                case "admin":
+                    $user->roles()->attach(2);
+                    break;
+            }
+
+            return $user;
         });
     }
 
@@ -49,5 +61,21 @@ class UserModelRepository implements UserModelRepositoryInterface
             ->first();
 
         return $user;
+    }
+
+    public function deleteUser($userId) {
+        $user = $this->findById($userId);
+        $user->delete();
+    }
+
+    public function findById($userId) {
+        $user = User::where('id', $userId)
+            ->first();
+
+        return $user;
+    }
+
+    public function findRole(User $user) {
+        return $user->roles()->first()->role;
     }
 }
