@@ -5,4 +5,5 @@ interface AdminContract
 {
     public function createAdminUserInfo($validatedData);
     public static function sendInvite($request);
+    public function deleteStudent($userId);
 }

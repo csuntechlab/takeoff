@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegistrationAccessTokenTable extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateRegistrationAccessTokenTable extends Migration
      */
     public function up()
     {
-        Schema::create('registration_access_token', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('access_code');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('role_id')->unsigned()->index();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+
             $table->timestamps();
         });
-
-        Schema::table('registration_access_token', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-
     }
 
     /**
@@ -33,6 +32,7 @@ class CreateRegistrationAccessTokenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration_access_token');
+        Schema::dropIfExists('role_user');
+        Schema::dropIfExists('user_role');
     }
 }

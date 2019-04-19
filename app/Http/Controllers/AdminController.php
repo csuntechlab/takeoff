@@ -71,4 +71,9 @@ class AdminController extends BaseController
             ], 406);
         }
     }
+
+    public function deleteStudent($userId)
+    {
+        return $this->adminRetriever->deleteStudent($userId);
+    }
 }

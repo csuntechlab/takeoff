@@ -57,7 +57,7 @@ class RegisterControllerTest extends TestCase
             "email" => "tes3t@email.com",
         ];
 
-        $response = $this->json('POST', "/api/auth/invite", $input);
+        $response = $this->json('POST', "/api/auth/invite/student", $input);
         $response = $response->getOriginalContent();
         $response = json_encode($response);
         $expectedResponse = [

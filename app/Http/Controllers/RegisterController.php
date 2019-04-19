@@ -20,7 +20,14 @@ class RegisterController extends Controller
     {
         $this->validate($request, ['email' => 'required|email|unique:users,email']);
         $data = ['email' => $request->email];
-        return $this->registerRetriever->registerStudentEmail($data);
+        return $this->registerRetriever->registerUserEmail($data, "student");
+    }
+
+    public function registerAdminEmail(Request $request)
+    {
+        $this->validate($request, ['email' => 'required|email|unique:users,email']);
+        $data = ['email' => $request->email];
+        return $this->registerRetriever->registerUserEmail($data, "admin");
     }
 
     //USER LEVEL ACCESS
