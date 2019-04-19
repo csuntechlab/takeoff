@@ -73,3 +73,7 @@ Route::get('/docs/assets/css/*.css', function() {
 Route::get('/docs/assets/js/*.js', function() {
     return File::get(public_path() . '/docs/assets/js/*.js');
 });
+
+Route::get('{any}', function () {
+    return view('spa');
+})->where('any','.*');
