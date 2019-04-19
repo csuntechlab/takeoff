@@ -26,7 +26,7 @@ class AdminTest extends TestCase
      */
     public function store_admin_info(){
 
-        $request = Request::create('/storeAdmin', 'POST',[
+        $request = Request::create('/admin/store', 'POST',[
             'first_name' => 'test',
             'last_name' => 'test',
             'title' => 'director',
@@ -35,11 +35,11 @@ class AdminTest extends TestCase
         $controller = new AdminController($this->retrieverUserInfo,$this->retrieverAdmin);
 
         $this->retrieverAdmin
-            ->shouldReceive('storeAdmin')
+            ->shouldReceive('createAdminUserInfo')
             ->with($request)
             ->andReturn("Info is Stored");
 
-        $response = $controller->storeAdmin($request);
+        $response = $controller->createAdminUserInfo($request);
 
         $this->assertEquals( 201, $response->status());
 

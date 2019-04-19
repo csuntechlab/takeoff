@@ -23,7 +23,7 @@ class ProfileTest extends TestCase
      */
     public function store_user_info(){
 
-        $request = Request::create('/store', 'POST',[
+        $request = Request::create('/profile/store', 'POST',[
             'user_id'=> '3',
             'first_name'=> 'test',
             'last_name'=> 'test',
@@ -40,11 +40,11 @@ class ProfileTest extends TestCase
         $controller = new ProfileController($this->retriever);
 
         $this->retriever
-            ->shouldReceive('store')
+            ->shouldReceive('createStudentUserInfo')
             ->with($request)
             ->andReturn("Info is Stored");
 
-        $response = $controller->store($request);
+        $response = $controller->createStudentUserInfo($request);
 
         $this->assertEquals( 201, $response->status());
 
