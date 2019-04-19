@@ -3,7 +3,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Mockery;
-use App\User;
+use App\Models\User;
 use App\Models\RegistrationAccessToken;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -28,13 +28,14 @@ class RegisterServiceTest extends TestCase
      * @test
      * @group noFramework
      */
-    public function registerStudentEmail_returns_a_user()
+    public function registerUserEmail_returns_a_student()
     {
         $input = [
             "email" => "teehee@gnomsayin.com"
         ];
 
         $mockUser = new User(['user_id' => '251']);
+        $mockRole = "student";
 
         $this->userModelRepo
             ->shouldReceive('findByEmail')
@@ -42,15 +43,16 @@ class RegisterServiceTest extends TestCase
             ->andReturn(null);
 
         $this->userModelRepo
-            ->shouldReceive('registerStudentEmail')
-            ->with($input)
+            ->shouldReceive('registerUserEmail')
+            ->with($input, $mockRole)
             ->andReturn($mockUser);
 
         $this->userModelRepo
             ->shouldReceive('generateAccessCode')
             ->once();
 
-        $this->assertEquals($mockUser, $this->service->registerStudentEmail($input));
+        $resp = $this->service->registerUserEmail($input, $mockRole);
+        $this->assertEquals($mockUser, $resp);
     }
 
     /**

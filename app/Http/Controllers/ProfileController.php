@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contracts\StudentInfoContract;
+use App\Contracts\UserInfoContract;
 use Validator;
 
 class ProfileController extends Controller
 {
-    private $studentinfoRetriever;
+    private $userinfoRetriever;
 
-    public function __construct(StudentInfoContract $studentinfoContract)
+    public function __construct(UserInfoContract $userinfoContract)
     {
-        $this->studentinfoRetriever = $studentinfoContract;
+        $this->userinfoRetriever = $userinfoContract;
     }
 
     /**
@@ -41,9 +41,33 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createStudentUserInfo(Request $request)
     {
-        return $this->studentinfoRetriever->store($request);
-    }
+        $validatedData = Validator::make($request->all(), [
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'major'=>'required',
+            'units'=> 'required|integer',
+            'grad_date' => 'required',
+            'college'=>'required',
+        ]);
 
+        if($validatedData->fails()){
+            return $validatedData->errors()->all();
+        }
+
+        $data = $request;
+
+        $studentinfo = $this->userinfoRetriever->createStudentUserInfo($data);
+
+        if($studentinfo){
+            return response()->json([ $studentinfo ], 201);
+        } else {
+            return response()->json([
+                'errors' => [
+                    'invalid' => 'Unable to create Student Profile.'
+                ]
+            ], 406);
+        }
+    }
 }

@@ -2,23 +2,23 @@
 
 namespace tests\Unit\ServiceTests;
 
-use App\Models\StudentInfo;
-use App\Services\StudentInfoService;
-use App\ModelRepositoryInterfaces\StudentInfoRepositoryInterface;
+use App\Models\UserInfo;
+use App\Services\UserInfoService;
+use App\ModelRepositoryInterfaces\UserInfoModelRepositoryInterface;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Mockery;
 use Tests\TestCase;
 
-class StudentInfoServiceTest extends TestCase
+class UserInfoServiceTest extends TestCase
 {
     use DatabaseMigrations;
 
-    protected $studentInfoModelRepo;
+    protected $userInfoModelRepo;
 
     public function setUp(){
         parent::setUp();
-        $this->studentInfoModelRepo = Mockery::spy(StudentInfoRepositoryInterface::class);
-        $this->service = new StudentInfoService($this->studentInfoModelRepo);
+        $this->userInfoModelRepo = Mockery::spy(UserInfoModelRepositoryInterface::class);
+        $this->service = new UserInfoService($this->userInfoModelRepo);
     }
 
     /**
@@ -26,9 +26,9 @@ class StudentInfoServiceTest extends TestCase
      * @group noFramework
      */
     public function get_list_of_students_based_on_major(){
-        $mockMajor = new StudentInfo(['major' => 'test']);
+        $mockMajor = new UserInfo(['major' => 'test']);
 
-        $this->studentInfoModelRepo
+        $this->userInfoModelRepo
         ->shouldReceive('getStudentsByMajor')
         ->with("test")
         ->once()
@@ -42,9 +42,9 @@ class StudentInfoServiceTest extends TestCase
      * @group noFramework
      */
     public function get_list_of_students_based_on_grad_date() {
-        $mockGradDate = new StudentInfo(['grad_date' => 'Spring 2019']);
+        $mockGradDate = new UserInfo(['grad_date' => 'Spring 2019']);
 
-        $this->studentInfoModelRepo
+        $this->userInfoModelRepo
             ->shouldReceive('getStudentsByGradDate')
             ->with("Spring 2019")
             ->once()
@@ -57,9 +57,9 @@ class StudentInfoServiceTest extends TestCase
      * @group noFramework
      */
     public function get_list_of_students_based_on_college() {
-        $mockCollege = new StudentInfo(['college' => 'test']);
+        $mockCollege = new UserInfo(['college' => 'test']);
 
-        $this->studentInfoModelRepo
+        $this->userInfoModelRepo
             ->shouldReceive('getStudentsByCollege')
             ->with("test")
             ->once()

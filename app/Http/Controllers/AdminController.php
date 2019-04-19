@@ -3,21 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
+use Validator;
 use Mail;
 use App\Contracts\AdminContract;
+use Illuminate\Http\Request;
 use App\Mail\InviteStudent;
-use App\Contracts\StudentInfoContract;
+use App\Contracts\UserInfoContract;
 
 class AdminController extends BaseController
 {
     private $adminRetriever;
-    private $studentinfoRetriever;
+    private $userinfoRetriever;
 
     public function __construct(
-        StudentInfoContract $studentinfoContract,
+        UserInfoContract $userinfoContract,
         AdminContract $adminContract)
     {
-        $this->studentinfoRetriever = $studentinfoContract;
+        $this->userinfoRetriever = $userinfoContract;
         $this->adminRetriever = $adminContract;
     }
 
@@ -30,16 +32,48 @@ class AdminController extends BaseController
 
     public function getStudentsByGradDate($graddate)
     {
-        return $this->studentinfoRetriever->getStudentsByGradDate($graddate);
+        return $this->userinfoRetriever->getStudentsByGradDate($graddate);
     }
 
     public function getStudentsByCollege($collegename)
     {
-        return $this->studentinfoRetriever->getStudentsByCollege($collegename);
+        return $this->userinfoRetriever->getStudentsByCollege($collegename);
     }
 
     public function getStudentsByMajor($majorname)
     {
-        return $this->studentinfoRetriever->getStudentsByMajor($majorname);
+        return $this->userinfoRetriever->getStudentsByMajor($majorname);
+    }
+
+    public function createAdminUserInfo(Request $request)
+    {
+        $validatedData = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'title' => 'required',
+        ]);
+
+        if ($validatedData->fails()) {
+            return $validatedData->errors()->all();
+        }
+
+        $data = $request;
+
+        $admininfo = $this->adminRetriever->createAdminUserInfo($data);
+
+        if ($admininfo) {
+            return response()->json([$admininfo], 201);
+        } else {
+            return response()->json([
+                'errors' => [
+                    'invalid' => 'Unable to create Admin.'
+                ]
+            ], 406);
+        }
+    }
+
+    public function deleteStudent($userId)
+    {
+        return $this->adminRetriever->deleteStudent($userId);
     }
 }
