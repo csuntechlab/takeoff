@@ -8,6 +8,7 @@ import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
 import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
+import EditProfile from "./views/EditProfile"
 import Dashboard from "./views/Dashboard"
 import Roster from "./views/Roster"
 import DashboardAdmin from "./views/DashboardAdmin"
@@ -42,6 +43,22 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/profile",
+            component: StudentProfile,
+            meta: {
+                title: "Profile | Takeoff",
+                header: "Edgar's Profile"
+            }
+        },
+        {
+            path: "/edit-profile",
+            component: EditProfile,
+            meta: {
+                title: "Edit Profile | Takeoff",
+                header: "Edit Your Profile"
+            }
+        },
+        {
             path: "/profile-setup",
             component: ProfileSetup,
             meta: {
@@ -55,14 +72,6 @@ const router = new VueRouter({
             meta: {
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
-            }
-        },
-        {
-            path: "/profile",
-            component: StudentProfile,
-            meta: {
-                title: "Profile | Takeoff",
-                header: "[Student] Profile"
             }
         },
         {
