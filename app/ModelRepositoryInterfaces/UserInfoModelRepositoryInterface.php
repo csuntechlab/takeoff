@@ -2,7 +2,7 @@
 
  namespace App\ModelRepositoryInterfaces;
 
- interface StudentInfoRepositoryInterface
+ interface UserInfoModelRepositoryInterface
  {
 
     public function getStudentsByMajor($majorname);

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RegistrationAccessToken extends Model
+class Role extends Model
 {
-    protected $table = 'registration_access_token';
+    protected $table = 'roles';
     public $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
@@ -14,11 +14,12 @@ class RegistrationAccessToken extends Model
      * @var array
      */
     protected $fillable = [
-        'access_code',
-        'user_id'
+        'id',
+        'role'
     ];
 
-    public function user() {
-        return $this->belongsTo('App\Models\User', 'id');
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
     }
 }
