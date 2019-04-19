@@ -18,6 +18,7 @@ Route::get('/', function() {
     return view('spa');
 });
 
+
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
