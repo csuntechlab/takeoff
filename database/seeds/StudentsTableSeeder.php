@@ -13,9 +13,9 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $firstNames = ['', 'Tim', 'Alec', 'Josh', 'Tony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima'];
-        $lastNames = ['', 'Brambaugh', 'Marcum', 'Magaleno', 'Pharo', 'Tweak', 'Perex', 'Different', 'King', 'Batchu', 'Hossain'];
-        for($id = 1; $id <= 10; $id +=1)
+        $firstNames = ['', 'Tim', 'Alec', 'Josh', 'Tony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima', 'Earl', 'Josh', 'Ekene', 'Michael', 'Zay', 'Yazmin', 'Steve', 'Luis', 'Bill', 'Steamboat', 'Morgan', 'Carlos', 'Jaime', 'Melissa', 'Tiffany', 'John'];
+        $lastNames = ['', 'Brambaugh', 'Marcum', 'Magaleno', 'Pharo', 'Cano', 'Perez', 'Ervin', 'McNulty', 'Batchu', 'Hossain', 'Madjus', 'Arco', 'Akpati', 'Chan', 'Toven', 'Peebles', 'Fitzgerald', 'Guzman', 'Gates', 'McNutty', 'Louis', 'Benavides', 'Garcia', 'Ibara', 'Navales', 'Aquino'];
+        for($id = 1; $id <= 26; $id +=1)
         {
             $student = User::create([
                 'id' => $id,
