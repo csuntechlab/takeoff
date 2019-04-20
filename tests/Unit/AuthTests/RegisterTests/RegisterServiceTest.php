@@ -51,6 +51,10 @@ class RegisterServiceTest extends TestCase
             ->shouldReceive('generateAccessCode')
             ->once();
 
+        $this->userModelRepo
+            ->shouldReceive('sendMail')
+            ->andReturn(true);
+
         $resp = $this->service->registerUserEmail($input, $mockRole);
         $this->assertEquals($mockUser, $resp);
     }

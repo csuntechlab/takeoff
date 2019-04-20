@@ -6,7 +6,7 @@
     <div class="email-bottom justify-content-center">
         <div class="pt-5">
             <span class="text-center email__text d-block"> Welcome to Takeoff!! </span>
-            <span class="text-center email__text d-block"> Here is your access code </span>
+            <span class="text-center email__text d-block"> Here is your access code: {{ $accesscode }} </span>
         </div>
         <div>
             <button type="button" id="access" class="btn btn-light email__access mx-auto d-block"></button>
