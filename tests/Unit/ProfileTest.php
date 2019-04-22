@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Contracts\StudentInfoContract;
+use App\Contracts\UserInfoContract;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Mockery;
@@ -15,15 +15,18 @@ class ProfileTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->retriever = Mockery::spy(StudentInfoContract::class);
+        $this->retriever = Mockery::spy(UserInfoContract::class);
     }
 
     /**
      * @test
      */
-    public function store_studentinfo(){
+    public function store_user_info(){
 
-        $request = Request::create('/store', 'POST',[
+        $request = Request::create('/profile/store', 'POST',[
+            'user_id'=> '3',
+            'first_name'=> 'test',
+            'last_name'=> 'test',
             'major'=> 'comp sci',
             'units'=> '50',
             'grad_date' => '2019',
@@ -37,12 +40,13 @@ class ProfileTest extends TestCase
         $controller = new ProfileController($this->retriever);
 
         $this->retriever
-            ->shouldReceive('store')
+            ->shouldReceive('createStudentUserInfo')
             ->with($request)
             ->andReturn("Info is Stored");
 
-        $response = $controller->store($request);
-        $this->assertEquals("Info is Stored", $response);
+        $response = $controller->createStudentUserInfo($request);
+
+        $this->assertEquals( 201, $response->status());
 
     }
 }

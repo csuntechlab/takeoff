@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class StudentInfoServiceProvider extends ServiceProvider
+class UserInfoServiceProvider extends ServiceProvider
 {
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -19,6 +19,12 @@ class StudentInfoServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('App\Contracts\StudentInfoContract', 'App\Services\StudentInfoService');
+        $this->app->bind(
+            'App\Contracts\UserInfoContract',
+            'App\Services\UserInfoService');
+
+        $this->app->bind(
+            'App\Contracts\AdminContract',
+            'App\Services\AdminService');
     }
 }

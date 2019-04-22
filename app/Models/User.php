@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -17,23 +17,29 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password', 'verified'
+        'id', 'email', 'password'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     *The attributes that should be hidden for arrays.
      *
-     * @var array
+     *@var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'id', 'updated_at', 'created_at'
+        'password','remember_token','id','updated_at','created_at'
     ];
 
-    public function UserAuthTokens(){
-        return $this->hasMany('\App\Models\OauthAccessToken');
+
+    public function studentInfo(){
+        return $this->hasOne('App\Models\UserInfo', 'user_id', 'id');
     }
 
     public function registrationAccessToken() {
         return $this->hasOne('App\Models\RegistrationAccessToken', 'user_id', 'id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
     }
 }

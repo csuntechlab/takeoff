@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-use App\User;
+use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\RegistrationAccessToken;
 use App\Contracts\RegisterContract;
@@ -21,14 +21,14 @@ class RegisterService implements RegisterContract
         $this->userModelRepo = $userModelRepo;
     }
 
-    public function registerStudentEmail($data)
+    public function registerUserEmail($data, $role)
     {
         $user = $this->userModelRepo->findByEmail($data['email']);
         // Verify that user has not already been added by the admin
         if ($user !== null) {
             return ['message_error' => 'User has already been created.'];
         }
-        $user = $this->userModelRepo->registerStudentEmail($data);
+        $user = $this->userModelRepo->registerUserEmail($data, $role);
         // TODO: There needs to be added functionality for sending the access code through emails
         $this->userModelRepo->generateAccessCode($user);
         return $user;

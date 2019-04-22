@@ -11,6 +11,11 @@ class ModelRepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+            'App\ModelRepositoryInterfaces\UserInfoModelRepositoryInterface',
+            'App\ModelRepositories\UserInfoModelRepository'
+        );
+
+        $this->app->bind(
             'App\ModelRepositoryInterfaces\UserModelRepositoryInterface',
             'App\ModelRepositories\UserModelRepository'
         );

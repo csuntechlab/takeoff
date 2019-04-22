@@ -8,9 +8,11 @@ import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
 import AdminSetup from "./views/AdminSetup"
 import StudentProfile from "./views/StudentProfile"
+import EditProfile from "./views/EditProfile"
 import Dashboard from "./views/Dashboard"
-import ErrorPage from "./views/ErrorPage"
+import Roster from "./views/Roster"
 import DashboardAdmin from "./views/DashboardAdmin"
+import ErrorPage from "./views/ErrorPage"
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -41,6 +43,22 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/profile",
+            component: StudentProfile,
+            meta: {
+                title: "Profile | Takeoff",
+                header: "Edgar's Profile"
+            }
+        },
+        {
+            path: "/edit-profile",
+            component: EditProfile,
+            meta: {
+                title: "Edit Profile | Takeoff",
+                header: "Edit Your Profile"
+            }
+        },
+        {
             path: "/profile-setup",
             component: ProfileSetup,
             meta: {
@@ -57,19 +75,27 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/profile",
-            component: StudentProfile,
-            meta: {
-                title: "Profile | Takeoff",
-                header: "[Student] Profile"
-            }
-        },
-        {
             path: "/admin-setup",
             component: AdminSetup,
             meta: {
                 title: "Admin Setup | Takeoff",
                 header: "Administrator Information"
+            }
+        },
+        {
+            path: "/roster",
+            component: Roster,
+            meta: {
+                title: "Roster | Takeoff",
+                header: "Roster"
+            } 
+        },
+        {
+            path: "/dashboard",
+            component: DashboardAdmin,
+            meta: {
+                title: "Dashboard | Takeoff",
+                header: "Dashboard"
             }
         },
         {
@@ -79,17 +105,7 @@ const router = new VueRouter({
                 title: 'Whoops!',
                 header: 'Page Not Found'
             }
-
-        },
-        {
-            path: "/dashboard",
-            component: DashboardAdmin,
-            meta: {
-                title: "Dashboard | Takeoff",
-                header: "Dashboard"
-            }
         }
-
     ]
 });
 
