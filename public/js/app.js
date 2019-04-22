@@ -6977,6 +6977,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.min.js");
 /* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(choices_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _api_Profile_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../api/Profile.js */ "./resources/js/api/Profile.js");
 
 //
 //
@@ -7030,15 +7031,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var interests;
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        image: null,
-        biography: null,
-        research: null,
-        funFacts: null,
-        academicInterests: null
+        image: '',
+        biography: '',
+        research: '',
+        funFacts: '',
+        academicInterests: ''
       }
     };
   },
@@ -7053,6 +7055,16 @@ var interests;
   },
   computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(['student'])),
   methods: {
+    sendData: function sendData() {
+      var _this = this;
+
+      _api_Profile_js__WEBPACK_IMPORTED_MODULE_3__["default"].sendProfileData(this.form, function (success) {
+        console.log('Saved');
+      }, function (error) {
+        console.log('Error: Saving failed', _this.form);
+        console.log(error);
+      }); // this.$store.dispatch('sendProfileData', this.form);
+    },
     submitChanges: function submitChanges() {
       this.form.academicInterests = interests.getValue(true);
       console.table({
@@ -33053,10 +33065,13 @@ var render = function() {
           staticClass: "btn btn-primary",
           attrs: { type: "submit" },
           on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.submitChanges($event)
-            }
+            click: [
+              _vm.sendData,
+              function($event) {
+                $event.preventDefault()
+                return _vm.submitChanges($event)
+              }
+            ]
           }
         },
         [_vm._v("Save Changes")]
@@ -51462,6 +51477,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f348271a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/api/Profile.js":
+/*!*************************************!*\
+  !*** ./resources/js/api/Profile.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// import axios from 'axios';
+// export default {
+//     sendProfileData(payload){
+//        return axios.post('/profile/', payload)
+//     }
+// }
+var sendProfileData = function sendProfileData(payload, success, error) {
+  window.axios.post('ProfileController@createStudentUserInfo', payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  sendProfileData: sendProfileData
+});
 
 /***/ }),
 

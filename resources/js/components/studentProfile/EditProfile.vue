@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="text-center pt-4 pb-4">
-			<button type="submit" class="btn btn-primary" @click.prevent="submitChanges">Save Changes</button>
+			<button type="submit" class="btn btn-primary" @click="sendData" @click.prevent="submitChanges">Save Changes</button>
 		</div>
 	</form>
 </template>
@@ -51,15 +51,16 @@
 import Choices from "choices.js";
 var interests;
 import { mapState, mapGetters } from "vuex";
+import Profile from "./../../api/Profile.js";
 export default {
 	data() {
 		return {
 			form: {
-				image: null,
-				biography: null,
-				research: null,
-				funFacts: null,
-				academicInterests: null
+				image: '',
+				biography: '',
+				research: '',
+				funFacts: '',
+				academicInterests: ''
 			}
 		};
 	},
@@ -78,6 +79,19 @@ export default {
 		])
 	},
 	methods: {
+		sendData () {
+			Profile.sendProfileData (
+				this.form,
+				success => {
+                    console.log('Saved')
+                },
+                error => {
+                    console.log('Error: Saving failed', this.form)
+                    console.log(error)
+                }
+			)
+			// this.$store.dispatch('sendProfileData', this.form);
+		},
 		submitChanges() {
 			this.form.academicInterests = interests.getValue(true);
 			console.table({ form: this.form });

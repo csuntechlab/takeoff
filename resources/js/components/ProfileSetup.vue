@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="text-center pt-4 pb-4">
-						<button type="submit" :click='sendData' class="btn btn-primary">Save Profile</button>
+						<button type="submit" class="btn btn-primary">Save Profile</button>
 					</div>
 				</form>
 			</div>
@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
-import Profile from "./../api/Profile.js";
+// import {mapActions} from 'vuex'
+// import Profile from "./../api/Profile.js";
 
 export default {
     data() {
@@ -69,10 +69,19 @@ export default {
 		// 	'sendProfileData'
 		// ]),
 
-		sendData () {
-			Profile.sendProfileData(payload);
-			// this.$store.dispatch('sendProfileData', this.form);
-		}
+		// sendData () {
+		// 	Profile.sendProfileData (
+		// 		this.form,
+		// 		success => {
+        //             console.log('Saved')
+        //         },
+        //         error => {
+        //             console.log('Error: Saving failed', this.form)
+        //             console.log(error)
+        //         }
+		// 	)
+		// 	// this.$store.dispatch('sendProfileData', this.form);
+		// }
 	}
 };
 </script>
