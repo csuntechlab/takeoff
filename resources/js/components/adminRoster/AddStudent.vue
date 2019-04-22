@@ -31,6 +31,7 @@ export default {
                 this.form,
                 success => {
                     console.log('Invitation sent')
+                    this.form.email = ''
                 },
                 error => {
                     console.log('Error: Email not sent', this.form.email)
