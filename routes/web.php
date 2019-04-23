@@ -24,6 +24,12 @@ Route::prefix('api/students')->group(function () {
     Route::get('major/{major}', 'AdminController@getStudentsByMajor');
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
+    /*sort by name*/
+    Route::get('sortFirstName/ascend', 'AdminController@sortUserFirstNameAscending');
+    Route::get('sortFirstName/descend', 'AdminController@sortUserFirstNameDescending');
+    Route::get('sortLastName/ascend', 'AdminController@sortUserLastNameAscending');
+    Route::get('sortLastName/descend', 'AdminController@sortUserLastNameDescending');
+    /*delete student*/
     Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api');
 });
 
