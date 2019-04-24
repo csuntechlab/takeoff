@@ -6,7 +6,7 @@ export default {
         .then(
             response => {
                 console.log(response);
-                commit('post_profile_data', payload) //saving data into the state after api succesful
+                commit('post_profile_data', payload) //saving data into the state after api is succesful
             }
         )
     }

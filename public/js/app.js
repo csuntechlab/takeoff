@@ -54465,7 +54465,7 @@ __webpack_require__.r(__webpack_exports__);
               commit = _ref.commit;
               return _context.abrupt("return", _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileData(payload).then(function (response) {
                 console.log(response);
-                commit('post_profile_data', payload); //saving data into the state after api succesful
+                commit('post_profile_data', payload); //saving data into the state after api is succesful
               }));
 
             case 2:

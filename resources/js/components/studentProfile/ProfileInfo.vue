@@ -4,7 +4,7 @@
 			<h3 class="profile-info__header">
 				<strong>Biography:</strong>
 			</h3>
-			<p class="profile-info__text">{{profile_data.biography}}</p>
+			<p class="profile-info__text">{{profile_data.biography}}</p>	<!-- changed from student.biography -->
 		</div>
 		<div class="col-12">
 			<h3 class="profile-info__header">
@@ -35,7 +35,7 @@ export default {
 			}
 		};
 	},
-	computed: {
+	computed: {		//added for posting profile routes and updating this page
 		...mapGetters ([
 			'profile_data'
 		])
