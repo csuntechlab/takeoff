@@ -5,7 +5,7 @@
 .roster__card {
     background: #BCE0FD;
     display: block;
-} 
+}
 
 .roster__text {
     color: #2699FB;
@@ -18,4 +18,43 @@
 
 .roster__name {
     font-weight: 600;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.paginate-list {
+  width: 159px;
+  margin: 0 auto;
+  text-align: left;
+  li {
+    display: block;
+    &:before {
+      content: '⚬ ';
+      font-weight: bold;
+      color: slategray;
+    }
+  }
+}
+
+
+.paginate-links.users {
+  user-select: none;
+  a {
+    cursor: pointer;
+  }
+  li.active a {
+    font-weight: bold;
+  }
+  li.next:before {
+    content: ' | ';
+    margin-right: 13px;
+    color: #ddd;
+  }
+  li.disabled a {
+    color: #ccc;
+    cursor: no-drop;
+  }
 }

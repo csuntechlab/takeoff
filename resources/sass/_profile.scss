@@ -83,3 +83,18 @@
         }
     }
 }
+
+// overwrites choices.js styling
+.choices {
+    &__inner, &__input {
+        background-color: white;
+        font-size: 1rem;
+    }
+
+    &__list--multiple &__item {
+        font-size: 1rem;
+    }
+}
+.profile-thumbnail{
+    border-radius: 50%;
+}

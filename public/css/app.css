@@ -11059,20 +11059,6 @@ textarea {
   font-size: 1.2rem;
 }
 
-.choices__inner,
-.choices__input {
-  background-color: white;
-  font-size: 1rem;
-}
-
-.choices__list--multiple .choices__item {
-  font-size: 1rem;
-}
-
-.profile-thumbnail {
-  border-radius: 50%;
-}
-
 .profile-photo__image {
   width: 6rem;
   border-radius: 100px;
@@ -11167,6 +11153,20 @@ textarea {
   }
 }
 
+.choices__inner,
+.choices__input {
+  background-color: white;
+  font-size: 1rem;
+}
+
+.choices__list--multiple .choices__item {
+  font-size: 1rem;
+}
+
+.profile-thumbnail {
+  border-radius: 50%;
+}
+
 .badges-earned__header {
   font-weight: bold;
   font-size: 1rem;
@@ -11210,5 +11210,52 @@ textarea {
 
 .roster__name {
   font-weight: 600;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.paginate-list {
+  width: 159px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.paginate-list li {
+  display: block;
+}
+
+.paginate-list li:before {
+  content: "\26AC   ";
+  font-weight: bold;
+  color: slategray;
+}
+
+.paginate-links.users {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.paginate-links.users a {
+  cursor: pointer;
+}
+
+.paginate-links.users li.active a {
+  font-weight: bold;
+}
+
+.paginate-links.users li.next:before {
+  content: " | ";
+  margin-right: 13px;
+  color: #ddd;
+}
+
+.paginate-links.users li.disabled a {
+  color: #ccc;
+  cursor: no-drop;
 }
 
