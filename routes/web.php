@@ -24,6 +24,11 @@ Route::prefix('api/students')->group(function () {
     Route::get('major/{major}', 'AdminController@getStudentsByMajor');
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege');
+    /**
+     * FORM BODY:
+     * name: string
+     */
+    Route::post('search', 'AdminController@searchUser');
     Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api');
 });
 
