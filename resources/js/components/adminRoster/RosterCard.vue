@@ -7,8 +7,8 @@
                         <img class="roster__image" src="https://via.placeholder.com/100x100">
                     </div>
                     <div class="col-7">
-                        <span class="roster__name">{{students.name}}</span>
-                        <div>{{students.major}}</div>
+                        <span class="roster__name">{{user.first_name}} {{user.last_name}}</span>
+                        <div>{{user.major}}</div>
                     </div>
                     <div class="justify-content-right col-auto">
                         <i class="fas fa-times py-auto"></i>
@@ -22,7 +22,6 @@
 
 <script>
 export default {
-	components: {},
-    props: ['students'] 
+    props: ['user'],
 };
 </script>
