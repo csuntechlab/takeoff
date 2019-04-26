@@ -64,18 +64,18 @@ Route::prefix('api/')->group(function () {
     });
 });
 
-    Route::get('/docs', function() {
-        return File::get(public_path() . '/docs/index.html');
-    });
+Route::get('/docs', function() {
+    return File::get(public_path() . '/docs/index.html');
+});
 
-    Route::get('/docs/assets/css/*.css', function() {
-        return File::get(public_path() . '/docs/assets/css/*.css');
-    });
+Route::get('/docs/assets/css/*.css', function() {
+    return File::get(public_path() . '/docs/assets/css/*.css');
+});
 
-    Route::get('/docs/assets/js/*.js', function() {
-        return File::get(public_path() . '/docs/assets/js/*.js');
-    });
+Route::get('/docs/assets/js/*.js', function() {
+    return File::get(public_path() . '/docs/assets/js/*.js');
+});
 
-    Route::get('{any}', function () {
-        return view('spa');
-    })->where('any','.*');
+Route::get('{any}', function () {
+    return view('spa');
+})->where('any','.*');
