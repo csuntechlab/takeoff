@@ -7,9 +7,18 @@
 			<SearchStudent/>
 		</div>
 		<div>
-            <paginate-links for="users" :limit="2" :show-step-links="true"></paginate-links>
-			<paginate name="users" :list="users" :per="15">
-                <RosterCard v-for="(user, index) in paginated('users')" :key="index" :user="user"/>
+			<paginate-links
+				for="users"
+                class="text-center"
+				:limit="3"
+				:show-step-links="true"
+				:step-links="{
+                    next: '>',
+                    prev: '<'
+                }"
+			></paginate-links>
+			<paginate class="roster__list" name="users" :list="users" :per="20">
+				<RosterCard v-for="(user, index) in paginated('users')" :key="index" :user="user"/>
 			</paginate>
 		</div>
 	</div>
@@ -33,9 +42,6 @@ export default {
 		...mapState({
 			users: state => state.Admin.users
 		})
-	},
-	methods: {
-		changePage() {}
 	},
 	components: {
 		AddStudent,

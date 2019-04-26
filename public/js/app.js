@@ -7453,6 +7453,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7472,9 +7481,6 @@ __webpack_require__.r(__webpack_exports__);
       return state.Admin.users;
     }
   })),
-  methods: {
-    changePage: function changePage() {}
-  },
   components: {
     AddStudent: _components_adminRoster_AddStudent__WEBPACK_IMPORTED_MODULE_2__["default"],
     RosterCard: _components_adminRoster_RosterCard__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -33585,12 +33591,24 @@ var render = function() {
       "div",
       [
         _c("paginate-links", {
-          attrs: { for: "users", limit: 2, "show-step-links": true }
+          staticClass: "text-center",
+          attrs: {
+            for: "users",
+            limit: 3,
+            "show-step-links": true,
+            "step-links": {
+              next: ">",
+              prev: "<"
+            }
+          }
         }),
         _vm._v(" "),
         _c(
           "paginate",
-          { attrs: { name: "users", list: _vm.users, per: 15 } },
+          {
+            staticClass: "roster__list",
+            attrs: { name: "users", list: _vm.users, per: 20 }
+          },
           _vm._l(_vm.paginated("users"), function(user, index) {
             return _c("RosterCard", { key: index, attrs: { user: user } })
           }),
