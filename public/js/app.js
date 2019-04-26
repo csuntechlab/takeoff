@@ -6697,6 +6697,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown-item */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown-item.js");
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _api_rosterFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../api/rosterFilter.js */ "./resources/js/api/rosterFilter.js");
 //
 //
 //
@@ -6723,11 +6724,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7468,6 +7465,12 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: "Mark",
         major: "Computer Science"
+      }, {
+        name: "Zelaya",
+        major: "Geology"
+      }, {
+        name: "Kevin",
+        major: "Political Science"
       }]
     };
   }
@@ -10476,7 +10479,7 @@ var hasPointerEvent = inBrowser && Boolean(window.PointerEvent || window.MSPoint
 exports.hasPointerEvent = hasPointerEvent;
 
 var getNoWarn = function getNoWarn() {
-  return typeof process !== 'undefined' && process && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
+  return typeof process !== 'undefined' && process && Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
 };
 
 exports.getNoWarn = getNoWarn;
@@ -50274,7 +50277,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(/*! ./withParamsBrowser */ "./node_modules/vuelidate/lib/withParamsBrowser.js").withParams : __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js").withParams;
+var withParams = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(/*! ./withParamsBrowser */ "./node_modules/vuelidate/lib/withParamsBrowser.js").withParams : __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js").withParams;
 var _default = withParams;
 exports.default = _default;
 
@@ -51485,6 +51488,50 @@ var inviteUserAPI = function inviteUserAPI(payload, success, error) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inviteUserAPI: inviteUserAPI
+});
+
+/***/ }),
+
+/***/ "./resources/js/api/rosterFilter.js":
+/*!******************************************!*\
+  !*** ./resources/js/api/rosterFilter.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var filterByMajorAPI = function filterByMajorAPI(payload, success, error) {
+  window.axios.get('major/{major}', payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  } //nested inside the predecessor
+  );
+};
+
+var filterByGraddateAPI = function filterByGraddateAPI(payload, success, error) {
+  window.axios.get('graddate/{graddate}', payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  } //nested inside the predecessor
+  );
+};
+
+var filterByCollegeAPI = function filterByCollegeAPI(payload, success, error) {
+  window.axios.get('college/{college}', payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  } //nested inside the predecessor
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  filterByMajorAPI: filterByMajorAPI,
+  filterByGraddateAPI: filterByGraddateAPI,
+  filterByCollegeAPI: filterByCollegeAPI
 });
 
 /***/ }),
@@ -53602,8 +53649,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\amzer\Desktop\Work\takeoff\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\amzer\Desktop\Work\takeoff\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/raimahossain/Documents/Websites/Badges/badges/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/raimahossain/Documents/Websites/Badges/badges/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

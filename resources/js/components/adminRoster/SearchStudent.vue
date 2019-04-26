@@ -14,14 +14,9 @@
             </div>
             <div class="text-right col-4">
                 <b-dropdown text="Filters" variant="primary">
-                    <!-- <b-dropdown-item href="#" class="active">Search by college</b-dropdown-item>
-                    <b-dropdown-item href="#" class="active">Search by graduation date</b-dropdown-item>
-                    <b-dropdown-item href="#" class="active">Search by major</b-dropdown-item> -->
-
                     <b-dropdown-item href="#"><button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Search by college</button></b-dropdown-item>
                     <b-dropdown-item href="#"><button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Search by graduation date</button></b-dropdown-item>
                     <b-dropdown-item href="#"><button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Search by major</button></b-dropdown-item> 
-                    
                 </b-dropdown>
             </div>
         </div>
@@ -32,6 +27,7 @@
 <script>
 import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
 import BDropdownItem from "bootstrap-vue/es/components/dropdown/dropdown-item";
+import rosterFilter from "./../../api/rosterFilter.js"
 
 export default {
 	components: {
