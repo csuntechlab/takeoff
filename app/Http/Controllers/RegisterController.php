@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\RegisterContract;
+use Validator;
 
 class RegisterController extends Controller
 {
@@ -18,14 +19,14 @@ class RegisterController extends Controller
     //ADMIN LEVEL ACCESS
     public function registerStudentEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email|unique:users,email']);
+        $this->validate($request, ['email' => 'required|email']);
         $data = ['email' => $request->email];
         return $this->registerRetriever->registerUserEmail($data, "student");
     }
 
     public function registerAdminEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email|unique:users,email']);
+        $this->validate($request, ['email' => 'required|email']);
         $data = ['email' => $request->email];
         return $this->registerRetriever->registerUserEmail($data, "admin");
     }
