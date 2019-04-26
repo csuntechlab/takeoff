@@ -88,7 +88,7 @@ const router = new VueRouter({
             meta: {
                 title: "Roster | Takeoff",
                 header: "Roster"
-            } 
+            }
         },
         {
             path: "/dashboard",
