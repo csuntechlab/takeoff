@@ -54173,7 +54173,7 @@ __webpack_require__.r(__webpack_exports__);
     _api_admin__WEBPACK_IMPORTED_MODULE_0__["default"].fetchUsersAPI(function (success) {
       commit('STORE_USERS', success);
     }, function (error) {
-      console.log("MAMMA MIA", error);
+      console.log("Error: ", error);
     });
   }
 });

@@ -7,7 +7,7 @@ export default {
                 commit('STORE_USERS', success)
             },
             error => {
-                console.log("MAMMA MIA", error)
+                console.log("Error: ", error)
             }
         )
     }
