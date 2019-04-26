@@ -54317,6 +54317,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/global */ "./resources/js/store/modules/global/index.js");
 /* harmony import */ var _modules_profile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/profile */ "./resources/js/store/modules/profile/index.js");
+/* harmony import */ var _modules_accountSetup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accountSetup */ "./resources/js/store/modules/accountSetup/index.js");
+/* harmony import */ var _modules_accountSetup__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_accountSetup__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -54327,9 +54330,21 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     //write modules here
     Global: _modules_global__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Profile: _modules_profile__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Profile: _modules_profile__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AccountSetup: _modules_accountSetup__WEBPACK_IMPORTED_MODULE_4___default.a
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/accountSetup/index.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/store/modules/accountSetup/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
