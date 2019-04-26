@@ -30,7 +30,8 @@ class LoginService implements LoginContract
                 'token_type' => 'Bearer',
                 'expires_at' => Carbon::parse(
                     $tokenResult->token->expires_at
-                )->toDateTimeString()
+                )->toDateTimeString(),
+                'role' => $user->roles()->first()->role
             ]);
     }
 

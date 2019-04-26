@@ -51506,10 +51506,40 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/oauth/clients').then(function
 
 var loginAPI = function loginAPI(payload, success, error) {
   window.axios.post('api/auth/login', payload).then(function (response) {
-    console.log("in api call", response);
     success(response.data);
   }).catch(function (failure) {
-    console.log("api fail", failure);
+    error(failure);
+  });
+};
+
+var logoutAPI = function logoutAPI(payload, success, error) {
+  window.axios.get('api/auth/logout').then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
+    error(failure);
+  });
+};
+
+var registerAPI = function registerAPI(payload, success, error) {
+  window.axios.post('api/auth/register', payload).then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
+    error(failure);
+  });
+};
+
+var inviteStudentAPI = function inviteStudentAPI(payload, success, error) {
+  window.axios.post('api/auth/invite/student', payload).then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
+    error(failure);
+  });
+};
+
+var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
+  window.axios.post('api/auth/invite/admin', payload).then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
     error(failure);
   });
 };
@@ -53562,6 +53592,41 @@ __webpack_require__.r(__webpack_exports__);
     }, function (error) {
       console.log(error);
     });
+  },
+  logout: function logout(_ref2, payload) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].logoutAPI(payload, function (success) {
+      commit(_mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].CLEAR_SESSION, success);
+    }, function (error) {
+      console.log(error);
+    });
+  },
+  register: function register(_ref3, payload) {
+    var commit = _ref3.commit;
+    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
+      console.log("TODO: give success notification");
+    }, function (error) {
+      console.log(error);
+    });
+  },
+  inviteStudent: function inviteStudent(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteStudentAPI(payload, function (success) {
+      console.log("TODO: give success notification");
+    }, function (error) {
+      console.log(error);
+    });
+  },
+  inviteAdmin: function inviteAdmin(_ref5, payload) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteAdminAPI(payload, function (success) {
+      console.log("TODO: give success notification");
+    }, function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -53619,13 +53684,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mutation-types/auth */ "./resources/js/store/mutation-types/auth.js");
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].UPDATE_SESSION, function (state, payload) {
-  console.log("in mutation", payload);
+var _auth$UPDATE_SESSION$;
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_auth$UPDATE_SESSION$ = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_auth$UPDATE_SESSION$, _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].UPDATE_SESSION, function (state, payload) {
   state.session.userId = payload.user_id;
   state.session.tokenType = payload.token_type;
   state.session.token = payload.access_token;
   state.session.expiration = payload.expires_at;
-}));
+  window.localStorage.setItem("userId", payload.user_id);
+  window.localStorage.setItem("tokenType", payload.token_type);
+  window.localStorage.setItem("token", payload.access_token);
+  window.localStorage.setItem("expiration", payload.expires_at);
+  window.localStorage.setItem("role", payload.role);
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_auth$UPDATE_SESSION$, _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].CLEAR_SESSION, function (state, payload) {
+  window.localStorage.setItem("userId", null);
+  window.localStorage.setItem("tokenType", null);
+  window.localStorage.setItem("token", null);
+  window.localStorage.setItem("expiration", null);
+  window.localStorage.setItem("role", null);
+}), _auth$UPDATE_SESSION$);
 
 /***/ }),
 
