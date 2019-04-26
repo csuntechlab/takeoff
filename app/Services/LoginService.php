@@ -24,13 +24,14 @@ class LoginService implements LoginContract
             if ($request->remember_me)
                 $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();
-
             return response()->json([
+                'user_id' => $user->id,
                 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
                 'expires_at' => Carbon::parse(
                     $tokenResult->token->expires_at
-                )->toDateTimeString()
+                )->toDateTimeString(),
+                'role' => $user->roles()->first()->role
             ]);
     }
 

@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace App\ModelRepositories;
 
+use Mail;
+use App\Mail\InviteStudent;
 use App\Models\User;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
 use App\Models\RegistrationAccessToken;
@@ -49,6 +51,12 @@ class UserModelRepository implements UserModelRepositoryInterface
                 'user_id' => $user->id,
             ]);
         });
+    }
+
+    public function sendEmail($user, $data){
+        $accesscode = $this->findAccessCode($user, $data);
+        Mail::to($data['email'])->send(new InviteStudent($data['email'], $accesscode));
+        return true;
     }
 
     public function findAccessCode(User $user, $data) {

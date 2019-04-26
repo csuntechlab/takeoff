@@ -15,6 +15,11 @@ class UserInfoService implements UserInfoContract
         $this->userInfoModelRepo = $userInfoModelRepo;
     }
 
+    public function getAllStudents()
+    {
+        return $this->userInfoModelRepo->getAllStudents();
+    }
+
     public function getStudentsByGradDate($graddate)
     {
         return $this->userInfoModelRepo->getStudentsByGradDate($graddate);

@@ -3,7 +3,8 @@ import Vuex from 'vuex';
 import Global from './modules/global';
 import Profile from './modules/profile';
 import AccountSetup from './modules/accountSetup';
-
+import Admin from './modules/admin'
+import Auth from './modules/auth';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,8 @@ export default new Vuex.Store({
         //write modules here
         Global,
         Profile,
-        AccountSetup
+        AccountSetup,
+        Admin,
+        Auth
     }
 });

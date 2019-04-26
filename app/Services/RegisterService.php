@@ -1,6 +1,8 @@
 <?php
 namespace App\Services;
 
+use Mail;
+use App\Mail\InviteStudent;
 use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\RegistrationAccessToken;
@@ -31,6 +33,8 @@ class RegisterService implements RegisterContract
         $user = $this->userModelRepo->registerUserEmail($data, $role);
         // TODO: There needs to be added functionality for sending the access code through emails
         $this->userModelRepo->generateAccessCode($user);
+        $this->userModelRepo->sendEmail($user, $data);
+
         return $user;
     }
 
