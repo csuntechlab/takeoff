@@ -27,7 +27,7 @@
 <script>
 import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
 import BDropdownItem from "bootstrap-vue/es/components/dropdown/dropdown-item";
-import rosterFilter from "./../../api/rosterFilter.js"
+
 
 export default {
 	components: {
