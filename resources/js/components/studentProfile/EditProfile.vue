@@ -43,23 +43,25 @@
 		</div>
 
 		<div class="text-center pt-4 pb-4">
-			<button type="submit" class="btn btn-primary" @click.prevent="submitChanges">Save Changes</button>
+			<button type="submit" class="btn btn-primary" @click="sendData" @click.prevent="submitChanges">Save Changes</button>
+			<!-- <router-link to="/profile" type="submit" class="btn btn-primary" @click="sendData" @click.prevent="submitChanges">Save Changes</router-link> -->
 		</div>
 	</form>
 </template>
 <script>
+import Profile from "./../../api/Profile";
 import Choices from "choices.js";
 var interests;
-import { mapState, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 export default {
 	data() {
 		return {
 			form: {
-				image: null,
-				biography: null,
-				research: null,
-				funFacts: null,
-				academicInterests: null
+				image: '',
+				biography: '',
+				research: '',
+				funFacts: '',
+				academicInterests: ''
 			}
 		};
 	},
@@ -81,6 +83,28 @@ export default {
 		submitChanges() {
 			this.form.academicInterests = interests.getValue(true);
 			console.table({ form: this.form });
+		},
+		sendData () {
+			console.log(this.form)
+			var profileFormData = {
+				// image: this.form.image,
+				biography: this.form.biography,
+				research: this.form.research,
+				funFacts: this.form.funFacts,
+				// academicInterests: this.form.academicInterests
+			}
+			console.log(profileFormData)
+			Profile.sendProfileData (
+				profileFormData,
+				success => {
+                    console.log('Saved')
+                },
+                error => {
+                    console.log('Error: Saving failed', profileFormData)
+                    console.log(error)
+                }
+			)
+			// this.$store.dispatch('sendProfileData', this.form);
 		}
 	}
 };

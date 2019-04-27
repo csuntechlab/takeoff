@@ -34,6 +34,10 @@ class AdminController extends BaseController
     {
         $usersname = ['name' => $request->name];
         return $this->userinfoRetriever->searchUser($usersname);
+
+    public function getAllStudents()
+    {
+        return $this->userinfoRetriever->getAllStudents();
     }
 
     public function getStudentsByGradDate($graddate)

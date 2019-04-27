@@ -39,5 +39,6 @@
         "webpack": "^4.29.6"
     },
     "dependencies": {
+        "vue-paginate": "^3.6.0"
     }
 }

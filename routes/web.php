@@ -22,6 +22,7 @@ Route::prefix('api/')->group(function () {
 
     /* Endpoints that deal with students data and filtering data */
     Route::prefix('students')->group(function () {
+        Route::get('all', 'AdminController@getAllStudents');
         Route::get('major/{major}', 'AdminController@getStudentsByMajor');
         Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
         Route::get('college/{college}', 'AdminController@getStudentsByCollege');
