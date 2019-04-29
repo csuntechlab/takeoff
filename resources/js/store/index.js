@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import Global from './modules/global';
 import Auth from './modules/auth';
+import Admin from './modules/admin'
 
 Vue.use(Vuex);
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     modules: {
         //write modules here
         Global,
-        Auth
+        Auth,
+        Admin
     }
 });

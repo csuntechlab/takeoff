@@ -7,6 +7,11 @@ use App\Models\UserInfo;
 
 class UserInfoModelRepository implements UserInfoModelRepositoryInterface
 {
+    public function getAllStudents()
+    {
+        $students = UserInfo::all();
+        return $students;
+    }
     public function getStudentsByGradDate($graddate)
     {
         $students = UserInfo::where('grad_date', $graddate)->get();
