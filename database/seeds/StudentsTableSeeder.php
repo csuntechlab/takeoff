@@ -13,8 +13,8 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $firstNames = ['', '', 'Tim', 'Alec', 'Josh', 'Anthony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima', 'Carlos', 'Michael', 'Tony', 'Scott', 'Chris', 'Chris', 'Bruce'];
-        $lastNames = ['', '', 'Brumbaugh', 'Marcum', 'Magaleno', 'Mikhail', 'Cano', 'Perex', 'Ervin', 'McNulty', 'Batchu', 'Hossain', 'Benavides', 'Chan', 'Stark', 'Lang', 'Evans', 'Hemsworth', 'Banner'];
+        $firstNames = ['', '', 'Tim', 'Alec', 'Josh', 'Anthony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima', 'Carlos', 'Michael', 'Tony', 'Scott', 'Steve', 'Thor', 'Bruce', 'Wanda', 'Peter', 'Carol', 'Thanos'];
+        $lastNames = ['', '', 'Brumbaugh', 'Marcum', 'Magaleno', 'Mikhail', 'Cano', 'Perex', 'Ervin', 'McNulty', 'Batchu', 'Hossain', 'Benavides', 'Chan', 'Stark', 'Lang', 'Rogers', 'Odinson', 'Banner', 'Maximoff', 'Parker', 'Danvers', 'Williams'];
         for($id = 2; $id <= 8; $id +=1)
         {
             $student = User::create([
@@ -67,7 +67,7 @@ class StudentsTableSeeder extends Seeder
                 'academic_interest' => 'Brain'
             ]);
         }
-        for($id = 18; $id <= 18; $id +=1)
+        for($id = 18; $id <= 22; $id +=1)
         {
             $student = User::create([
                 'id' => $id,
