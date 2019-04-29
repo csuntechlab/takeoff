@@ -54,16 +54,13 @@ class RegisterControllerTest extends TestCase
     public function test_registerStudentEmail_http_call_ok()
     {
         $input = [
-            "email" => "tes3t@email.com",
+            "email" => "nikitha.batchu@metalab.csun.edu",
         ];
 
         $response = $this->json('POST', "/api/auth/invite/student", $input);
-        $response = $response->getOriginalContent();
-        $response = json_encode($response);
-        $expectedResponse = [
-            "email" => "tes3t@email.com",
-        ];
-        $expectedResponse = json_encode($expectedResponse);
-        $this->assertEquals($response, $expectedResponse);
+
+        $response->assertStatus(201);
     }
+
 }
+
