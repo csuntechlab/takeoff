@@ -18,10 +18,11 @@ class UserInfoService implements UserInfoContract
     public function searchUser($usersname)
     {
         $user = $this->userInfoModelRepo->searchUser($usersname);
-        if($user == null){
+        if ($user == null) {
             return ['message_error' => 'User could not be found.'];
         }
         return $user;
+    }
 
     public function getAllStudents()
     {
