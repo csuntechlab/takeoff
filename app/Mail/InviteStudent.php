@@ -16,11 +16,13 @@ class InviteStudent extends Mailable
      *
      * @return void
      */
-        public $studentemail;
+    public $studentemail;
+    public $accesscode;
 
-    public function __construct($studentemail)
+    public function __construct($studentemail, $accesscode)
     {
         $this->studentemail = $studentemail;
+        $this->accesscode = $accesscode;
     }
 
     /**
@@ -33,6 +35,6 @@ class InviteStudent extends Mailable
         return $this
             // will render the invite as a HTML form
                 ->view('inviteemail')
-                ->with([ 'studentemail' => $this->studentemail ]);
+                ->with([ 'studentemail' => $this->studentemail, 'accesscode' => $this->accesscode]);
     }
 }

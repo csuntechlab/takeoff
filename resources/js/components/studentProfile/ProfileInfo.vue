@@ -4,23 +4,25 @@
 			<h3 class="profile-info__header">
 				<strong>Biography:</strong>
 			</h3>
-			<p class="profile-info__text">{{student.biography}}</p>
+			<p class="profile-info__text">{{profile_data.biography}}</p>	<!-- changed from student.biography -->
 		</div>
 		<div class="col-12">
 			<h3 class="profile-info__header">
 				<strong>Research:</strong>
 			</h3>
-			<p class="profile-info__text">{{student.research}}</p>
+			<p class="profile-info__text">{{profile_data.research}}</p>
 		</div>
 		<div class="col-12">
 			<h3 class="profile-info__header">
 				<strong>Fun Facts About Me:</strong>
 			</h3>
-			<p class="profile-info__text">{{student.facts}}</p>
+			<p class="profile-info__text">{{profile_data.facts}}</p>
 		</div>
 	</div>
 </template>
 <script>
+import { mapGetters} from 'vuex';
+
 export default {
 	data() {
 		return {
@@ -32,6 +34,11 @@ export default {
 				facts: "I love to read!"
 			}
 		};
-	}
+	},
+	computed: {		//added for posting profile routes and updating this page
+		...mapGetters ([
+			'profile_data'
+		])
+	},
 };
 </script>
