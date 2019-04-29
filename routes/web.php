@@ -17,16 +17,16 @@ Route::get('/', function() {
 });
 
 Route::prefix('api/')->group(function () {
-    Route::post('profile/store', 'ProfileController@createStudentUserInfo');
-    Route::post('admin/store', 'AdminController@createAdminUserInfo');
+    Route::post('profile/store', 'ProfileController@createStudentUserInfo')->middleware('auth:api');
+    Route::post('admin/store', 'AdminController@createAdminUserInfo')->middleware('auth:api', 'checkAdmin');
 
     /* Endpoints that deal with students data and filtering data */
     Route::prefix('students')->group(function () {
-        Route::get('all', 'AdminController@getAllStudents');
-        Route::get('major/{major}', 'AdminController@getStudentsByMajor');
-        Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate');
-        Route::get('college/{college}', 'AdminController@getStudentsByCollege');
-        Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api');
+        Route::get('all', 'AdminController@getAllStudents')->middleware('auth:api');
+        Route::get('major/{major}', 'AdminController@getStudentsByMajor')->middleware('auth:api');
+        Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate')->middleware('auth:api');
+        Route::get('college/{college}', 'AdminController@getStudentsByCollege')->middleware('auth:api');
+        Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api', 'checkAdmin');
     });
 
     /* Endpoints that deal with authentication work flows. */
@@ -35,12 +35,12 @@ Route::prefix('api/')->group(function () {
          * FORM BODY:
          * email: string
          */
-        Route::post('invite/student', 'RegisterController@registerStudentEmail');
+        Route::post('invite/student', 'RegisterController@registerStudentEmail')->middleware('auth:api', 'checkAdmin');
         /**
          * FORM BODY:
          * email: string
          */
-        Route::post('invite/admin', 'RegisterController@registerAdminEmail');
+        Route::post('invite/admin', 'RegisterController@registerAdminEmail')->middleware('auth:api', 'checkAdmin');
         /**
          * FORM BODY:
          * name: string
