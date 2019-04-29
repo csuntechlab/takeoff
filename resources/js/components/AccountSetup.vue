@@ -4,9 +4,10 @@
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
 					<div class="form-group mt-3">
+
 						<div class="form-row py-4">
 							<div class="col">
-								<label for="password">Password</label>
+								<label for="password">Create a Password</label>
 								<div>
 									<input type="password" class="form-control" :class="passwordValidation" id="Password" placeholder="Password" v-model.trim="$v.form.password.$model">
 									<div class="invalid-feedback" v-if="!$v.form.password.required">Password is required.</div>
@@ -17,7 +18,7 @@
 								<label for="confirmPassword">Confirm Password</label>
 								<div>
 									<input type="password" class="form-control" :class="confirmPasswordValidation" id="confirmPassword" placeholder="Confirm Password" v-model.trim="$v.form.confirmPassword.$model">
-									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.required">Please enter Confirm password</div>
+									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.required">Please confirm your password.</div>
 									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.sameAsPassword">Passwords must be identical.</div>
 								</div>
 							</div>
@@ -102,24 +103,6 @@
 								<div class="invalid-feedback">Please enter your graduation year.</div>
 							</div>
 						</div>
-						<div class="col pt-3">
-							<label for="units">Completed Units</label>
-							<input
-								class="form-control"
-								:class="unitsValidation"
-								type="number"
-								id="units"
-								required
-								placeholder="Units"
-								v-model.trim="$v.form.units.$model"
-								size="10"
-							>
-							<div
-								v-if="!$v.form.units.maxValue || !$v.form.units.minValue"
-								class="invalid-feedback"
-							>Completed Units should be between 0 and 200</div>
-							<div v-else class="invalid-feedback">Please enter your amount of completed units.</div>
-						</div>
 					</div>
 					<div class="text-center pt-4">
 						<button
@@ -146,8 +129,7 @@ export default {
 				lastName: "",
 				college: "",
 				major: "",
-				expectedGrad: "",
-				units: 0
+				expectedGrad: ""
 			}
 		};
 	},

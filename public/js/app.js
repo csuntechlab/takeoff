@@ -7069,23 +7069,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -7097,8 +7080,7 @@ __webpack_require__.r(__webpack_exports__);
         lastName: "",
         college: "",
         major: "",
-        expectedGrad: "",
-        units: 0
+        expectedGrad: ""
       }
     };
   },
@@ -7543,11 +7525,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api_Auth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../api/Auth.js */ "./resources/js/api/Auth.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -7572,7 +7550,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'LogIn',
@@ -7584,21 +7562,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  methods: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["login"]), {
+  methods: {
+    goToSignup: function goToSignup() {
+      this.$router.push('signup');
+    },
     login: function login() {
-      // auth.loginAPI (
-      //     this.form,
-      //     success => {
-      //         console.log('logged in', success)
-      //     },
-      //     error => {
-      //         console.log('Error: Email not sent', this.form.email)
-      //         console.log(error)
-      //     }
-      // )
       this.$store.dispatch("login", this.form);
     }
-  })
+  }
 });
 
 /***/ }),
@@ -7665,16 +7636,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SignUp",
   data: function data() {
     return {
-      email: null,
-      access: null
+      form: {
+        email: null,
+        access: null
+      }
     };
   },
   methods: {
-    signup: function signup() {}
+    goToLogin: function goToLogin() {
+      this.$router.push("login");
+    },
+    signup: function signup() {
+      this.$store.dispatch("register", this.form);
+    }
   }
 });
 
@@ -11334,7 +11316,7 @@ var hasPointerEvent = inBrowser && Boolean(window.PointerEvent || window.MSPoint
 exports.hasPointerEvent = hasPointerEvent;
 
 var getNoWarn = function getNoWarn() {
-  return typeof process !== 'undefined' && process && Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
+  return typeof process !== 'undefined' && process && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}) && Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BOOTSTRAP_VUE_NO_WARN;
 };
 
 exports.getNoWarn = getNoWarn;
@@ -32304,7 +32286,7 @@ var render = function() {
             _c("div", { staticClass: "form-row py-4" }, [
               _c("div", { staticClass: "col" }, [
                 _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Password")
+                  _vm._v("Create a Password")
                 ]),
                 _vm._v(" "),
                 _c("div", [
@@ -32404,7 +32386,7 @@ var render = function() {
                   _vm._v(" "),
                   !_vm.$v.form.confirmPassword.required
                     ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v("Please enter Confirm password")
+                        _vm._v("Please confirm your password.")
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -32706,57 +32688,6 @@ var render = function() {
                   _vm._v("Please enter your graduation year.")
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col pt-3" }, [
-              _c("label", { attrs: { for: "units" } }, [
-                _vm._v("Completed Units")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.form.units.$model,
-                    expression: "$v.form.units.$model",
-                    modifiers: { trim: true }
-                  }
-                ],
-                staticClass: "form-control",
-                class: _vm.unitsValidation,
-                attrs: {
-                  type: "number",
-                  id: "units",
-                  required: "",
-                  placeholder: "Units",
-                  size: "10"
-                },
-                domProps: { value: _vm.$v.form.units.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.$v.form.units,
-                      "$model",
-                      $event.target.value.trim()
-                    )
-                  },
-                  blur: function($event) {
-                    return _vm.$forceUpdate()
-                  }
-                }
-              }),
-              _vm._v(" "),
-              !_vm.$v.form.units.maxValue || !_vm.$v.form.units.minValue
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v("Completed Units should be between 0 and 200")
-                  ])
-                : _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v("Please enter your amount of completed units.")
-                  ])
             ])
           ]),
           _vm._v(" "),
@@ -32811,7 +32742,7 @@ var render = function() {
             _c("div", { staticClass: "form-row py-4" }, [
               _c("div", { staticClass: "col" }, [
                 _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Password")
+                  _vm._v("Create a Password")
                 ]),
                 _vm._v(" "),
                 _c("div", [
@@ -33420,21 +33351,17 @@ var render = function() {
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "login__button text-center pt-3" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "btn btn-outline-primary",
-                  attrs: { to: "/signup", type: "button" }
-                },
-                [_vm._v("Sign Up")]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "login__button text-center pt-3" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-primary",
+                attrs: { type: "button" },
+                on: { click: _vm.goToSignup }
+              },
+              [_vm._v("Sign Up")]
+            )
+          ])
         ]
       )
     ])
@@ -33533,8 +33460,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.email,
-                expression: "email"
+                value: _vm.form.email,
+                expression: "form.email"
               }
             ],
             staticClass: "form-control",
@@ -33544,13 +33471,13 @@ var render = function() {
               "aria-describedby": "emailHelp",
               placeholder: "Email"
             },
-            domProps: { value: _vm.email },
+            domProps: { value: _vm.form.email },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.email = $event.target.value
+                _vm.$set(_vm.form, "email", $event.target.value)
               }
             }
           })
@@ -33566,8 +33493,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.access,
-                expression: "access"
+                value: _vm.form.access,
+                expression: "form.access"
               }
             ],
             staticClass: "form-control",
@@ -33576,13 +33503,13 @@ var render = function() {
               id: "exampleInputAccessCode",
               placeholder: "Access Code"
             },
-            domProps: { value: _vm.access },
+            domProps: { value: _vm.form.access },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.access = $event.target.value
+                _vm.$set(_vm.form, "access", $event.target.value)
               }
             }
           })
@@ -33590,21 +33517,17 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "signup__button text-center pt-3" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { to: "/login", type: "button" }
-              },
-              [_vm._v("Already have an account?")]
-            )
-          ],
-          1
-        )
+        _c("div", { staticClass: "signup__button text-center pt-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary",
+              attrs: { type: "button" },
+              on: { click: _vm.goToLogin }
+            },
+            [_vm._v("Already have an account?")]
+          )
+        ])
       ]
     )
   ])
@@ -51764,7 +51687,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(/*! ./withParamsBrowser */ "./node_modules/vuelidate/lib/withParamsBrowser.js").withParams : __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js").withParams;
+var withParams = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(/*! ./withParamsBrowser */ "./node_modules/vuelidate/lib/withParamsBrowser.js").withParams : __webpack_require__(/*! ./params */ "./node_modules/vuelidate/lib/params.js").withParams;
 var _default = withParams;
 exports.default = _default;
 
@@ -52964,17 +52887,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 // AUTH API
 //
-
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/oauth/clients').then(function (response) {
-  console.log(response.data);
-});
-
+// import axios from "axios";
+// axios.get("/oauth/clients").then(response => {
+//     console.log(response.data);
+// });
 var loginAPI = function loginAPI(payload, success, error) {
-  window.axios.post('api/auth/login', payload).then(function (response) {
+  window.axios.post("api/auth/login", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -52982,7 +52902,7 @@ var loginAPI = function loginAPI(payload, success, error) {
 };
 
 var logoutAPI = function logoutAPI(payload, success, error) {
-  window.axios.get('api/auth/logout').then(function (response) {
+  window.axios.get("api/auth/logout").then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -52990,7 +52910,7 @@ var logoutAPI = function logoutAPI(payload, success, error) {
 };
 
 var registerAPI = function registerAPI(payload, success, error) {
-  window.axios.post('api/auth/register', payload).then(function (response) {
+  window.axios.post("api/auth/register", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -52998,7 +52918,7 @@ var registerAPI = function registerAPI(payload, success, error) {
 };
 
 var inviteStudentAPI = function inviteStudentAPI(payload, success, error) {
-  window.axios.post('api/auth/invite/student', payload).then(function (response) {
+  window.axios.post("api/auth/invite/student", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -53006,7 +52926,7 @@ var inviteStudentAPI = function inviteStudentAPI(payload, success, error) {
 };
 
 var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
-  window.axios.post('api/auth/invite/admin', payload).then(function (response) {
+  window.axios.post("api/auth/invite/admin", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -53014,7 +52934,11 @@ var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  loginAPI: loginAPI
+  loginAPI: loginAPI,
+  logoutAPI: logoutAPI,
+  inviteAdminAPI: inviteAdminAPI,
+  inviteStudentAPI: inviteStudentAPI,
+  registerAPI: registerAPI
 });
 
 /***/ }),
@@ -55236,7 +55160,8 @@ __webpack_require__.r(__webpack_exports__);
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI(payload, function (success) {
       commit(_mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].UPDATE_SESSION, success);
     }, function (error) {
-      console.log(error);
+      console.log(payload);
+      console.error(error);
     });
   },
   logout: function logout(_ref2, payload) {
@@ -55245,13 +55170,17 @@ __webpack_require__.r(__webpack_exports__);
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].logoutAPI(payload, function (success) {
       commit(_mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].CLEAR_SESSION, success);
     }, function (error) {
-      console.log(error);
+      console.error(error);
     });
   },
   register: function register(_ref3, payload) {
+    var _this = this;
+
     var commit = _ref3.commit;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
       console.log("TODO: give success notification");
+
+      _this.$router.push("account-setup");
     }, function (error) {
       console.log(error);
     });
@@ -55334,10 +55263,10 @@ var _auth$UPDATE_SESSION$;
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_auth$UPDATE_SESSION$ = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_auth$UPDATE_SESSION$, _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].UPDATE_SESSION, function (state, payload) {
-  state.session.userId = payload.user_id;
-  state.session.tokenType = payload.token_type;
-  state.session.token = payload.access_token;
-  state.session.expiration = payload.expires_at;
+  for (var k in payload) {
+    state.session[k] = payload[k];
+  }
+
   window.localStorage.setItem("userId", payload.user_id);
   window.localStorage.setItem("tokenType", payload.token_type);
   window.localStorage.setItem("token", payload.access_token);
@@ -55634,8 +55563,8 @@ var UPDATE_SESSION = "auth/UPDATE_SESSION";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mikkalmc/Development/csun-metalab/takeoff/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mikkalmc/Development/csun-metalab/takeoff/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\amzer\Desktop\Work\takeoff\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\amzer\Desktop\Work\takeoff\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

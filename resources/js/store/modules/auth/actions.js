@@ -8,7 +8,8 @@ export default {
                 commit(_auth.UPDATE_SESSION, success)
             },
             error => {
-                console.log(error)
+                console.log(payload)
+                console.error(error)
             }
          );
     },
@@ -19,7 +20,7 @@ export default {
                 commit(_auth.CLEAR_SESSION, success)
             },
             error => {
-                console.log(error)
+                console.error(error)
             }
          );
     },
@@ -28,6 +29,7 @@ export default {
         Auth.registerAPI(payload,
             success => {
                 console.log("TODO: give success notification")
+                this.$router.push("account-setup")
             },
             error => {
                 console.log(error)

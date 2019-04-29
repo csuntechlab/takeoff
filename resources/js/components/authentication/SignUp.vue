@@ -10,7 +10,7 @@
 					id="exampleInputEmail1"
 					aria-describedby="emailHelp"
 					placeholder="Email"
-					v-model="email"
+					v-model="form.email"
 				>
 			</div>
 			<div class="form-group mt-4">
@@ -20,14 +20,18 @@
 					class="form-control"
 					id="exampleInputAccessCode"
 					placeholder="Access Code"
-					v-model="access"
+					v-model="form.access"
 				>
 			</div>
 			<div class="signup__button text-center pt-4">
 				<button type="submit" class="btn btn-primary">Register</button>
 			</div>
 			<div class="signup__button text-center pt-3">
-				<router-link to="/login" type="button" class="btn btn-outline-primary">Already have an account?</router-link>
+				<button
+					type="button"
+					class="btn btn-outline-primary"
+					@click="goToLogin"
+				>Already have an account?</button>
 			</div>
 		</form>
 	</div>
@@ -38,12 +42,19 @@ export default {
 	name: "SignUp",
 	data() {
 		return {
-			email: null,
-			access: null
+			form: {
+				email: null,
+				access: null
+			}
 		};
 	},
 	methods: {
-		signup() {}
+		goToLogin() {
+			this.$router.push("login");
+		},
+		signup() {
+            this.$store.dispatch("register", this.form)
+		}
 	}
 };
 </script>

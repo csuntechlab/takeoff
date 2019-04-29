@@ -6,7 +6,7 @@
 					<div class="form-group mt-3">
 						<div class="form-row py-4">
 								<div class="col">
-									<label for="password">Password</label>
+									<label for="password">Create a Password</label>
 									<div>
 										<input type="password" class="form-control" :class="passwordValidation" id="Password" placeholder="Password" v-model.trim="$v.form.password.$model">
 										<div class="invalid-feedback" v-if="!$v.form.password.required">Password is required.</div>
@@ -22,7 +22,7 @@
 									</div>
 								</div>
 						</div>
-			
+
 						<label for="adminFirstName">First Name</label>
 						<input
                             id="adminFirstName"
