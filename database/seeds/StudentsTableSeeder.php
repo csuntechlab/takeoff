@@ -13,8 +13,8 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $firstNames = ['', '', 'Tim', 'Alec', 'Josh', 'Anthony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima', 'Carlos', 'Michael', 'Tony', 'Scott', 'Chris', 'Chris'];
-        $lastNames = ['', '', 'Brumbaugh', 'Marcum', 'Magaleno', 'Mikhail', 'Cano', 'Perex', 'Ervin', 'McNulty', 'Batchu', 'Hossain', 'Benavides', 'Chan', 'Stark', 'Lang', 'Evans', 'Hemsworth'];
+        $firstNames = ['', '', 'Tim', 'Alec', 'Josh', 'Anthony', 'Edgar', 'Jazmin', 'Zane', 'Mikkal', 'Nikitha', 'Raima', 'Carlos', 'Michael', 'Tony', 'Scott', 'Chris', 'Chris', 'Bruce'];
+        $lastNames = ['', '', 'Brumbaugh', 'Marcum', 'Magaleno', 'Mikhail', 'Cano', 'Perex', 'Ervin', 'McNulty', 'Batchu', 'Hossain', 'Benavides', 'Chan', 'Stark', 'Lang', 'Evans', 'Hemsworth', 'Banner'];
         for($id = 2; $id <= 8; $id +=1)
         {
             $student = User::create([
@@ -33,7 +33,7 @@ class StudentsTableSeeder extends Seeder
                 'major' => 'Computer Science',
                 'units' => 17,
                 'grad_date' => 'Spring 2020',
-                'college' => 'Engineering',
+                'college' => 'Engineering & Computer Science',
                 'bio' => 'Now this is a story all about how
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
@@ -58,8 +58,34 @@ class StudentsTableSeeder extends Seeder
                 'title' => 'Student',
                 'major' => 'Psychology',
                 'units' => 17,
-                'grad_date' => 'Spring 2020',
-                'college' => 'Social Sciences',
+                'grad_date' => 'Spring 2021',
+                'college' => 'Social & Behavioral Sciences',
+                'bio' => 'Now this is a story all about how
+                My life got flipped turned upside down
+                And Id like to take a minute, just sit right there',
+                'research' => 'Something',
+                'academic_interest' => 'Brain'
+            ]);
+        }
+        for($id = 18; $id <= 18; $id +=1)
+        {
+            $student = User::create([
+                'id' => $id,
+                'verified' => 1,
+                'email' => 'fake' . $id . '@gmail.com',
+                'password' => 'fake12345',
+            ]);
+            $student->roles()->attach(1);
+            $student_info = UserInfo::create([
+                'id' => $id,
+                'user_id' => $id,
+                'first_name' => $firstNames[$id],
+                'last_name' => $lastNames[$id],
+                'title' => 'Student',
+                'major' => 'Biology',
+                'units' => 17,
+                'grad_date' => 'Fall 2020',
+                'college' => 'Science & Mathematics',
                 'bio' => 'Now this is a story all about how
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
