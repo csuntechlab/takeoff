@@ -21,7 +21,7 @@ class CreateWorkshopsTable extends Migration
             $table->string('assignment_info');
             $table->string('workshop_name');
             $table->string('workshop_description');
-            $table->time('date');
+            $table->time('date')->nullable();
         });
     }
 

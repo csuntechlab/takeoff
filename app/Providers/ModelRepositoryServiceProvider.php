@@ -19,5 +19,10 @@ class ModelRepositoryServiceProvider extends ServiceProvider
             'App\ModelRepositoryInterfaces\UserModelRepositoryInterface',
             'App\ModelRepositories\UserModelRepository'
         );
+
+        $this->app->bind(
+            'App\ModelRepositoryInterfaces\WorkshopServiceModelRepositoryInterface',
+            'App\ModelRepositories\WorkshopServiceModelRepository'
+        );
     }
 }
