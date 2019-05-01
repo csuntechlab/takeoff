@@ -7492,7 +7492,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/dropdown/dropdown-item */ "./node_modules/bootstrap-vue/es/components/dropdown/dropdown-item.js");
 /* harmony import */ var bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_dropdown_dropdown_item__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _api_rosterFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../api/rosterFilter.js */ "./resources/js/api/rosterFilter.js");
 //
 //
 //
@@ -7519,7 +7518,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7534,34 +7537,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     filterMajor: function filterMajor() {
-      var _this = this;
-
-      _api_rosterFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"].filterByMajorAPI(this.select, function (success) {
-        console.log('Yay!');
-      }, function (error) {
-        console.log('Error: Email not sent', _this.select);
-        console.log(error);
-      });
-    },
-    filterCollege: function filterCollege() {
-      var _this2 = this;
-
-      _api_rosterFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"].filterByCollegeAPI(this.select, function (success) {
-        console.log('Yoyo!');
-      }, function (error) {
-        console.log('Error: Email not sent', _this2.select);
-        console.log(error);
-      });
-    },
-    filterGradDate: function filterGradDate() {
-      var _this3 = this;
-
-      _api_rosterFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"].filterByGraddateAPI(this.select, function (success) {
-        console.log('Yuss!');
-      }, function (error) {
-        console.log('Error: Email not sent', _this3.select);
-        console.log(error);
-      });
+      this.$store.dispatch('filterByMajor', payload);
     }
   }
 });
@@ -33290,20 +33266,16 @@ var render = function() {
             },
             [
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-primary",
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    staticClass: "form-control",
                     attrs: {
-                      type: "button",
-                      "data-toggle": "button",
-                      "aria-pressed": "false",
-                      autocomplete: "off"
-                    },
-                    on: { click: _vm.filterCollege }
-                  },
-                  [_vm._v("Search by college")]
-                )
+                      type: "text",
+                      id: "formGroupExampleInput",
+                      placeholder: "Filter type"
+                    }
+                  })
+                ])
               ]),
               _vm._v(" "),
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
@@ -33316,27 +33288,9 @@ var render = function() {
                       "data-toggle": "button",
                       "aria-pressed": "false",
                       autocomplete: "off"
-                    },
-                    on: { click: _vm.filterGradDate }
+                    }
                   },
-                  [_vm._v("Search by graduation date")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-primary",
-                    attrs: {
-                      type: "button",
-                      "data-toggle": "button",
-                      "aria-pressed": "false",
-                      autocomplete: "off"
-                    },
-                    on: { click: _vm.filterMajor }
-                  },
-                  [_vm._v("Search by major")]
+                  [_vm._v("Apply")]
                 )
               ])
             ],
