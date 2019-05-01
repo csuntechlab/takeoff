@@ -20,7 +20,7 @@
 					class="form-control"
 					id="exampleInputAccessCode"
 					placeholder="Access Code"
-					v-model="form.access"
+					v-model="form.accessCode"
 				>
 			</div>
 			<div class="signup__button text-center pt-4">
@@ -44,7 +44,7 @@ export default {
 		return {
 			form: {
 				email: null,
-				access: null
+				accessCode: null
 			}
 		};
 	},

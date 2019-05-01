@@ -7646,7 +7646,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         email: null,
-        access: null
+        accessCode: null
       }
     };
   },
@@ -33493,8 +33493,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.access,
-                expression: "form.access"
+                value: _vm.form.accessCode,
+                expression: "form.accessCode"
               }
             ],
             staticClass: "form-control",
@@ -33503,13 +33503,13 @@ var render = function() {
               id: "exampleInputAccessCode",
               placeholder: "Access Code"
             },
-            domProps: { value: _vm.form.access },
+            domProps: { value: _vm.form.accessCode },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.form, "access", $event.target.value)
+                _vm.$set(_vm.form, "accessCode", $event.target.value)
               }
             }
           })
@@ -55182,6 +55182,7 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.$router.push("account-setup");
     }, function (error) {
+      console.log(payload);
       console.log(error);
     });
   },

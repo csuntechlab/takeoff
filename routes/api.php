@@ -50,7 +50,7 @@ Route::prefix('auth')->group(function () {
     /**
      * FORM BODY:
      * email: string
-     * password: string
+     * accessCode: string
      */
     Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout');

@@ -26,18 +26,21 @@ export default {
     },
 
     register ({commit}, payload) {
+        payload['userId'] = window.localStorage.getItem('userId')
         Auth.registerAPI(payload,
             success => {
                 console.log("TODO: give success notification")
                 this.$router.push("account-setup")
             },
             error => {
+                console.log(payload)
                 console.log(error)
             }
          );
     },
 
     inviteStudent ({commit, dispatch}, payload) {
+        payload['userId'] = window.localStorage.getItem('userId')
         Auth.inviteStudentAPI(payload,
             success => {
                 console.log("TODO: give success notification")
@@ -49,6 +52,7 @@ export default {
     },
 
     inviteAdmin ({commit, dispatch}, payload) {
+        payload['userId'] = window.localStorage.getItem('userId')
         Auth.inviteAdminAPI(payload,
             success => {
                 console.log("TODO: give success notification")
