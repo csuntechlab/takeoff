@@ -14,7 +14,6 @@ class UsersInfoTableSeeder extends Seeder
         DB::table('user_info')->insert([
             'user_id' => '1',
             'major' => 'CompSci',
-            'units' => 12,
             'grad_date' => '2021',
             'college' => 'Engineering',
             'bio' => 'asdasdsadasdasdsad',
