@@ -2,11 +2,11 @@
 declare(strict_types=1);
 
 namespace App\ModelRepositories;
-use App\ModelRepositoryInterfaces\WorkshopServiceModelRepositoryInterface;
+use App\ModelRepositoryInterfaces\WorkshopModelRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workshop;
 
-class WorkshopServiceModelRepository implements WorkshopServiceModelRepositoryInterface
+class WorkshopModelRepository implements WorkshopModelRepositoryInterface
 {
     public function createWorkshop($data) {
         return DB::transaction(function() use ($data)

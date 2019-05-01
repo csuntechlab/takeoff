@@ -5,7 +5,7 @@ namespace App\ModelRepositoryInterfaces;
 
 use App\Models\Workshop;
 
-interface WorkshopServiceModelRepositoryInterface
+interface WorkshopModelRepositoryInterface
 {
     public function createWorkshop($data);
 }

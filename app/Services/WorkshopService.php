@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-use App\ModelRepositoryInterfaces\WorkshopServiceModelRepositoryInterface;
+use App\ModelRepositoryInterfaces\WorkshopModelRepositoryInterface;
 use App\Models\Workshop;
 use App\Contracts\WorkshopContract;
 use Validator;
@@ -11,7 +11,7 @@ class WorkshopService implements WorkshopContract
 {
     protected $workshopModelRepo;
 
-    public function __construct(WorkshopServiceModelRepositoryInterface $workshopModelRepo){
+    public function __construct(WorkshopModelRepositoryInterface $workshopModelRepo){
         $this->workshopModelRepo = $workshopModelRepo;
     }
 
