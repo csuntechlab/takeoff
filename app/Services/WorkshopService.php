@@ -25,4 +25,10 @@ class WorkshopService implements WorkshopContract
         $workshop = Workshop::where('id', $id)->first();
         return $workshop->toArray();
     }
+
+    public function getAttendance($id) {
+        $workshop = Workshop::where('id', $id)->first();
+        $students = $workshop->users()->get();
+        return $students->toArray();
+    }
 }
