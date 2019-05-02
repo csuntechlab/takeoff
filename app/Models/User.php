@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role');
     }
+
+    public function workshops()
+    {
+        return $this->belongsToMany('App\Models\Workshop', 'workshop_user');
+    }
 }
