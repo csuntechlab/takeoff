@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('workshop/create', 'WorkshopController@createWorkshop');
+Route::get('workshop/get/{id}', 'WorkshopController@getWorkshop');

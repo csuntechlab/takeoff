@@ -19,4 +19,10 @@ class WorkshopService implements WorkshopContract
         $workshop = $this->workshopModelRepo->createWorkshop($data);
         return $workshop;
     }
+
+    public function getWorkshop($id) {
+
+        $workshop = Workshop::where('id', $id)->first();
+        return $workshop->toArray();
+    }
 }
