@@ -4,7 +4,7 @@
             Add new students
         </div>
         <div class="input-group mt-2 mb-3">
-        <input type="text" class="form-control" placeholder="Student name" maxlength="50" v-model="form.email">
+        <input type="text" class="form-control" placeholder="Student email" maxlength="50" v-model="form.email">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="button" @click="sendInvite">Add</button>
             </div>
