@@ -21,7 +21,6 @@ class UserInfo extends Model
         'last_name',
         'title',
         'major',
-        'units',
         'grad_date',
         'college',
         'bio',

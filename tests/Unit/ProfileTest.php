@@ -28,7 +28,6 @@ class ProfileTest extends TestCase
             'first_name'=> 'test',
             'last_name'=> 'test',
             'major'=> 'comp sci',
-            'units'=> '50',
             'grad_date' => '2019',
             'college'=>'health',
             'bio'=> 'hi',
