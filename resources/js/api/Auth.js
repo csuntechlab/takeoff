@@ -19,7 +19,7 @@ const loginAPI = (payload, success, error) => {
 
 const logoutAPI = (payload, success, error) => {
     window.axios
-        .get("api/auth/logout")
+        .get("api/auth/logout", payload)
         .then(response => {
             success(response.data);
         })

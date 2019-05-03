@@ -1,29 +1,42 @@
-import Vue from "vue"
-import VueRouter from "vue-router"
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 //Pages
-import Login from "./views/Login"
-import Signup from "./views/SignUp"
-import AccountSetup from "./views/AccountSetup"
-import ProfileSetup from "./views/ProfileSetup"
-import AdminSetup from "./views/AdminSetup"
-import StudentProfile from "./views/StudentProfile"
-import EditProfile from "./views/EditProfile"
-import Dashboard from "./views/Dashboard"
-import Roster from "./views/Roster"
-import DashboardAdmin from "./views/DashboardAdmin"
-import ErrorPage from "./views/ErrorPage"
+import Login from "./views/Login";
+import Signup from "./views/SignUp";
+import AccountSetup from "./views/AccountSetup";
+import ProfileSetup from "./views/ProfileSetup";
+import AdminSetup from "./views/AdminSetup";
+import StudentProfile from "./views/StudentProfile";
+import EditProfile from "./views/EditProfile";
+import Dashboard from "./views/Dashboard";
+import Roster from "./views/Roster";
+import DashboardAdmin from "./views/DashboardAdmin";
+import ErrorPage from "./views/ErrorPage";
+import { networkInterfaces } from "os";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: "history",
     routes: [
         {
+            path: "/",
+            redirect: { path: "/dashboard" }
+        },
+        {
             path: "/login",
             component: Login,
             meta: {
                 title: "Login | Takeoff",
                 header: "Takeoff"
+            },
+
+            //Breaks when logging out
+            beforeEnter: (to, from, next) => {
+                if(window.localStorage.getItem("token") !== null)
+                    next("/dashboard")
+                else
+                    next()
             }
         },
         {
@@ -67,7 +80,7 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/",
+            path: "/dashboard",
             component: Dashboard,
             meta: {
                 title: "Dashboard | Takeoff",
@@ -102,11 +115,19 @@ const router = new VueRouter({
             path: "*",
             component: ErrorPage,
             meta: {
-                title: 'Whoops!',
-                header: 'Page Not Found'
+                title: "Whoops!",
+                header: "Page Not Found"
             }
         }
     ]
+});
+
+router.beforeEach((to, from, next) => {
+    if (window.localStorage.getItem("token") === null && to.path !== '/login') {
+        next('/login')
+    } else {
+        next()
+    }
 });
 
 export default router;

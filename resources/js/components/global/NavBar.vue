@@ -14,7 +14,7 @@
 				<li class="nav-item">
 					<router-link class="nav-link" to="/profile">My Profile</router-link>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" @click="logout">
 					<router-link class="nav-link" to="/login">Logout</router-link>
 				</li>
 			</ul>
@@ -28,7 +28,12 @@ export default {
 	components: {
 		BNavbarToggle,
 		BCollapse
-	}
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch("logout", window.localStorage.getItem("userId"))
+        }
+    }
 };
 </script>
 

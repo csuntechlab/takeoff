@@ -1,14 +1,13 @@
 import Auth from "../../../api/Auth";
-import _auth from "../../mutation-types/auth"
 import router from "../../../router"
 
 export default {
     login ({commit, dispatch}, payload) {
-        let self = this
-        Auth.loginAPI(payload,
+        Auth.loginAPI(
+            payload,
             success => {
+                commit('UPDATE_SESSION', success)
                 router.push('/')
-                commit(_auth.UPDATE_SESSION, success)
             },
             error => {
                 console.log(payload)
@@ -18,9 +17,10 @@ export default {
     },
 
     logout ({commit, dispatch}, payload) {
-        Auth.logoutAPI(payload,
+        Auth.logoutAPI(
+            payload,
             success => {
-                commit(_auth.CLEAR_SESSION, success)
+                commit('CLEAR_SESSION')
             },
             error => {
                 console.error(error)
