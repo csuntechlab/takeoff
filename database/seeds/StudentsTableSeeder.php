@@ -31,14 +31,14 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Computer Science',
-                'units' => 17,
                 'grad_date' => 'Spring 2020',
                 'college' => 'Engineering & Computer Science',
                 'bio' => 'Now this is a story all about how
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Computers'
+                'academic_interest' => 'Computers',
+                'archive' => false
             ]);
         }
         for($id = 9; $id <= 17; $id +=1)
@@ -57,14 +57,14 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Psychology',
-                'units' => 17,
                 'grad_date' => 'Spring 2021',
                 'college' => 'Social & Behavioral Sciences',
                 'bio' => 'Now this is a story all about how
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain'
+                'academic_interest' => 'Brain',
+                'archive' => false
             ]);
         }
         for($id = 18; $id <= 22; $id +=1)
@@ -83,14 +83,14 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Biology',
-                'units' => 17,
                 'grad_date' => 'Fall 2020',
                 'college' => 'Science & Mathematics',
                 'bio' => 'Now this is a story all about how
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain'
+                'academic_interest' => 'Brain',
+                'archive' => false
             ]);
         }
     }

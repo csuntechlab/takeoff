@@ -48,7 +48,8 @@ class UserInfoService implements UserInfoContract
             'bio' => $data->bio,
             'research' => $data->research,
             'fun_facts' => $data->fun_facts,
-            'academic_interest' => $data->academic_interest
+            'academic_interest' => $data->academic_interest,
+            'archive' => false
         ]);
     }
 }

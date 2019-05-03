@@ -33,7 +33,8 @@ class ProfileTest extends TestCase
             'bio'=> 'hi',
             'research' => 'this',
             'fun_facts'=>'is a',
-            'academic_interest' => 'test'
+            'academic_interest' => 'test',
+            'archive' => false
         ]);
 
         $controller = new ProfileController($this->retriever);
