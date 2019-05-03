@@ -55151,13 +55151,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_Auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../api/Auth */ "./resources/js/api/Auth.js");
 /* harmony import */ var _mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mutation-types/auth */ "./resources/js/store/mutation-types/auth.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../router */ "./resources/js/router/index.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   login: function login(_ref, payload) {
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
+    var self = this;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI(payload, function (success) {
+      _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/');
       commit(_mutation_types_auth__WEBPACK_IMPORTED_MODULE_1__["default"].UPDATE_SESSION, success);
     }, function (error) {
       console.log(payload);
@@ -55174,13 +55178,11 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   register: function register(_ref3, payload) {
-    var _this = this;
-
     var commit = _ref3.commit;
+    payload['userId'] = window.localStorage.getItem('userId');
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
       console.log("TODO: give success notification");
-
-      _this.$router.push("account-setup");
+      _router__WEBPACK_IMPORTED_MODULE_2__["default"].push("account-setup");
     }, function (error) {
       console.log(payload);
       console.log(error);
@@ -55189,6 +55191,7 @@ __webpack_require__.r(__webpack_exports__);
   inviteStudent: function inviteStudent(_ref4, payload) {
     var commit = _ref4.commit,
         dispatch = _ref4.dispatch;
+    payload['userId'] = window.localStorage.getItem('userId');
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteStudentAPI(payload, function (success) {
       console.log("TODO: give success notification");
     }, function (error) {
@@ -55198,6 +55201,7 @@ __webpack_require__.r(__webpack_exports__);
   inviteAdmin: function inviteAdmin(_ref5, payload) {
     var commit = _ref5.commit,
         dispatch = _ref5.dispatch;
+    payload['userId'] = window.localStorage.getItem('userId');
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteAdminAPI(payload, function (success) {
       console.log("TODO: give success notification");
     }, function (error) {

@@ -1,10 +1,13 @@
 import Auth from "../../../api/Auth";
 import _auth from "../../mutation-types/auth"
+import router from "../../../router"
 
 export default {
     login ({commit, dispatch}, payload) {
+        let self = this
         Auth.loginAPI(payload,
             success => {
+                router.push('/')
                 commit(_auth.UPDATE_SESSION, success)
             },
             error => {
@@ -30,7 +33,7 @@ export default {
         Auth.registerAPI(payload,
             success => {
                 console.log("TODO: give success notification")
-                this.$router.push("account-setup")
+                router.push("account-setup")
             },
             error => {
                 console.log(payload)
