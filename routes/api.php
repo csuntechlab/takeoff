@@ -60,3 +60,6 @@ Route::prefix('auth')->group(function () {
 Route::prefix('media')->group(function () {
     Route::get('getMedia/{email}', 'MediaController@getMedia');
 });
+
+Route::post('workshop/create', 'WorkshopController@createWorkshop');
+Route::get('workshop/get/{id}', 'WorkshopController@getWorkshop');
