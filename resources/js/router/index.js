@@ -109,7 +109,7 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/workshop/id",
+            path: "/workshop",
             component: Workshop,
             meta: {
                 title: "Workshop | Takeoff",
