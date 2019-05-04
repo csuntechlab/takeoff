@@ -7518,11 +7518,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -33266,16 +33261,20 @@ var render = function() {
             },
             [
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("input", {
-                    staticClass: "form-control",
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-primary",
                     attrs: {
-                      type: "text",
-                      id: "formGroupExampleInput",
-                      placeholder: "Filter type"
-                    }
-                  })
-                ])
+                      type: "button",
+                      "data-toggle": "button",
+                      "aria-pressed": "false",
+                      autocomplete: "off"
+                    },
+                    on: { click: _vm.filterCollege }
+                  },
+                  [_vm._v("Search by college")]
+                )
               ]),
               _vm._v(" "),
               _c("b-dropdown-item", { attrs: { href: "#" } }, [
@@ -33288,9 +33287,27 @@ var render = function() {
                       "data-toggle": "button",
                       "aria-pressed": "false",
                       autocomplete: "off"
-                    }
+                    },
+                    on: { click: _vm.filterGradDate }
                   },
-                  [_vm._v("Apply")]
+                  [_vm._v("Search by graduation date")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "button",
+                      "aria-pressed": "false",
+                      autocomplete: "off"
+                    },
+                    on: { click: _vm.filterMajor }
+                  },
+                  [_vm._v("Search by major")]
                 )
               ])
             ],
