@@ -18,6 +18,7 @@
                     <b-dropdown-item href="#"><button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off" @click="filterGradDate">Search by graduation date</button></b-dropdown-item>
                     <b-dropdown-item href="#"><button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off" @click="filterMajor">Search by major</button></b-dropdown-item> 
                 </b-dropdown>
+                <!-- Changes are being made to the ui for the filter dropdown, the above will be changed once the ui is determined -->
             </div>
         </div>
     </div>
