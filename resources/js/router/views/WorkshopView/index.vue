@@ -27,7 +27,7 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import AttendanceCard from "./../../../components/adminRoster/AttendanceCard";
+import AttendanceCard from "./../../../components/workshop/AttendanceCard";
 
 export default {
 	data() {

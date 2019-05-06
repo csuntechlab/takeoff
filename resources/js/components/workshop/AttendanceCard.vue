@@ -11,7 +11,7 @@
                         <div>{{user.major}}</div>
                     </div>
                     <div class="justify-content-right col-auto">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="checkBox">
                     </div>
                 </div>
             </span>
