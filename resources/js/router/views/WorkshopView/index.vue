@@ -1,7 +1,7 @@
 <template>
     <div class="container py-3">
         <div>
-            <AttendanceCard :user="user"/>
+            <AttendanceCard/>
             <div>
                 <paginate-links
                     for="users"
@@ -21,9 +21,6 @@
     </div>
 </template>
 
-<style>
-    
-</style>
 
 <script>
 import { mapState, mapGetters } from "vuex";

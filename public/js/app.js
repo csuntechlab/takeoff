@@ -8492,9 +8492,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -34748,7 +34745,7 @@ var render = function() {
     _c(
       "div",
       [
-        _c("AttendanceCard", { attrs: { user: _vm.user } }),
+        _c("AttendanceCard"),
         _vm._v(" "),
         _c(
           "div",
