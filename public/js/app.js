@@ -8504,7 +8504,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -8586,7 +8585,6 @@ __webpack_require__.r(__webpack_exports__);
       },
       description: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(20),
         maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(200)
       }
     }
@@ -34918,7 +34916,6 @@ var render = function() {
         attrs: {
           placeholder:
             "Lorem ipsum lives in a tiny cottage in west new zealand, eats cheerios with milk and sleeps 18 hrs a day",
-          minlength: "20",
           maxlength: "200",
           rows: "5"
         },
@@ -55533,7 +55530,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************************!*\
   !*** ./resources/js/router/views/WorkshopCreation/index.vue?vue&type=template&id=26fab7e2& ***!
   \*********************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

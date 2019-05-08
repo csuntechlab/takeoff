@@ -57,7 +57,6 @@
                 class="form-control" 
                 :class="descriptionValidation"
                 placeholder="Lorem ipsum lives in a tiny cottage in west new zealand, eats cheerios with milk and sleeps 18 hrs a day" 
-                minlength="20"
                 maxlength="200"
                 rows="5"
                 v-model.trim="$v.form.description.$model"
@@ -76,7 +75,7 @@
 </template>
 
 <script>
-import { required, minLength, maxLength, sameAs } from "vuelidate/lib/validators";
+import { required, maxLength, sameAs } from "vuelidate/lib/validators";
 export default {
 	data() {
 		return {
@@ -156,7 +155,6 @@ export default {
             },
             description: {
 				required,
-				minLength: minLength(20),
 				maxLength: maxLength(200)
 			}
 		}
