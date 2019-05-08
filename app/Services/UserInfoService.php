@@ -14,6 +14,20 @@ class UserInfoService implements UserInfoContract
         $this->userInfoModelRepo = $userInfoModelRepo;
     }
 
+    public function searchUser($usersname)
+    {
+        $user = $this->userInfoModelRepo->searchUser($usersname);
+        if ($user == null) {
+            return ['message_error' => 'User could not be found.'];
+        }
+        return $user;
+    }
+
+    public function getAllStudents()
+    {
+        return $this->userInfoModelRepo->getAllStudents();
+    }
+
     public function getStudentsByGradDate($graddate)
     {
         return $this->userInfoModelRepo->getStudentsByGradDate($graddate);
@@ -57,7 +71,6 @@ class UserInfoService implements UserInfoContract
             'first_name'=> $data->first_name,
             'last_name'=> $data->last_name,
             'major' => $data->major,
-            'units' => $data->units,
             'grad_date' => $data->grad_date,
             'college' => $data->college,
             'bio' => $data->bio,

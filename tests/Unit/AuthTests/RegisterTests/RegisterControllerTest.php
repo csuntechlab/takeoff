@@ -6,11 +6,13 @@ use Tests\TestCase;
 use Mockery;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
 use App\Http\Controllers\RegisterController;
 use App\Contracts\RegisterContract;
 
 class RegisterControllerTest extends TestCase
 {
+    use MakesHttpRequests;
     use DatabaseMigrations;
     private $controller;
     private $retriever;
@@ -53,17 +55,17 @@ class RegisterControllerTest extends TestCase
      */
     public function test_registerStudentEmail_http_call_ok()
     {
+        $this->withoutMiddleware();
+
         $input = [
-            "email" => "tes3t@email.com",
+            "email" => "nikitha.batchu@metalab.csun.edu",
+            "userId" => 1
         ];
 
         $response = $this->json('POST', "/api/auth/invite/student", $input);
-        $response = $response->getOriginalContent();
-        $response = json_encode($response);
-        $expectedResponse = [
-            "email" => "tes3t@email.com",
-        ];
-        $expectedResponse = json_encode($expectedResponse);
-        $this->assertEquals($response, $expectedResponse);
+
+        $response->assertStatus(201);
     }
+
 }
+

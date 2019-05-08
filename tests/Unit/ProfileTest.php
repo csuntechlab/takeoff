@@ -23,12 +23,11 @@ class ProfileTest extends TestCase
      */
     public function store_user_info(){
 
-        $request = Request::create('/profile/store', 'POST',[
+        $request = Request::create('api/profile/store', 'POST',[
             'user_id'=> '3',
             'first_name'=> 'test',
             'last_name'=> 'test',
             'major'=> 'comp sci',
-            'units'=> '50',
             'grad_date' => '2019',
             'college'=>'health',
             'bio'=> 'hi',

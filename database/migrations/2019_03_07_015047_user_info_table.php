@@ -20,7 +20,6 @@ class UserInfoTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('title');
             $table->string('major')->nullable();
-            $table->integer('units')->nullable();
             $table->string('grad_date')->nullable();
             $table->string('college')->nullable();
             $table->string('bio')->nullable();

@@ -3,19 +3,67 @@
 }
 
 .roster__card {
-    background: #BCE0FD;
+    background: #bce0fd;
     display: block;
-} 
+}
 
 .roster__text {
-    color: #2699FB;
+    color: #2699fb;
 }
 
 .roster__image {
     width: 3rem;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
 }
 
 .roster__name {
     font-weight: 600;
+}
+
+.roster__list {
+    padding: 0;
+}
+
+.paginate-list {
+    width: 159px;
+    margin: 0 auto;
+    text-align: left;
+    li {
+        display: block;
+        &:before {
+            content: "⚬ ";
+            font-weight: bold;
+            color: slategray;
+        }
+    }
+}
+
+.paginate-links > li > a {
+    @extend .btn;
+    @extend .btn-primary;
+    color: #fff !important;
+}
+
+.paginate-links.users {
+    user-select: none;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    a {
+        cursor: pointer;
+    }
+    li.active a {
+        font-weight: bold;
+    }
+    li.next:before {
+        content: " | ";
+        margin-right: 13px;
+        color: #ddd;
+    }
+    li.disabled a {
+        color: #ccc !important;
+        cursor: default;
+    }
 }

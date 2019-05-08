@@ -30,6 +30,17 @@ class AdminController extends BaseController
         return "email has been sent";
     }
 
+    public function searchUser(Request $request)
+    {
+        $usersname = ['name' => $request->name];
+        return $this->userinfoRetriever->searchUser($usersname);
+    }
+
+    public function getAllStudents()
+    {
+        return $this->userinfoRetriever->getAllStudents();
+    }
+
     public function getStudentsByGradDate($graddate)
     {
         return $this->userinfoRetriever->getStudentsByGradDate($graddate);

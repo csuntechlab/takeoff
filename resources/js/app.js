@@ -30,8 +30,10 @@ import store from "./store";
 import App from "./App.vue";
 import "../sass/app.scss";
 import Vuelidate from "vuelidate";
+import VuePaginate from 'vue-paginate'
 
 Vue.use(Vuelidate);
+Vue.use(VuePaginate)
 
 const app = new Vue({
     el: "#app",
