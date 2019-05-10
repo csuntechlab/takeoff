@@ -21,4 +21,8 @@ class WorkshopModelRepository implements WorkshopModelRepositoryInterface
             ]);
         });
     }
+
+    public function getAllWorkshops(){
+        return Workshop::all();
+    }
 }
