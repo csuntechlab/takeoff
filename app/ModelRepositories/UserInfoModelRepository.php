@@ -4,6 +4,7 @@ namespace App\ModelRepositories;
 
 use App\ModelRepositoryInterfaces\UserInfoModelRepositoryInterface;
 use App\Models\UserInfo;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class UserInfoModelRepository implements UserInfoModelRepositoryInterface
@@ -52,19 +53,58 @@ class UserInfoModelRepository implements UserInfoModelRepositoryInterface
 
     public function sortUsersbyFirstName($order) {
         if ($order == 1){
-            return UserInfo::orderBy('first_name', 'asc')->get();
+
+          $users = User::with(['roles' => function ($query)
+            {
+                $query->where('role', 'is', 'admin');
+
+            }])
+//                ->where('role', 'student')
+                ->get();
+
+          $users = User::with('roles')->get();
+            //dd($users);
+          $admins = $users->filter(function ($user) {
+              if ($user->roles()->first()->role == 'student')
+                  return $user->studentInfo;
+          });
+//            $users = User::with(['role' => function ($query) {
+//                $query->where('role', 'is', '%student%');
+//            }])->get();
+
+//            $users =  User::first()->studentInfo;
+
+
+            // return $this->checkifStudent($users);
+
+
+//            return $users->studentInfo()->all();
+//                ->where('archive', false)
+//                ->orderBy('first_name', 'asc')
+                //->get();
+//            return $users;
+//            foreach ($users as $user) {
+//                $students = $this->checkifStudent($user);
+//            }
+            return $admins;
         }
         if ($order == 2){
-            return UserInfo::orderBy('first_name', 'desc')->get();
+            return UserInfo::where('archive', false)
+                ->orderBy('first_name', 'desc')
+                ->get();
         }
     }
 
     public function sortUsersbyLastName($order) {
         if ($order == 1){
-            return UserInfo::orderBy('last_name', 'asc')->get();
+            return UserInfo::where('archive', false)
+                ->orderBy('last_name', 'asc')
+                ->get();
         }
         if ($order == 2){
-            return UserInfo::orderBy('last_name', 'desc')->get();
+            return UserInfo::where('archive', false)
+                ->orderBy('last_name', 'desc')
+                ->get();
         }
     }
 }

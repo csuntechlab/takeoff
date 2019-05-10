@@ -29,7 +29,13 @@ class UserInfo extends Model
         'academic_interest'
     ];
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo('App\Models\User', 'id', 'user_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
     }
 }
