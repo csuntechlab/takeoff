@@ -53,40 +53,9 @@ class UserInfoModelRepository implements UserInfoModelRepositoryInterface
 
     public function sortUsersbyFirstName($order) {
         if ($order == 1){
-
-          $users = User::with(['roles' => function ($query)
-            {
-                $query->where('role', 'is', 'admin');
-
-            }])
-//                ->where('role', 'student')
+            return UserInfo::where('archive', false)
+                ->orderBy('first_name', 'asc')
                 ->get();
-
-          $users = User::with('roles')->get();
-            //dd($users);
-          $admins = $users->filter(function ($user) {
-              if ($user->roles()->first()->role == 'student')
-                  return $user->studentInfo;
-          });
-//            $users = User::with(['role' => function ($query) {
-//                $query->where('role', 'is', '%student%');
-//            }])->get();
-
-//            $users =  User::first()->studentInfo;
-
-
-            // return $this->checkifStudent($users);
-
-
-//            return $users->studentInfo()->all();
-//                ->where('archive', false)
-//                ->orderBy('first_name', 'asc')
-                //->get();
-//            return $users;
-//            foreach ($users as $user) {
-//                $students = $this->checkifStudent($user);
-//            }
-            return $admins;
         }
         if ($order == 2){
             return UserInfo::where('archive', false)

@@ -28,9 +28,9 @@ Route::prefix('students')->group(function () {
 
     Route::delete('delete/{id}', 'AdminController@deleteStudent')->middleware('auth:api', 'checkAdmin');
 
-    Route::get('sortFirstName/ascend', 'AdminController@sortUserFirstNameAscending');
+    Route::get('sortFirstName/ascend', 'AdminController@sortUserFirstNameAscending')->middleware('auth:api');
     Route::get('sortFirstName/descend', 'AdminController@sortUserFirstNameDescending')->middleware('auth:api');
-    Route::get('sortLastName/ascend', 'AdminController@sortUserLastNameAscending');
+    Route::get('sortLastName/ascend', 'AdminController@sortUserLastNameAscending')->middleware('auth:api');
     Route::get('sortLastName/descend', 'AdminController@sortUserLastNameDescending')->middleware('auth:api');
 });
 
