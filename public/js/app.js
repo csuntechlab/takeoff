@@ -7709,6 +7709,14 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout() {
       this.$store.dispatch("logout");
     }
+  },
+  computed: {
+    dashboardActive: function dashboardActive() {
+      return this.$route.path == '/dashboard' || this.$route.path == '/dashboard-admin';
+    },
+    profileActive: function profileActive() {
+      return this.$route.path == '/profile';
+    }
   }
 });
 
@@ -33597,7 +33605,11 @@ var render = function() {
             [
               _c(
                 "router-link",
-                { staticClass: "nav-link", attrs: { to: "/" } },
+                {
+                  staticClass: "nav-link",
+                  class: [_vm.dashboardActive ? "active" : ""],
+                  attrs: { to: "/" }
+                },
                 [_vm._v("Dashboard")]
               )
             ],
@@ -33610,8 +33622,12 @@ var render = function() {
             [
               _c(
                 "router-link",
-                { staticClass: "nav-link", attrs: { to: "/profile" } },
-                [_vm._v("My Profile")]
+                {
+                  staticClass: "nav-link",
+                  class: [_vm.profileActive ? "active" : ""],
+                  attrs: { to: "/profile" }
+                },
+                [_vm._v("Profile")]
               )
             ],
             1
@@ -54160,14 +54176,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _views_Login__WEBPACK_IMPORTED_MODULE_3__["default"],
     meta: {
       title: "Login | Takeoff",
-      header: "Takeoff"
+      header: "Takeoff",
+      noAuth: true
     },
-    //Maximum call stack exceeds
-    // redirect: to => {
-    //     if (window.localStorage.getItem("token") !== null)
-    //         return '/dashboard'
-    //     else return '/login';
-    // }
     //Breaks when logging out
     beforeEnter: function beforeEnter(to, from, next) {
       if (window.localStorage.getItem("token") !== null) next("/dashboard");else next();
@@ -54177,7 +54188,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _views_SignUp__WEBPACK_IMPORTED_MODULE_4__["default"],
     meta: {
       title: "Sign Up | Takeoff",
-      header: "Takeoff"
+      header: "Takeoff",
+      noAuth: true
     }
   }, {
     path: "/account-setup",
@@ -54213,13 +54225,17 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     meta: {
       title: "Dashboard | Takeoff",
       header: "Dashboard"
+    },
+    beforeEnter: function beforeEnter(to, from, next) {
+      if (window.localStorage.getItem("role") == 'admin') next("/dashboard-admin");else next();
     }
   }, {
     path: "/admin-setup",
     component: _views_AdminSetup__WEBPACK_IMPORTED_MODULE_7__["default"],
     meta: {
       title: "Admin Setup | Takeoff",
-      header: "Administrator Information"
+      header: "Administrator Information",
+      adminOnly: true
     }
   }, {
     path: "/roster",
@@ -54229,11 +54245,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       header: "Roster"
     }
   }, {
-    path: "/dashboard",
+    path: "/dashboard-admin",
     component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_12__["default"],
     meta: {
       title: "Dashboard | Takeoff",
-      header: "Dashboard"
+      header: "Dashboard",
+      adminOnly: true
     }
   }, {
     path: "*",
@@ -54245,11 +54262,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }]
 });
 router.beforeEach(function (to, from, next) {
-  if (window.localStorage.getItem("token") === null && to.path !== "/login") {
+  if (window.localStorage.getItem("token") === null && !to.meta.noAuth) {
     next("/login");
-  } else {
-    next();
   }
+
+  if (window.localStorage.getItem("role") !== "admin" && to.meta.adminOnly) {
+    next("/dashboard");
+  }
+
+  next();
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
