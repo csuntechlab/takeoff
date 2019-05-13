@@ -16,11 +16,11 @@ export default {
          );
     },
 
-    logout ({commit, dispatch}, payload) {
+    logout ({commit, dispatch}) {
         Auth.logoutAPI(
-            payload,
             success => {
                 commit('CLEAR_SESSION')
+                router.push('/login')
             },
             error => {
                 console.error(error)

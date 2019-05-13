@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "../store";
 
 //Pages
 import Login from "./views/Login";
@@ -38,12 +39,12 @@ const router = new VueRouter({
             // }
 
             //Breaks when logging out
-            // beforeEnter: (to, from, next) => {
-            //     if(window.localStorage.getItem("token") !== null)
-            //         next("/dashboard")
-            //     else
-            //         next()
-            // }
+            beforeEnter: (to, from, next) => {
+                if( window.localStorage.getItem("token") !== null)
+                    next("/dashboard")
+                else
+                    next()
+            }
         },
         {
             path: "/signup",

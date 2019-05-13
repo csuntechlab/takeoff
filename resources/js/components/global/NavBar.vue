@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         logout() {
-            this.$store.dispatch("logout", window.localStorage.getItem("userId"))
+            this.$store.dispatch("logout")
         }
     }
 };

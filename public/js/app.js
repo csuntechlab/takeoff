@@ -7381,7 +7381,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _api_invitations_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../api/invitations.js */ "./resources/js/api/invitations.js");
+/* harmony import */ var _api_admin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../api/admin.js */ "./resources/js/api/admin.js");
 //
 //
 //
@@ -7412,7 +7412,7 @@ __webpack_require__.r(__webpack_exports__);
     sendInvite: function sendInvite() {
       var _this = this;
 
-      _api_invitations_js__WEBPACK_IMPORTED_MODULE_0__["default"].inviteUserAPI(this.form, function (success) {
+      _api_admin_js__WEBPACK_IMPORTED_MODULE_0__["default"].inviteUserAPI(this.form, function (success) {
         console.log('Invitation sent');
       }, function (error) {
         console.log('Error: Email not sent', _this.form.email);
@@ -7707,7 +7707,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
-      this.$store.dispatch("logout", window.localStorage.getItem("userId"));
+      this.$store.dispatch("logout");
     }
   }
 });
@@ -33054,7 +33054,11 @@ var render = function() {
           }
         ],
         staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Student name", maxlength: "50" },
+        attrs: {
+          type: "text",
+          placeholder: "Enter a student's email",
+          maxlength: "50"
+        },
         domProps: { value: _vm.form.email },
         on: {
           input: function($event) {
@@ -52893,11 +52897,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // AUTH API
-//
-// import axios from "axios";
-// axios.get("/oauth/clients").then(response => {
-//     console.log(response.data);
-// });
 var loginAPI = function loginAPI(payload, success, error) {
   window.axios.post("api/auth/login", payload).then(function (response) {
     success(response.data);
@@ -52906,8 +52905,8 @@ var loginAPI = function loginAPI(payload, success, error) {
   });
 };
 
-var logoutAPI = function logoutAPI(payload, success, error) {
-  window.axios.get("api/auth/logout", payload).then(function (response) {
+var logoutAPI = function logoutAPI(success, error) {
+  window.axios.get("api/auth/logout", window.localStorage.getItem('userId')).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
     error(failure);
@@ -52922,27 +52921,9 @@ var registerAPI = function registerAPI(payload, success, error) {
   });
 };
 
-var inviteStudentAPI = function inviteStudentAPI(payload, success, error) {
-  window.axios.post("api/auth/invite/student", payload).then(function (response) {
-    success(response.data);
-  }).catch(function (failure) {
-    error(failure);
-  });
-};
-
-var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
-  window.axios.post("api/auth/invite/admin", payload).then(function (response) {
-    success(response.data);
-  }).catch(function (failure) {
-    error(failure);
-  });
-};
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   loginAPI: loginAPI,
   logoutAPI: logoutAPI,
-  inviteAdminAPI: inviteAdminAPI,
-  inviteStudentAPI: inviteStudentAPI,
   registerAPI: registerAPI
 });
 
@@ -52958,7 +52939,11 @@ var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var sendProfileData = function sendProfileData(payload, success, error) {
-  window.axios.post('profile/store', payload).then(function (response) {
+  window.axios.post("profile/store", {
+    headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("token")
+    }
+  }, payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
     error(failure.response.data.message);
@@ -52980,6 +52965,30 @@ var sendProfileData = function sendProfileData(payload, success, error) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var inviteUserAPI = function inviteUserAPI(payload, success, error) {
+  window.axios.post("api/auth/invite/student", {
+    headers: {
+      Authorization: 'Bearer ' + window.localStorage.getItem('token')
+    }
+  }, payload).then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
+    error(failure);
+  });
+};
+
+var inviteAdminAPI = function inviteAdminAPI(payload, success, error) {
+  window.axios.post("api/auth/invite/admin", {
+    headers: {
+      Authorization: 'Bearer ' + window.localStorage.getItem('token')
+    }
+  }, payload).then(function (response) {
+    success(response.data);
+  }).catch(function (failure) {
+    error(failure);
+  });
+};
+
 var fetchUsersAPI = function fetchUsersAPI(success, error) {
   window.axios.get('api/students/all', {
     headers: {
@@ -52993,31 +53002,9 @@ var fetchUsersAPI = function fetchUsersAPI(success, error) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  fetchUsersAPI: fetchUsersAPI
-});
-
-/***/ }),
-
-/***/ "./resources/js/api/invitations.js":
-/*!*****************************************!*\
-  !*** ./resources/js/api/invitations.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var inviteUserAPI = function inviteUserAPI(payload, success, error) {
-  window.axios.post('api/auth/invite/student', payload).then(function (response) {
-    return success(response.data);
-  }).catch(function (failure) {
-    error(failure.response.data.message);
-  } //nested inside the predecessor
-  );
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  inviteUserAPI: inviteUserAPI
+  fetchUsersAPI: fetchUsersAPI,
+  inviteUserAPI: inviteUserAPI,
+  inviteAdminAPI: inviteAdminAPI
 });
 
 /***/ }),
@@ -54133,17 +54120,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _views_Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Login */ "./resources/js/router/views/Login/index.vue");
-/* harmony import */ var _views_SignUp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/SignUp */ "./resources/js/router/views/SignUp/index.vue");
-/* harmony import */ var _views_AccountSetup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/AccountSetup */ "./resources/js/router/views/AccountSetup/index.vue");
-/* harmony import */ var _views_ProfileSetup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/ProfileSetup */ "./resources/js/router/views/ProfileSetup/index.vue");
-/* harmony import */ var _views_AdminSetup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/AdminSetup */ "./resources/js/router/views/AdminSetup/index.vue");
-/* harmony import */ var _views_StudentProfile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/StudentProfile */ "./resources/js/router/views/StudentProfile/index.vue");
-/* harmony import */ var _views_EditProfile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/EditProfile */ "./resources/js/router/views/EditProfile/index.vue");
-/* harmony import */ var _views_Dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Dashboard */ "./resources/js/router/views/Dashboard/index.vue");
-/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
-/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
-/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
+/* harmony import */ var _views_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Login */ "./resources/js/router/views/Login/index.vue");
+/* harmony import */ var _views_SignUp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/SignUp */ "./resources/js/router/views/SignUp/index.vue");
+/* harmony import */ var _views_AccountSetup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/AccountSetup */ "./resources/js/router/views/AccountSetup/index.vue");
+/* harmony import */ var _views_ProfileSetup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/ProfileSetup */ "./resources/js/router/views/ProfileSetup/index.vue");
+/* harmony import */ var _views_AdminSetup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/AdminSetup */ "./resources/js/router/views/AdminSetup/index.vue");
+/* harmony import */ var _views_StudentProfile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/StudentProfile */ "./resources/js/router/views/StudentProfile/index.vue");
+/* harmony import */ var _views_EditProfile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/EditProfile */ "./resources/js/router/views/EditProfile/index.vue");
+/* harmony import */ var _views_Dashboard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Dashboard */ "./resources/js/router/views/Dashboard/index.vue");
+/* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
+/* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
+/* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
+
 
  //Pages
 
@@ -54168,90 +54157,87 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     path: "/login",
-    component: _views_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
+    component: _views_Login__WEBPACK_IMPORTED_MODULE_3__["default"],
     meta: {
       title: "Login | Takeoff",
       header: "Takeoff"
-    } //Maximum call stack exceeds
+    },
+    //Maximum call stack exceeds
     // redirect: to => {
     //     if (window.localStorage.getItem("token") !== null)
     //         return '/dashboard'
     //     else return '/login';
     // }
     //Breaks when logging out
-    // beforeEnter: (to, from, next) => {
-    //     if(window.localStorage.getItem("token") !== null)
-    //         next("/dashboard")
-    //     else
-    //         next()
-    // }
-
+    beforeEnter: function beforeEnter(to, from, next) {
+      if (window.localStorage.getItem("token") !== null) next("/dashboard");else next();
+    }
   }, {
     path: "/signup",
-    component: _views_SignUp__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _views_SignUp__WEBPACK_IMPORTED_MODULE_4__["default"],
     meta: {
       title: "Sign Up | Takeoff",
       header: "Takeoff"
     }
   }, {
     path: "/account-setup",
-    component: _views_AccountSetup__WEBPACK_IMPORTED_MODULE_4__["default"],
+    component: _views_AccountSetup__WEBPACK_IMPORTED_MODULE_5__["default"],
     meta: {
       title: "Account Setup | Badges",
       header: "Account Information"
     }
   }, {
     path: "/profile",
-    component: _views_StudentProfile__WEBPACK_IMPORTED_MODULE_7__["default"],
+    component: _views_StudentProfile__WEBPACK_IMPORTED_MODULE_8__["default"],
     meta: {
       title: "Profile | Takeoff",
       header: "Edgar's Profile"
     }
   }, {
     path: "/edit-profile",
-    component: _views_EditProfile__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _views_EditProfile__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       title: "Edit Profile | Takeoff",
       header: "Edit Your Profile"
     }
   }, {
     path: "/profile-setup",
-    component: _views_ProfileSetup__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _views_ProfileSetup__WEBPACK_IMPORTED_MODULE_6__["default"],
     meta: {
       title: "Profile Setup | Badges",
       header: "Set Up Your Profile"
     }
   }, {
     path: "/dashboard",
-    component: _views_Dashboard__WEBPACK_IMPORTED_MODULE_9__["default"],
+    component: _views_Dashboard__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
       title: "Dashboard | Takeoff",
       header: "Dashboard"
     }
   }, {
     path: "/admin-setup",
-    component: _views_AdminSetup__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _views_AdminSetup__WEBPACK_IMPORTED_MODULE_7__["default"],
     meta: {
       title: "Admin Setup | Takeoff",
       header: "Administrator Information"
     }
   }, {
     path: "/roster",
-    component: _views_Roster__WEBPACK_IMPORTED_MODULE_10__["default"],
+    component: _views_Roster__WEBPACK_IMPORTED_MODULE_11__["default"],
     meta: {
       title: "Roster | Takeoff",
       header: "Roster"
     }
   }, {
     path: "/dashboard",
-    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_12__["default"],
     meta: {
       title: "Dashboard | Takeoff",
       header: "Dashboard"
     }
   }, {
     path: "*",
-    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_12__["default"],
+    component: _views_ErrorPage__WEBPACK_IMPORTED_MODULE_13__["default"],
     meta: {
       title: "Whoops!",
       header: "Page Not Found"
@@ -55194,11 +55180,12 @@ __webpack_require__.r(__webpack_exports__);
       console.error(error);
     });
   },
-  logout: function logout(_ref2, payload) {
+  logout: function logout(_ref2) {
     var commit = _ref2.commit,
         dispatch = _ref2.dispatch;
-    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].logoutAPI(payload, function (success) {
+    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].logoutAPI(function (success) {
       commit('CLEAR_SESSION');
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/login');
     }, function (error) {
       console.error(error);
     });
@@ -55287,10 +55274,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   UPDATE_SESSION: function UPDATE_SESSION(state, payload) {
-    for (var k in payload) {
-      state.session[k] = payload[k];
-    }
-
     window.localStorage.setItem("userId", payload.user_id);
     window.localStorage.setItem("tokenType", payload.token_type);
     window.localStorage.setItem("token", payload.access_token);
@@ -55314,14 +55297,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // AUTH STATE
-/* harmony default export */ __webpack_exports__["default"] = ({
-  session: {
-    'userId': '',
-    'tokenType': '',
-    'token': '',
-    'expiration': ''
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
