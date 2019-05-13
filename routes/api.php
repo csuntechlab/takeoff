@@ -64,3 +64,4 @@ Route::prefix('media')->group(function () {
 Route::post('workshop/create', 'WorkshopController@createWorkshop');
 Route::get('workshop/get/{id}', 'WorkshopController@getWorkshop');
 Route::get('workshop/attendance/get/{id}', 'WorkshopController@getAttendance');
+Route::get('workshop/all', 'WorkshopController@getAllWorkshops');

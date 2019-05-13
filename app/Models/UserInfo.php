@@ -21,13 +21,13 @@ class UserInfo extends Model
         'last_name',
         'title',
         'major',
-        'units',
         'grad_date',
         'college',
         'bio',
         'research',
         'fun_facts',
-        'academic_interest'
+        'academic_interest',
+        'archive'
     ];
 
     public function users(){
