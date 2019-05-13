@@ -31,6 +31,11 @@ class WorkshopController extends Controller
         return $this->workshopRetriever->createWorkshop($data);
     }
 
+    public function getAllWorkshops()
+    {
+        return $this->workshopRetriever->getAllWorkshops();
+    }
+
     public function getWorkshop($workshopId)
     {
         return $this->workshopRetriever->getWorkshop($workshopId);
