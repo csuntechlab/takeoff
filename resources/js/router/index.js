@@ -13,7 +13,6 @@ import Dashboard from "./views/Dashboard";
 import Roster from "./views/Roster";
 import DashboardAdmin from "./views/DashboardAdmin";
 import ErrorPage from "./views/ErrorPage";
-import { networkInterfaces } from "os";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -31,13 +30,20 @@ const router = new VueRouter({
                 header: "Takeoff"
             },
 
+            //Maximum call stack exceeds
+            // redirect: to => {
+            //     if (window.localStorage.getItem("token") !== null)
+            //         return '/dashboard'
+            //     else return '/login';
+            // }
+
             //Breaks when logging out
-            beforeEnter: (to, from, next) => {
-                if(window.localStorage.getItem("token") !== null)
-                    next("/dashboard")
-                else
-                    next()
-            }
+            // beforeEnter: (to, from, next) => {
+            //     if(window.localStorage.getItem("token") !== null)
+            //         next("/dashboard")
+            //     else
+            //         next()
+            // }
         },
         {
             path: "/signup",
@@ -123,10 +129,10 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (window.localStorage.getItem("token") === null && to.path !== '/login') {
-        next('/login')
+    if (window.localStorage.getItem("token") === null && to.path !== "/login") {
+        next("/login");
     } else {
-        next()
+        next();
     }
 });
 

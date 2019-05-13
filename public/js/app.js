@@ -29134,66 +29134,6 @@ function isSlowBuffer (obj) {
 
 /***/ }),
 
-/***/ "./node_modules/os-browserify/browser.js":
-/*!***********************************************!*\
-  !*** ./node_modules/os-browserify/browser.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-exports.endianness = function () { return 'LE' };
-
-exports.hostname = function () {
-    if (typeof location !== 'undefined') {
-        return location.hostname
-    }
-    else return '';
-};
-
-exports.loadavg = function () { return [] };
-
-exports.uptime = function () { return 0 };
-
-exports.freemem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.totalmem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.cpus = function () { return [] };
-
-exports.type = function () { return 'Browser' };
-
-exports.release = function () {
-    if (typeof navigator !== 'undefined') {
-        return navigator.appVersion;
-    }
-    return '';
-};
-
-exports.networkInterfaces
-= exports.getNetworkInterfaces
-= function () { return {} };
-
-exports.arch = function () { return 'javascript' };
-
-exports.platform = function () { return 'browser' };
-
-exports.tmpdir = exports.tmpDir = function () {
-    return '/tmp';
-};
-
-exports.EOL = '\n';
-
-exports.homedir = function () {
-	return '/'
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/popper.js/dist/esm/popper.js":
 /*!***************************************************!*\
   !*** ./node_modules/popper.js/dist/esm/popper.js ***!
@@ -54200,11 +54140,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Roster__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Roster */ "./resources/js/router/views/Roster/index.vue");
 /* harmony import */ var _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/DashboardAdmin */ "./resources/js/router/views/DashboardAdmin/index.vue");
 /* harmony import */ var _views_ErrorPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/ErrorPage */ "./resources/js/router/views/ErrorPage/index.vue");
-/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! os */ "./node_modules/os-browserify/browser.js");
-/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(os__WEBPACK_IMPORTED_MODULE_13__);
 
  //Pages
-
 
 
 
@@ -54231,10 +54168,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     meta: {
       title: "Login | Takeoff",
       header: "Takeoff"
-    },
-    beforeEnter: function beforeEnter(to, from, next) {
-      if (window.localStorage.getItem("token") !== null) next("/dashboard");else next();
-    }
+    } // redirect: to => {
+    //     if (window.localStorage.getItem("token") !== null)
+    //         return '/dashboard'
+    //     else return '/login';
+    // }
+    //Breaks when logging out
+    // beforeEnter: (to, from, next) => {
+    //     if(window.localStorage.getItem("token") !== null)
+    //         next("/dashboard")
+    //     else
+    //         next()
+    // }
+
   }, {
     path: "/signup",
     component: _views_SignUp__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -54308,8 +54254,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }]
 });
 router.beforeEach(function (to, from, next) {
-  if (window.localStorage.getItem("token") === null && to.path !== '/login') {
-    next('/login');
+  if (window.localStorage.getItem("token") === null && to.path !== "/login") {
+    next("/login");
   } else {
     next();
   }
