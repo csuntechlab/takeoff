@@ -31,7 +31,6 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Computer Science',
-                'units' => 17,
                 'grad_date' => 'Spring 2020',
                 'college' => 'Engineering & Computer Science',
                 'bio' => 'Now this is a story all about how
@@ -57,7 +56,6 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Psychology',
-                'units' => 17,
                 'grad_date' => 'Spring 2021',
                 'college' => 'Social & Behavioral Sciences',
                 'bio' => 'Now this is a story all about how
@@ -83,7 +81,6 @@ class StudentsTableSeeder extends Seeder
                 'last_name' => $lastNames[$id],
                 'title' => 'Student',
                 'major' => 'Biology',
-                'units' => 17,
                 'grad_date' => 'Fall 2020',
                 'college' => 'Science & Mathematics',
                 'bio' => 'Now this is a story all about how
