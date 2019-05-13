@@ -52981,7 +52981,11 @@ var sendProfileData = function sendProfileData(payload, success, error) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var fetchUsersAPI = function fetchUsersAPI(success, error) {
-  window.axios.get('api/students/all').then(function (response) {
+  window.axios.get('api/students/all', {
+    headers: {
+      Authorization: 'Bearer ' + window.localStorage.getItem('token')
+    }
+  }).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
     error(failure.response.data.message);
@@ -54168,7 +54172,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     meta: {
       title: "Login | Takeoff",
       header: "Takeoff"
-    } // redirect: to => {
+    } //Maximum call stack exceeds
+    // redirect: to => {
     //     if (window.localStorage.getItem("token") !== null)
     //         return '/dashboard'
     //     else return '/login';
