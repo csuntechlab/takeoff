@@ -26,7 +26,8 @@ class UserInfo extends Model
         'bio',
         'research',
         'fun_facts',
-        'academic_interest'
+        'academic_interest',
+        'archive'
     ];
 
     public function users(){

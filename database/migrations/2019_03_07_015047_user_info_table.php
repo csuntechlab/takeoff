@@ -26,6 +26,7 @@ class UserInfoTable extends Migration
             $table->string('research')->nullable();
             $table->string('fun_facts')->nullable();
             $table->string('academic_interest')->nullable();
+            $table->boolean('archive');
             $table->timestamps();
         });
     }

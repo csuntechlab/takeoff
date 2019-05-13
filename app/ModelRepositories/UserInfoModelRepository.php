@@ -34,19 +34,25 @@ class UserInfoModelRepository implements UserInfoModelRepositoryInterface
 
     public function getStudentsByGradDate($graddate)
     {
-        $students = UserInfo::where('grad_date', $graddate)->get();
+        $students = UserInfo::where('archive', false)
+            ->where('grad_date', $graddate)
+            ->get();
         return $students;
     }
 
     public function getStudentsByCollege($collegename)
     {
-        $students = UserInfo::where('college', $collegename)->get();
+        $students = UserInfo::where('archive', false)
+            ->where('college', $collegename)
+            ->get();
         return $students;
     }
 
     public function getStudentsByMajor($majorname)
     {
-        $students = UserInfo::where('major', $majorname)->get();
+        $students = UserInfo::where('archive', false)
+            ->where('major', $majorname)
+            ->get();
         return $students;
     }
 
