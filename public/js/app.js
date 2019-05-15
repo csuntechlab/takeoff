@@ -53061,6 +53061,7 @@ var registerAPI = function registerAPI(payload, success, error) {
   window.axios.post("api/auth/register", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
+    console.log('oops');
     error(failure);
   });
 };
@@ -55331,7 +55332,7 @@ __webpack_require__.r(__webpack_exports__);
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
       console.log("TODO: give success notification");
       console.log(success);
-      commit('UPDATE_SESSION', success.registration_access_token);
+      commit('UPDATE_SESSION', success);
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");
     }, function (error) {
       console.error(payload);

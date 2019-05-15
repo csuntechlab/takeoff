@@ -10,6 +10,7 @@ use App\Contracts\RegisterContract;
 use App\Services\AdminService;
 use Illuminate\Support\Facades\DB;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
+use Carbon\Carbon;
 use function Opis\Closure\unserialize;
 use function Opis\Closure\serialize;
 
@@ -61,6 +62,19 @@ class RegisterService implements RegisterContract
         }
 
         $user = $this->userModelRepo->completeRegistration($user, $data);
-        return $user;
+        $tokenResult = $user->createToken('takeoff');
+        $token = $tokenResult->token;
+        $token->expires_at = Carbon::now()->addDays(1);
+        $token->save();
+        return response()->json([
+            'user' => $user,
+            'user_id' => $user->id,
+            'access_token' => $tokenResult->accessToken,
+            'expires_at' => Carbon::parse(
+                    $tokenResult->token->expires_at
+                )->toDateTimeString(),
+            'token_type' => 'Bearer',
+            'role' => $user->roles()->first()->role
+        ]);
     }
 }

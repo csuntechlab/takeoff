@@ -34,8 +34,11 @@ export default {
             success => {
                 console.log("TODO: give success notification")
                 console.log(success)
-                commit('UPDATE_SESSION', success.registration_access_token)
-                router.push("/account-setup")
+                commit('UPDATE_SESSION', success)
+                if(window.localStorage.getItem('role') !== 'admin')
+                    router.push("/account-setup")
+                else
+                    router.push("/admin-setup")
             },
             error => {
                 console.error(payload)

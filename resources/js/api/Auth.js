@@ -28,6 +28,7 @@ const registerAPI = (payload, success, error) => {
             success(response.data);
         })
         .catch(failure => {
+            console.log('oops')
             error(failure);
         });
 };
