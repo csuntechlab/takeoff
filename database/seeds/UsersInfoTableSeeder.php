@@ -19,7 +19,8 @@ class UsersInfoTableSeeder extends Seeder
             'bio' => 'asdasdsadasdasdsad',
             'research' => 'asdasdasdasdad',
             'fun_facts' => 'asdasdasdasdad',
-            'academic_interest' => 'ASDASDASDASD'
+            'academic_interest' => 'ASDASDASDASD',
+            'archive' => false
         ]);
     }
 }

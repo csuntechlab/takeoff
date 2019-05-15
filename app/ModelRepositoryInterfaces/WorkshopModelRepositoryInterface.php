@@ -8,4 +8,5 @@ use App\Models\Workshop;
 interface WorkshopModelRepositoryInterface
 {
     public function createWorkshop($data);
+    public function getAllWorkshops();
 }
