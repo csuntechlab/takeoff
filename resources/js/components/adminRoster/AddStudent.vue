@@ -20,7 +20,7 @@ import invitations from './../../api/admin.js'
 export default {
 	data () {
         return {
-            form: {     //name according to the componeent or object adjacent to payload
+            form: {
                 email: ''
             }
         }
@@ -30,7 +30,7 @@ export default {
             invitations.inviteUserAPI (
                 this.form,
                 success => {
-                    console.log('Invitation sent')
+                    console.log('TODO: Invitation sent alert')
                 },
                 error => {
                     console.log('Error: Email not sent', this.form.email)

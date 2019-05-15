@@ -8,7 +8,7 @@
 						<span aria-hidden="true">&raquo;</span>
 					</p>
 				</router-link>
-				<EditProfile/>
+				<EditProfile :setupMode="true"/>
 			</div>
 		</div>
 	</div>
@@ -27,4 +27,3 @@ export default {
 	}
 };
 </script>
- 

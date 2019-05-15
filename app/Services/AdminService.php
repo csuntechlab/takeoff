@@ -25,10 +25,10 @@ class AdminService implements AdminContract
     public function createAdminUserInfo($data)
     {
         return UserInfo::create([
-            'user_id' =>  $data->user_id,
+            'user_id' =>  $data->userId,
             'title' =>  $data->title,
-            'first_name'=> $data->first_name,
-            'last_name'=> $data->last_name,
+            'first_name'=> $data->firstName,
+            'last_name'=> $data->lastName,
         ]);
     }
 

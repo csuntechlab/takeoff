@@ -5,7 +5,7 @@
 				<form novalidate>
 					<div class="form-group mt-3">
 
-						<div class="form-row py-4">
+						<!-- <div class="form-row py-4">
 							<div class="col">
 								<label for="password">Create a Password</label>
 								<div>
@@ -22,7 +22,7 @@
 									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.sameAsPassword">Passwords must be identical.</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<label for="firstName">First Name</label>
 						<input
@@ -123,8 +123,8 @@ export default {
 	data() {
 		return {
 			form: {
-				password: "",
-				confirmPassword: "",
+				// password: "",
+				// confirmPassword: "",
 				firstName: "",
 				lastName: "",
 				college: "",
@@ -137,28 +137,12 @@ export default {
 		submitForm() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				console.log("Successful submission!");
-				console.table([this.form]);
+                this.$store.dispatch('setUserInfo', this.form)
+                this.$router.push('/profile-setup')
 			} else console.log("Invalid Inputs! Form not submitted.");
 		}
 	},
 	computed: {
-		passwordValidation() {
-			if (this.$v.form.password.$dirty) {
-				return {
-					"is-invalid": this.$v.form.password.$error,
-					"is-valid": !this.$v.form.password.$error
-				};
-			}
-		},
-		confirmPasswordValidation() {
-			if (this.$v.form.confirmPassword.$dirty) {
-				return {
-					"is-invalid": this.$v.form.confirmPassword.$error,
-					"is-valid": !this.$v.form.confirmPassword.$error
-				};
-			}
-		},
 		firstNameValidation() {
 			if (this.$v.form.firstName.$dirty) {
 				return {
@@ -210,14 +194,6 @@ export default {
 	},
 	validations: {
 		form: {
-			password: {
-				required,
-				minLength: minLength(6)
-			},
-			confirmPassword: {
-				required,
-				sameAsPassword: sameAs('password')
-			},
 			firstName: {
 				required
 			},
@@ -226,12 +202,7 @@ export default {
 			},
 			college: { required },
 			major: { required },
-			expectedGrad: { required },
-			units: {
-				required,
-				minValue: minValue(0),
-				maxValue: maxValue(200)
-			}
+			expectedGrad: { required }
 		}
 	}
 };

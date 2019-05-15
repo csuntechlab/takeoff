@@ -24,16 +24,16 @@ class ProfileTest extends TestCase
     public function store_user_info(){
 
         $request = Request::create('api/profile/store', 'POST',[
-            'user_id'=> '3',
-            'first_name'=> 'test',
-            'last_name'=> 'test',
+            'userId'=> '3',
+            'firstName'=> 'test',
+            'lastName'=> 'test',
             'major'=> 'comp sci',
-            'grad_date' => '2019',
+            'expectedGrad' => '2019',
             'college'=>'health',
-            'bio'=> 'hi',
+            'biography'=> 'hi',
             'research' => 'this',
-            'fun_facts'=>'is a',
-            'academic_interest' => 'test'
+            'funFacts'=>'is a',
+            'academicInterests' => 'test'
         ]);
 
         $controller = new ProfileController($this->retriever);

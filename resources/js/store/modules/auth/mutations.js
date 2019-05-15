@@ -9,5 +9,12 @@ export default {
 
     CLEAR_SESSION(state) {
         window.localStorage.clear()
+    },
+
+    SET_USER_INFO(state, payload) {
+        state.user = {
+            ...state.user,
+            ...payload
+        }
     }
 }

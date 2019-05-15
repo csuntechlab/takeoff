@@ -1,5 +1,6 @@
 import Auth from "../../../api/Auth";
 import router from "../../../router"
+import Profile from "../../../api/Profile";
 
 export default {
     login ({commit, dispatch}, payload) {
@@ -29,15 +30,15 @@ export default {
     },
 
     register ({commit}, payload) {
-        payload['userId'] = window.localStorage.getItem('userId')
         Auth.registerAPI(payload,
             success => {
                 console.log("TODO: give success notification")
-                router.push("account-setup")
+                console.log(success)
+                commit('UPDATE_SESSION', success.registration_access_token)
+                router.push("/account-setup")
             },
             error => {
-                console.log(payload)
-                console.log(error)
+                console.error(payload)
             }
          );
     },
@@ -61,9 +62,31 @@ export default {
                 console.log("TODO: give success notification")
             },
             error => {
-                console.log(error)
+                console.error(error)
             }
          );
     },
+
+    setUserInfo ({commit, dispatch}, payload){
+        commit('SET_USER_INFO', payload)
+    },
+
+    fetchUserInfo ({commit, dispatch}, payload){
+        //Fetch user info by id and store in state
+        return 0
+    },
+
+    createProfileData({commit, dispatch}, payload){
+        payload['userId'] = window.localStorage.getItem('userId')
+        Profile.sendProfileData(payload,
+            success => {
+                console.log('TODO: Success notification for data saved')
+                router.push('/dashboard')
+            },
+            error => {
+                console.log({payload})
+                console.error(error)
+            })
+    }
 
 }

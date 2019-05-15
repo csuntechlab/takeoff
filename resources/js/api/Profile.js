@@ -1,7 +1,7 @@
 const sendProfileData = (payload, success, error) => {
     window.axios
         .post(
-            "profile/store",
+            "api/profile/store",
             {
                 headers: {
                     Authorization:

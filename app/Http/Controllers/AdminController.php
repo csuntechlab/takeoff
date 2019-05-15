@@ -59,8 +59,8 @@ class AdminController extends BaseController
     public function createAdminUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'title' => 'required',
         ]);
 
