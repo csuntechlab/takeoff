@@ -3,17 +3,19 @@ import VueRouter from "vue-router";
 import store from "../store";
 
 //Pages
-import Login from "./views/Login";
-import Signup from "./views/SignUp";
-import AccountSetup from "./views/AccountSetup";
-import ProfileSetup from "./views/ProfileSetup";
-import AdminSetup from "./views/AdminSetup";
-import StudentProfile from "./views/StudentProfile";
-import EditProfile from "./views/EditProfile";
-import Dashboard from "./views/Dashboard";
-import Roster from "./views/Roster";
-import DashboardAdmin from "./views/DashboardAdmin";
-import ErrorPage from "./views/ErrorPage";
+import Login from "./views/Login"
+import Signup from "./views/SignUp"
+import AccountSetup from "./views/AccountSetup"
+import ProfileSetup from "./views/ProfileSetup"
+import AdminSetup from "./views/AdminSetup"
+import StudentProfile from "./views/StudentProfile"
+import EditProfile from "./views/EditProfile"
+import Dashboard from "./views/Dashboard"
+import Roster from "./views/Roster"
+import DashboardAdmin from "./views/DashboardAdmin"
+import ErrorPage from "./views/ErrorPage"
+import WorkshopCreation from "./views/WorkshopCreation"
+
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -117,6 +119,14 @@ const router = new VueRouter({
                 title: "Dashboard | Takeoff",
                 header: "Dashboard",
                 adminOnly: true
+            }
+        },
+        {
+            path: "/workshop-creation",
+            component: WorkshopCreation,
+            meta: {
+                title: "Workshop | Takeoff",
+                header: "Workshop"
             }
         },
         {
