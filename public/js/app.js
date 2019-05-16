@@ -7234,32 +7234,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        password: "",
-        confirmPassword: "",
         firstName: null,
         lastName: null,
         title: null
@@ -7267,22 +7246,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    passwordValidation: function passwordValidation() {
-      if (this.$v.form.password.$dirty) {
-        return {
-          "is-invalid": this.$v.form.password.$error,
-          "is-valid": !this.$v.form.password.$error
-        };
-      }
-    },
-    confirmPasswordValidation: function confirmPasswordValidation() {
-      if (this.$v.form.confirmPassword.$dirty) {
-        return {
-          "is-invalid": this.$v.form.confirmPassword.$error,
-          "is-valid": !this.$v.form.confirmPassword.$error
-        };
-      }
-    },
     firstNameValidation: function firstNameValidation() {
       if (this.$v.form.firstName.$dirty) {
         return {
@@ -7314,20 +7277,13 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.$v.$invalid) {
         console.log("Successful submission!");
-        console.table([this.form]);
+        this.$store.dispatch("setUserInfo", this.form);
+        this.$store.dispatch("createAdminData", this.form);
       } else console.log("Invalid Inputs! Form not submitted.");
     }
   },
   validations: {
     form: {
-      password: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
-      },
-      confirmPassword: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
-      },
       firstName: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       },
@@ -32731,122 +32687,6 @@ var render = function() {
       _c("div", { staticClass: "col-lg-6 col-md-10 col-sm-12" }, [
         _c("form", { attrs: { novalidate: "" } }, [
           _c("div", { staticClass: "form-group mt-3" }, [
-            _c("div", { staticClass: "form-row py-4" }, [
-              _c("div", { staticClass: "col" }, [
-                _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Create a Password")
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.form.password.$model,
-                        expression: "$v.form.password.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: _vm.passwordValidation,
-                    attrs: {
-                      type: "password",
-                      id: "Password",
-                      placeholder: "Password"
-                    },
-                    domProps: { value: _vm.$v.form.password.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.form.password,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.form.password.required
-                    ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v("Password is required.")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.$v.form.password.minLength
-                    ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v(
-                          "Password must have at least " +
-                            _vm._s(_vm.$v.form.password.$params.minLength.min) +
-                            " letters."
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("label", { attrs: { for: "confirmPassword" } }, [
-                  _vm._v("Confirm Password")
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.form.confirmPassword.$model,
-                        expression: "$v.form.confirmPassword.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: _vm.confirmPasswordValidation,
-                    attrs: {
-                      type: "password",
-                      id: "confirmPassword",
-                      placeholder: "Confirm Password"
-                    },
-                    domProps: { value: _vm.$v.form.confirmPassword.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.form.confirmPassword,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.form.confirmPassword.required
-                    ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v("Please enter Confirm password")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.$v.form.confirmPassword.sameAsPassword
-                    ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v("Passwords must be identical.")
-                      ])
-                    : _vm._e()
-                ])
-              ])
-            ]),
-            _vm._v(" "),
             _c("label", { attrs: { for: "adminFirstName" } }, [
               _vm._v("First Name")
             ]),
@@ -53095,8 +52935,21 @@ var sendProfileData = function sendProfileData(payload, success, error) {
   });
 };
 
+var sendAdminData = function sendAdminData(payload, success, error) {
+  window.axios.post("api/admin/store", {
+    headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("token")
+    }
+  }, payload).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  });
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  sendProfileData: sendProfileData
+  sendProfileData: sendProfileData,
+  sendAdminData: sendAdminData
 });
 
 /***/ }),
@@ -55203,6 +55056,26 @@ __webpack_require__.r(__webpack_exports__);
     }, function (error) {
       console.log("Error: ", error);
     });
+  },
+  inviteStudent: function inviteStudent(_ref2, payload) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    payload['userId'] = window.localStorage.getItem('userId');
+    _api_admin__WEBPACK_IMPORTED_MODULE_0__["default"].inviteStudentAPI(payload, function (success) {
+      console.log("TODO: give success notification");
+    }, function (error) {
+      console.log(error);
+    });
+  },
+  inviteAdmin: function inviteAdmin(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    payload['userId'] = window.localStorage.getItem('userId');
+    _api_admin__WEBPACK_IMPORTED_MODULE_0__["default"].inviteAdminAPI(payload, function (success) {
+      console.log("TODO: give success notification");
+    }, function (error) {
+      console.error(error);
+    });
   }
 });
 
@@ -55310,8 +55183,8 @@ __webpack_require__.r(__webpack_exports__);
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI(payload, function (success) {
-      commit('UPDATE_SESSION', success);
-      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/');
+      commit("UPDATE_SESSION", success);
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/");
     }, function (error) {
       console.log(payload);
       console.error(error);
@@ -55321,8 +55194,8 @@ __webpack_require__.r(__webpack_exports__);
     var commit = _ref2.commit,
         dispatch = _ref2.dispatch;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].logoutAPI(function (success) {
-      commit('CLEAR_SESSION');
-      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/login');
+      commit("CLEAR_SESSION");
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/login");
     }, function (error) {
       console.error(error);
     });
@@ -55332,50 +55205,44 @@ __webpack_require__.r(__webpack_exports__);
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
       console.log("TODO: give success notification");
       console.log(success);
-      commit('UPDATE_SESSION', success);
-      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");
+      commit("UPDATE_SESSION", success);
+      if (success.role !== "admin") _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");else _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/admin-setup");
     }, function (error) {
       console.error(payload);
     });
   },
-  inviteStudent: function inviteStudent(_ref4, payload) {
+  setUserInfo: function setUserInfo(_ref4, payload) {
     var commit = _ref4.commit,
         dispatch = _ref4.dispatch;
-    payload['userId'] = window.localStorage.getItem('userId');
-    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteStudentAPI(payload, function (success) {
-      console.log("TODO: give success notification");
-    }, function (error) {
-      console.log(error);
-    });
+    commit("SET_USER_INFO", payload);
   },
-  inviteAdmin: function inviteAdmin(_ref5, payload) {
+  fetchUserInfo: function fetchUserInfo(_ref5, payload) {
     var commit = _ref5.commit,
         dispatch = _ref5.dispatch;
-    payload['userId'] = window.localStorage.getItem('userId');
-    _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].inviteAdminAPI(payload, function (success) {
-      console.log("TODO: give success notification");
-    }, function (error) {
-      console.error(error);
-    });
-  },
-  setUserInfo: function setUserInfo(_ref6, payload) {
-    var commit = _ref6.commit,
-        dispatch = _ref6.dispatch;
-    commit('SET_USER_INFO', payload);
-  },
-  fetchUserInfo: function fetchUserInfo(_ref7, payload) {
-    var commit = _ref7.commit,
-        dispatch = _ref7.dispatch;
     //Fetch user info by id and store in state
     return 0;
   },
-  createProfileData: function createProfileData(_ref8, payload) {
-    var commit = _ref8.commit,
-        dispatch = _ref8.dispatch;
-    payload['userId'] = window.localStorage.getItem('userId');
+  createProfileData: function createProfileData(_ref6, payload) {
+    var commit = _ref6.commit,
+        dispatch = _ref6.dispatch;
+    payload["userId"] = window.localStorage.getItem("userId");
     _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileData(payload, function (success) {
-      console.log('TODO: Success notification for data saved');
-      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/dashboard');
+      console.log("TODO: Success notification for data saved");
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard");
+    }, function (error) {
+      console.log({
+        payload: payload
+      });
+      console.error(error);
+    });
+  },
+  createAdminData: function createAdminData(_ref7, payload) {
+    var commit = _ref7.commit,
+        dispatch = _ref7.dispatch;
+    payload["userId"] = window.localStorage.getItem("userId");
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendAdminData(payload, function (success) {
+      console.log("TODO: Success notification for data saved");
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard-admin");
     }, function (error) {
       console.log({
         payload: payload

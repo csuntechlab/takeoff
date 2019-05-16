@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 
 Route::post('profile/store', 'ProfileController@createStudentUserInfo');
-Route::post('admin/store', 'AdminController@createAdminUserInfo')->middleware('auth:api', 'checkAdmin');
+Route::post('admin/store', 'AdminController@createAdminUserInfo');
 /* Endpoints that deal with student retrieval and management. */
 Route::prefix('students')->group(function () {
     Route::get('all', 'AdminController@getAllStudents')->middleware('auth:api');
