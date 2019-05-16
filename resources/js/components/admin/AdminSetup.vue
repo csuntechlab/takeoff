@@ -96,7 +96,6 @@ export default {
 		submitForm() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				console.log("Successful submission!");
 				this.$store.dispatch("setUserInfo", this.form);
 				this.$store.dispatch("createAdminData", this.form);
 			} else console.log("Invalid Inputs! Form not submitted.");

@@ -5,10 +5,12 @@ use Mail;
 use App\Mail\InviteStudent;
 use App\Models\User;
 use App\Models\UserProfile;
-use App\Models\RegistrationAccessToken;
+use App\Models\Registration;
 use App\Contracts\RegisterContract;
+use App\Contracts\LoginContract;
 use App\Services\AdminService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
 use Carbon\Carbon;
 use function Opis\Closure\unserialize;
@@ -18,10 +20,12 @@ use function Opis\Closure\serialize;
 class RegisterService implements RegisterContract
 {
     protected $userModelRepo;
+    protected $loginRetriever;
 
     public function __construct(UserModelRepositoryInterface $userModelRepo)
     {
         $this->userModelRepo = $userModelRepo;
+        // $this->loginRetriever = $loginContract;
     }
 
     public function registerUserEmail($data, $role)
@@ -62,19 +66,14 @@ class RegisterService implements RegisterContract
         }
 
         $user = $this->userModelRepo->completeRegistration($user, $data);
-        $tokenResult = $user->createToken('takeoff');
-        $token = $tokenResult->token;
-        $token->expires_at = Carbon::now()->addDays(1);
-        $token->save();
-        return response()->json([
-            'user' => $user,
-            'user_id' => $user->id,
-            'access_token' => $tokenResult->accessToken,
-            'expires_at' => Carbon::parse(
-                    $tokenResult->token->expires_at
-                )->toDateTimeString(),
-            'token_type' => 'Bearer',
-            'role' => $user->roles()->first()->role
-        ]);
+
+        // $input = [
+        //     "email" => $data['email'],
+        //     "password" => $data['password']
+        // ];
+        // $credentials = new Request($input);
+        // $credentials->setMethod('POST');
+        // $user_auth = $this->loginRetriever->login($credentials);
+        return $user;
     }
 }

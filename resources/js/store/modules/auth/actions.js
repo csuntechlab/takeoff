@@ -29,16 +29,24 @@ export default {
         );
     },
 
-    register({ commit }, payload) {
+    register({ commit, dispatch }, payload) {
         Auth.registerAPI(
             payload,
             success => {
                 console.log("TODO: give success notification");
-                console.log(success);
-                commit("UPDATE_SESSION", success);
-                if (success.role !== "admin")
-                    router.push("/account-setup");
-                else router.push("/admin-setup");
+                Auth.loginAPI(
+                    { email: payload.email, password: payload.password },
+                    success => {
+                        commit("UPDATE_SESSION", success);
+                        if (success.role !== "admin")
+                            router.push("/account-setup");
+                        else router.push("/admin-setup");
+                    },
+                    error => {
+                        console.log(payload);
+                        console.error(error);
+                    }
+                );
             },
             error => {
                 console.error(payload);
@@ -75,9 +83,7 @@ export default {
         Profile.sendAdminData(
             payload,
             success => {
-                console.log(
-                    "TODO: Success notification for data saved"
-                );
+                console.log("TODO: Success notification for data saved");
                 router.push("/dashboard-admin");
             },
             error => {

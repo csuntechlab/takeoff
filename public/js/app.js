@@ -7886,6 +7886,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var interests;
@@ -8282,12 +8291,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_studentProfile_EditProfile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/studentProfile/EditProfile */ "./resources/js/components/studentProfile/EditProfile.vue");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -33905,119 +33908,144 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [
-    _c("div", [
-      _c("img", {
-        staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
-        attrs: { src: _vm.user.image, alt: "" }
-      })
-    ]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row mt-5" }, [
-      _c("label", { attrs: { for: "exampleInputFirstName" } }, [
-        _vm._v("Biography")
-      ]),
+  return _c(
+    "div",
+    [
+      _vm.setupMode
+        ? _c(
+            "router-link",
+            { attrs: { to: "/" }, on: { click: _vm.submitChanges } },
+            [
+              _c("p", { staticClass: "text-center pt-3" }, [
+                _vm._v("\n\t\t\tSkip for now\n\t\t\t"),
+                _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("»")])
+              ])
+            ]
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.form.biography,
-            expression: "form.biography"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Write about yourself." },
-        domProps: { value: _vm.form.biography },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      _c("form", [
+        _c("div", [
+          _c("img", {
+            staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
+            attrs: { src: _vm.user.image, alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-row mt-5" }, [
+          _c("label", { attrs: { for: "exampleInputFirstName" } }, [
+            _vm._v("Biography")
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.biography,
+                expression: "form.biography"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "5", placeholder: "Write about yourself." },
+            domProps: { value: _vm.form.biography },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "biography", $event.target.value)
+              }
             }
-            _vm.$set(_vm.form, "biography", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row mt-4" }, [
-      _c("label", { attrs: { for: "exampleInputLastName" } }, [
-        _vm._v("Research")
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.form.research,
-            expression: "form.research"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Write about any research projects." },
-        domProps: { value: _vm.form.research },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-row mt-4" }, [
+          _c("label", { attrs: { for: "exampleInputLastName" } }, [
+            _vm._v("Research")
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.research,
+                expression: "form.research"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              rows: "5",
+              placeholder: "Write about any research projects."
+            },
+            domProps: { value: _vm.form.research },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "research", $event.target.value)
+              }
             }
-            _vm.$set(_vm.form, "research", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row mt-4" }, [
-      _c("label", { attrs: { for: "exampleInputLastName" } }, [
-        _vm._v("Fun Fact About Me")
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.form.funFacts,
-            expression: "form.funFacts"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { rows: "5", placeholder: "Write a fun fact about yourself." },
-        domProps: { value: _vm.form.funFacts },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-row mt-4" }, [
+          _c("label", { attrs: { for: "exampleInputLastName" } }, [
+            _vm._v("Fun Fact About Me")
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.funFacts,
+                expression: "form.funFacts"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              rows: "5",
+              placeholder: "Write a fun fact about yourself."
+            },
+            domProps: { value: _vm.form.funFacts },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "funFacts", $event.target.value)
+              }
             }
-            _vm.$set(_vm.form, "funFacts", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c("div", { staticClass: "text-center pt-4 pb-4" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { type: "submit" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.submitChanges($event)
-            }
-          }
-        },
-        [_vm._v("Save Changes")]
-      )
-    ])
-  ])
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center pt-4 pb-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.submitChanges($event)
+                }
+              }
+            },
+            [_vm._v("Save Changes")]
+          )
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -34483,16 +34511,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "col-lg-6 col-md-8 col-sm-12" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("p", { staticClass: "text-center pt-3" }, [
-              _vm._v("\n\t\t\t\t\tSkip for now\n\t\t\t\t\t"),
-              _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("»")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("EditProfile", { attrs: { setupMode: true } })
-        ],
+        [_c("EditProfile", { attrs: { setupMode: true } })],
         1
       )
     ])
@@ -53331,11 +53350,7 @@ var registerAPI = function registerAPI(payload, success, error) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var sendProfileData = function sendProfileData(payload, success, error) {
-  window.axios.post("api/profile/store", {
-    headers: {
-      Authorization: "Bearer " + window.localStorage.getItem("token")
-    }
-  }, payload).then(function (response) {
+  window.axios.post("api/profile/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
     error(failure.response.data.message);
@@ -53343,11 +53358,7 @@ var sendProfileData = function sendProfileData(payload, success, error) {
 };
 
 var sendAdminData = function sendAdminData(payload, success, error) {
-  window.axios.post("api/admin/store", {
-    headers: {
-      Authorization: "Bearer " + window.localStorage.getItem("token")
-    }
-  }, payload).then(function (response) {
+  window.axios.post("api/admin/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
     error(failure.response.data.message);
@@ -55686,12 +55697,20 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   register: function register(_ref3, payload) {
-    var commit = _ref3.commit;
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].registerAPI(payload, function (success) {
       console.log("TODO: give success notification");
-      console.log(success);
-      commit("UPDATE_SESSION", success);
-      if (success.role !== "admin") _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");else _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/admin-setup");
+      _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI({
+        email: payload.email,
+        password: payload.password
+      }, function (success) {
+        commit("UPDATE_SESSION", success);
+        if (success.role !== "admin") _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");else _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/admin-setup");
+      }, function (error) {
+        console.log(payload);
+        console.error(error);
+      });
     }, function (error) {
       console.error(payload);
     });

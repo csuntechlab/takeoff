@@ -118,7 +118,6 @@ export default {
 		signup() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				console.log("Sign up successful!");
 				this.$store.dispatch("register", this.form);
 			} else console.log("Invalid Inputs!");
 		}

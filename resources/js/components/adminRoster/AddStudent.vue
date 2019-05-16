@@ -33,7 +33,6 @@ export default {
                     console.log('TODO: Invitation sent alert')
                 },
                 error => {
-                    console.log('Error: Email not sent', this.form.email)
                     console.log(error)
                 }
             )

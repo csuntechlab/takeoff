@@ -76,7 +76,7 @@ class UserInfoService implements UserInfoContract
             'bio' => $data->biography,
             'research' => $data->research,
             'fun_facts' => $data->funFacts,
-            'academic_interest' => $data->academicInterests,
+            'academic_interest' => json_encode($data->academicInterests),
             'archive' => false
         ]);
     }
