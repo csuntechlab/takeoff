@@ -6,7 +6,6 @@ use App\Models\UserInfo;
 use App\Contracts\UserInfoContract;
 use Validator;
 
-
 class UserInfoService implements UserInfoContract
 {
     protected $userInfoModelRepo;
@@ -42,6 +41,26 @@ class UserInfoService implements UserInfoContract
     public function getStudentsByMajor($majorname)
     {
         return $this->userInfoModelRepo->getStudentsByMajor($majorname);
+    }
+
+    public function sortUserFirstNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(1);
+    }
+
+    public function sortUserFirstNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(2);
+    }
+
+    public function sortUserLastNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(1);
+    }
+
+    public function sortUserLastNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(2);
     }
 
     public function createStudentUserInfo($data)

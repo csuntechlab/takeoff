@@ -22,4 +22,9 @@ class Role extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
+
+    public function users_info()
+    {
+        return $this->belongsToMany('App\Models\UserInfo');
+    }
 }
