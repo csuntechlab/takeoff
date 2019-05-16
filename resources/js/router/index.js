@@ -13,6 +13,8 @@ import Dashboard from "./views/Dashboard"
 import Roster from "./views/Roster"
 import DashboardAdmin from "./views/DashboardAdmin"
 import ErrorPage from "./views/ErrorPage"
+import WorkshopCreation from "./views/WorkshopCreation"
+
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -96,6 +98,14 @@ const router = new VueRouter({
             meta: {
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
+            }
+        },
+        {
+            path: "/workshop-creation",
+            component: WorkshopCreation,
+            meta: {
+                title: "Workshop | Takeoff",
+                header: "Workshop"
             }
         },
         {
