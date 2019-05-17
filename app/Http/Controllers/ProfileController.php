@@ -42,9 +42,6 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
-     //i suck on toes
     public function createStudentUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
