@@ -8491,7 +8491,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -34742,47 +34741,38 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container py-3" }, [
-    _c(
-      "div",
-      [
-        _c("AttendanceCard"),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("paginate-links", {
-              staticClass: "text-center",
-              attrs: {
-                for: "users",
-                limit: 3,
-                "show-step-links": true,
-                "step-links": {
-                  next: ">",
-                  prev: "<"
-                }
+    _c("div", [
+      _c(
+        "div",
+        [
+          _c("paginate-links", {
+            staticClass: "text-center",
+            attrs: {
+              for: "users",
+              limit: 3,
+              "show-step-links": true,
+              "step-links": {
+                next: ">",
+                prev: "<"
               }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "paginate",
+            {
+              staticClass: "roster__list",
+              attrs: { name: "users", list: _vm.users, per: 20 }
+            },
+            _vm._l(_vm.paginated("users"), function(user, index) {
+              return _c("AttendanceCard", { key: index, attrs: { user: user } })
             }),
-            _vm._v(" "),
-            _c(
-              "paginate",
-              {
-                staticClass: "roster__list",
-                attrs: { name: "users", list: _vm.users, per: 20 }
-              },
-              _vm._l(_vm.paginated("users"), function(user, index) {
-                return _c("AttendanceCard", {
-                  key: index,
-                  attrs: { user: user }
-                })
-              }),
-              1
-            )
-          ],
-          1
-        )
-      ],
-      1
-    )
+            1
+          )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []

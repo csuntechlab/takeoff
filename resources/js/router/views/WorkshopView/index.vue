@@ -1,7 +1,6 @@
 <template>
     <div class="container py-3">
         <div>
-            <AttendanceCard/>
             <div>
                 <paginate-links
                     for="users"
