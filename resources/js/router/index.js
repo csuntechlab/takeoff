@@ -22,6 +22,8 @@ import Workshop from "./views/Workshop"
 
 // Misc
 import ErrorPage from "./views/ErrorPage"
+import WorkshopCreation from "./views/WorkshopCreation"
+
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -116,6 +118,14 @@ const router = new VueRouter({
                 header: "Workshop"
             },
             props: true
+        },
+        {
+            path: "/workshop-creation",
+            component: WorkshopCreation,
+            meta: {
+                title: "Workshop | Takeoff",
+                header: "Workshop"
+            }
         },
         {
             path: "*",

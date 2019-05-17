@@ -180,6 +180,7 @@ return [
         App\Providers\ApiProviders\RegisterServiceProvider::class,
         /** Login Service Provider */
         App\Providers\ApiProviders\LoginServiceProvider::class,
+        App\Providers\ApiProviders\WorkshopServiceProvider::class,
         /** Login Service Provider */
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\ApiProviders\MediaAPIServiceProvider::class,

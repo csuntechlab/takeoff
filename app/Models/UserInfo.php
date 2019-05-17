@@ -21,16 +21,22 @@ class UserInfo extends Model
         'last_name',
         'title',
         'major',
-        'units',
         'grad_date',
         'college',
         'bio',
         'research',
         'fun_facts',
-        'academic_interest'
+        'academic_interest',
+        'archive'
     ];
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo('App\Models\User', 'id', 'user_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
     }
 }
