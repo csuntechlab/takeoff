@@ -36,6 +36,10 @@ class AdminController extends BaseController
         return $this->userinfoRetriever->searchUser($usersname);
     }
 
+    public function getUserById($userId){
+        $user = $this->userInfoModelRepo->getUserById($userId);
+    }
+
     public function getAllStudents()
     {
         return $this->userinfoRetriever->getAllStudents();
