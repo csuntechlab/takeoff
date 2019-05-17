@@ -27,6 +27,17 @@ class UserInfoModelRepository implements UserInfoModelRepositoryInterface
         return $user;
     }
 
+    public function getUserById($userId)
+    {
+        $user = UserInfo::where('user_id', $userId)
+            ->get();
+
+        if ($user == '[]'){
+            return "User could not be found or does not exist";
+        }
+        return $user;
+    }
+
     public function getAllStudents()
     {
         $students = UserInfo::all();

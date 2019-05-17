@@ -23,6 +23,10 @@ class UserInfoService implements UserInfoContract
         return $user;
     }
 
+    public function getUserById($userId){
+        $user = $this->userInfoModelRepo->searchUser($userId);
+    }
+
     public function getAllStudents()
     {
         return $this->userInfoModelRepo->getAllStudents();
