@@ -34426,7 +34426,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("span", { staticClass: "col-7" }, [
               _c("span", { staticClass: "roster__name" }, [
-                _vm._v("Workshop Name")
+                _vm._v("Workshop 1")
               ])
             ]),
             _vm._v(" "),

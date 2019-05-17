@@ -7,7 +7,7 @@
                         <img class="roster__image" src="https://via.placeholder.com/100x100">
                     </div>
                     <span class="col-7">
-                        <span class="roster__name">Workshop Name</span>
+                        <span class="roster__name">Workshop 1</span>
                     </span>
                     <div class="justify-content-right col-auto">
                         <i class="fas fa-times py-auto"></i>
