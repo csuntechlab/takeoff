@@ -109,7 +109,7 @@
 							type="submit"
 							class="btn btn-primary"
 							@click.prevent="submitForm"
-						>Complete Registration</button>
+						>Continue</button>
 					</div>
 				</form>
 			</div>
@@ -123,8 +123,6 @@ export default {
 	data() {
 		return {
 			form: {
-				// password: "",
-				// confirmPassword: "",
 				firstName: "",
 				lastName: "",
 				college: "",

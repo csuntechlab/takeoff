@@ -18,7 +18,7 @@ const sendAdminDataAPI = (payload, success, error) => {
 
 const fetchUserInfoAPI = (payload, success, error) => {
     window.axios
-        .get("api/students/id", payload, {
+        .get(`api/students/${payload}`, {
             headers: {
                 Authorization: "Bearer " + window.localStorage.getItem("token")
             }

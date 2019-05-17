@@ -7074,8 +7074,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        // password: "",
-        // confirmPassword: "",
         firstName: "",
         lastName: "",
         college: "",
@@ -7276,7 +7274,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        console.log("Successful submission!");
         this.$store.dispatch("setUserInfo", this.form);
         this.$store.dispatch("createAdminData", this.form);
       } else console.log("Invalid Inputs! Form not submitted.");
@@ -7336,12 +7333,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendInvite: function sendInvite() {
-      var _this = this;
-
       _api_admin_js__WEBPACK_IMPORTED_MODULE_0__["default"].inviteUserAPI(this.form, function (success) {
         console.log('TODO: Invitation sent alert');
       }, function (error) {
-        console.log('Error: Email not sent', _this.form.email);
         console.log(error);
       });
     }
@@ -7643,7 +7637,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        console.log("Sign up successful!");
         this.$store.dispatch("register", this.form);
       } else console.log("Invalid Inputs!");
     }
@@ -32831,7 +32824,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Complete Registration")]
+              [_vm._v("Continue")]
             )
           ])
         ])
@@ -53327,7 +53320,6 @@ var registerAPI = function registerAPI(payload, success, error) {
   window.axios.post("api/auth/register", payload).then(function (response) {
     success(response.data);
   }).catch(function (failure) {
-    console.log('oops');
     error(failure);
   });
 };
@@ -53349,7 +53341,7 @@ var registerAPI = function registerAPI(payload, success, error) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var sendProfileData = function sendProfileData(payload, success, error) {
+var sendProfileDataAPI = function sendProfileDataAPI(payload, success, error) {
   window.axios.post("api/profile/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
@@ -53357,7 +53349,7 @@ var sendProfileData = function sendProfileData(payload, success, error) {
   });
 };
 
-var sendAdminData = function sendAdminData(payload, success, error) {
+var sendAdminDataAPI = function sendAdminDataAPI(payload, success, error) {
   window.axios.post("api/admin/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
@@ -53365,9 +53357,22 @@ var sendAdminData = function sendAdminData(payload, success, error) {
   });
 };
 
+var fetchUserInfoAPI = function fetchUserInfoAPI(payload, success, error) {
+  window.axios.get("api/students/".concat(payload), {
+    headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("token")
+    }
+  }).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  });
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  sendProfileData: sendProfileData,
-  sendAdminData: sendAdminData
+  sendProfileDataAPI: sendProfileDataAPI,
+  sendAdminDataAPI: sendAdminDataAPI,
+  fetchUserInfoAPI: fetchUserInfoAPI
 });
 
 /***/ }),
@@ -55680,6 +55685,7 @@ __webpack_require__.r(__webpack_exports__);
         dispatch = _ref.dispatch;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI(payload, function (success) {
       commit("UPDATE_SESSION", success);
+      dispatch("fetchUserInfo", success.user_id);
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/");
     }, function (error) {
       console.log(payload);
@@ -55723,14 +55729,18 @@ __webpack_require__.r(__webpack_exports__);
   fetchUserInfo: function fetchUserInfo(_ref5, payload) {
     var commit = _ref5.commit,
         dispatch = _ref5.dispatch;
-    //Fetch user info by id and store in state
-    return 0;
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].fetchUserInfoAPI(payload, function (success) {
+      console.log(success);
+      commit("SET_USER_INFO", success[0]);
+    }, function (error) {
+      console.error(error);
+    });
   },
   createProfileData: function createProfileData(_ref6, payload) {
     var commit = _ref6.commit,
         dispatch = _ref6.dispatch;
     payload["userId"] = window.localStorage.getItem("userId");
-    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileData(payload, function (success) {
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileDataAPI(payload, function (success) {
       console.log("TODO: Success notification for data saved");
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard");
     }, function (error) {
@@ -55744,7 +55754,7 @@ __webpack_require__.r(__webpack_exports__);
     var commit = _ref7.commit,
         dispatch = _ref7.dispatch;
     payload["userId"] = window.localStorage.getItem("userId");
-    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendAdminData(payload, function (success) {
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendAdminDataAPI(payload, function (success) {
       console.log("TODO: Success notification for data saved");
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard-admin");
     }, function (error) {
@@ -55820,7 +55830,24 @@ __webpack_require__.r(__webpack_exports__);
     window.localStorage.clear();
   },
   SET_USER_INFO: function SET_USER_INFO(state, payload) {
-    state.user = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.user, payload);
+    console.log(payload);
+
+    if (payload.biography) {
+      state.user = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.user, payload);
+    } else {
+      state.user = {
+        'major': payload.major,
+        'firstName': payload.first_name,
+        'lastName': payload.last_name,
+        'college': payload.college,
+        'funFacts': payload.fun_facts,
+        'research': payload.research,
+        'biography': payload.bio,
+        'role': payload.title.toLowerCase,
+        'expectedGrad': payload.grad_date,
+        'academicInterests': payload.academic_interest.split(',')
+      };
+    }
   }
 });
 
@@ -55973,7 +56000,6 @@ __webpack_require__.r(__webpack_exports__);
             case 0:
               commit = _ref.commit;
               return _context.abrupt("return", _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileData(payload).then(function (response) {
-                console.log(response);
                 commit('post_profile_data', payload); //saving data into the state after api is succesful
               }));
 

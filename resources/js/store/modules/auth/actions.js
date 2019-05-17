@@ -8,6 +8,7 @@ export default {
             payload,
             success => {
                 commit("UPDATE_SESSION", success);
+                dispatch("fetchUserInfo", success.user_id);
                 router.push("/");
             },
             error => {
@@ -62,13 +63,13 @@ export default {
         Profile.fetchUserInfoAPI(
             payload,
             success => {
-                console.log(success)
-                commit("SET_USER_INFO", success.data);
+                console.log(success);
+                commit("SET_USER_INFO", success[0]);
             },
             error => {
-                console.error(error)
+                console.error(error);
             }
-        )
+        );
     },
 
     createProfileData({ commit, dispatch }, payload) {

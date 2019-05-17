@@ -4,7 +4,7 @@ namespace App\Contracts;
 interface UserInfoContract{
 
     public function createStudentUserInfo($validatedData);
-    public function getUserById();
+    public function getUserById($userId);
     public function getAllStudents();
     public function getStudentsByMajor($majorname);
     public function getStudentsByGradDate($graddate);
