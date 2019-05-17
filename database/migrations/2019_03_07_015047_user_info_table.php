@@ -20,13 +20,13 @@ class UserInfoTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('title');
             $table->string('major')->nullable();
-            $table->integer('units')->nullable();
             $table->string('grad_date')->nullable();
             $table->string('college')->nullable();
             $table->string('bio')->nullable();
             $table->string('research')->nullable();
             $table->string('fun_facts')->nullable();
             $table->string('academic_interest')->nullable();
+            $table->boolean('archive');
             $table->timestamps();
         });
     }

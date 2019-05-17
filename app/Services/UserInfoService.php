@@ -6,13 +6,21 @@ use App\Models\UserInfo;
 use App\Contracts\UserInfoContract;
 use Validator;
 
-
 class UserInfoService implements UserInfoContract
 {
     protected $userInfoModelRepo;
 
     public function __construct(UserInfoModelRepositoryInterface $userInfoModelRepo){
         $this->userInfoModelRepo = $userInfoModelRepo;
+    }
+
+    public function searchUser($usersname)
+    {
+        $user = $this->userInfoModelRepo->searchUser($usersname);
+        if ($user == null) {
+            return ['message_error' => 'User could not be found.'];
+        }
+        return $user;
     }
 
     public function getAllStudents()
@@ -35,6 +43,26 @@ class UserInfoService implements UserInfoContract
         return $this->userInfoModelRepo->getStudentsByMajor($majorname);
     }
 
+    public function sortUserFirstNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(1);
+    }
+
+    public function sortUserFirstNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(2);
+    }
+
+    public function sortUserLastNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(1);
+    }
+
+    public function sortUserLastNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(2);
+    }
+
     public function createStudentUserInfo($data)
     {
         return UserInfo::create([
@@ -43,13 +71,13 @@ class UserInfoService implements UserInfoContract
             'first_name'=> $data->first_name,
             'last_name'=> $data->last_name,
             'major' => $data->major,
-            'units' => $data->units,
             'grad_date' => $data->grad_date,
             'college' => $data->college,
             'bio' => $data->bio,
             'research' => $data->research,
             'fun_facts' => $data->fun_facts,
-            'academic_interest' => $data->academic_interest
+            'academic_interest' => $data->academic_interest,
+            'archive' => false
         ]);
     }
 }

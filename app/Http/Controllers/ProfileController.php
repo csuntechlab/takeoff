@@ -47,7 +47,6 @@ class ProfileController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'major'=>'required',
-            'units'=> 'required|integer',
             'grad_date' => 'required',
             'college'=>'required',
         ]);

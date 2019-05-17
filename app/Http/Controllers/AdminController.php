@@ -30,6 +30,12 @@ class AdminController extends BaseController
         return "email has been sent";
     }
 
+    public function searchUser(Request $request)
+    {
+        $usersname = ['name' => $request->name];
+        return $this->userinfoRetriever->searchUser($usersname);
+    }
+
     public function getAllStudents()
     {
         return $this->userinfoRetriever->getAllStudents();
@@ -48,6 +54,26 @@ class AdminController extends BaseController
     public function getStudentsByMajor($majorname)
     {
         return $this->userinfoRetriever->getStudentsByMajor($majorname);
+    }
+
+    public function sortUserFirstNameAscending()
+    {
+        return $this->userinfoRetriever->sortUserFirstNameAscending();
+    }
+
+    public function sortUserFirstNameDescending()
+    {
+        return $this->userinfoRetriever->sortUserFirstNameDescending();
+    }
+
+    public function sortUserLastNameAscending()
+    {
+        return $this->userinfoRetriever->sortUserLastNameAscending();
+    }
+
+    public function sortUserLastNameDescending()
+    {
+        return $this->userinfoRetriever->sortUserLastNameDescending();
     }
 
     public function createAdminUserInfo(Request $request)
