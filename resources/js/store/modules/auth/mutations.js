@@ -28,7 +28,7 @@ export default {
                 'funFacts': payload.fun_facts,
                 'research': payload.research,
                 'biography': payload.bio,
-                'role': payload.title.toLowerCase,
+                'role': payload.title.toLowerCase(),
                 'expectedGrad': payload.grad_date,
                 'academicInterests': payload.academic_interest.split(',')
             }
