@@ -1,4 +1,4 @@
-const sendProfileData = (payload, success, error) => {
+const sendProfileDataAPI = (payload, success, error) => {
     window.axios
         .post("api/profile/store", payload)
         .then(response => success(response.data))
@@ -7,9 +7,22 @@ const sendProfileData = (payload, success, error) => {
         });
 };
 
-const sendAdminData = (payload, success, error) => {
+const sendAdminDataAPI = (payload, success, error) => {
     window.axios
-        .post("api/admin/store",payload)
+        .post("api/admin/store", payload)
+        .then(response => success(response.data))
+        .catch(failure => {
+            error(failure.response.data.message);
+        });
+};
+
+const fetchUserInfoAPI = (payload, success, error) => {
+    window.axios
+        .get("api/students/id", payload, {
+            headers: {
+                Authorization: "Bearer " + window.localStorage.getItem("token")
+            }
+        })
         .then(response => success(response.data))
         .catch(failure => {
             error(failure.response.data.message);
@@ -17,6 +30,7 @@ const sendAdminData = (payload, success, error) => {
 };
 
 export default {
-    sendProfileData,
-    sendAdminData
+    sendProfileDataAPI,
+    sendAdminDataAPI,
+    fetchUserInfoAPI
 };

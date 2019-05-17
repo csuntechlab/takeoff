@@ -59,13 +59,21 @@ export default {
     },
 
     fetchUserInfo({ commit, dispatch }, payload) {
-        //Fetch user info by id and store in state
-        return 0;
+        Profile.fetchUserInfoAPI(
+            payload,
+            success => {
+                console.log(success)
+                commit("SET_USER_INFO", success.data);
+            },
+            error => {
+                console.error(error)
+            }
+        )
     },
 
     createProfileData({ commit, dispatch }, payload) {
         payload["userId"] = window.localStorage.getItem("userId");
-        Profile.sendProfileData(
+        Profile.sendProfileDataAPI(
             payload,
             success => {
                 console.log("TODO: Success notification for data saved");
@@ -80,7 +88,7 @@ export default {
 
     createAdminData({ commit, dispatch }, payload) {
         payload["userId"] = window.localStorage.getItem("userId");
-        Profile.sendAdminData(
+        Profile.sendAdminDataAPI(
             payload,
             success => {
                 console.log("TODO: Success notification for data saved");

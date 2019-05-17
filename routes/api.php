@@ -23,7 +23,7 @@ Route::prefix('students')->group(function () {
 
     Route::get('all', 'AdminController@getAllStudents')->middleware('auth:api');
 
-    Route::get('id/{id}', 'AdminController@getStudentById')->middleware('auth:api');
+    Route::get('id', 'AdminController@getUserById')->middleware('auth:api');
     Route::get('major/{major}', 'AdminController@getStudentsByMajor')->middleware('auth:api');
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate')->middleware('auth:api');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege')->middleware('auth:api');
