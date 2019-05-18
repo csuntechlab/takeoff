@@ -36,7 +36,10 @@ export default {
             this.id,
             success => {
                 this.user = success[0];
-                this.user.interests = this.user.academic_interest.split(',');
+                if(this.user.title != 'Student')
+                    this.$router.push('/error')
+                else
+                    this.user.interests = this.user.academic_interest.split(',');
             },
             error => {
                 console.error(error);

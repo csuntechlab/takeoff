@@ -8491,7 +8491,7 @@ __webpack_require__.r(__webpack_exports__);
 
     _api_Profile__WEBPACK_IMPORTED_MODULE_5__["default"].fetchUserInfoAPI(this.id, function (success) {
       _this.user = success[0];
-      _this.user.interests = _this.user.academic_interest.split(',');
+      if (_this.user.title != 'Student') _this.$router.push('/error');else _this.user.interests = _this.user.academic_interest.split(',');
     }, function (error) {
       console.error(error);
 
