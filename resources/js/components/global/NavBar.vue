@@ -11,8 +11,8 @@
                 <li class="nav-item">
 					<router-link class="nav-link" to="/" :class="[dashboardActive ? 'active' : '']">Dashboard</router-link>
 				</li>
-				<li class="nav-item">
-					<router-link class="nav-link" to="/profile" :class="[profileActive ? 'active' : '']">Profile</router-link>
+				<li v-if="user.role == 'student'" class="nav-item">
+					<router-link class="nav-link" :to="'/profile/' + userId" :class="[profileActive ? 'active' : '']">Profile</router-link>
 				</li>
 				<li class="nav-item" @click="logout">
 					<router-link class="nav-link" to="/login">Logout</router-link>
@@ -24,7 +24,13 @@
 <script>
 import BNavbarToggle from "bootstrap-vue/es/components/navbar/navbar-toggle";
 import BCollapse from "bootstrap-vue/es/components/collapse/collapse";
+import { mapState } from 'vuex';
 export default {
+    data(){
+        return{
+            userId:  window.localStorage.getItem('userId')
+        }
+    },
 	components: {
 		BNavbarToggle,
 		BCollapse
@@ -34,8 +40,10 @@ export default {
             this.$store.dispatch("logout")
         }
     },
-
     computed: {
+        ...mapState({
+            user: state => state.Auth.user
+        }),
         dashboardActive() {
             return this.$route.path == '/dashboard' || this.$route.path == '/dashboard-admin'
         },

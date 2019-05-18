@@ -8,11 +8,12 @@ export default {
             payload,
             success => {
                 commit("UPDATE_SESSION", success);
-                dispatch("fetchUserInfo", success.user_id);
+                if (window.localStorage.getItem("role") != "admin")
+                    dispatch("fetchUserInfo", success.user_id);
+                else dispatch("fetchAdminInfo", success.user_id);
                 router.push("/");
             },
             error => {
-                console.log(payload);
                 console.error(error);
             }
         );
@@ -44,7 +45,6 @@ export default {
                         else router.push("/admin-setup");
                     },
                     error => {
-                        console.log(payload);
                         console.error(error);
                     }
                 );
@@ -63,8 +63,19 @@ export default {
         Profile.fetchUserInfoAPI(
             payload,
             success => {
-                console.log(success);
                 commit("SET_USER_INFO", success[0]);
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    },
+
+    fetchAdminInfo({ commit, dispatch }, payload) {
+        Profile.fetchUserInfoAPI(
+            payload,
+            success => {
+                commit("SET_ADMIN_INFO", success[0]);
             },
             error => {
                 console.error(error);
@@ -81,7 +92,6 @@ export default {
                 router.push("/dashboard");
             },
             error => {
-                console.log({ payload });
                 console.error(error);
             }
         );
@@ -96,7 +106,6 @@ export default {
                 router.push("/dashboard-admin");
             },
             error => {
-                console.log({ payload });
                 console.error(error);
             }
         );

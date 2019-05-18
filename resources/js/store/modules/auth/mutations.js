@@ -12,11 +12,10 @@ export default {
     },
 
     SET_USER_INFO(state, payload) {
-        console.log(payload)
-        if (payload.biography) {
+        if (payload.firstName) {
             state.user = {
                 ...state.user,
-                ...payload
+                ...payload,
             };
         }
         else{
@@ -28,9 +27,26 @@ export default {
                 'funFacts': payload.fun_facts,
                 'research': payload.research,
                 'biography': payload.bio,
-                'role': payload.title.toLowerCase(),
+                'role': 'student',
                 'expectedGrad': payload.grad_date,
                 'academicInterests': payload.academic_interest.split(',')
+            }
+        }
+    },
+
+    SET_ADMIN_INFO(state, payload) {
+        if (payload.firstName) {
+            state.user = {
+                ...state.user,
+                ...payload,
+            };
+        }
+        else{
+            state.user = {
+                'title': payload.title,
+                'firstName': payload.first_name,
+                'lastName': payload.last_name,
+                'role': 'admin'
             }
         }
     }
