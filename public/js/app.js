@@ -8521,11 +8521,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     WorkshopCard: _components_workshop_WorkshopCard__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  } // methods: {
+  //     goToCreate() {
+  // 		this.$router.push("/workshop-creation");
+  // 	}
+  // }
+
 });
 
 /***/ }),
@@ -34809,21 +34818,7 @@ var render = function() {
       _vm._v("Manage Workshops")
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "signup__button text-center pt-3" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { to: "/workshop-creation", type: "submit" }
-          },
-          [_vm._v("Create Workshop")]
-        )
-      ],
-      1
-    ),
+    _c("div", { staticClass: "signup__button text-center pt-3" }),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
