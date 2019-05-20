@@ -17,6 +17,9 @@
 				<li class="nav-item" @click="logout">
 					<router-link class="nav-link" to="/login">Logout</router-link>
 				</li>
+				<li class="nav-item" @click="workshop">
+					<router-link class="nav-link" to="/workshop">Workshop</router-link>
+				</li>
 			</ul>
 		</b-collapse>
 	</nav>
@@ -32,7 +35,10 @@ export default {
     methods: {
         logout() {
             this.$store.dispatch("logout")
-        }
+		},
+		workshop() {
+			this.$store.dispatch("workshop")
+		}
     },
 
     computed: {
