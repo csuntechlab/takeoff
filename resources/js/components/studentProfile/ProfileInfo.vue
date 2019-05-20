@@ -4,19 +4,22 @@
 			<h3 class="profile-info__header">
 				<strong>Biography:</strong>
 			</h3>
-			<p class="profile-info__text">{{profile_data.biography}}</p>	<!-- changed from student.biography -->
+			<p v-if="user.bio !== null" class="profile-info__text">{{user.bio}}</p>
+            <p v-else class="profile-info__text--empty">{{user.first_name}} has not written anything here yet.</p>
 		</div>
 		<div class="col-12">
 			<h3 class="profile-info__header">
 				<strong>Research:</strong>
 			</h3>
-			<p class="profile-info__text">{{profile_data.research}}</p>
+			<p v-if="user.research !== null" class="profile-info__text">{{user.research}}</p>
+            <p v-else class="profile-info__text--empty">{{user.first_name}} has not written anything here yet.</p>
 		</div>
 		<div class="col-12">
 			<h3 class="profile-info__header">
 				<strong>Fun Facts About Me:</strong>
 			</h3>
-			<p class="profile-info__text">{{profile_data.facts}}</p>
+			<p v-if="user.fun_facts !== null" class="profile-info__text">{{user.fun_facts}}</p>
+            <p v-else class="profile-info__text--empty">{{user.first_name}} has not written anything here yet.</p>
 		</div>
 	</div>
 </template>
@@ -24,21 +27,6 @@
 import { mapGetters} from 'vuex';
 
 export default {
-	data() {
-		return {
-			student: {
-				biography:
-					"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris erat, aliquam in eleifend in, tempus sit amet urna. Curabitur ultricies bibendum diam sed tincidunt. Nullam quis condimentum velit. Nulla sed felis ac mi vehicula eleifend. Sed eget erat bibendum, consequat diam ut, mollis tortor.",
-				research:
-					"Nulla venenatis dapibus vulputate. Duis nisi dui, hendrerit et enim eget, gravida accumsan ex. Phasellus tincidunt enim metus, in consequat diam molestie convallis. Aenean eu urna vitae arcu malesuada vehicula. Vivamus dignissim orci lacus, ultricies tincidunt quam ullamcorper non.",
-				facts: "I love to read!"
-			}
-		};
-	},
-	computed: {		//added for posting profile routes and updating this page
-		...mapGetters ([
-			'profile_data'
-		])
-	},
+	props: ['user'],
 };
 </script>

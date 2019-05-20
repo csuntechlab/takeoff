@@ -11196,8 +11196,14 @@ textarea {
   font-size: 0.95rem;
 }
 
-.profile-info__text {
+.profile-info__text,
+.profile-info__text--empty {
   font-size: 0.88rem;
+}
+
+.profile-info__text--empty {
+  color: gray;
+  font-style: italic;
 }
 
 @media (min-width: 576px) {
@@ -11205,7 +11211,8 @@ textarea {
     font-size: 1rem;
   }
 
-  .profile-info__text {
+  .profile-info__text,
+  .profile-info__text--empty {
     font-size: 0.9rem;
   }
 }
@@ -11215,7 +11222,8 @@ textarea {
     font-size: 1.1rem;
   }
 
-  .profile-info__text {
+  .profile-info__text,
+  .profile-info__text--empty {
     font-size: 0.95rem;
   }
 }
@@ -11225,7 +11233,8 @@ textarea {
     font-size: 1.2rem;
   }
 
-  .profile-info__text {
+  .profile-info__text,
+  .profile-info__text--empty {
     font-size: 1rem;
   }
 }

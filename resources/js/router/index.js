@@ -69,8 +69,9 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/profile/",
+            path: "/profile/:id",
             component: StudentProfile,
+            props:true,
             meta: {
                 title: "Profile | Takeoff",
                 header: "Edgar's Profile"

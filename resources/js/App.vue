@@ -12,7 +12,15 @@ export default {
 	components: {
 		LoginNavBar,
 		NavBar
-	},
+    },
+    mounted() {
+        if(window.localStorage.getItem('token') !== null){
+            if(window.localStorage.getItem('role') == 'admin')
+                this.$store.dispatch('fetchAdminInfo', window.localStorage.getItem('userId'))
+            else
+                this.$store.dispatch('fetchUserInfo', window.localStorage.getItem('userId'))
+        }
+    },
 	computed: {
 		loggingIn() {
 			return (

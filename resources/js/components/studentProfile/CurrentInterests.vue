@@ -13,6 +13,6 @@
 <script>
 import Choices from "choices.js";
 export default {
-	props: ["interests"],
+    props: ["interests"]
 };
 </script>

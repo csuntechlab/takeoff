@@ -6930,6 +6930,11 @@ __webpack_require__.r(__webpack_exports__);
     LoginNavBar: _components_authentication_LoginNavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     NavBar: _components_global_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  mounted: function mounted() {
+    if (window.localStorage.getItem('token') !== null) {
+      if (window.localStorage.getItem('role') == 'admin') this.$store.dispatch('fetchAdminInfo', window.localStorage.getItem('userId'));else this.$store.dispatch('fetchUserInfo', window.localStorage.getItem('userId'));
+    }
+  },
   computed: {
     loggingIn: function loggingIn() {
       return this.$route.path == "/signup" || this.$route.path == "/login" || this.$route.path == "/profile-setup" || this.$route.path == "/account-setup" || this.$route.path == "/admin-setup";
@@ -7049,33 +7054,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
-        // password: "",
-        // confirmPassword: "",
         firstName: "",
         lastName: "",
         college: "",
@@ -7708,10 +7691,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/es/components/navbar/navbar-toggle */ "./node_modules/bootstrap-vue/es/components/navbar/navbar-toggle.js");
-/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/collapse/collapse */ "./node_modules/bootstrap-vue/es/components/collapse/collapse.js");
-/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue/es/components/navbar/navbar-toggle */ "./node_modules/bootstrap-vue/es/components/navbar/navbar-toggle.js");
+/* harmony import */ var bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue/es/components/collapse/collapse */ "./node_modules/bootstrap-vue/es/components/collapse/collapse.js");
+/* harmony import */ var bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
 //
 //
 //
@@ -7738,12 +7725,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: window.localStorage.getItem('userId')
+    };
+  },
   components: {
-    BNavbarToggle: bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_0___default.a,
-    BCollapse: bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_1___default.a
+    BNavbarToggle: bootstrap_vue_es_components_navbar_navbar_toggle__WEBPACK_IMPORTED_MODULE_1___default.a,
+    BCollapse: bootstrap_vue_es_components_collapse_collapse__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   methods: {
     logout: function logout() {
@@ -7753,14 +7746,18 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.dispatch("workshop");
     }
   },
-  computed: {
+  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
+    user: function user(state) {
+      return state.Auth.user;
+    }
+  }), {
     dashboardActive: function dashboardActive() {
       return this.$route.path == '/dashboard' || this.$route.path == '/dashboard-admin';
     },
     profileActive: function profileActive() {
       return this.$route.path == '/profile';
     }
-  }
+  })
 });
 
 /***/ }),
@@ -7896,6 +7893,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 var interests;
@@ -7908,6 +7909,7 @@ var interests;
   },
   data: function data() {
     return {
+      url: null,
       form: {
         image: "",
         biography: "",
@@ -7918,25 +7920,15 @@ var interests;
     };
   },
   mounted: function mounted() {
-    if (this.setupMode) {
-      interests = new choices_js__WEBPACK_IMPORTED_MODULE_2___default.a(document.querySelector("#academicInterests"), {
-        delimiter: ",",
-        removeItemButton: true,
-        duplicateItemsAllowed: false,
-        editItems: true
-      });
-    } else {
-      interests = new choices_js__WEBPACK_IMPORTED_MODULE_2___default.a(document.querySelector("#academicInterests"), {
-        delimiter: ",",
-        items: this.user.interests,
-        removeItemButton: true,
-        duplicateItemsAllowed: false,
-        editItems: true
-      });
+    if (this.currentUser.biography != undefined) this.presetData();
+  },
+  watch: {
+    currentUser: function currentUser() {
+      this.presetData();
     }
   },
   computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
-    user: function user(state) {
+    currentUser: function currentUser(state) {
       return state.Auth.user;
     }
   })),
@@ -7948,9 +7940,36 @@ var interests;
         this.$store.dispatch("setUserInfo", this.form);
         this.$store.dispatch("createProfileData", this.user);
       } else {
-        this.$store.dispatch("setUserInfo", this.form); //edit profile info api goes here
+        this.$store.dispatch("setUserInfo", this.form); //edit profile info api goes here when finished
+      }
+    },
+    presetData: function presetData() {
+      if (this.setupMode) {
+        interests = new choices_js__WEBPACK_IMPORTED_MODULE_2___default.a(document.querySelector("#academicInterests"), {
+          delimiter: ",",
+          removeItemButton: true,
+          duplicateItemsAllowed: false,
+          editItems: true
+        });
+      } else {
+        this.form = {
+          image: this.currentUser.image,
+          biography: this.currentUser.biography,
+          research: this.currentUser.research,
+          funFacts: this.currentUser.funFacts
+        };
+        interests = new choices_js__WEBPACK_IMPORTED_MODULE_2___default.a(document.querySelector("#academicInterests"), {
+          delimiter: ",",
+          items: this.currentUser.academicInterests,
+          removeItemButton: true,
+          duplicateItemsAllowed: false,
+          editItems: true
+        });
       }
     }
+  },
+  created: function created() {
+    this.url = window.baseUrl;
   }
 });
 
@@ -7965,10 +7984,10 @@ var interests;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
 //
 //
 //
@@ -7993,16 +8012,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      student: {
-        biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris erat, aliquam in eleifend in, tempus sit amet urna. Curabitur ultricies bibendum diam sed tincidunt. Nullam quis condimentum velit. Nulla sed felis ac mi vehicula eleifend. Sed eget erat bibendum, consequat diam ut, mollis tortor.",
-        research: "Nulla venenatis dapibus vulputate. Duis nisi dui, hendrerit et enim eget, gravida accumsan ex. Phasellus tincidunt enim metus, in consequat diam molestie convallis. Aenean eu urna vitae arcu malesuada vehicula. Vivamus dignissim orci lacus, ultricies tincidunt quam ullamcorper non.",
-        facts: "I love to read!"
-      }
-    };
-  },
-  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['profile_data']))
+  props: ['user']
 });
 
 /***/ }),
@@ -8023,16 +8033,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      name: "Edgar Cano",
-      major: "Computer Engineering",
-      units: 75,
-      grad: "Spring 2022"
-    };
-  }
+  props: ['user']
 });
 
 /***/ }),
@@ -8078,6 +8080,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     editable: {
       default: false
+    },
+    user: {
+      default: null
     }
   },
   computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])([])),
@@ -8221,8 +8226,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/studentProfile/StudentPhoto */ "./resources/js/components/studentProfile/StudentPhoto.vue");
-/* harmony import */ var _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/studentProfile/BadgesEarned */ "./resources/js/components/studentProfile/BadgesEarned.vue");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/studentProfile/StudentPhoto */ "./resources/js/components/studentProfile/StudentPhoto.vue");
+/* harmony import */ var _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/studentProfile/BadgesEarned */ "./resources/js/components/studentProfile/BadgesEarned.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
 //
 //
 //
@@ -8244,20 +8253,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      student: {
-        name: "Edgar Cano",
-        email: "edgar.cano.111@my.csun.edu"
-      }
+      userId: window.localStorage.getItem('userId')
     };
   },
+  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
+    user: function user(state) {
+      return state.Auth.user;
+    }
+  })),
   components: {
-    StudentPhoto: _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_0__["default"],
-    BadgesEarned: _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_1__["default"]
+    StudentPhoto: _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BadgesEarned: _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -8272,6 +8284,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
 //
 //
 //
@@ -8280,16 +8296,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      admin: {
-        name: "Bradley Booper",
-        title: "Administrator"
-      }
-    };
-  },
-  components: {}
+  computed: _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    user: function user(state) {
+      return state.Auth.user;
+    }
+  }))
 });
 
 /***/ }),
@@ -8497,6 +8510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_studentProfile_BadgesEarned__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/studentProfile/BadgesEarned */ "./resources/js/components/studentProfile/BadgesEarned.vue");
 /* harmony import */ var _components_studentProfile_ProfileInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/studentProfile/ProfileInfo */ "./resources/js/components/studentProfile/ProfileInfo.vue");
 /* harmony import */ var _components_studentProfile_CurrentInterests__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/studentProfile/CurrentInterests */ "./resources/js/components/studentProfile/CurrentInterests.vue");
+/* harmony import */ var _api_Profile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../api/Profile */ "./resources/js/api/Profile.js");
 //
 //
 //
@@ -8514,18 +8528,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id'],
   data: function data() {
     return {
-      student: {
-        interests: ["Apple", "Bapple", "Citrus", "Durian", "Elephant", "Fruit"]
-      }
+      user: null
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    _api_Profile__WEBPACK_IMPORTED_MODULE_5__["default"].fetchUserInfoAPI(this.id, function (success) {
+      _this.user = success[0];
+      if (_this.user.title != 'Student') _this.$router.push('/error');else _this.user.interests = _this.user.academic_interest.split(',');
+    }, function (error) {
+      console.error(error);
+
+      _this.$router.push('/error');
+    });
+  },
+  computed: {
+    isUserProfile: function isUserProfile() {
+      return this.id == window.localStorage.getItem('userId');
+    }
   },
   components: {
     StudentPhoto: _components_studentProfile_StudentPhoto__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -33008,7 +33041,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Complete Registration")]
+              [_vm._v("Continue")]
             )
           ])
         ])
@@ -33943,22 +33976,24 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-link",
-                  class: [_vm.profileActive ? "active" : ""],
-                  attrs: { to: "/profile" }
-                },
-                [_vm._v("Profile")]
+          _vm.user.role == "student"
+            ? _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      class: [_vm.profileActive ? "active" : ""],
+                      attrs: { to: "/profile/" + _vm.userId }
+                    },
+                    [_vm._v("Profile")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "li",
@@ -34118,7 +34153,7 @@ var render = function() {
         _c("div", [
           _c("img", {
             staticClass: "profile-thumbnail mb-4 mt-2 mx-auto d-block",
-            attrs: { src: _vm.user.image, alt: "" }
+            attrs: { src: _vm.url + "/images/default-avatar.png", alt: "" }
           })
         ]),
         _vm._v(" "),
@@ -34310,25 +34345,46 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("p", { staticClass: "profile-info__text" }, [
-        _vm._v(_vm._s(_vm.profile_data.biography))
-      ])
+      _vm.user.bio !== null
+        ? _c("p", { staticClass: "profile-info__text" }, [
+            _vm._v(_vm._s(_vm.user.bio))
+          ])
+        : _c("p", { staticClass: "profile-info__text--empty" }, [
+            _vm._v(
+              _vm._s(_vm.user.first_name) +
+                " has not written anything here yet."
+            )
+          ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-12" }, [
       _vm._m(1),
       _vm._v(" "),
-      _c("p", { staticClass: "profile-info__text" }, [
-        _vm._v(_vm._s(_vm.profile_data.research))
-      ])
+      _vm.user.research !== null
+        ? _c("p", { staticClass: "profile-info__text" }, [
+            _vm._v(_vm._s(_vm.user.research))
+          ])
+        : _c("p", { staticClass: "profile-info__text--empty" }, [
+            _vm._v(
+              _vm._s(_vm.user.first_name) +
+                " has not written anything here yet."
+            )
+          ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-12" }, [
       _vm._m(2),
       _vm._v(" "),
-      _c("p", { staticClass: "profile-info__text" }, [
-        _vm._v(_vm._s(_vm.profile_data.facts))
-      ])
+      _vm.user.fun_facts !== null
+        ? _c("p", { staticClass: "profile-info__text" }, [
+            _vm._v(_vm._s(_vm.user.fun_facts))
+          ])
+        : _c("p", { staticClass: "profile-info__text--empty" }, [
+            _vm._v(
+              _vm._s(_vm.user.first_name) +
+                " has not written anything here yet."
+            )
+          ])
     ])
   ])
 }
@@ -34381,22 +34437,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "text-left" }, [
     _c("h1", { staticClass: "profile-photo__name" }, [
-      _c("strong", [_vm._v(_vm._s(_vm.name))])
+      _c("strong", [
+        _vm._v(_vm._s(_vm.user.first_name) + " " + _vm._s(_vm.user.last_name))
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "profile-photo__text" }, [
       _c("strong", [_vm._v("Major: ")]),
-      _vm._v(_vm._s(_vm.major))
+      _vm._v(_vm._s(_vm.user.major))
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "profile-photo__text" }, [
       _c("strong", [_vm._v("Graduation: ")]),
-      _vm._v(_vm._s(_vm.grad))
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "profile-photo__text" }, [
-      _c("strong", [_vm._v("Units Earned: ")]),
-      _vm._v(_vm._s(_vm.units))
+      _vm._v(_vm._s(_vm.user.grad_date))
     ])
   ])
 }
@@ -34427,7 +34480,7 @@ var render = function() {
       _c("div", { staticClass: "text-center float-right" }, [
         _c("img", {
           staticClass: "profile-photo__image",
-          attrs: { src: this.url + "/images/default-avatar.png" }
+          attrs: { src: _vm.url + "/images/default-avatar.png" }
         }),
         _vm._v(" "),
         _vm.editable
@@ -34654,12 +34707,19 @@ var render = function() {
         { staticClass: "col-6 text-left align-self-center" },
         [
           _c("h1", { staticClass: "profile-photo__name" }, [
-            _c("strong", [_vm._v(_vm._s(_vm.student.name))])
+            _c("strong", [
+              _vm._v(
+                _vm._s(_vm.user.firstName) + " " + _vm._s(_vm.user.lastName)
+              )
+            ])
           ]),
           _vm._v(" "),
           _c(
             "router-link",
-            { staticClass: "profile-photo__text", attrs: { to: "/profile" } },
+            {
+              staticClass: "profile-photo__text",
+              attrs: { to: "/profile/" + _vm.userId }
+            },
             [_vm._v("View Profile")]
           )
         ],
@@ -34700,10 +34760,10 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "text-primary px-3" }, [
       _c("h2", { staticClass: "pt-4 font-weight-bold" }, [
-        _vm._v(_vm._s(_vm.admin.name))
+        _vm._v(_vm._s(_vm.user.firstName) + " " + _vm._s(_vm.user.lastName))
       ]),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.admin.title))])
+      _c("span", [_vm._v(_vm._s(_vm.user.title))])
     ])
   ])
 }
@@ -34941,39 +35001,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-6 align-self-center" },
-        [_c("StudentPhoto", { attrs: { editable: true } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-6 align-self-center" },
-        [_c("StudentInfo")],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row justify-content-center" },
-      [
-        _c("BadgesEarned", { staticClass: "col-11 col-sm-12 col-lg-10" }),
+  return _vm.user === null
+    ? _c("div", { staticClass: "container" })
+    : _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-6 align-self-center" },
+            [
+              _vm.isUserProfile
+                ? _c("StudentPhoto", {
+                    attrs: { editable: true, user: _vm.user }
+                  })
+                : _c("StudentPhoto", { attrs: { user: _vm.user } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-6 align-self-center" },
+            [_c("StudentInfo", { attrs: { user: _vm.user } })],
+            1
+          )
+        ]),
         _vm._v(" "),
-        _c("ProfileInfo", { staticClass: "col-11 col-sm-12 col-lg-10" }),
-        _vm._v(" "),
-        _c("CurrentInterests", {
-          staticClass: "col-11 col-sm-12 col-lg-10",
-          attrs: { interests: _vm.student.interests }
-        })
-      ],
-      1
-    )
-  ])
+        _c(
+          "div",
+          { staticClass: "row justify-content-center" },
+          [
+            _c("BadgesEarned", {
+              staticClass: "col-11 col-sm-12 col-lg-10",
+              attrs: { user: _vm.user }
+            }),
+            _vm._v(" "),
+            _c("ProfileInfo", {
+              staticClass: "col-11 col-sm-12 col-lg-10",
+              attrs: { user: _vm.user }
+            }),
+            _vm._v(" "),
+            _c("CurrentInterests", {
+              staticClass: "col-11 col-sm-12 col-lg-10",
+              attrs: { interests: _vm.user.interests }
+            })
+          ],
+          1
+        )
+      ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53773,7 +53847,7 @@ var registerAPI = function registerAPI(payload, success, error) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var sendProfileData = function sendProfileData(payload, success, error) {
+var sendProfileDataAPI = function sendProfileDataAPI(payload, success, error) {
   window.axios.post("api/profile/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
@@ -53781,7 +53855,7 @@ var sendProfileData = function sendProfileData(payload, success, error) {
   });
 };
 
-var sendAdminData = function sendAdminData(payload, success, error) {
+var sendAdminDataAPI = function sendAdminDataAPI(payload, success, error) {
   window.axios.post("api/admin/store", payload).then(function (response) {
     return success(response.data);
   }).catch(function (failure) {
@@ -53789,9 +53863,22 @@ var sendAdminData = function sendAdminData(payload, success, error) {
   });
 };
 
+var fetchUserInfoAPI = function fetchUserInfoAPI(payload, success, error) {
+  window.axios.get("api/students/".concat(payload), {
+    headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("token")
+    }
+  }).then(function (response) {
+    return success(response.data);
+  }).catch(function (failure) {
+    error(failure.response.data.message);
+  });
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  sendProfileData: sendProfileData,
-  sendAdminData: sendAdminData
+  sendProfileDataAPI: sendProfileDataAPI,
+  sendAdminDataAPI: sendAdminDataAPI,
+  fetchUserInfoAPI: fetchUserInfoAPI
 });
 
 /***/ }),
@@ -55117,7 +55204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_WorkshopCreation__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/WorkshopCreation */ "./resources/js/router/views/WorkshopCreation/index.vue");
 
 
-var _ref;
+var _ref2;
 
 
 
@@ -55176,15 +55263,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
       title: "Account Setup | Badges",
       header: "Account Information"
     }
-  }, {
-    path: "/profile/",
+  }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({
+    path: "/profile/:id",
     component: _views_StudentProfile__WEBPACK_IMPORTED_MODULE_9__["default"],
+    props: true,
     meta: {
       title: "Profile | Takeoff",
       header: "Edgar's Profile"
-    },
-    props: true
-  }, {
+    }
+  }, "props", true), {
     path: "/edit-profile",
     component: _views_EditProfile__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
@@ -55230,13 +55317,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
       title: "Workshop View| Takeoff",
       header: "Workshop View"
     }
-  }, (_ref = {
+  }, (_ref2 = {
     path: "/dashboard"
-  }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "path", "/dashboard-admin"), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "component", _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_13__["default"]), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "meta", {
+  }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, "path", "/dashboard-admin"), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, "component", _views_DashboardAdmin__WEBPACK_IMPORTED_MODULE_13__["default"]), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, "meta", {
     title: "Dashboard | Takeoff",
     header: "Dashboard",
     adminOnly: true
-  }), _ref), {
+  }), _ref2), {
     path: "/workshop",
     component: _views_Workshop__WEBPACK_IMPORTED_MODULE_14__["default"],
     meta: {
@@ -56408,9 +56495,9 @@ __webpack_require__.r(__webpack_exports__);
         dispatch = _ref.dispatch;
     _api_Auth__WEBPACK_IMPORTED_MODULE_0__["default"].loginAPI(payload, function (success) {
       commit("UPDATE_SESSION", success);
+      if (window.localStorage.getItem("role") != "admin") dispatch("fetchUserInfo", success.user_id);else dispatch("fetchAdminInfo", success.user_id);
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/");
     }, function (error) {
-      console.log(payload);
       console.error(error);
     });
   },
@@ -56436,7 +56523,6 @@ __webpack_require__.r(__webpack_exports__);
         commit("UPDATE_SESSION", success);
         if (success.role !== "admin") _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/account-setup");else _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/admin-setup");
       }, function (error) {
-        console.log(payload);
         console.error(error);
       });
     }, function (error) {
@@ -56451,34 +56537,40 @@ __webpack_require__.r(__webpack_exports__);
   fetchUserInfo: function fetchUserInfo(_ref5, payload) {
     var commit = _ref5.commit,
         dispatch = _ref5.dispatch;
-    //Fetch user info by id and store in state
-    return 0;
-  },
-  createProfileData: function createProfileData(_ref6, payload) {
-    var commit = _ref6.commit,
-        dispatch = _ref6.dispatch;
-    payload["userId"] = window.localStorage.getItem("userId");
-    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileData(payload, function (success) {
-      console.log("TODO: Success notification for data saved");
-      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard");
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].fetchUserInfoAPI(payload, function (success) {
+      commit("SET_USER_INFO", success[0]);
     }, function (error) {
-      console.log({
-        payload: payload
-      });
       console.error(error);
     });
   },
-  createAdminData: function createAdminData(_ref7, payload) {
+  fetchAdminInfo: function fetchAdminInfo(_ref6, payload) {
+    var commit = _ref6.commit,
+        dispatch = _ref6.dispatch;
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].fetchUserInfoAPI(payload, function (success) {
+      commit("SET_ADMIN_INFO", success[0]);
+    }, function (error) {
+      console.error(error);
+    });
+  },
+  createProfileData: function createProfileData(_ref7, payload) {
     var commit = _ref7.commit,
         dispatch = _ref7.dispatch;
     payload["userId"] = window.localStorage.getItem("userId");
-    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendAdminData(payload, function (success) {
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendProfileDataAPI(payload, function (success) {
+      console.log("TODO: Success notification for data saved");
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard");
+    }, function (error) {
+      console.error(error);
+    });
+  },
+  createAdminData: function createAdminData(_ref8, payload) {
+    var commit = _ref8.commit,
+        dispatch = _ref8.dispatch;
+    payload["userId"] = window.localStorage.getItem("userId");
+    _api_Profile__WEBPACK_IMPORTED_MODULE_2__["default"].sendAdminDataAPI(payload, function (success) {
       console.log("TODO: Success notification for data saved");
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push("/dashboard-admin");
     }, function (error) {
-      console.log({
-        payload: payload
-      });
       console.error(error);
     });
   }
@@ -56548,7 +56640,34 @@ __webpack_require__.r(__webpack_exports__);
     window.localStorage.clear();
   },
   SET_USER_INFO: function SET_USER_INFO(state, payload) {
-    state.user = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.user, payload);
+    if (payload.firstName) {
+      state.user = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.user, payload);
+    } else {
+      state.user = {
+        'major': payload.major,
+        'firstName': payload.first_name,
+        'lastName': payload.last_name,
+        'college': payload.college,
+        'funFacts': payload.fun_facts,
+        'research': payload.research,
+        'biography': payload.bio,
+        'role': 'student',
+        'expectedGrad': payload.grad_date,
+        'academicInterests': payload.academic_interest.split(',')
+      };
+    }
+  },
+  SET_ADMIN_INFO: function SET_ADMIN_INFO(state, payload) {
+    if (payload.firstName) {
+      state.user = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.user, payload);
+    } else {
+      state.user = {
+        'title': payload.title,
+        'firstName': payload.first_name,
+        'lastName': payload.last_name,
+        'role': 'admin'
+      };
+    }
   }
 });
 
