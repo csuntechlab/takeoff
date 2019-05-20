@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 
 
 
-Route::post('profile/store', 'ProfileController@createStudentUserInfo')->middleware('auth:api');
-Route::post('admin/store', 'AdminController@createAdminUserInfo')->middleware('auth:api', 'checkAdmin');
+Route::post('profile/store', 'ProfileController@createStudentUserInfo');
+Route::post('admin/store', 'AdminController@createAdminUserInfo');
 /* Endpoints that deal with student retrieval and management. */
 Route::prefix('students')->group(function () {
 
@@ -58,7 +58,7 @@ Route::prefix('auth')->group(function () {
     /**
      * FORM BODY:
      * email: string
-     * password: string
+     * accessCode: string
      */
     Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout');

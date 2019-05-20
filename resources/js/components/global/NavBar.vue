@@ -9,12 +9,12 @@
 		<b-collapse is-nav id="nav_collapse">
 			<ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-					<router-link class="nav-link" to="/">Dashboard</router-link>
+					<router-link class="nav-link" to="/" :class="[dashboardActive ? 'active' : '']">Dashboard</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link class="nav-link" to="/profile">My Profile</router-link>
+					<router-link class="nav-link" to="/profile" :class="[profileActive ? 'active' : '']">Profile</router-link>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" @click="logout">
 					<router-link class="nav-link" to="/login">Logout</router-link>
 				</li>
 			</ul>
@@ -28,7 +28,21 @@ export default {
 	components: {
 		BNavbarToggle,
 		BCollapse
-	}
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch("logout")
+        }
+    },
+
+    computed: {
+        dashboardActive() {
+            return this.$route.path == '/dashboard' || this.$route.path == '/dashboard-admin'
+        },
+        profileActive() {
+            return this.$route.path == '/profile'
+        }
+    }
 };
 </script>
 
