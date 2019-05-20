@@ -7735,6 +7735,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7745,6 +7748,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     logout: function logout() {
       this.$store.dispatch("logout");
+    },
+    workshop: function workshop() {
+      this.$store.dispatch("workshop");
     }
   },
   computed: {
@@ -33864,6 +33870,19 @@ var render = function() {
                 "router-link",
                 { staticClass: "nav-link", attrs: { to: "/login" } },
                 [_vm._v("Logout")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item", on: { click: _vm.workshop } },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/workshop" } },
+                [_vm._v("Workshop")]
               )
             ],
             1
