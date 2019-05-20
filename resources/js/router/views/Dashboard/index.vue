@@ -8,7 +8,7 @@
 				<h1 class="profile-photo__name">
 					<strong>{{user.firstName}} {{user.lastName}}</strong>
 				</h1>
-				<router-link :to="'/profile' + userId" class="profile-photo__text">View Profile</router-link>
+				<router-link :to="'/profile/' + userId" class="profile-photo__text">View Profile</router-link>
 			</div>
 		</div>
 		<div class="row justify-content-center">

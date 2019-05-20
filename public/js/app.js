@@ -34402,7 +34402,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "profile-photo__text",
-              attrs: { to: "/profile" + _vm.userId }
+              attrs: { to: "/profile/" + _vm.userId }
             },
             [_vm._v("View Profile")]
           )
