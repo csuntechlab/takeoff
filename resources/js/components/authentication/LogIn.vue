@@ -14,8 +14,9 @@
                     <div class="login__button text-center pt-4">
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
+
                     <div class="login__button text-center pt-3">
-                        <router-link to="/signup" type="button" class="btn btn-outline-primary">Sign Up</router-link>
+                        <button type="button" class="btn btn-outline-primary" @click="goToSignup">Sign Up</button>
                     </div>
                 </form>
             </div>
@@ -23,7 +24,6 @@
 </template>
 
 <script>
-import auth from './../../api/Auth.js'
 import { mapActions } from "vuex";
 
 export default {
@@ -37,20 +37,10 @@ export default {
         };
     },
     methods: {
-        ...mapActions([
-            "login"
-        ]),
+        goToSignup(){
+            this.$router.push('signup')
+        },
         login(){
-            // auth.loginAPI (
-            //     this.form,
-            //     success => {
-            //         console.log('logged in', success)
-            //     },
-            //     error => {
-            //         console.log('Error: Email not sent', this.form.email)
-            //         console.log(error)
-            //     }
-            // )
             this.$store.dispatch("login", this.form);
         }
     }

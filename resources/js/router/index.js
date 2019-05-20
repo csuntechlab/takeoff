@@ -1,29 +1,54 @@
-import Vue from "vue"
-import VueRouter from "vue-router"
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "../store";
 
-//Pages
+// Auth & User Setup
 import Login from "./views/Login"
 import Signup from "./views/SignUp"
 import AccountSetup from "./views/AccountSetup"
 import ProfileSetup from "./views/ProfileSetup"
 import AdminSetup from "./views/AdminSetup"
+
+// Profiles
 import StudentProfile from "./views/StudentProfile"
 import EditProfile from "./views/EditProfile"
-import Dashboard from "./views/Dashboard"
 import Roster from "./views/Roster"
+
+// Dashboard
+import Dashboard from "./views/Dashboard"
 import DashboardAdmin from "./views/DashboardAdmin"
+
+// Workshops
+import Workshop from "./views/Workshop"
+
+// Misc
 import ErrorPage from "./views/ErrorPage"
+import WorkshopView from "./views/WorkshopView"
+import WorkshopCreation from "./views/WorkshopCreation"
+
 
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: "history",
     routes: [
         {
+            path: "/",
+            redirect: { path: "/dashboard" }
+        },
+        {
             path: "/login",
             component: Login,
             meta: {
                 title: "Login | Takeoff",
-                header: "Takeoff"
+                header: "Takeoff",
+                noAuth: true
+            },
+
+            //Breaks when logging out
+            beforeEnter: (to, from, next) => {
+                if (window.localStorage.getItem("token") !== null)
+                    next("/dashboard");
+                else next();
             }
         },
         {
@@ -31,7 +56,8 @@ const router = new VueRouter({
             component: Signup,
             meta: {
                 title: "Sign Up | Takeoff",
-                header: "Takeoff"
+                header: "Takeoff",
+                noAuth: true
             }
         },
         {
@@ -43,12 +69,14 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/profile",
+            path: "/profile/:id",
             component: StudentProfile,
+            props:true,
             meta: {
                 title: "Profile | Takeoff",
                 header: "Edgar's Profile"
-            }
+            },
+            props: true
         },
         {
             path: "/edit-profile",
@@ -67,11 +95,16 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/",
+            path: "/dashboard",
             component: Dashboard,
             meta: {
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
+            },
+            beforeEnter: (to, from, next) => {
+                if (window.localStorage.getItem("role") == 'admin')
+                    next("/dashboard-admin");
+                else next();
             }
         },
         {
@@ -79,7 +112,8 @@ const router = new VueRouter({
             component: AdminSetup,
             meta: {
                 title: "Admin Setup | Takeoff",
-                header: "Administrator Information"
+                header: "Administrator Information",
+                adminOnly: true
             }
         },
         {
@@ -91,22 +125,59 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/workshopview",
+            component: WorkshopView,
+            meta: {
+                title: "Workshop View| Takeoff",
+                header: "Workshop View"
+            }
+        },
+        {
             path: "/dashboard",
+            path: "/dashboard-admin",
             component: DashboardAdmin,
             meta: {
                 title: "Dashboard | Takeoff",
-                header: "Dashboard"
+                header: "Dashboard",
+                adminOnly: true
+            }
+        },
+        {
+            path: "/workshop",
+            component: Workshop,
+            meta: {
+                title: "Workshop | Takeoff",
+                header: "Workshop"
+            },
+            props: true
+        },
+        {
+            path: "/workshop-creation",
+            component: WorkshopCreation,
+            meta: {
+                title: "Workshop | Takeoff",
+                header: "Workshop"
             }
         },
         {
             path: "*",
             component: ErrorPage,
             meta: {
-                title: 'Whoops!',
-                header: 'Page Not Found'
+                title: "Whoops!",
+                header: "Page Not Found"
             }
         }
     ]
+});
+
+router.beforeEach((to, from, next) => {
+    if (window.localStorage.getItem("token") === null && !to.meta.noAuth) {
+        next("/login");
+    }
+    if (window.localStorage.getItem("role") !== "admin" && to.meta.adminOnly) {
+        next("/dashboard");
+    }
+    next();
 });
 
 export default router;

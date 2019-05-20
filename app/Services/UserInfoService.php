@@ -6,7 +6,6 @@ use App\Models\UserInfo;
 use App\Contracts\UserInfoContract;
 use Validator;
 
-
 class UserInfoService implements UserInfoContract
 {
     protected $userInfoModelRepo;
@@ -22,6 +21,11 @@ class UserInfoService implements UserInfoContract
             return ['message_error' => 'User could not be found.'];
         }
         return $user;
+    }
+
+    public function getUserById($userId)
+    {
+        return $this->userInfoModelRepo->getUserById($userId);
     }
 
     public function getAllStudents()
@@ -44,20 +48,40 @@ class UserInfoService implements UserInfoContract
         return $this->userInfoModelRepo->getStudentsByMajor($majorname);
     }
 
+    public function sortUserFirstNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(1);
+    }
+
+    public function sortUserFirstNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyFirstName(2);
+    }
+
+    public function sortUserLastNameAscending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(1);
+    }
+
+    public function sortUserLastNameDescending()
+    {
+        return $this->userInfoModelRepo->sortUsersbyLastName(2);
+    }
+
     public function createStudentUserInfo($data)
     {
         return UserInfo::create([
-            'user_id' =>  $data->user_id,
+            'user_id' =>  $data->userId,
             'title' =>  "student",
-            'first_name'=> $data->first_name,
-            'last_name'=> $data->last_name,
+            './'=> $data->firstName,
+            'last_name'=> $data->lastName,
             'major' => $data->major,
-            'grad_date' => $data->grad_date,
+            'grad_date' => $data->expectedGrad,
             'college' => $data->college,
-            'bio' => $data->bio,
+            'bio' => $data->biography,
             'research' => $data->research,
-            'fun_facts' => $data->fun_facts,
-            'academic_interest' => $data->academic_interest,
+            'fun_facts' => $data->funFacts,
+            'academic_interest' => json_encode($data->academicInterests),
             'archive' => false
         ]);
     }

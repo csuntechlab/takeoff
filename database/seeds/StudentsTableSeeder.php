@@ -20,8 +20,8 @@ class StudentsTableSeeder extends Seeder
             $student = User::create([
                 'id' => $id,
                 'verified' => 1,
-                'email' => 'fake' . $id . '@gmail.com',
-                'password' => 'fake12345',
+                'email' => strtolower($firstNames[$id]) . strtolower($lastNames[$id]) . '.test@gmail.com',
+                'password' => Hash::make("password"),
             ]);
             $student->roles()->attach(1);
             $student_info = UserInfo::create([
@@ -37,7 +37,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Computers',
+                'academic_interest' => 'Computers,Monitors',
                 'archive' => false
             ]);
         }
@@ -46,8 +46,8 @@ class StudentsTableSeeder extends Seeder
             $student = User::create([
                 'id' => $id,
                 'verified' => 1,
-                'email' => 'fake' . $id . '@gmail.com',
-                'password' => 'fake12345',
+                'email' =>  strtolower($firstNames[$id]) . strtolower($lastNames[$id]) . '.test@gmail.com',
+                'password' => Hash::make("password"),
             ]);
             $student->roles()->attach(1);
             $student_info = UserInfo::create([
@@ -63,7 +63,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain',
+                'academic_interest' => 'Brain,Sigmund Freud',
                 'archive' => false
             ]);
         }
@@ -72,8 +72,8 @@ class StudentsTableSeeder extends Seeder
             $student = User::create([
                 'id' => $id,
                 'verified' => 1,
-                'email' => 'fake' . $id . '@gmail.com',
-                'password' => 'fake12345',
+                'email' =>  strtolower($firstNames[$id]) . strtolower($lastNames[$id]) . '.test@gmail.com',
+                'password' => Hash::make("password"),
             ]);
             $student->roles()->attach(1);
             $student_info = UserInfo::create([
@@ -89,7 +89,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain',
+                'academic_interest' => 'Brain,Heart,Liver',
                 'archive' => false
             ]);
         }

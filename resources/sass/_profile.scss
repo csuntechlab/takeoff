@@ -57,6 +57,12 @@
     }
     &__text {
         font-size: 0.88rem;
+
+        &--empty {
+           @extend .profile-info__text;
+           color: gray;
+           font-style: italic;
+        }
     }
    @include media-breakpoint-up(sm) {
         &__header {

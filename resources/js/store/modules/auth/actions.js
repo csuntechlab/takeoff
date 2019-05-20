@@ -1,60 +1,113 @@
 import Auth from "../../../api/Auth";
-import _auth from "../../mutation-types/auth"
+import router from "../../../router";
+import Profile from "../../../api/Profile";
 
 export default {
-    login ({commit, dispatch}, payload) {
-        Auth.loginAPI(payload,
+    login({ commit, dispatch }, payload) {
+        Auth.loginAPI(
+            payload,
             success => {
-                commit(_auth.UPDATE_SESSION, success)
+                commit("UPDATE_SESSION", success);
+                if (window.localStorage.getItem("role") != "admin")
+                    dispatch("fetchUserInfo", success.user_id);
+                else dispatch("fetchAdminInfo", success.user_id);
+                router.push("/");
             },
             error => {
-                console.log(error)
+                console.error(error);
             }
-         );
+        );
     },
 
-    logout ({commit, dispatch}, payload) {
-        Auth.logoutAPI(payload,
+    logout({ commit, dispatch }) {
+        Auth.logoutAPI(
             success => {
-                commit(_auth.CLEAR_SESSION, success)
+                commit("CLEAR_SESSION");
+                router.push("/login");
             },
             error => {
-                console.log(error)
+                console.error(error);
             }
-         );
+        );
     },
 
-    register ({commit}, payload) {
-        Auth.registerAPI(payload,
+    register({ commit, dispatch }, payload) {
+        Auth.registerAPI(
+            payload,
             success => {
-                console.log("TODO: give success notification")
+                console.log("TODO: give success notification");
+                Auth.loginAPI(
+                    { email: payload.email, password: payload.password },
+                    success => {
+                        commit("UPDATE_SESSION", success);
+                        if (success.role !== "admin")
+                            router.push("/account-setup");
+                        else router.push("/admin-setup");
+                    },
+                    error => {
+                        console.error(error);
+                    }
+                );
             },
             error => {
-                console.log(error)
+                console.error(payload);
             }
-         );
+        );
     },
 
-    inviteStudent ({commit, dispatch}, payload) {
-        Auth.inviteStudentAPI(payload,
+    setUserInfo({ commit, dispatch }, payload) {
+        commit("SET_USER_INFO", payload);
+    },
+
+    fetchUserInfo({ commit, dispatch }, payload) {
+        Profile.fetchUserInfoAPI(
+            payload,
             success => {
-                console.log("TODO: give success notification")
+                commit("SET_USER_INFO", success[0]);
             },
             error => {
-                console.log(error)
+                console.error(error);
             }
-         );
+        );
     },
 
-    inviteAdmin ({commit, dispatch}, payload) {
-        Auth.inviteAdminAPI(payload,
+    fetchAdminInfo({ commit, dispatch }, payload) {
+        Profile.fetchUserInfoAPI(
+            payload,
             success => {
-                console.log("TODO: give success notification")
+                commit("SET_ADMIN_INFO", success[0]);
             },
             error => {
-                console.log(error)
+                console.error(error);
             }
-         );
+        );
     },
 
-}
+    createProfileData({ commit, dispatch }, payload) {
+        payload["userId"] = window.localStorage.getItem("userId");
+        Profile.sendProfileDataAPI(
+            payload,
+            success => {
+                console.log("TODO: Success notification for data saved");
+                router.push("/dashboard");
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    },
+
+    createAdminData({ commit, dispatch }, payload) {
+        payload["userId"] = window.localStorage.getItem("userId");
+        Profile.sendAdminDataAPI(
+            payload,
+            success => {
+                console.log("TODO: Success notification for data saved");
+                router.push("/dashboard-admin");
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    }
+};

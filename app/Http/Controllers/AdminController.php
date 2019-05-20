@@ -36,6 +36,10 @@ class AdminController extends BaseController
         return $this->userinfoRetriever->searchUser($usersname);
     }
 
+    public function getUserById($userId){
+        return $user = $this->userinfoRetriever->getUserById($userId);
+    }
+
     public function getAllStudents()
     {
         return $this->userinfoRetriever->getAllStudents();
@@ -56,11 +60,31 @@ class AdminController extends BaseController
         return $this->userinfoRetriever->getStudentsByMajor($majorname);
     }
 
+    public function sortUserFirstNameAscending()
+    {
+        return $this->userinfoRetriever->sortUserFirstNameAscending();
+    }
+
+    public function sortUserFirstNameDescending()
+    {
+        return $this->userinfoRetriever->sortUserFirstNameDescending();
+    }
+
+    public function sortUserLastNameAscending()
+    {
+        return $this->userinfoRetriever->sortUserLastNameAscending();
+    }
+
+    public function sortUserLastNameDescending()
+    {
+        return $this->userinfoRetriever->sortUserLastNameDescending();
+    }
+
     public function createAdminUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'title' => 'required',
         ]);
 

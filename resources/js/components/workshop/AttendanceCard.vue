@@ -1,0 +1,27 @@
+<template>
+    <div class="card roster__card text-primary">
+        <div class="card-body">
+            <span class="card-text roster__text">
+                <div class="row">
+                    <div class="col-3">
+                        <img class="roster__image" src="https://via.placeholder.com/100x100">
+                    </div>
+                    <div class="col-7">
+                        <span class="roster__name">{{user.first_name}} {{user.last_name}}</span>
+                        <div>{{user.major}}</div>
+                    </div>
+                    <div class="justify-content-right col-auto">
+                        <input type="checkbox" class="form-check-input" id="checkBox">
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+</template>
+
+
+<script>
+export default {
+    props: ['user'],
+};
+</script>

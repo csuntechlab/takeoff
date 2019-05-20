@@ -1,11 +1,5 @@
-import _auth from "../../mutation-types/auth";
-
 export default {
-    [_auth.UPDATE_SESSION](state, payload) {
-        state.session.userId = payload.user_id;
-        state.session.tokenType = payload.token_type;
-        state.session.token = payload.access_token;
-        state.session.expiration = payload.expires_at;
+    UPDATE_SESSION(state, payload) {
         window.localStorage.setItem("userId", payload.user_id);
         window.localStorage.setItem("tokenType", payload.token_type);
         window.localStorage.setItem("token", payload.access_token);
@@ -13,12 +7,47 @@ export default {
         window.localStorage.setItem("role", payload.role);
     },
 
-    [_auth.CLEAR_SESSION](state, payload) {
-        window.localStorage.setItem("userId", null);
-        window.localStorage.setItem("tokenType", null);
-        window.localStorage.setItem("token", null);
-        window.localStorage.setItem("expiration", null);
-        window.localStorage.setItem("role", null);
+    CLEAR_SESSION(state) {
+        window.localStorage.clear();
+    },
 
+    SET_USER_INFO(state, payload) {
+        if (payload.firstName) {
+            state.user = {
+                ...state.user,
+                ...payload,
+            };
+        }
+        else{
+            state.user = {
+                'major': payload.major,
+                'firstName': payload.first_name,
+                'lastName': payload.last_name,
+                'college': payload.college,
+                'funFacts': payload.fun_facts,
+                'research': payload.research,
+                'biography': payload.bio,
+                'role': 'student',
+                'expectedGrad': payload.grad_date,
+                'academicInterests': payload.academic_interest.split(',')
+            }
+        }
+    },
+
+    SET_ADMIN_INFO(state, payload) {
+        if (payload.firstName) {
+            state.user = {
+                ...state.user,
+                ...payload,
+            };
+        }
+        else{
+            state.user = {
+                'title': payload.title,
+                'firstName': payload.first_name,
+                'lastName': payload.last_name,
+                'role': 'admin'
+            }
+        }
     }
-}
+};

@@ -6,9 +6,9 @@
 			</div>
 			<div class="col-6 text-left align-self-center">
 				<h1 class="profile-photo__name">
-					<strong>{{student.name}}</strong>
+					<strong>{{user.firstName}} {{user.lastName}}</strong>
 				</h1>
-				<router-link to="/profile" class="profile-photo__text">View Profile</router-link>
+				<router-link :to="'/profile/' + userId" class="profile-photo__text">View Profile</router-link>
 			</div>
 		</div>
 		<div class="row justify-content-center">
@@ -22,15 +22,18 @@
 <script>
 import StudentPhoto from "../../../components/studentProfile/StudentPhoto";
 import BadgesEarned from "../../../components/studentProfile/BadgesEarned";
+import { mapState } from "vuex";
 export default {
-    data() {
-        return {
-            student: {
-                name: "Edgar Cano",
-                email: "edgar.cano.111@my.csun.edu"
-            }
+    data(){
+        return{
+            userId:  window.localStorage.getItem('userId')
         }
     },
+	computed: {
+		...mapState({
+			user: state => state.Auth.user
+        }),
+	},
 	components: {
 		StudentPhoto,
 		BadgesEarned
