@@ -1,5 +1,6 @@
-import Vue from "vue"
-import VueRouter from "vue-router"
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "../store";
 
 // Auth & User Setup
 import Login from "./views/Login"
@@ -30,11 +31,23 @@ const router = new VueRouter({
     mode: "history",
     routes: [
         {
+            path: "/",
+            redirect: { path: "/dashboard" }
+        },
+        {
             path: "/login",
             component: Login,
             meta: {
                 title: "Login | Takeoff",
-                header: "Takeoff"
+                header: "Takeoff",
+                noAuth: true
+            },
+
+            //Breaks when logging out
+            beforeEnter: (to, from, next) => {
+                if (window.localStorage.getItem("token") !== null)
+                    next("/dashboard");
+                else next();
             }
         },
         {
@@ -42,7 +55,8 @@ const router = new VueRouter({
             component: Signup,
             meta: {
                 title: "Sign Up | Takeoff",
-                header: "Takeoff"
+                header: "Takeoff",
+                noAuth: true
             }
         },
         {
@@ -79,11 +93,16 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/",
+            path: "/dashboard",
             component: Dashboard,
             meta: {
                 title: "Dashboard | Takeoff",
                 header: "Dashboard"
+            },
+            beforeEnter: (to, from, next) => {
+                if (window.localStorage.getItem("role") == 'admin')
+                    next("/dashboard-admin");
+                else next();
             }
         },
         {
@@ -91,7 +110,8 @@ const router = new VueRouter({
             component: AdminSetup,
             meta: {
                 title: "Admin Setup | Takeoff",
-                header: "Administrator Information"
+                header: "Administrator Information",
+                adminOnly: true
             }
         },
         {
@@ -103,11 +123,12 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/dashboard",
+            path: "/dashboard-admin",
             component: DashboardAdmin,
             meta: {
                 title: "Dashboard | Takeoff",
-                header: "Dashboard"
+                header: "Dashboard",
+                adminOnly: true
             }
         },
         {
@@ -131,11 +152,21 @@ const router = new VueRouter({
             path: "*",
             component: ErrorPage,
             meta: {
-                title: 'Whoops!',
-                header: 'Page Not Found'
+                title: "Whoops!",
+                header: "Page Not Found"
             }
         }
     ]
+});
+
+router.beforeEach((to, from, next) => {
+    if (window.localStorage.getItem("token") === null && !to.meta.noAuth) {
+        next("/login");
+    }
+    if (window.localStorage.getItem("role") !== "admin" && to.meta.adminOnly) {
+        next("/dashboard");
+    }
+    next();
 });
 
 export default router;

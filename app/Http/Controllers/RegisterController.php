@@ -34,9 +34,7 @@ class RegisterController extends Controller
     //USER LEVEL ACCESS
     public function completeRegistration(Request $request)
     {
-        $this->validate($request, ['name' => 'required',
-            'email' => 'required',
-            'password' => 'required|min:6|confirmed']);
+        // validate access code and email here
 
         $data = ['name' => $request->name, 'email' => $request->email, 'password' => $request->password, 'accessCode' => $request->accessCode];
         return $this->registerRetriever->completeRegistration($data);
