@@ -23,6 +23,7 @@ import Workshop from "./views/Workshop"
 
 // Misc
 import ErrorPage from "./views/ErrorPage"
+import WorkshopView from "./views/WorkshopView"
 import WorkshopCreation from "./views/WorkshopCreation"
 
 
@@ -124,6 +125,15 @@ const router = new VueRouter({
             }
         },
         {
+            path: "/workshopview",
+            component: WorkshopView,
+            meta: {
+                title: "Workshop View| Takeoff",
+                header: "Workshop View"
+            }
+        },
+        {
+            path: "/dashboard",
             path: "/dashboard-admin",
             component: DashboardAdmin,
             meta: {
