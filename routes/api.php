@@ -17,11 +17,13 @@ use Illuminate\Http\Request;
 
 Route::post('profile/store', 'ProfileController@createStudentUserInfo');
 Route::post('admin/store', 'AdminController@createAdminUserInfo');
-/* Endpoints that deal with student retrieval and management. */
+
+/* Endpoints that deal with user retrieval and management. */
 Route::prefix('students')->group(function () {
 
     Route::get('all', 'AdminController@getAllStudents')->middleware('auth:api');
 
+    Route::get('{id}', 'AdminController@getUserById');
     Route::get('major/{major}', 'AdminController@getStudentsByMajor')->middleware('auth:api');
     Route::get('graddate/{graddate}', 'AdminController@getStudentsByGradDate')->middleware('auth:api');
     Route::get('college/{college}', 'AdminController@getStudentsByCollege')->middleware('auth:api');

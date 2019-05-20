@@ -8,13 +8,46 @@ export default {
     },
 
     CLEAR_SESSION(state) {
-        window.localStorage.clear()
+        window.localStorage.clear();
     },
 
     SET_USER_INFO(state, payload) {
-        state.user = {
-            ...state.user,
-            ...payload
+        if (payload.firstName) {
+            state.user = {
+                ...state.user,
+                ...payload,
+            };
+        }
+        else{
+            state.user = {
+                'major': payload.major,
+                'firstName': payload.first_name,
+                'lastName': payload.last_name,
+                'college': payload.college,
+                'funFacts': payload.fun_facts,
+                'research': payload.research,
+                'biography': payload.bio,
+                'role': 'student',
+                'expectedGrad': payload.grad_date,
+                'academicInterests': payload.academic_interest.split(',')
+            }
+        }
+    },
+
+    SET_ADMIN_INFO(state, payload) {
+        if (payload.firstName) {
+            state.user = {
+                ...state.user,
+                ...payload,
+            };
+        }
+        else{
+            state.user = {
+                'title': payload.title,
+                'firstName': payload.first_name,
+                'lastName': payload.last_name,
+                'role': 'admin'
+            }
         }
     }
-}
+};

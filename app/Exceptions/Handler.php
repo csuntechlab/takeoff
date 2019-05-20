@@ -1,9 +1,18 @@
 <?php
-
 namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+
+// Build Response
+use App\Exceptions\BuildResponse\BuildResponse;
+
+// Exceptions
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Illuminate\Auth\Access\AuthorizationException;
+use  Illuminate\Database\QueryException;
 
 class Handler extends ExceptionHandler
 {
@@ -12,9 +21,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
-    protected $dontReport = [
-        //
-    ];
+    protected $dontReport = [];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
@@ -44,8 +51,21 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        if ($e instanceof HttpException || $e instanceof NotFoundHttpException || $e instanceof ModelNotFoundException) {
+            $message = 'Resource could not be resolved';
+            $stats_code = 409;
+            return BuildResponse::build_response($message, $stats_code);
+        } else if ($e instanceof AccessDeniedHttpException || $e instanceof AuthorizationException) {
+            $message = 'Unauthorized access.';
+            $stats_code = 409;
+            return BuildResponse::build_response($message, $stats_code);
+        } else if ($e instanceof QueryException) {
+            $message = 'Unable to resolve Resource.';
+            $stats_code = 409;
+            return BuildResponse::build_response($message, $stats_code);
+        }
+        return parent::render($request, $e);
     }
 }

@@ -8,10 +8,12 @@ export default {
             payload,
             success => {
                 commit("UPDATE_SESSION", success);
+                if (window.localStorage.getItem("role") != "admin")
+                    dispatch("fetchUserInfo", success.user_id);
+                else dispatch("fetchAdminInfo", success.user_id);
                 router.push("/");
             },
             error => {
-                console.log(payload);
                 console.error(error);
             }
         );
@@ -43,7 +45,6 @@ export default {
                         else router.push("/admin-setup");
                     },
                     error => {
-                        console.log(payload);
                         console.error(error);
                     }
                 );
@@ -59,20 +60,38 @@ export default {
     },
 
     fetchUserInfo({ commit, dispatch }, payload) {
-        //Fetch user info by id and store in state
-        return 0;
+        Profile.fetchUserInfoAPI(
+            payload,
+            success => {
+                commit("SET_USER_INFO", success[0]);
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    },
+
+    fetchAdminInfo({ commit, dispatch }, payload) {
+        Profile.fetchUserInfoAPI(
+            payload,
+            success => {
+                commit("SET_ADMIN_INFO", success[0]);
+            },
+            error => {
+                console.error(error);
+            }
+        );
     },
 
     createProfileData({ commit, dispatch }, payload) {
         payload["userId"] = window.localStorage.getItem("userId");
-        Profile.sendProfileData(
+        Profile.sendProfileDataAPI(
             payload,
             success => {
                 console.log("TODO: Success notification for data saved");
                 router.push("/dashboard");
             },
             error => {
-                console.log({ payload });
                 console.error(error);
             }
         );
@@ -80,14 +99,13 @@ export default {
 
     createAdminData({ commit, dispatch }, payload) {
         payload["userId"] = window.localStorage.getItem("userId");
-        Profile.sendAdminData(
+        Profile.sendAdminDataAPI(
             payload,
             success => {
                 console.log("TODO: Success notification for data saved");
                 router.push("/dashboard-admin");
             },
             error => {
-                console.log({ payload });
                 console.error(error);
             }
         );

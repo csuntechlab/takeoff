@@ -37,7 +37,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Computers',
+                'academic_interest' => 'Computers,Monitors',
                 'archive' => false
             ]);
         }
@@ -63,7 +63,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain',
+                'academic_interest' => 'Brain,Sigmund Freud',
                 'archive' => false
             ]);
         }
@@ -89,7 +89,7 @@ class StudentsTableSeeder extends Seeder
                 My life got flipped turned upside down
                 And Id like to take a minute, just sit right there',
                 'research' => 'Something',
-                'academic_interest' => 'Brain',
+                'academic_interest' => 'Brain,Heart,Liver',
                 'archive' => false
             ]);
         }

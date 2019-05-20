@@ -8,7 +8,11 @@
 		</router-link>
 		<form>
 			<div>
-				<img class="profile-thumbnail mb-4 mt-2 mx-auto d-block" :src="user.image" alt>
+				<img
+					class="profile-thumbnail mb-4 mt-2 mx-auto d-block"
+					:src="url + '/images/default-avatar.png'"
+					alt
+				>
 			</div>
 			<div class="custom-file">
 				<input
@@ -74,6 +78,7 @@ export default {
 	},
 	data() {
 		return {
+			url: null,
 			form: {
 				image: "",
 				biography: "",
@@ -84,32 +89,16 @@ export default {
 		};
 	},
 	mounted() {
-		if (this.setupMode) {
-			interests = new Choices(
-				document.querySelector("#academicInterests"),
-				{
-					delimiter: ",",
-					removeItemButton: true,
-					duplicateItemsAllowed: false,
-					editItems: true
-				}
-			);
-		} else {
-			interests = new Choices(
-				document.querySelector("#academicInterests"),
-				{
-					delimiter: ",",
-					items: this.user.interests,
-					removeItemButton: true,
-					duplicateItemsAllowed: false,
-					editItems: true
-				}
-			);
+		if (this.currentUser.biography != undefined) this.presetData();
+	},
+	watch: {
+		currentUser: function() {
+			this.presetData();
 		}
 	},
 	computed: {
 		...mapState({
-			user: state => state.Auth.user
+			currentUser: state => state.Auth.user
 		})
 	},
 	methods: {
@@ -121,9 +110,42 @@ export default {
 				this.$store.dispatch("createProfileData", this.user);
 			} else {
 				this.$store.dispatch("setUserInfo", this.form);
-				//edit profile info api goes here
+				//edit profile info api goes here when finished
+			}
+		},
+		presetData() {
+			if (this.setupMode) {
+				interests = new Choices(
+					document.querySelector("#academicInterests"),
+					{
+						delimiter: ",",
+						removeItemButton: true,
+						duplicateItemsAllowed: false,
+						editItems: true
+					}
+				);
+			} else {
+				this.form = {
+					image: this.currentUser.image,
+					biography: this.currentUser.biography,
+					research: this.currentUser.research,
+					funFacts: this.currentUser.funFacts
+				};
+				interests = new Choices(
+					document.querySelector("#academicInterests"),
+					{
+						delimiter: ",",
+						items: this.currentUser.academicInterests,
+						removeItemButton: true,
+						duplicateItemsAllowed: false,
+						editItems: true
+					}
+				);
 			}
 		}
+	},
+	created() {
+		this.url = window.baseUrl;
 	}
 };
 </script>
