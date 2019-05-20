@@ -65,4 +65,34 @@ class WorkshopServiceTest extends TestCase
 
         $this->assertEquals($mockWorkshop->toArray(), $this->service->getWorkshop($mockId));
     }
+
+    /**
+     * @test
+     * @group noFramework
+     */
+    public function editWorkshop_returns_success_message() {
+        $mockData = ['workshop_name' => 'diff',
+        'workshop_description' => 'diff',
+        'instructor' => 'diff',
+        'about_instructor' => 'diff',
+        'assignment_info' => 'diff',
+        'workshopId' => 1];
+
+
+        $mockWorkshop = new Workshop([
+            'id' => 1,
+            'workshop_name' => 'asdasd',
+            'workshop_description' => 'asdasdasd',
+            'instructor' => 'Mikkal',
+            'about_instructor' => 'he cool',
+            'assignment_info' => 'asdasd',
+            'date' => '03/03/9999'
+        ]);
+
+        $mockWorkshop->save();
+
+        $expectedMessage = "Workshop #1 succesfully updated.";
+
+        $this->assertEquals($expectedMessage,  $this->service->editWorkshop($mockData));
+    }
 }
