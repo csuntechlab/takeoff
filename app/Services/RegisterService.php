@@ -5,11 +5,14 @@ use Mail;
 use App\Mail\InviteStudent;
 use App\Models\User;
 use App\Models\UserProfile;
-use App\Models\RegistrationAccessToken;
+use App\Models\Registration;
 use App\Contracts\RegisterContract;
+use App\Contracts\LoginContract;
 use App\Services\AdminService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
+use Carbon\Carbon;
 use function Opis\Closure\unserialize;
 use function Opis\Closure\serialize;
 
@@ -17,10 +20,12 @@ use function Opis\Closure\serialize;
 class RegisterService implements RegisterContract
 {
     protected $userModelRepo;
+    protected $loginRetriever;
 
     public function __construct(UserModelRepositoryInterface $userModelRepo)
     {
         $this->userModelRepo = $userModelRepo;
+        // $this->loginRetriever = $loginContract;
     }
 
     public function registerUserEmail($data, $role)
@@ -61,6 +66,14 @@ class RegisterService implements RegisterContract
         }
 
         $user = $this->userModelRepo->completeRegistration($user, $data);
+
+        // $input = [
+        //     "email" => $data['email'],
+        //     "password" => $data['password']
+        // ];
+        // $credentials = new Request($input);
+        // $credentials->setMethod('POST');
+        // $user_auth = $this->loginRetriever->login($credentials);
         return $user;
     }
 }

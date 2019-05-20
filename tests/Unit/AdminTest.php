@@ -24,13 +24,13 @@ class AdminTest extends TestCase
     /**
      * @test
      */
-  
+
     public function store_admin_info(){
 
         $request = Request::create('api/admin/store', 'POST',[
 
-            'first_name' => 'test',
-            'last_name' => 'test',
+            'firstName' => 'test',
+            'lastName' => 'test',
             'title' => 'director',
         ]);
 

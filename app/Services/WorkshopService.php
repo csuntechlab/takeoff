@@ -29,4 +29,15 @@ class WorkshopService implements WorkshopContract
         $workshop = Workshop::where('id', $id)->first();
         return $workshop->toArray();
     }
+
+    public function editWorkshop($data) {
+        $id = Workshop::where('id', $data['workshopId'])->update([
+            'instructor' => $data['instructor'],
+            'about_instructor' => $data['about_instructor'],
+            'assignment_info' => $data['assignment_info'],
+            'workshop_name' => $data['workshop_name'],
+            'workshop_description' => $data['workshop_description'],
+        ]);
+        return sprintf("Workshop #%s succesfully updated.",$id);
+    }
 }

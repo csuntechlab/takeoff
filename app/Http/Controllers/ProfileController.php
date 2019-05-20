@@ -41,13 +41,14 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
     public function createStudentUserInfo(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
-            'first_name'=>'required',
-            'last_name'=>'required',
+            'firstName'=>'required',
+            'lastName'=>'required',
             'major'=>'required',
-            'grad_date' => 'required',
+            'expectedGrad' => 'required',
             'college'=>'required',
         ]);
 

@@ -9,19 +9,26 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\ModelRepositoryInterfaces\UserModelRepositoryInterface;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Request;
+
 use App\Services\RegisterService;
+
+use App\Contracts\LoginContract;
 
 class RegisterServiceTest extends TestCase
 {
     use DatabaseMigrations;
 
     protected $userModelRepo;
+    protected $loginService;
 
     public function setUp()
     {
         parent::setUp();
         $this->userModelRepo = Mockery::spy(UserModelRepositoryInterface::class);
-        $this->service = new RegisterService($this->userModelRepo);
+        $this->loginService = Mockery::spy(LoginContract::class);
+
+        $this->service = new RegisterService($this->userModelRepo, $this->loginService);
     }
 
     /**
@@ -73,8 +80,14 @@ class RegisterServiceTest extends TestCase
             "password_confirmation" => "teehee@gnomsayin.com",
             "accessCode" => "123123"
         ];
+        $loginInput = [
+            "email" => "teehee@gnomsayin.com",
+            "password" => "teehee@gnomsayin.com"
+        ];
 
         $mockUser = new User(['user_id' => '251', 'verified' => false]);
+        $mockCredentials = new Request($loginInput);
+        $mockUser_auth = $this->loginService->login($mockCredentials);
 
         $this->userModelRepo
             ->shouldReceive('findByEmail')
@@ -90,6 +103,16 @@ class RegisterServiceTest extends TestCase
             ->shouldReceive('completeRegistration')
             ->with($mockUser, $input)
             ->andReturn($mockUser);
+
+        $this->loginService
+            ->shouldReceive('login')
+            ->with($mockCredentials)
+            ->andReturn($mockUser_auth);
+
+        $mockResponse = response()->json([
+            'user' => $mockUser,
+            'auth' => $mockUser_auth
+        ]);
 
         $this->assertEquals($mockUser, $this->service->completeRegistration($input));
     }
