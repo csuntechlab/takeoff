@@ -4,26 +4,6 @@
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<form novalidate>
 					<div class="form-group mt-3">
-
-						<!-- <div class="form-row py-4">
-							<div class="col">
-								<label for="password">Create a Password</label>
-								<div>
-									<input type="password" class="form-control" :class="passwordValidation" id="Password" placeholder="Password" v-model.trim="$v.form.password.$model">
-									<div class="invalid-feedback" v-if="!$v.form.password.required">Password is required.</div>
- 									<div class="invalid-feedback" v-if="!$v.form.password.minLength">Password must have at least {{ $v.form.password.$params.minLength.min }} letters.</div>
-								</div>
-							</div>
-							<div class="col">
-								<label for="confirmPassword">Confirm Password</label>
-								<div>
-									<input type="password" class="form-control" :class="confirmPasswordValidation" id="confirmPassword" placeholder="Confirm Password" v-model.trim="$v.form.confirmPassword.$model">
-									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.required">Please confirm your password.</div>
-									<div class="invalid-feedback" v-if="!$v.form.confirmPassword.sameAsPassword">Passwords must be identical.</div>
-								</div>
-							</div>
-						</div> -->
-
 						<label for="firstName">First Name</label>
 						<input
                             id="firstName"
