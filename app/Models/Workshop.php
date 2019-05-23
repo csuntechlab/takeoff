@@ -24,4 +24,8 @@ class Workshop extends Model
         'date',
     ];
 
+    public function badges()
+    {
+        return $this->belongsToMany('App\Models\Badge');
+    }
 }
