@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\ModelRepositoryInterfaces\WorkshopModelRepositoryInterface;
 use App\Models\Workshop;
+use App\Models\UserInfo;
 use App\Contracts\WorkshopContract;
 use Validator;
 
@@ -28,6 +29,17 @@ class WorkshopService implements WorkshopContract
 
         $workshop = Workshop::where('id', $id)->first();
         return $workshop->toArray();
+    }
+
+    public function getAttendance($id) {
+        $workshop = Workshop::where('id', $id)->first();
+        $studentIds = $workshop->users()->get();
+        $students = [];
+        foreach($studentIds as $studentId) {
+            $student = UserInfo::where('id', $studentId->pivot->user_id)->first();
+            array_push($students, $student);
+        }
+        return $students;
     }
 
     public function editWorkshop($data) {
