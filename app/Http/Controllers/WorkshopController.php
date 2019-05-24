@@ -41,6 +41,11 @@ class WorkshopController extends Controller
         return $this->workshopRetriever->getWorkshop($workshopId);
     }
 
+    public function getAttendance($workshopId)
+    {
+        return $this->workshopRetriever->getAttendance($workshopId);
+    }
+
     public function editWorkshop(Request $request) {
         $data = [
             'workshopId' => $request->workshopId,

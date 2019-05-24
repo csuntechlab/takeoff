@@ -3,6 +3,8 @@
 namespace tests\Unit\ServiceTests;
 
 use App\Models\Workshop;
+use App\Models\User;
+use App\Models\UserInfo;
 use App\Services\WorkshopService;
 use App\ModelRepositoryInterfaces\WorkshopModelRepositoryInterface;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -66,21 +68,29 @@ class WorkshopServiceTest extends TestCase
         $this->assertEquals($mockWorkshop->toArray(), $this->service->getWorkshop($mockId));
     }
 
-    /**
+     /**
      * @test
      * @group noFramework
      */
-    public function editWorkshop_returns_success_message() {
-        $mockData = ['workshop_name' => 'diff',
-        'workshop_description' => 'diff',
-        'instructor' => 'diff',
-        'about_instructor' => 'diff',
-        'assignment_info' => 'diff',
-        'workshopId' => 1];
-
+    public function getAttendance_returns_an_array() {
+        $mockId = '1';
+        $mockUser = new User(['id' => '1', 'first_name' => 'mikkal', 'last_name' => 'mcnulty', 'user_id' => '1', 'email' => 'test@test.com']);
+        $mockUserInfo = new UserInfo(['id' => '1',
+         'first_name' => 'mikkal',
+         'last_name' => 'mcnulty',
+         'grad_date' => 'june',
+         'college' => 'Computer Science',
+         'bio' => 'hi there',
+         'research' => 'assa',
+         'fun_facts' => 'asfsdsadf',
+         'academic_interest' => 'asfds',
+         'title' => 'asdasd', 'user_id' => '1',
+         'major' => 'test',
+         'archive' => '0',
+         'email' => 'test@test.com']);
 
         $mockWorkshop = new Workshop([
-            'id' => 1,
+            'id' => $mockId,
             'workshop_name' => 'asdasd',
             'workshop_description' => 'asdasdasd',
             'instructor' => 'Mikkal',
@@ -89,10 +99,14 @@ class WorkshopServiceTest extends TestCase
             'date' => '03/03/9999'
         ]);
 
+        $mockUserInfo->save();
+        $mockUser->save();
+        $mockWorkshop->save();
+        $mockWorkshop->users()->attach($mockUser->id);
         $mockWorkshop->save();
 
-        $expectedMessage = "Workshop #1 succesfully updated.";
-
-        $this->assertEquals($expectedMessage,  $this->service->editWorkshop($mockData));
+        // dd($mockUserInfo);
+        // dd($this->service->getAttendance(1)[0]);
+        $this->assertIsArray($this->service->getAttendance(1));
     }
 }

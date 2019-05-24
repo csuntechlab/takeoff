@@ -24,4 +24,8 @@ class Workshop extends Model
         'date',
     ];
 
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User', 'workshop_user');
+    }
 }
