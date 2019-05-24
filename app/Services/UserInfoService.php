@@ -73,7 +73,7 @@ class UserInfoService implements UserInfoContract
         return UserInfo::create([
             'user_id' =>  $data->userId,
             'title' =>  "student",
-            './'=> $data->firstName,
+            'first_name'=> $data->firstName,
             'last_name'=> $data->lastName,
             'major' => $data->major,
             'grad_date' => $data->expectedGrad,
